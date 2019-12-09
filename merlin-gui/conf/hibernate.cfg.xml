@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+         <property name="hibernate.search.autoregister_listeners">true</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        <property name="show_sql">false</property>
+        <property name="format_sql">true</property>
+        <property name="use_sql_comments">false</property>
+        
+        		<!-- connection pool configuration -->
+		<property name="hibernate.c3p0.idle_test_period">10</property>
+		<property name="hibernate.c3p0.acquireRetryAttempts">1</property>
+		<property name="hibernate.c3p0.max_size">5</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.min_size">1</property>
+		<property name="hibernate.c3p0.timeout">10</property>
+		
+		<!-- connection auto-reconnect configuration -->
+		<property name="connection.autoReconnect">true</property>
+		<property name="connection.autoReconnectForPools">true</property>
+		<property name="connection.is-connection-validation-required">true</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		
+		<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+		<property name="hibernate.validator.apply_to_ddl">false</property>
+		
+		<property name="hibernate.hbm2ddl.auto">create-drop</property>
+		
+		<property name="hibernate.order_by.default_null_ordering">last</property>
+		
+    	<mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelGene"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelSequence"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelSubunit"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationHomologyData"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.interpro.InterproEntry"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelFunctionalParameter"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelPathwayHasCompound"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationGeneHomologyHasHomologues"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelPathwayHasReaction"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationEcNumberRankHasOrganism"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.interpro.InterproResultHasModel"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.regulatory.RegulatoryTranscriptionUnitPromoter"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.regulatory.RegulatoryPromoter"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.regulatory.RegulatoryTranscriptionUnitGene"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationHomologues"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationEcNumberList"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.interpro.InterproResults"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelCompartment"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.interpro.InterproLocation"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.experimental.ExperimentalInhibitor"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.experimental.ExperimentalDescription"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelDictionary"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationEcNumberRank"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.regulatory.RegulatorySigmaPromoter"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.experimental.ExperimentalTurnoverNumber"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationProductRank"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelGeneHasCompartment"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelEntityisfrom"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelModule"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationProductList"/>
+        
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelSuperpathway"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelStoichiometry"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.project.Projects"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelReactionHasModelProtein"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelEnzymaticCofactor"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.interpro.InterproResultHasEntry"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelDblinks"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.interpro.InterproResult"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelEffector"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelPathway"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationHomologySetup"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.regulatory.RegulatoryEvent"/>
+        
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationEcNumber"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationHomologuesHasEcNumber"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.interpro.InterproModel"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.experimental.ExperimentalFactor"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.interpro.InterproXRef"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelFeature"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelOrthology"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelCompound"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelEnzymaticAlternativeCofactor"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationScorerConfig"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelProteinComposition"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.compartments.CompartmentsAnnotationCompartments"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.compartments.CompartmentsAnnotationReportsHasCompartments"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelReaction"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationGeneHomology"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelSameAs"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.experimental.ExperimentalSubstrateAffinity"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelSubstrateAffinity"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelSequenceFeature"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelStrain"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelPathwayHasModelProtein"/>
+        
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelGeneHasOrthology"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelMetabolicRegulation"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelModuleHasOrthology"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelAliases"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelPathwayHasModule"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelProtein"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelModulesHasCompound"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationProductRankHasOrganism"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.regulatory.RegulatoryTranscriptionUnit"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationOrganism"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelReactionLabels"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.regulatory.RegulatoryRiFunction"/>
+        <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelModuleHasModelProtein"/>
+    </session-factory>
+</hibernate-configuration>
