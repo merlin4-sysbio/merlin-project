@@ -6,8 +6,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Map;
 import java.util.Scanner;
@@ -138,6 +141,10 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 			Workbench.getInstance().warn("your email is invalid");
 			return;
 		}
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+		Date date = new Date();
+		System.out.println("init -> " + dateFormat.format(date));
 
 
 		if(!this.email.equals("")){
@@ -362,6 +369,10 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 				this.progress.setTime((GregorianCalendar.getInstance().getTimeInMillis()-this.startTime), sequencesCounter, this.ebiBlastSearch.getSequences_size());
 			}
 			else if(evt.getPropertyName().equalsIgnoreCase("saveToDatabase")) {
+				
+				DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+				Date date = new Date();
+				System.out.println("saving -> " + dateFormat.format(date));
 
 				while(this.resultsList.size()>0) {
 
@@ -372,6 +383,9 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 					lbr.setWordSize(this.ebiBlastSearch.getWordSize());
 					lbr.loadData(project.getName());
 				}
+				
+				date = new Date();
+				System.out.println("saving complete -> " + dateFormat.format(date));
 			}
 			else if(evt.getPropertyName().equalsIgnoreCase("updateLoadedGenes")) {
 
