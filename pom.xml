@@ -96,6 +96,10 @@
 		<license.copyrightOwners>Oscar Dias</license.copyrightOwners>
 		<license.organizationName>Biosystems Research Group - CEB - University of Minho</license.organizationName>
 		<license.addJavaLicenseAfterPackage>false</license.addJavaLicenseAfterPackage>
+		
+		<axis2.version>1.6.2</axis2.version>
+		<axiom.version>1.2.14</axiom.version>
+		<uniprot.api.version>1.0.29</uniprot.api.version>
 	</properties>
 
 	<modules>
