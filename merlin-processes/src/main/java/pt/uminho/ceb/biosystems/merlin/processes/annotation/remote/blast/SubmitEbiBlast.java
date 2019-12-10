@@ -213,25 +213,18 @@ public class SubmitEbiBlast implements Runnable {
 									if(homologyDataEbiClient.getFastaSequence()==null)
 										homologyDataEbiClient.setFastaSequence(this.queryRIDMap.get(aRid).split("\n")[1]);
 
-									if(homologyDataEbiClient.isDataRetrieved()) {
+									if(homologyDataEbiClient.getHomologuesData() != null && homologyDataEbiClient.isDataRetrieved()) {
 
 										homologyDataEbiClient.setDatabaseIdentifier(rqb.getBlastDatabase());
+										resultsList.add(homologyDataEbiClient.getHomologuesData());
 
-										if(homologyDataEbiClient.getHomologuesData() == null) {
-											throw new Exception("Homologues data is null");
-										}
-										else {
+										logger.debug("Gene\t"+homologyDataEbiClient.getLocusTag()+"\tprocessed. "+this.rids.size()+" genes left in queue "+thread_number);
+										if(this.rids.size()<100)
+											MySleep.myWait(1000);
 
-											resultsList.add(homologyDataEbiClient.getHomologuesData());
-
-											logger.debug("Gene\t"+homologyDataEbiClient.getLocusTag()+"\tprocessed. "+this.rids.size()+" genes left in cue "+thread_number);
-											if(this.rids.size()<100)
-												MySleep.myWait(1000);
-
-											changes.firePropertyChange("sequencesCounter", sequencesCounter.get(), sequencesCounter.incrementAndGet());
-											if(this.resultsList.size()>_SAVE_LIST_SIZE || rids.isEmpty())
-												changes.firePropertyChange("saveToDatabase", null, this.resultsList.size());
-										}
+										changes.firePropertyChange("sequencesCounter", sequencesCounter.get(), sequencesCounter.incrementAndGet());
+										if(this.resultsList.size()>_SAVE_LIST_SIZE || rids.isEmpty())
+											changes.firePropertyChange("saveToDatabase", null, this.resultsList.size());
 									}
 									else {
 
@@ -263,7 +256,7 @@ public class SubmitEbiBlast implements Runnable {
 											changes.firePropertyChange("saveToDatabase", null, this.resultsList.size());
 
 										errorCounter = 0;
-										logger.debug("Gene\t"+homologyDataEbiClient.getLocusTag()+"\tprocessed. No similarities. "+this.rids.size()+" genes left in cue "+thread_number);
+										logger.debug("Gene\t"+homologyDataEbiClient.getLocusTag()+"\tprocessed. No similarities. "+this.rids.size()+" genes left in queue "+thread_number);
 									}
 
 								}
