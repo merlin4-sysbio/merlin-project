@@ -1,10 +1,10 @@
-merlin-aibench
+merlin-gui
 ==============
 
 To run merlin via command line must use this settings:
 
 Main class: 
-pt.uminho.ceb.biosystems.merlin.gui.aibench.Launcher
+es.uvigo.ei.aibench.Launcher
 
 Program arguments: 
 plugins_bin
@@ -12,8 +12,8 @@ plugins_bin
 VM arguments: 
 -Djava.util.Arrays.useLegacyMergeSort=true
 -Xss512M
--Xmx5G
+-Xmx1G (at least)
 -XX:+HeapDumpOnOutOfMemoryError
 -Djavax.xml.accessExternalDTD=all
 
-The database_settings.conf must be created in conf, check the file content in pom.xml!
+The database_settings.conf and sereval other configuration files must be created in conf!
