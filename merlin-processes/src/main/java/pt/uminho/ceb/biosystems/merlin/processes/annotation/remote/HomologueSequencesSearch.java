@@ -47,7 +47,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 
 	final static Logger logger = LoggerFactory.getLogger(HomologueSequencesSearch.class);
 
-	private static final int _MAX_REQUESTS = 30;
+	private static final int _MAX_REQUESTS = 50;
 	private static final int _NUMBER_OF_THREADS = 5;
 	private ConcurrentLinkedQueue<String> blosum62, blosum80, pam30, pam70, smaller, otherSequences;
 	private short gapExtensionPenalty, gapOpenPenalty;
@@ -199,7 +199,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 		NCBIQBlastAlignmentProperties rqb = new NCBIQBlastAlignmentProperties();
 		rqb.setBlastProgram(program);
 		rqb.setBlastDatabase(database);
-		rqb.setBlastExpectEBI(expectedVal);
+		rqb.setBlastExpectEBI(expectedVal);	
 		rqb.setBlastMatrix(matrix.toString().toUpperCase());
 
 		if(gapOpenPenalty!=-1)
@@ -210,12 +210,6 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 
 		rqb.setHitlistSize(numberOfAlignments);
 		
-		NCBIQBlastOutputProperties blastResultsOutputProperties = new NCBIQBlastOutputProperties();
-		blastResultsOutputProperties.setOutputFormat(NCBIQBlastOutputFormat. TEXT);
-		blastResultsOutputProperties.setAlignmentOutputFormat(NCBIQBlastOutputFormat.PAIRWISE);
-		blastResultsOutputProperties.setDescriptionNumber(numberOfAlignments);
-		blastResultsOutputProperties.setAlignmentNumber(numberOfAlignments);
-
 		if(!this.cancel.get()) {
 
 			AtomicInteger errorCounter = new AtomicInteger(0);
@@ -297,7 +291,8 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 
 				for(int i=0; i<threadsNumber; i++) {
 
-					Runnable lc	= new SubmitEbiBlast(rbwArray[i], rqb, taxonomyMap, uniprotStar, rids.get(i), resultsList, sequencesCounter, errorCounter, cancel, queryRIDMap, organismTaxa, latencyWaitingPeriod, this.organismTaxonomyIdentifier, uniprotStatus);
+					Runnable lc	= new SubmitEbiBlast(rbwArray[i], rqb, taxonomyMap, uniprotStar, rids.get(i), resultsList,
+							sequencesCounter, errorCounter, cancel, queryRIDMap, organismTaxa, latencyWaitingPeriod, this.organismTaxonomyIdentifier, uniprotStatus, expectedVal);
 							
 					((SubmitEbiBlast) lc).addPropertyChangeListener(this);
 					Thread thread = new Thread(lc);

@@ -142,9 +142,6 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 			return;
 		}
 		
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
-		Date date = new Date();
-		System.out.println("init -> " + dateFormat.format(date));
 
 
 		if(!this.email.equals("")){
@@ -370,9 +367,6 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 			}
 			else if(evt.getPropertyName().equalsIgnoreCase("saveToDatabase")) {
 				
-				DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
-				Date date = new Date();
-				System.out.println("saving -> " + dateFormat.format(date));
 
 				while(this.resultsList.size()>0) {
 
@@ -384,8 +378,7 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 					lbr.loadData(project.getName());
 				}
 				
-				date = new Date();
-				System.out.println("saving complete -> " + dateFormat.format(date));
+
 			}
 			else if(evt.getPropertyName().equalsIgnoreCase("updateLoadedGenes")) {
 
