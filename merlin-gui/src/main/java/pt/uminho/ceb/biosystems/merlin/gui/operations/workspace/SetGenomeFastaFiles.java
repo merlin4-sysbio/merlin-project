@@ -189,7 +189,7 @@ public class SetGenomeFastaFiles {
 				//Load genes
 				for(String sequenceID : genesData.keySet()){
 					
-					this.progress.setTime(GregorianCalendar.getInstance().getTimeInMillis() - this.startTime, counter, this.querySize.get(), "uploding genes to workspace...");
+					this.progress.setTime(GregorianCalendar.getInstance().getTimeInMillis() - this.startTime, counter, this.querySize.get(), "uploading genes to workspace...");
 
 					String[] seqInfo = genesData.get(sequenceID);
 					Integer geneID;
@@ -208,14 +208,14 @@ public class SetGenomeFastaFiles {
 					counter++;
 				}
 				
-				this.progress.setTime(GregorianCalendar.getInstance().getTimeInMillis() - this.startTime, counter, this.querySize.get(), "uploding genes to workspace...");
+				this.progress.setTime(GregorianCalendar.getInstance().getTimeInMillis() - this.startTime, counter, this.querySize.get(), "uploading genes to workspace...");
 
 				
 				this.querySize = new AtomicInteger(sequencesData.size()); 
 				
 				counter = 0;		//resolver problema do contador de upload das sequencias
 				
-				this.progress.setTime(GregorianCalendar.getInstance().getTimeInMillis() - this.startTime, counter, this.querySize.get(), "uploding sequences to workspace...");
+				this.progress.setTime(GregorianCalendar.getInstance().getTimeInMillis() - this.startTime, counter, this.querySize.get(), "uploading sequences to workspace...");
 				
 				//Load sequences
 				ModelSequenceServices.loadFastaSequences(this.databaseName, sequencesData, seqType);

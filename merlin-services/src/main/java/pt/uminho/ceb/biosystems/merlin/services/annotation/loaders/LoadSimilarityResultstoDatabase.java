@@ -5,12 +5,17 @@ package pt.uminho.ceb.biosystems.merlin.services.annotation.loaders;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.biojava.nbio.core.sequence.template.AbstractSequence;
@@ -581,7 +586,11 @@ public class LoadSimilarityResultstoDatabase {
 			if(!this.hmmerSearch)
 				program = this.program;
 
+			
 			boolean exists = AnnotationEnzymesServices.loadGeneHomologyData(this.workspaceName, this.homologyDataClient.getQuery(), program);
+			
+
+
 
 			if(exists) {
 
@@ -607,11 +616,13 @@ public class LoadSimilarityResultstoDatabase {
 					}
 				}
 
+
 				if(this.hmmerSearch)
 					this.loadHmmerSetup(this.databaseID, this.program, this.version);
 				else
 					this.loadhomologySetup(this.databaseID, this.program, this.version);
 
+				
 				if(this.isNoSimilarity) {
 
 					String locusTag = this.query;
@@ -621,8 +632,10 @@ public class LoadSimilarityResultstoDatabase {
 						locusTag = this.locusTag;
 					}
 
+					
 					this.loadGene(locusTag, this.query, null, null, null, star);
 					//					this.loadFastaSequence(this.homologyDataClient.getFastaSequence());
+					
 				}
 				else {
 
@@ -654,8 +667,11 @@ public class LoadSimilarityResultstoDatabase {
 						locusTag=this.locusTag;
 					}
 
+					
 					this.loadGene(locusTag, this.query, this.homologyDataClient.getGene(), this.homologyDataClient.getChromosome(), this.homologyDataClient.getOrganelle(), star);
 					//					this.loadFastaSequence(this.homologyDataClient.getFastaSequence());
+					
+					
 					Map<String, Integer> productRank = new HashMap<String,Integer>();
 					this.prodOrg = new HashMap<>();
 					Map<Set<String>, Integer> ecNumberRank = new HashMap<Set<String>,Integer>();
@@ -663,7 +679,10 @@ public class LoadSimilarityResultstoDatabase {
 					String myOrganismTaxonomy="";
 
 					myOrganismTaxonomy = this.homologyDataClient.getOrganismTaxa()[1].concat("; "+this.homologyDataClient.getOrganismTaxa()[0]);
+					
+					
 					this.loadOrganism(this.homologyDataClient.getOrganismTaxa()[0], this.homologyDataClient.getOrganismTaxa()[1],myOrganismTaxonomy,"origin organism");
+					logger.info("homologues total" + this.homologyDataClient.getLocusIDs().size());
 
 					for(int l = 0 ; l< this.homologyDataClient.getLocusIDs().size(); l++) {
 
@@ -685,7 +704,9 @@ public class LoadSimilarityResultstoDatabase {
 								String organism = this.homologyDataClient.getOrganism().get(locus),
 										taxonomy =	this.homologyDataClient.getTaxonomy().get(locus);
 
+								
 								this.loadOrganism(organism,taxonomy,myOrganismTaxonomy,locus);
+								
 
 								float eValue = (float) this.homologyDataClient.getEValue().get(locus).doubleValue();
 
@@ -702,11 +723,15 @@ public class LoadSimilarityResultstoDatabase {
 
 									if(this.eVal >= eValue) {
 
+										
 										productRank = loadHomologues(blastLocusTagID, calculateMW, productRank, locus);
-
+										
+										
 										ecNumberRank = loadECNumbers(ecNumberRank, ecOrg, locus);
+										
 
 										this.load_geneHomology_has_homologues(database, locus, gene, eValue, bits);
+										
 									}
 								}
 							}
@@ -716,13 +741,21 @@ public class LoadSimilarityResultstoDatabase {
 
 					if(!this.cancel.get()) {
 
+						
 						this.loadProductRank(database, productRank);
 
+
+						
 						if (!ecNumberRank.isEmpty()) {
 
+							
 							this.loadECNumberRank(ecNumberRank,ecOrg);		
+							
 						}
+						
+						
 						this.updataGeneStatus(locusTag);
+						
 					}
 				}
 

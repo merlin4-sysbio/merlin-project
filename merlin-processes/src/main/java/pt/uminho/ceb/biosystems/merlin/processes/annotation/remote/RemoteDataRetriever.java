@@ -8,9 +8,6 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.biojava.bio.search.SeqSimilaritySearchHit;
-import org.biojava.bio.search.SeqSimilaritySearchResult;
-
 import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.datatypes.EntryData;
 import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.ebi.uniprot.UniProtAPI;
 import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.ncbi.NcbiAPI;
@@ -18,8 +15,11 @@ import pt.uminho.ceb.biosystems.merlin.core.datatypes.annotation.enzymes.Annotat
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.BlastSource;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.HmmerRemoteDatabasesEnum;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.HomologySearchServer;
-import pt.uminho.ceb.biosystems.merlin.processes.annotation.remote.blast.ReadBlasttoList;
 import pt.uminho.ceb.biosystems.merlin.processes.annotation.remote.hmmer.ReadHmmertoList;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.EbiBlastParser;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.BlastIterationData;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.THit;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.THits;
 import pt.uminho.ceb.biosystems.mew.utilities.datastructures.pair.Pair;
 
 /**
@@ -95,7 +95,7 @@ public class RemoteDataRetriever {
 	 * @param taxonomyID 
 	 * @throws Exception
 	 */
-	public RemoteDataRetriever(ReadBlasttoList blastList, String[] organismTaxa, ConcurrentHashMap<String, String[]> taxonomyMap, 
+	public RemoteDataRetriever(EbiBlastParser blastList, String[] organismTaxa, ConcurrentHashMap<String, String[]> taxonomyMap, 
 			ConcurrentHashMap<String, Boolean> uniprotStar, AtomicBoolean cancel, HomologySearchServer homologySearchServer, int hitListSize, boolean uniprotStatus, long taxonomyID
 			) throws Exception {
 
@@ -109,13 +109,13 @@ public class RemoteDataRetriever {
 		this.homologuesData.setTaxonomyMap(taxonomyMap);
 		this.homologuesData.setUniprotStatus(uniprotStar);
 		this.homologuesData.setOrganismTaxa(organismTaxa);
-		this.homologuesData.setSequenceCode(blastList.getQuery());
-		this.homologuesData.setQuery(blastList.getQuery());
+		this.homologuesData.setSequenceCode(blastList.getResults().get(0).getQueryID());
+		this.homologuesData.setQuery(blastList.getResults().get(0).getQueryID());
 
-		this.processQueryInformation(blastList.getQuery());
+		this.processQueryInformation(blastList.getResults().get(0).getQueryID());
 
-		List<Pair<String, String>> resultsList = this.initialiseClass(blastList.getQuery(),blastList.getDatabaseId(), 
-				blastList.getVersion(), blastList.getProgram(), 
+		List<Pair<String, String>> resultsList = this.initialiseClass(blastList.getResults().get(0).getQueryID(),blastList.getResults().get(0).getSeqDb(), 
+				blastList.getResults().get(0).getVersion(), blastList.getResults().get(0).getProgram(), 
 				this.parseResults(blastList.getResults(), homologySearchServer), homologySearchServer);
 
 		if(homologySearchServer.equals(HomologySearchServer.EBI))
@@ -173,7 +173,7 @@ public class RemoteDataRetriever {
 	 * @param taxonomyID
 	 * @throws Exception
 	 */
-	public RemoteDataRetriever(ReadBlasttoList blastList, String[] organismTaxa, ConcurrentHashMap<String, String[]> taxonomyMap,
+	public RemoteDataRetriever(EbiBlastParser blastList, String[] organismTaxa, ConcurrentHashMap<String, String[]> taxonomyMap,
 			ConcurrentHashMap<String, Boolean> uniprotStar, AtomicBoolean cancel, boolean uniprotStatus
 			, HomologySearchServer homologySearchServer, BlastSource blastSource, long taxonomyID) throws Exception {
 
@@ -186,12 +186,13 @@ public class RemoteDataRetriever {
 		this.homologuesData.setTaxonomyMap(taxonomyMap);
 		this.homologuesData.setUniprotStatus(uniprotStar);
 		this.homologuesData.setOrganismTaxa(organismTaxa);
-		this.homologuesData.setSequenceCode(blastList.getQuery());
-		this.homologuesData.setQuery(blastList.getQuery());
+		this.homologuesData.setSequenceCode(blastList.getResults().get(0).getQueryID());
+		this.homologuesData.setQuery(blastList.getResults().get(0).getQueryID());
 
-		this.processQueryInformation(blastList.getQuery());
+		this.processQueryInformation(blastList.getResults().get(0).getQueryID());
 
-		List<Pair<String, String>> resultsList = this.initialiseClass(blastList.getQuery(),blastList.getDatabaseId(), blastList.getVersion(), blastList.getProgram(), 
+		List<Pair<String, String>> resultsList = this.initialiseClass(blastList.getResults().get(0).getQueryID(),blastList.getResults().get(0).getSeqDb(),
+				blastList.getResults().get(0).getVersion(), blastList.getResults().get(0).getProgram(), 
 				this.parseResults(blastList.getResults(), homologySearchServer), homologySearchServer);
 
 		if(blastSource.equals(BlastSource.NCBI))
@@ -259,53 +260,35 @@ public class RemoteDataRetriever {
 	 * @param list
 	 * @return 
 	 */
-	private List<String> parseResults(List<SeqSimilaritySearchResult> list, HomologySearchServer homologySearchServer) {
+	private List<String> parseResults(List<BlastIterationData> list, HomologySearchServer homologySearchServer) {
 
 		this.homologuesData.setBits(new HashMap<String, Double>());
 		this.homologuesData.setEValue(new HashMap<String, Double>());
 		List<String> resultsList = new ArrayList<String>();
 
-		for (SeqSimilaritySearchResult result : list) {
+		for (BlastIterationData result : list) {
 			
-			@SuppressWarnings("unchecked")
-			List<SeqSimilaritySearchHit> hits = (List<SeqSimilaritySearchHit>) result.getHits();
+			List<THit> hits = result.getHits();
 
 			for (int i = 0; i<hits.size();i++ ){
 
-				SeqSimilaritySearchHit hit = hits.get(i);
-				String id = hit.getSubjectID();
+				THit hit = hits.get(i);
+				String id = hit.getId();
 
 				if(homologySearchServer.equals(HomologySearchServer.EBI))
-					id = this.parseUniProtIds(hit);
+					id = hit.getAc();
 
 				if(id!=null) {
 
 					resultsList.add(i, id);
-					this.homologuesData.addBits(id, hit.getScore());
-					this.homologuesData.addEValue(id, hit.getEValue());
+					this.homologuesData.addBits(id, result.getHitBitScore(hit));
+					this.homologuesData.addEValue(id, result.getHitEvalue(hit));
 				}
 			}
 		}
 		return resultsList;
 	}
 
-	/**
-	 * @param id
-	 * @return
-	 */
-	private String parseUniProtIds(SeqSimilaritySearchHit hit) {
-
-//		String id = hit.getAnnotation().getProperty("subjectDescription").toString();
-//		String[] xrefs = id.split("\\s");
-//		String uni = xrefs[0];
-		
-		String id = hit.getAnnotation().getProperty("subjectId").toString();
-		String[] xrefs = id.split(":");
-		String uni = xrefs[1];
-
-
-		return uni;
-	}
 
 
 	/**
