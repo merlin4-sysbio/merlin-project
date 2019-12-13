@@ -2,6 +2,7 @@ package pt.uminho.ceb.biosystems.merlin.processes.annotation.remote.blast;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.io.File;
 import java.io.InputStream;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -13,9 +14,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.axis.AxisFault;
+import org.apache.commons.io.FileUtils;
 import org.apache.jcs.access.exception.InvalidArgumentException;
-import org.biojava.bio.search.SeqSimilaritySearchHit;
-import org.biojava.bio.search.SeqSimilaritySearchResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +26,10 @@ import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.utilities.MySleep;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.annotation.enzymes.AnnotationEnzymesHomologuesData;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.HomologySearchServer;
 import pt.uminho.ceb.biosystems.merlin.processes.annotation.remote.RemoteDataRetriever;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.EbiBlastParser;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.BlastIterationData;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.THit;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.THits;
 
 /**
  * @author Oscar
@@ -35,7 +39,7 @@ public class SubmitEbiBlast implements Runnable {
 
 	final static Logger logger = LoggerFactory.getLogger(SubmitEbiBlast.class);
 
-	private static final int _SAVE_LIST_SIZE = 1;
+	private static final int _SAVE_LIST_SIZE = 50;
 
 	private PropertyChangeSupport changes;
 
@@ -66,6 +70,8 @@ public class SubmitEbiBlast implements Runnable {
 
 	private Map<String, Long> ridsLatency;
 
+	private Double userEval;
+
 
 	/**
 	 * http://www.ebi.ac.uk/Tools/webservices/services/sss/ncbi_blast_rest
@@ -95,7 +101,7 @@ public class SubmitEbiBlast implements Runnable {
 			Map<String, String> queryRIDMap, 
 			String[] orgArray, 
 			long latencyWaitingPeriod, long taxonomyIdentifier, 
-			boolean uniprotStatus) throws InvalidArgumentException  {
+			boolean uniprotStatus, Double userEval) throws InvalidArgumentException  {
 
 		this.sequencesCounter = sequencesCounter;
 		this.organismTaxa=orgArray;
@@ -104,8 +110,13 @@ public class SubmitEbiBlast implements Runnable {
 		this.rbw = rbw;
 		this.rids = rids;
 		this.taxonomyIdentifier = taxonomyIdentifier;
+		this.userEval = userEval;
+		
+		this.rof = new NCBIQBlastOutputProperties();
 		if(rqb.getOrganism()!=null)
 			this.rof.setOrganisms(rqb.getOrganism());
+		this.rof.setAlignmentNumber(rqb.getHitlistSize());
+			
 		this.cancel = cancel;
 		this.taxonomyMap = taxonomyMap;
 		this.uniprotStar = uniprotStar;
@@ -156,20 +167,23 @@ public class SubmitEbiBlast implements Runnable {
 
 							if(timeSinceDeployment<this.latencyWaitingPeriod) {
 
-								if(timeSinceDeployment>(this.latencyWaitingPeriod/2))
+								if(timeSinceDeployment>(this.latencyWaitingPeriod/2)) {
+									
 									MySleep.myWait(timeSinceDeployment/60);
+
+								}
 
 								if(currentRequestTimer - lastRequestTimer > 60000) {
 
-									logger.trace("Requesting status for RID "+aRid);
+									logger.debug("Requesting status for RID "+aRid);
 									requestReady = this.rbw.isReady(aRid, GregorianCalendar.getInstance().getTimeInMillis());
-									logger.trace("Status for RID "+aRid+" "+requestReady);
+									logger.debug("Status for RID "+aRid+" "+requestReady);
 									lastRequestTimer = currentRequestTimer;
 								}
 								else {
 
 									long sleep  = 63000 - (currentRequestTimer - lastRequestTimer); 
-									logger.trace("Sleeping..." + (sleep/1000) +" sec "+aRid);
+									logger.debug("Sleeping..." + (sleep/1000) +" sec "+aRid);
 									MySleep.myWait(sleep);
 								}
 
@@ -189,25 +203,29 @@ public class SubmitEbiBlast implements Runnable {
 
 
 						InputStream stream = this.rbw.getAlignmentResults(aRid, this.rof);
-
-						ReadBlasttoList blastToList = new ReadBlasttoList(stream);
+						
+						//File outputXml = new File ("C:\\Users\\Diogo\\Desktop\\merlin_debug\\streamXML.xml");
+						//FileUtils.copyInputStreamToFile(stream, outputXml);
+						//NcbiBlastParser ncbiBLASTparser = new NcbiBlastParser(stream);
+						
+						EbiBlastParser ebiBlastParser = new EbiBlastParser(stream);
 
 						stream.close();
 
-						if(blastToList.isReprocessQuery()) {
+						if(ebiBlastParser.isReprocessQuery()) {
 
 							if(!this.cancel.get())
 								this.reprocessQuery(aRid,this.queryRIDMap.get(aRid),0);
 						}
 						else {
 
-							if(blastToList.isSimilarityFound() && this.checkUserEval(blastToList)) {
+							if(ebiBlastParser.isSimilarityFound() && this.checkUserEval(ebiBlastParser, this.userEval)) {
 
-								logger.debug("Similarity found for "+blastToList.getQuery());
+								logger.debug("Similarity found for "+ebiBlastParser.getResults().get(0).getQueryID());
 
 								if(!this.cancel.get()) {
 
-									RemoteDataRetriever homologyDataEbiClient = new RemoteDataRetriever(blastToList, this.organismTaxa, this.taxonomyMap, this.uniprotStar, this.cancel, 
+									RemoteDataRetriever homologyDataEbiClient = new RemoteDataRetriever(ebiBlastParser, this.organismTaxa, this.taxonomyMap, this.uniprotStar, this.cancel, 
 											HomologySearchServer.EBI, this.rqb.getHitlistSize(), this.uniprotStatus, this.taxonomyIdentifier);
 
 									if(homologyDataEbiClient.getFastaSequence()==null)
@@ -393,30 +411,31 @@ public class SubmitEbiBlast implements Runnable {
 	}
 
 	/**
-	 * @param blastToList
+	 * @param ebiBlastParser
 	 * @return
 	 */
-	private  boolean checkUserEval(ReadBlasttoList blastToList) {
+	private  boolean checkUserEval(EbiBlastParser ebiBlastParser, Double eval) {
 
 		boolean results = true;
 
-		for (SeqSimilaritySearchResult result : blastToList.getResults()) {
+		for (BlastIterationData result : ebiBlastParser.getResults()) {
 
-			@SuppressWarnings("unchecked")
-			List<SeqSimilaritySearchHit> hits = (List<SeqSimilaritySearchHit>) result.getHits();
+			List<THit> hits = result.getHits();
 
 			for (int i = 0; i<hits.size();i++ ){
 
-				SeqSimilaritySearchHit hit = hits.get(i);
-				String id = hit.getSubjectID();
+				THit hit = hits.get(i);
+				String id = hit.getId();
 
 				if(id!=null)
-					if(hit.getEValue()>this.rqb.getBlastExpect())
+					if(Double.parseDouble(hit.getAlignments().getAlignment().get(0).getExpectation() +"") > eval )
 						results = false;
 			}
 		}
 		return results;
 	}
+	
+	
 
 	public void addPropertyChangeListener(PropertyChangeListener l) {
 		changes.addPropertyChangeListener(l);
