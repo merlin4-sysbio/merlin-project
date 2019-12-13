@@ -540,7 +540,8 @@ public class SBMLLevel3Writer {
 //				String reactionID = standardizerReactId(reactionName[reactionName.length-1],reaction.getType());
 				String reactionID = standardizerReactId(reaction.getId(),reaction.getType());
 				Member member = new Member();
-				member.setIdRef(reactionID);
+				
+				member.setIdRef(reactionID.replaceAll("[><']", "").replace("\\", ""));
 				group.addMember(member);
 			}
 			try{
@@ -852,7 +853,7 @@ public class SBMLLevel3Writer {
 //			String reactionID = standardizerReactId(reactionName[reactionName.length-1],ogreaction.getType());
 			String reactionID = standardizerReactId(ogreaction.getId(),ogreaction.getType());
 			Reaction sbmlReaction = new Reaction(levelAndVersion.getLevel(), levelAndVersion.getVersion());
-			sbmlReaction.setId(reactionID);
+			sbmlReaction.setId(reactionID.replaceAll("[><']", "").replace("\\", ""));
 //			sbmlReaction.setName(ogreaction.getName().substring(0, ogreaction.getName().lastIndexOf("__")));
 			sbmlReaction.setName(ogreaction.getName());
 			sbmlReaction.setReversible(ogreaction.isReversible());
