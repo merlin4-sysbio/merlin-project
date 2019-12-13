@@ -202,7 +202,7 @@ public class EbiBlastClientRest implements RemotePairwiseAlignmentService {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-	public static String getHttpUrl(String url) throws ClientProtocolException, IOException {
+	public static String getHttpUrl(String url) throws ClientProtocolException, IOException{
 		
 		HttpGet httpGet = new HttpGet(url);
 		RequestConfig config = RequestConfig.custom()
