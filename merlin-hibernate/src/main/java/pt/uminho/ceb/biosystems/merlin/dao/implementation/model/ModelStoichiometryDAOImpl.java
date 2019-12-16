@@ -731,10 +731,10 @@ public class ModelStoichiometryDAOImpl extends GenericDaoImpl<ModelStoichiometry
 		Predicate filter1 = cb.equal(st.get("modelReaction").get("inModel"), true);
 		Predicate filter2 = cb.equal(st.get("stoichiometricCoefficient"), 0);
 
-		Predicate filter3 = cb.isNotNull(st.get("modelReaction").get("modelCompartment").get("idcompartment"));
+		Predicate filter3 = cb.isNull(st.get("modelReaction").get("modelCompartment").get("idcompartment"));
 
 		if(isCompartimentalized)
-			filter3 = cb.isNull(st.get("modelReaction").get("modelCompartment").get("idcompartment"));
+			filter3 = cb.isNotNull(st.get("modelReaction").get("modelCompartment").get("idcompartment"));
 
 		c.where(cb.and(filter1, filter2, filter3)).orderBy(cb.asc(st.get("modelReaction").get("idreaction")));
 
