@@ -206,7 +206,8 @@ public class EbiBlastClientRest implements RemotePairwiseAlignmentService {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-	public static String getHttpUrl(String url) throws ClientProtocolException, IOException{
+	public static String getHttpUrl(String url) throws ClientProtocolException, IOException,IllegalArgumentException {
+		
 		
 		HttpGet httpGet = new HttpGet(url);
 		RequestConfig config = RequestConfig.custom()
@@ -230,6 +231,8 @@ public class EbiBlastClientRest implements RemotePairwiseAlignmentService {
 		httpResponse.close();
 
 		return responseString.toString().trim();
+		
+		
 	}
 
 	/**
@@ -291,7 +294,7 @@ public class EbiBlastClientRest implements RemotePairwiseAlignmentService {
 	 * @see alignment.blast.org.biojava3.ws.alignment.RemotePairwiseAlignmentService#isReady(java.lang.String, long)
 	 */
 	@Override
-	public boolean isReady(String jobID, long present) throws Exception {
+	public boolean isReady(String jobID, long present) throws Exception,IllegalArgumentException {
 
 		boolean isReady = false;
 		if (holder.containsKey(jobID)) {

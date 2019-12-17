@@ -41,6 +41,8 @@ public class SubmitEbiBlast implements Runnable {
 
 	private static final int _SAVE_LIST_SIZE = 50;
 
+	private static final Throwable e = null;
+
 	private PropertyChangeSupport changes;
 
 	private ConcurrentLinkedQueue<String> rids;
@@ -90,7 +92,7 @@ public class SubmitEbiBlast implements Runnable {
 	 * @param latencyWaitingPeriod
 	 * @param taxonomyIdentifier
 	 * @param uniprotStatus
-	 * @throws InvalidArgumentException
+	 * @throws Exception 
 	 */
 	public SubmitEbiBlast(EbiBlastClientRest rbw, NCBIQBlastAlignmentProperties rqb, 
 			ConcurrentHashMap<String, String[]> taxonomyMap,  ConcurrentHashMap<String, Boolean> uniprotStar, 
@@ -101,7 +103,7 @@ public class SubmitEbiBlast implements Runnable {
 			Map<String, String> queryRIDMap, 
 			String[] orgArray, 
 			long latencyWaitingPeriod, long taxonomyIdentifier, 
-			boolean uniprotStatus, Double userEval) throws InvalidArgumentException  {
+			boolean uniprotStatus, Double userEval) throws Exception  {
 
 		this.sequencesCounter = sequencesCounter;
 		this.organismTaxa=orgArray;
@@ -128,10 +130,12 @@ public class SubmitEbiBlast implements Runnable {
 		this.ridsLatency = new HashMap<String, Long>();
 
 		this.changes = new PropertyChangeSupport(this);
-	}
+		
+		
+		}
 
 	@Override
-	public void run() {
+	public void run(){
 
 		logger.info(Thread.currentThread().getName()+"\t"+Thread.currentThread().getId()+"\tstarted.");
 
@@ -291,11 +295,15 @@ public class SubmitEbiBlast implements Runnable {
 					}
 				}
 				catch(IllegalArgumentException e) {
-					this.setCancel(new AtomicBoolean(true));
+//					this.setCancel(new AtomicBoolean(true));
+//					Thread t = Thread.currentThread();
+					this.changes.firePropertyChange("invalidEmail",null, null);
+//				    t.getUncaughtExceptionHandler().uncaughtException(t, e);
+					
 				}
 
 				catch (Exception e) {
-
+					
 					e.printStackTrace();
 
 					errorCounter = errorCounter + 1;
