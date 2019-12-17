@@ -64,11 +64,10 @@ public class NcbiBlastParser {
 	
 	public NcbiBlastParser (InputStream inputStream) {
 		
-		this.reprocessQuery = false;
-		
 		this.results = new ArrayList<>();
 		try {
 			
+			this.reprocessQuery = false;
 			JAXBContext jc = JAXBContext.newInstance(BlastOutput.class);
 
 	        Unmarshaller unmarshaller = jc.createUnmarshaller();

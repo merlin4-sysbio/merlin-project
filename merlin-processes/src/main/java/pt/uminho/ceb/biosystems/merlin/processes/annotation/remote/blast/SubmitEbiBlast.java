@@ -2,7 +2,6 @@ package pt.uminho.ceb.biosystems.merlin.processes.annotation.remote.blast;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -15,7 +14,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.axis.AxisFault;
-import org.apache.commons.io.FileUtils;
 import org.apache.jcs.access.exception.InvalidArgumentException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,10 +25,9 @@ import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.utilities.MySleep;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.annotation.enzymes.AnnotationEnzymesHomologuesData;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.HomologySearchServer;
 import pt.uminho.ceb.biosystems.merlin.processes.annotation.remote.RemoteDataRetriever;
-import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.EbiBlastParser;
 import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.BlastIterationData;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.EbiBlastParser;
 import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.THit;
-import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.THits;
 
 /**
  * @author Oscar

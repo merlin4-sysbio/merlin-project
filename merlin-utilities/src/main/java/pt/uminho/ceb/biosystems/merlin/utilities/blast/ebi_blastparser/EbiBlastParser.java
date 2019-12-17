@@ -11,11 +11,6 @@ import javax.xml.bind.Unmarshaller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.BlastIterationData;
-import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.EBIApplicationResult;
-import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.THits;
-import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.TIteration;
-
 public class EbiBlastParser {
 
 

@@ -69,10 +69,12 @@
 		<merlin.build.directory>${project.build.directory}/merlin/</merlin.build.directory>
 		<merlin.plugins.directory>${project.basedir}/merlin-gui/merlin/plugins</merlin.plugins.directory>
 		<merlin.lib.directory>${project.basedir}/merlin-gui/merlin/lib</merlin.lib.directory>
-		<merlin.version.project>4.0.2-RELEASE</merlin.version.project>
+		<merlin.version.project>4.0.2.1-SNAPSHOT</merlin.version.project>
 		<slf4j.version>1.8.0-beta4</slf4j.version>
 		<pt.uminho.ceb.biosystems.merlin.version>4.0.2.1-SNAPSHOT</pt.uminho.ceb.biosystems.merlin.version>
+		<pt.uminho.ceb.biosystems.aibench.project.version>4.0.2-RELEASE</pt.uminho.ceb.biosystems.aibench.project.version>
 		<pt.uminho.ceb.biosystems.merlin.groupId>pt.uminho.ceb.biosystems.merlin</pt.uminho.ceb.biosystems.merlin.groupId>
+		<build.name>beta</build.name>
 
 		<!-- General -->
 		<maven.compiler.source>1.8</maven.compiler.source>

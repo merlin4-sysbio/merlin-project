@@ -416,10 +416,13 @@ public class InsertEditGene extends javax.swing.JDialog {
 	 * @return
 	 */
 	private int getIndex(String subunit) {
+		
+		if(proteinData != null) {
 
-		for(int i=0;i< proteinData[0].length;i++) {
+			for(int i=0;i< proteinData[0].length;i++) {
 
-			if(subunit.equals(proteinData[0][i])){return i;}
+				if(subunit.equals(proteinData[0][i])){return i;}
+			}
 		}
 		return -1;
 	}
