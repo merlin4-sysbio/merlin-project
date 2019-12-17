@@ -217,17 +217,17 @@ public class CleanDatabase {
 
 	}
 
-//	/**
-//	 * @param project			this flag is throwing errors
-//	 */
-//	@Port(name="reload metabolic data",description="reload metabolic data",validateMethod="validateReload",defaultValue="false",direction=Direction.INPUT,order=3,advanced=true)
-//	public void setLoadMetabolicData(boolean reloadData) {
-//		this.reloadData = reloadData;
-//	}
+	/**
+	 * @param project			this flag is throwing errors
+	 */
+	@Port(name="reload metabolic data",description="reload metabolic data",validateMethod="validateReload",defaultValue="false",direction=Direction.INPUT,order=3,advanced=true)
+	public void setLoadMetabolicData(boolean reloadData) {
+		this.reloadData = reloadData;
+	}
 
-//	public void validateReload(boolean reloadData) {
-//		this.reloadData = reloadData;
-//	}
+	public void validateReload(boolean reloadData) {
+		this.reloadData = reloadData;
+	}
 
 	/**
 	 * @param project

@@ -538,7 +538,7 @@ public class SBMLLevel3Writer {
 			for(ReactionCI reaction : pathwaysReactionsMap.get(pathway)){
 //				String[] reactionName = reaction.getName().split("__");
 //				String reactionID = standardizerReactId(reactionName[reactionName.length-1],reaction.getType());
-				String reactionID = standardizerReactId(reaction.getId(),reaction.getType());
+				String reactionID = standardizerReactId(reaction.getId(),reaction.getType()).replace("=", "").replace("<", "").replace(">", "");
 				Member member = new Member();
 				
 				member.setIdRef(reactionID.replaceAll("[><']", "").replace("\\", ""));
