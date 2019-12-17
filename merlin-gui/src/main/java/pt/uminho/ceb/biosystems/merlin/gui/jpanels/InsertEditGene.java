@@ -71,21 +71,22 @@ public class InsertEditGene extends javax.swing.JDialog {
 	/**
 	 * @param selectedRow
 	 * @param genes
+	 * @throws Exception 
 	 */
-	public InsertEditGene(int selectedRow, ModelGenesAIB genes) {
+	public InsertEditGene(int selectedRow, ModelGenesAIB genes) throws Exception {
 
 		super(Workbench.getInstance().getMainFrame());
 		this.genes = genes;
-		proteinData = genes.getProteins();
+		proteinData = genes.getProteins(genes.getWorkspace().getName());
 
 		try {
 			if(selectedRow!=-10) {
 
 				this.setTitle("Edit Gene");
 				//get proteins associated to such gene, and store new ones
-				subunits=genes.getSubunits(selectedRow);
+				subunits=genes.getSubunits(selectedRow, true);
 				//store original proteins associated to such gene, immutable
-				oldSubunits = genes.getSubunits(selectedRow);
+				oldSubunits = genes.getSubunits(selectedRow, false);
 				initGUI();
 				
 				this.startFields(genes.getGeneData(selectedRow));
