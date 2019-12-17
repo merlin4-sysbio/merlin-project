@@ -2,8 +2,8 @@ package pt.uminho.ceb.biosystems.merlin.processes.annotation.remote.blast;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.io.File;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +14,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.axis.AxisFault;
-import org.apache.commons.io.FileUtils;
 import org.apache.jcs.access.exception.InvalidArgumentException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,10 +25,9 @@ import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.utilities.MySleep;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.annotation.enzymes.AnnotationEnzymesHomologuesData;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.HomologySearchServer;
 import pt.uminho.ceb.biosystems.merlin.processes.annotation.remote.RemoteDataRetriever;
-import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.EbiBlastParser;
 import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.BlastIterationData;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.EbiBlastParser;
 import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.THit;
-import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.THits;
 
 /**
  * @author Oscar
@@ -222,9 +220,12 @@ public class SubmitEbiBlast implements Runnable {
 								this.reprocessQuery(aRid,this.queryRIDMap.get(aRid),0);
 						}
 						else {
+							
+							List<BlastIterationData> ebiBlastResultsWithValidEval = filterByUserEval(ebiBlastParser, this.userEval);   // blast results that passed the Eval threshold
 
-							if(ebiBlastParser.isSimilarityFound() && this.checkUserEval(ebiBlastParser, this.userEval)) {
-
+							if(ebiBlastParser.isSimilarityFound() && !ebiBlastResultsWithValidEval.isEmpty()) { // if we found any homologues and they passed the Eval threshold
+								
+								ebiBlastParser.setResults(ebiBlastResultsWithValidEval); // use only the results that passed the Eval threshold
 								logger.debug("Similarity found for "+ebiBlastParser.getResults().get(0).getQueryID());
 
 								if(!this.cancel.get()) {
@@ -422,11 +423,14 @@ public class SubmitEbiBlast implements Runnable {
 	 * @param ebiBlastParser
 	 * @return
 	 */
-	private  boolean checkUserEval(EbiBlastParser ebiBlastParser, Double eval) {
+	private  List<BlastIterationData> filterByUserEval(EbiBlastParser ebiBlastParser, Double eval) {
 
-		boolean results = true;
+		List<BlastIterationData> blastResults = new ArrayList<BlastIterationData>();
+		if(ebiBlastParser != null) 
+			blastResults = ebiBlastParser.getResults();
+		List<THit> hitsThatPassedEvalueThreshold = new ArrayList<THit>();
 
-		for (BlastIterationData result : ebiBlastParser.getResults()) {
+		for (BlastIterationData result : blastResults) {
 
 			List<THit> hits = result.getHits();
 
@@ -435,12 +439,16 @@ public class SubmitEbiBlast implements Runnable {
 				THit hit = hits.get(i);
 				String id = hit.getId();
 
-				if(id!=null)
-					if(Double.parseDouble(hit.getAlignments().getAlignment().get(0).getExpectation() +"") > eval )
-						results = false;
+				if(id!=null) {
+
+					if(Double.parseDouble(hit.getAlignments().getAlignment().get(0).getExpectation() +"") <= eval )
+						hitsThatPassedEvalueThreshold.add(hit);
+				}
 			}
 		}
-		return results;
+		
+		blastResults.get(0).setHits(hitsThatPassedEvalueThreshold);
+		return blastResults;
 	}
 	
 	

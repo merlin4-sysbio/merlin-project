@@ -175,7 +175,7 @@ public class DownloadNcbiFiles {
 						ModelSequenceServices.loadFastaSequences(this.workspaceName, cdsSequencesData, SequenceType.CDS_DNA);
 					}
 
-					updateLocus = true;
+//					updateLocus = true;
 
 				}
 				
@@ -196,7 +196,7 @@ public class DownloadNcbiFiles {
 					//Load sequences
 					ModelSequenceServices.loadFastaSequences(this.workspaceName, sequencesData, SequenceType.CDS_DNA);
 
-					updateLocus = true;
+//					updateLocus = true;
 
 				}
 

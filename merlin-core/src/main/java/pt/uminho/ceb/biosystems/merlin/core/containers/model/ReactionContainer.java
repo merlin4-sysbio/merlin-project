@@ -85,6 +85,7 @@ public class ReactionContainer implements EntityContainer {
 		this.pathways = new ArrayList<>();
 		this.names = new ArrayList<>();
 		this.pathwayNames = new HashSet<>();
+		this.setInModel(inModel);
 	}
 
 	/**
