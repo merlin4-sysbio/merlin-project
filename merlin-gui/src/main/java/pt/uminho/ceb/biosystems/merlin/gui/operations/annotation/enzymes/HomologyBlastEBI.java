@@ -392,7 +392,7 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 				
 				progress.setTime((GregorianCalendar.getInstance().getTimeInMillis()-GregorianCalendar.getInstance().getTimeInMillis()),1,1);
 				Random r = new Random();
-				TimeUnit.SECONDS.sleep(r.nextInt(10));
+				TimeUnit.MILLISECONDS.sleep(r.nextInt(100));
 				if(!ebiBlastSearch.isCancel().get()) {
 					ebiBlastSearch.setCancel();
 					Workbench.getInstance().error("invalid email. please set a valid email address! hold on while the operation is canceled." );

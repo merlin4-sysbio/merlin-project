@@ -290,7 +290,12 @@ public class ModelGenesAIBView extends WorkspaceUpdatablePanel {
 						@Override
 						public void actionPerformed(ActionEvent e) {
 
-							new InsertEditGene(-10, modelGenes);
+							try {
+								new InsertEditGene(-10, modelGenes);
+							} catch (Exception e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 							fillList(false);
 
 						}
@@ -330,6 +335,9 @@ public class ModelGenesAIBView extends WorkspaceUpdatablePanel {
 								}
 							} catch (IndexOutOfBoundsException e1) {
 								Workbench.getInstance().warn("Please Select a Row!");
+							} catch (Exception e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
 							}
 						}
 					}

@@ -117,10 +117,10 @@ public class ModelGenesAIB extends ModelGenes implements IEntityAIB {
 	 * @param selectedRow
 	 * @return
 	 */
-	public String[] getSubunits(int selectedRow) {
+	public String[] getSubunits(int selectedRow, Boolean update) {
 
 		try {
-			if(super.getSubunits()==null) {
+			if(super.getSubunits()==null || update) {
 
 				String[][] dataList = ModelGenesServices.getSubunitsByGeneId(this.workspaceName, this.getIdentifiers().get(selectedRow));
 
