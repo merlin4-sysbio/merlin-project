@@ -57,4 +57,8 @@ public interface ISubunitService {
 
 	public void insertModelSubunit(Integer geneId, Integer protId, String note, String gprStatus) throws Exception;
 
+	public Long countSubunitEntries() throws Exception;
+
+	public boolean isProteinEncodedByGenes(Integer proteinId) throws Exception;
+
 }

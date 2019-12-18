@@ -86,7 +86,7 @@ public class SubunitServiceImpl implements ISubunitService{
 
 					idProtein = container.getIdProtein();
 
-					boolean res4 = this.proteinDAO.getInModelByProteinId(idProtein);
+					boolean res4 = this.modelsubunitDAO.isProteinEncodedByGenes(idProtein);
 					go = !res4;
 
 				}
@@ -98,7 +98,7 @@ public class SubunitServiceImpl implements ISubunitService{
 					Integer res5 = this.proteinDAO.getProteinIdByName(proteinName);
 					if(res5 == null) {
 
-						this.proteinDAO.insertModelProtein(proteinName, classe, inchi, molecularWeight, molecularWeightExp, molecularWeightKd, molecularWeightSeq, pi, enzyme, source, inModel);
+						this.proteinDAO.insertModelProtein(proteinName, classe, inchi, molecularWeight, molecularWeightExp, molecularWeightKd, molecularWeightSeq, pi, enzyme, source);
 						insertProductNames = false;
 					}
 					idProtein = res5;
@@ -107,7 +107,7 @@ public class SubunitServiceImpl implements ISubunitService{
 
 				if(go) {
 
-					this.proteinDAO.updateProteinSetEcNumberSourceAndInModel(idProtein, enzyme, inModel, source);
+					this.proteinDAO.updateProteinSetEcNumberSourceAndInModel(idProtein, enzyme, source);
 
 					if(!enzyme.contains(".-")) {
 
@@ -271,7 +271,7 @@ public class SubunitServiceImpl implements ISubunitService{
 				if(container != null) {
 
 					idProtein = container.getIdProtein();
-					boolean res4 = this.proteinDAO.getInModelByProteinId(idProtein);
+					boolean res4 = this.modelsubunitDAO.isProteinEncodedByGenes(idProtein);
 					go = !res4;
 				}
 				else {
@@ -281,14 +281,14 @@ public class SubunitServiceImpl implements ISubunitService{
 
 					Integer res5 = this.proteinDAO.getProteinIdByName(proteinName);
 					if (res5 == null) {
-						this.proteinDAO.insertModelProtein(proteinName, null, null, null, null, null, null, null, enzyme, "HOMOLOGY", true);
+						this.proteinDAO.insertModelProtein(proteinName, null, null, null, null, null, null, null, enzyme, "HOMOLOGY");
 						insertProductNames = false;
 					}
 					idProtein = res5;
 
 				}
 				if (go == true) {
-					this.proteinDAO.updateProteinSetEcNumberSourceAndInModel(idProtein, enzyme, true, "HOMOLOGY");
+					this.proteinDAO.updateProteinSetEcNumberSourceAndInModel(idProtein, enzyme, "HOMOLOGY");
 					if(!enzyme.contains(".-")) {
 						List<Integer> res6 = this.reactionDAO.getDistinctReactionsByEnzymeAndCompartmentalized(idProtein, false, false);
 
@@ -436,23 +436,20 @@ public class SubunitServiceImpl implements ISubunitService{
 	}
 	
 	/**
-	 * This method returns a ModelSubunit object, it can not be returned to another level higher than this one.
-	 * 
-	 * @param geneId
-	 * @param protId
 	 * @return
 	 * @throws Exception
 	 */
-	private ModelSubunit getModelSubunitEntry(Integer geneId, Integer protId) throws Exception{
+	@Override
+	public Long countSubunitEntries() throws Exception{
 
-		Map<String, Serializable> dic = new HashMap<String, Serializable>();
-		dic.put("id.modelGeneIdgene", geneId);
-		dic.put("id.modelProteinIdprotein", protId);
-
-		ModelSubunit subunit = this.modelsubunitDAO.findUniqueByAttributes(dic);
-
-		return subunit;
+		return this.modelsubunitDAO.countAll();
 	}
+	
 
+	@Override
+	public boolean isProteinEncodedByGenes(Integer proteinId) throws Exception{
+
+		return this.modelsubunitDAO.isProteinEncodedByGenes(proteinId);
+	}
 
 }		

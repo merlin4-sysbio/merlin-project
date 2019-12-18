@@ -852,7 +852,7 @@ public class ModelReactionsServices {
 	 * @param boolean_rule 
 	 */
 	public static void updateReaction(Integer idReaction, String name, String equation, Boolean reversibility, //Set<String> enzymes,
-			Map<String, String> chains, Map<String, String > compartment, Map<String, Double> metabolites, Boolean inModel, 
+			Map<String, String > compartment, Map<String, Double> metabolites, Boolean inModel, 
 			Map<String, Set<String>> selectedEnzymesPathway, Integer compartmentId, Boolean isSpontaneous, Boolean isNonEnzymatic,
 			Boolean isGeneric, Long lowerBound, Long upperBound, String boolean_rule, String databaseName) throws Exception{
 

@@ -36,10 +36,10 @@ public interface IProteinService {
 
 	
 	public boolean insertProtein(ProteinContainer protein,
-			String[] synonyms, String[] enzymes, Boolean[] inModel) throws Exception;
+			String[] synonyms, String[] enzymes) throws Exception;
 	
 	public boolean updateProtein(ProteinContainer protein, String[] synonyms,
-			String[] oldSynonyms, String[] enzymes, String[] oldEnzymes, Boolean[] inModel, Boolean[] oldInModel) throws Exception;
+			String[] oldSynonyms, String[] enzymes, String[] oldEnzymes) throws Exception;
 
 	public int[] countProteins() throws Exception;
 
@@ -47,7 +47,7 @@ public interface IProteinService {
 
 	public boolean checkEnzymeInModelExistence(Integer protId, String source) throws Exception;
 
-	public List<String[]> getAllEnzymes(boolean isCompartimetalized, boolean encodedEnzyme) throws Exception;
+	public List<String[]> getAllEnzymes() throws Exception;
 
 	public void saveDatabaseStatus(String blastDatabase, Float threshold, Float upperThreshold, Float alpha, Float beta,
 			Integer minHits) throws Exception;
@@ -61,9 +61,9 @@ public interface IProteinService {
 	public void removeEnzymesAssignments(String ecnumber, Boolean[] inModel, List<String> enzymes_ids, Integer proteinID,
 			boolean removeReaction) throws Exception;
 
-	public String[] getECnumber2(int protId) throws Exception;
+//	public String[] getECnumber2(int protId) throws Exception;
 
-	public Pair<List<String>, Boolean[]> getECnumber(int protId) throws Exception;
+//	public Pair<List<String>, Boolean[]> getECnumber(int protId) throws Exception;
 
 	public List<Integer> getEnzymesStats(String originalReaction) throws Exception;
 
@@ -113,4 +113,7 @@ public interface IProteinService {
 	public List<CompartmentContainer> getProteinCompartmentsByProteinId(Integer proteinId) throws Exception;
 
 	public Integer insertNewProteinEntry(ProteinContainer protein) throws Exception;
+
+	public List<String[]> getAllEncodedEnzymes() throws Exception;
+
 }

@@ -28,7 +28,7 @@ public class ModelEnzymesServices {
 	 */
 	public static List<String[]> getAllEnzymes(String databaseName, boolean encoded) throws Exception {
 
-		return InitDataAccess.getInstance().getDatabaseService(databaseName).getAllEnzymes(ProjectServices.isCompartmentalisedModel(databaseName), encoded);
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).getAllEnzymes();
 	}
 
 	/**
@@ -165,8 +165,8 @@ public class ModelEnzymesServices {
 					idProtein = container.getIdProtein();
 
 					ModelSubunitServices.removeSubunitByGeneIdAndProteinId(databaseName, idGene, idProtein);
-
-					go = !container.getInModel();
+					
+					go = !ModelSubunitServices.isProteinEncodedByGenes(databaseName, idProtein);
 
 				}
 				else {

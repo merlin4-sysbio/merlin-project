@@ -130,7 +130,7 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 
 	@Override
 	public Integer insertModelProtein(String name, String classe, String inchi, Float molecularWeight, Float molecularWeightExp, Float molecularWeightKd,
-			Float molecularWeightSeq, Float pi, String ecnumber, String source, Boolean inModel) {
+			Float molecularWeightSeq, Float pi, String ecnumber, String source) {
 		ModelProtein modelProtein = new ModelProtein();
 		modelProtein.setName(name);
 		modelProtein.setClass_(classe);
@@ -141,7 +141,7 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 		modelProtein.setPi(pi);
 		modelProtein.setEcnumber(ecnumber);
 		modelProtein.setSource(source);
-		modelProtein.setInModel(inModel);
+//		modelProtein.setInModel(inModel);
 		return (Integer) this.save(modelProtein);
 	}
 
@@ -150,11 +150,10 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<ModelProtein> c = cb.createQuery(ModelProtein.class);
 		Root<ModelProtein> prot = c.from(ModelProtein.class);
+		prot.join("modelSubunits", JoinType.INNER); 	//this filters the query to return only encoded proteins
 
 		c.multiselect(prot.get("idprotein"), prot.get("name"), prot.get("class_")).distinct(true); 
-		Predicate filter = cb.equal(prot.get("inModel"), 1);
 
-		c.where(filter);
 		c.orderBy(cb.asc(prot.get("name")));
 		Query<ModelProtein> q = super.sessionFactory.getCurrentSession().createQuery(c);
 		List<ModelProtein> list = q.getResultList();
@@ -213,7 +212,7 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 
 			ProteinContainer container = new ProteinContainer(item.getEcnumber());
 
-			container.setInModel(item.getInModel());
+//			container.setInModel(item.getInModel());
 			container.setIdProtein(item.getIdprotein());
 			container.setName(item.getName());
 
@@ -350,20 +349,6 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 		return null;
 	}
 
-
-	@Override
-	public boolean getInModelByProteinId(Integer proteinId) {
-		Map<String, Serializable> dic = new HashMap<String, Serializable>();
-		dic.put("idprotein", proteinId);
-		List<ModelProtein> list =  this.findByAttributes(dic);
-		boolean res = false;
-		if(list.size() > 0) {
-			ModelProtein model = list.get(0);
-			res =  model.getInModel();
-		}
-		return res;
-	}
-
 	@Override
 	public List<ProteinContainer> getModelProteinAttributes(Integer pathId){
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
@@ -392,7 +377,7 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 				container.setExternalIdentifier(item.getModelProtein().getEcnumber());
 				container.setName(item.getModelProtein().getName());
 				container.setClass_(item.getModelProtein().getClass_());
-				container.setInModel(item.getModelProtein().getInModel());
+//				container.setInModel(item.getModelProtein().getInModel());
 
 				list1.add(container);
 			}
@@ -432,41 +417,27 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 	}
 
 	@Override
-	public List<String[]> getAllEnzymes(boolean isCompartimentalized, boolean encodedEnzyme) {
+	public List<String[]> getAllEncodedEnzymes() {
 
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<Object[]> c = cb.createQuery(Object[].class);
 		Root<ModelProtein> protein = c.from(ModelProtein.class);
 		Join<ModelProtein, ModelReactionHasModelProtein> reactHasProtein = protein.join("modelReactionHasModelProteins", JoinType.INNER);
 		Join<ModelReaction, ModelReactionHasModelProtein> reaction = reactHasProtein.join("modelReaction", JoinType.INNER);
+		Join<ModelProtein, ModelSubunit> subunit = protein.join("modelSubunits", JoinType.INNER);		//the only difference between this method and the one bellow is the joinType here
 
 		c.multiselect(
 				protein.get("name"), 
 				protein.get("ecnumber"), 
 				cb.countDistinct(reactHasProtein.get("id").get("modelReactionIdreaction")),
 				protein.get("source"), 
-				protein.get("inModel"), 
+				subunit.get("id").get("modelProteinIdprotein"), 
 				reaction.get("inModel"), 
 				protein.get("idprotein"),
-				cb.countDistinct(reaction.get("inModel")), protein.get("idprotein"));
+				cb.countDistinct(subunit.get("id").get("modelGeneIdgene"))).distinct(true);
 
-		List<Predicate> filters = new ArrayList<Predicate>();
-		//Predicate filter1 = cb.isNull(reaction.get("modelCompartment").get("idcompartment"));
-
-		if(isCompartimentalized)
-			filters.add(cb.isNotNull(reaction.get("modelCompartment").get("idcompartment")));
-
-		//Predicate constraints = cb.and(filter1);
-		//filters.add(constraints);
-		if(encodedEnzyme) {
-			Predicate filter2 = cb.equal(reaction.get("inModel"), true);
-			Predicate filter3 = cb.equal(protein.get("inModel"), true);
-
-			filters.add(filter2);
-			filters.add(filter3);
-		}
-
-		c.where(cb.and(filters.toArray(new Predicate[] {})));
+		Predicate filter1 = cb.equal(reaction.get("inModel"), true);
+		c.where(filter1);
 
 		Order[] orderList = {cb.asc(protein.get("ecnumber")), cb.desc(reaction.get("inModel"))};
 		c.orderBy(orderList);
@@ -487,7 +458,60 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 				list[1] = (String) item[1];
 				list[2] = String.valueOf(item[2]);
 				list[3] = String.valueOf(item[3]);
-				list[4] =  String.valueOf(item[4]);
+				list[4] = null;
+				list[5] = String.valueOf(item[5]);
+				list[6] = String.valueOf(item[6]);
+				list[7] = String.valueOf(item[7]);
+				parsedList.add(list);
+			}
+		}
+
+		return parsedList;
+	}
+	
+	@Override
+	public List<String[]> getAllEnzymes() {
+
+		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
+		CriteriaQuery<Object[]> c = cb.createQuery(Object[].class);
+		Root<ModelProtein> protein = c.from(ModelProtein.class);
+		Join<ModelProtein, ModelReactionHasModelProtein> reactHasProtein = protein.join("modelReactionHasModelProteins", JoinType.INNER);
+		Join<ModelReaction, ModelReactionHasModelProtein> reaction = reactHasProtein.join("modelReaction", JoinType.INNER);
+		Join<ModelProtein, ModelSubunit> subunit = protein.join("modelSubunits", JoinType.LEFT);
+
+		c.multiselect(
+				protein.get("name"), 
+				protein.get("ecnumber"), 
+				cb.countDistinct(reactHasProtein.get("id").get("modelReactionIdreaction")),
+				protein.get("source"), 
+				subunit.get("id").get("modelProteinIdprotein"), 
+				reaction.get("inModel"), 
+				protein.get("idprotein"),
+				cb.countDistinct(subunit.get("id").get("modelGeneIdgene"))).distinct(true);
+
+		Predicate filter1 = cb.equal(reaction.get("inModel"), true);
+		c.where(filter1);
+
+		Order[] orderList = {cb.asc(protein.get("ecnumber")), cb.desc(reaction.get("inModel"))};
+		c.orderBy(orderList);
+
+		c.groupBy(protein.get("idprotein"), protein.get("ecnumber"), reaction.get("inModel"));
+
+		Query<Object[]> q = super.sessionFactory.getCurrentSession().createQuery(c);
+
+		List<Object[]> resultList = q.getResultList();
+
+		List<String[]> parsedList = new ArrayList<>();
+
+		if(resultList != null && resultList.size() > 0) {
+
+			for(Object[] item: resultList) {
+				String[] list = new String[8];
+				list[0] = (String) item[0];
+				list[1] = (String) item[1];
+				list[2] = String.valueOf(item[2]);
+				list[3] = String.valueOf(item[3]);
+				list[4] = null;
 				list[5] = String.valueOf(item[5]);
 				list[6] = String.valueOf(item[6]);
 				list[7] = String.valueOf(item[7]);
@@ -527,34 +551,35 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 		return res;
 	}
 
-	@Override
-	public Map<String, Boolean> getModelProteinEcNumberAndInModelByProteinId(Integer protId) {
-		Map<String, Serializable> map = new HashMap<String, Serializable>();
-		map.put("idprotein", protId);
-		List<ModelProtein> res = this.findByAttributes(map);
-		Map<String, Boolean> dic = null;
-
-		if(res.size() > 0) {
-			dic = new HashMap<String, Boolean>();
-			for (ModelProtein x: res){
-				dic.put(x.getEcnumber(), x.getInModel());
-			}
-		}
-		return dic;
-	}
+//	@Override
+//	public Map<String, Boolean> getModelProteinEcNumberAndInModelByProteinId(Integer protId) {
+//		Map<String, Serializable> map = new HashMap<String, Serializable>();
+//		map.put("idprotein", protId);
+//		List<ModelProtein> res = this.findByAttributes(map);
+//		Map<String, Boolean> dic = null;
+//
+//		if(res.size() > 0) {
+//			dic = new HashMap<String, Boolean>();
+//			for (ModelProtein x: res){
+//				dic.put(x.getEcnumber(), x.getInModel());
+//			}
+//		}
+//		return dic;
+//	}
 
 	@Override
 	public List<ModelProtein> getAllModelProteinByAttributes(Integer protId, String source){
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<ModelProtein> c = cb.createQuery(ModelProtein.class);
 		Root<ModelProtein> protein = c.from(ModelProtein.class);	
+		protein.join("modelSubunits", JoinType.INNER);		//this filters the query to return only encoded proteins
+		
 		c.select(protein);
 
-		Predicate filter1 = cb.equal(protein.get("inModel"), true);
 		Predicate filter2 = cb.equal(protein.get("source"), source);
 		Predicate filter3 = cb.equal(protein.get("idprotein"), protId);
 
-		c.where(cb.and(filter1,filter2, filter3));
+		c.where(cb.and(filter2, filter3));
 		Query<ModelProtein> q = super.sessionFactory.getCurrentSession().createQuery(c);
 		List<ModelProtein> resultList = q.getResultList();
 
@@ -622,14 +647,14 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 	}
 
 	@Override
-	public void updateProteinSetEcNumberSourceAndInModel(Integer model_protein_idprotein, String ecnumber, boolean inModel, String source) throws Exception {
+	public void updateProteinSetEcNumberSourceAndInModel(Integer model_protein_idprotein, String ecnumber, String source) throws Exception {
 
 		ModelProtein protein = this.getModelProtein(model_protein_idprotein);	
 
 		if(protein != null) {
 			protein.setEcnumber(ecnumber);
 
-			protein.setInModel(inModel);
+//			protein.setInModel(inModel);
 
 			if(source != null)
 				protein.setSource(source);

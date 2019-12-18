@@ -55,7 +55,7 @@ public class ModelProteinsProcesses {
 		columnsNames.add("identifier");
 		columnsNames.add("number of reactions");
 		columnsNames.add("encoding genes");
-		columnsNames.add("encoded in Genome");
+//		columnsNames.add("encoded in Genome");
 		columnsNames.add("catalysing reactions in Model");
 
 		WorkspaceGenericDataTable enzymeDataTable = new WorkspaceGenericDataTable(columnsNames, "proteins",""){
@@ -74,13 +74,13 @@ public class ModelProteinsProcesses {
 			ArrayList<Object> ql = new ArrayList<Object>();
 			ql.add(""); //info
 
-			for(int i=0;i<6;i++) {
+			for(int i=0;i<5;i++) {
 
-				if(i>3 && i<6) {
+				if(i>3 && i<5) {
 
-					if(i==5) {
+					if(i==4) {
 
-						if(Boolean.valueOf(list[i])==false && Integer.parseInt(list[7])==1)
+						if(Boolean.valueOf(list[i])==false && Integer.parseInt(list[6])==1)
 							ql.add(false); 
 						else 
 							ql.add(true); 
@@ -93,10 +93,11 @@ public class ModelProteinsProcesses {
 				else {
 					if (i==3) {
 						
-						if(proteins.containsKey(list[6]))
-							ql.add(proteins.get(list[6])+"");
-						else
-							ql.add("0");
+//						if(proteins.containsKey(list[5]))
+//							ql.add(proteins.get(list[5])+"");
+//						else
+//							ql.add("0");
+						ql.add(list[7]);
 					}
 					else {
 

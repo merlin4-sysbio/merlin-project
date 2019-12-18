@@ -41,7 +41,7 @@ public class ModelProtein implements java.io.Serializable {
 	private Float molecularWeightSeq;
 	private Float pi;
 	private String ecnumber;
-	private Boolean inModel;
+//	private Boolean inModel;
 	private String source;
 	private Set<ExperimentalInhibitor> experimentalInhibitors = new HashSet<ExperimentalInhibitor>(0);
 	private Set<ModelSubunit> modelSubunits = new HashSet<ModelSubunit>(0);
@@ -96,7 +96,7 @@ public class ModelProtein implements java.io.Serializable {
 		this.molecularWeightSeq = molecularWeightSeq;
 		this.pi = pi;
 		this.ecnumber = ecnumber;
-		this.inModel = inModel;
+//		this.inModel = inModel;
 		this.source = source;
 		this.experimentalInhibitors = experimentalInhibitors;
 		this.modelSubunits = modelSubunits;
@@ -209,14 +209,14 @@ public class ModelProtein implements java.io.Serializable {
 		this.ecnumber = ecnumber;
 	}
 
-	@Column(name = "inModel")
-	public Boolean getInModel() {
-		return this.inModel;
-	}
-
-	public void setInModel(Boolean inModel) {
-		this.inModel = inModel;
-	}
+//	@Column(name = "inModel")
+//	public Boolean getInModel() {
+//		return this.inModel;
+//	}
+//
+//	public void setInModel(Boolean inModel) {
+//		this.inModel = inModel;
+//	}
 
 	@Column(name = "source", length = 45)
 	public String getSource() {

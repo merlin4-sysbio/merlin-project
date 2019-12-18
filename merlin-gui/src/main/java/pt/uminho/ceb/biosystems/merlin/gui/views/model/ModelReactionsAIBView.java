@@ -499,8 +499,6 @@ public class ModelReactionsAIBView extends WorkspaceUpdatablePanel {
 								else
 									rowID = modelReactions.getIdentifiers().get(jTable.convertRowIndexToModel(jTable.getSelectedRow()));
 								
-								System.out.println(rowID);
-
 								try {
 									new InsertEditReaction(modelReactions, rowID) {
 

@@ -143,7 +143,8 @@ public class ModelPathwaysServices {
 			item[0] = items.getExternalIdentifier();
 			item[1] = items.getName();
 			item[2] = items.getClass_();
-			item[3] = String.valueOf(items.getInModel());
+//			item[3] = String.valueOf(items.getInModel());
+			item[3] = "";    //Verify what this is		
 
 			data.add(item);
 		}

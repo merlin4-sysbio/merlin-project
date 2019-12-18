@@ -76,6 +76,8 @@ public interface IModelSubunitDAO extends IGenericDao<ModelSubunit>{
 
 	public List<String[]> getGPRstatusAndReactionAndDefinition(Integer proteinId);
 
+	boolean isProteinEncodedByGenes(Integer proteinId);
+
 }
 
 
