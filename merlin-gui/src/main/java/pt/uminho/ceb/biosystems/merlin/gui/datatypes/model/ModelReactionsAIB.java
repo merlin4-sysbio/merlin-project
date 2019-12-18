@@ -181,10 +181,10 @@ public class ModelReactionsAIB extends ModelReactions implements IEntityAIB {
 
 				String gene = container.getLocusTag();
 
-				if(gene != null && !gene.trim().isEmpty())
+				if(gene != null && !gene.trim().isEmpty()) {
 					gene = gene.concat(" (").concat(gene).concat(")");
-
-				genes.add(gene);
+					genes.add(gene);
+				}
 			}
 			
 			Collections.sort(genes);

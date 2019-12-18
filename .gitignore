@@ -25,11 +25,13 @@ merlin-gui/merlin
 merlin-gui/merlin/*
 merlin-gui/h2Database
 merlin-gui/conf/database_settings.conf
+merlin-gui/conf/pluginmanager.conf
 merlin-gui/conf/email.conf
 merlin-gui/h2*.db
 merlin-gui/java_pid*.*
 merlin-gui/*.log
 merlin-gui/*.old
 merlin-gui/*.bak
+merlin-gui/conf/*.conf
 merlin-gui/Workbench_databases/
 merlin-gui/gff_error_report.txt

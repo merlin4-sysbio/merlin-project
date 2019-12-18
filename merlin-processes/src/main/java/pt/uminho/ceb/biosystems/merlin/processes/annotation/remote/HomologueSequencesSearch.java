@@ -69,7 +69,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 	private int sequencesWithErrors;
 	private HomologySearchServer source;
 	private String email;
-	
+
 	private double expectedVal;
 
 	private PropertyChangeSupport changes;
@@ -105,7 +105,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 		this.email = email;
 		this.organismTaxonomyIdentifier = organismTaxonomyIdentifier;
 	}
-	
+
 
 	/**
 	 * @param organismTaxonomyIdentifier
@@ -115,7 +115,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 	 * @throws Exception
 	 */
 	public void setTaxonomyNames(String organismName, String organismLineage, HmmerRemoteDatabasesEnum database) throws Exception {
-		
+
 		String[] orgData = new String[2];
 		orgData[0] = organismName;
 		orgData[1] = organismLineage;
@@ -123,7 +123,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 
 		if(!database.equals(HmmerRemoteDatabasesEnum.pdb))
 			this.organismTaxa = this.ebiNewTaxID(organismTaxonomyIdentifier);
-		
+
 		this.taxonomyMap.put(String.valueOf(organismTaxonomyIdentifier), this.organismTaxa);
 	}
 
@@ -133,12 +133,12 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 	 * @throws Exception
 	 */
 	public void setTaxonomyNames(String organismName, String organismLineage) throws Exception {
-		
+
 		String[] orgData = new String[2];
 		orgData[0] = organismName;
 		orgData[1] = organismLineage;
 		this.organismTaxa = orgData;
-		
+
 		if(HomologySearchServer.EBI.equals(this.source))
 			this.organismTaxa = this.ebiNewTaxID(this.organismTaxonomyIdentifier);
 
@@ -160,9 +160,9 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 			beginning = ">";
 			returnCode="\n";
 		}
-		
+
 		changes.firePropertyChange("updateLoadedGenes", false, true);
-		
+
 		for(String key: map.keySet()) {
 
 			if(!(this.getLoadedGenes()!=null && this.getLoadedGenes().contains(key))) {
@@ -186,11 +186,10 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 	 * @param gapExtensionPenalty
 	 * @param gapOpenPenalty
 	 * @return
-	 * @throws InterruptedException
-	 * @throws InvalidArgumentException
+	 * @throws Exception 
 	 */
 	private int blastProcessSubListEbi(String program, String database, int numberOfAlignments, ConcurrentLinkedQueue<String> requests,
-			Matrix matrix, short gapExtensionPenalty, short gapOpenPenalty) throws InterruptedException, InvalidArgumentException {
+			Matrix matrix, short gapExtensionPenalty, short gapOpenPenalty) throws Exception {
 
 		sequencesWithErrors = 0;
 
@@ -209,7 +208,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 			rqb.setBlastGapExtension(gapExtensionPenalty);
 
 		rqb.setHitlistSize(numberOfAlignments);
-		
+
 		if(!this.cancel.get()) {
 
 			AtomicInteger errorCounter = new AtomicInteger(0);
@@ -236,19 +235,19 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 			}
 
 			t=0;
-			
+
 			int serverErrors = 0;
-			
+
 			while(!requests.isEmpty() && !this.cancel.get()) {
 
 				if(!this.similaritySearchProcessAvailable || this.cancel.get())
 					requests.clear();
-				
-				
+
+
 				String newRid = "";
 
 				try {
-					
+
 					if(!requests.isEmpty()) {
 
 						String query=requests.poll();
@@ -256,28 +255,28 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 						newRid = this.processQuery(query, rbwArray[t], rqb, 0);
 
 						if (newRid == null) {
-							
+
 							requests.add(query);
-							
+
 							serverErrors++;
-							
+
 							if(serverErrors == 3) {
-								
+
 								this.similaritySearchProcessAvailable = false;
 								this.setReBlast(true);		//to restart the entire blast process
-								
+
 								MySleep.myWait(60000);
 							}
 						}
 						else {
-							
+
 							rids.get(t).offer(newRid);
 							queryRIDMap.put(newRid, query);
 							t++;
 							if (t >= threadsNumber)
 								t = 0;
 						}
-						
+
 					}
 				}
 				catch (Exception e) {
@@ -288,23 +287,29 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 			}
 
 			if(this.similaritySearchProcessAvailable  && !this.cancel.get() && queryRIDMap.size()>0) {
+				try {
+					for(int i=0; i<threadsNumber; i++) {
 
-				for(int i=0; i<threadsNumber; i++) {
+						Runnable lc	= new SubmitEbiBlast(rbwArray[i], rqb, taxonomyMap, uniprotStar, rids.get(i), resultsList,
+								sequencesCounter, errorCounter, cancel, queryRIDMap, organismTaxa, latencyWaitingPeriod, this.organismTaxonomyIdentifier, uniprotStatus, expectedVal);
 
-					Runnable lc	= new SubmitEbiBlast(rbwArray[i], rqb, taxonomyMap, uniprotStar, rids.get(i), resultsList,
-							sequencesCounter, errorCounter, cancel, queryRIDMap, organismTaxa, latencyWaitingPeriod, this.organismTaxonomyIdentifier, uniprotStatus, expectedVal);
-							
-					((SubmitEbiBlast) lc).addPropertyChangeListener(this);
-					Thread thread = new Thread(lc);
-					this.runnables.add(lc);
-					threads.add(thread);
-					logger.info("Start "+i);
-					thread.start();
+						((SubmitEbiBlast) lc).addPropertyChangeListener(this);
+						Thread thread = new Thread(lc);
+						this.runnables.add(lc);
+						threads.add(thread);
+						logger.info("Start "+i);
+						thread.start();
+
+
+					}
+
+					for(Thread thread :threads)
+						thread.join();
 				}
+				catch (IllegalArgumentException e) {
+					this.changes.firePropertyChange("invalidEmail",null, null);
 
-				for(Thread thread :threads)
-					thread.join();
-
+				}
 				if(errorCounter.get()>0) {
 
 					sequencesWithErrors += errorCounter.get();
@@ -349,7 +354,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 
 			// http://www.ncbi.nlm.nih.gov/staff/tao/URLAPI/new/node96.html
 			// b. For URLAPI scripts, do NOT send requests faster than once every 3 seconds. 
-			
+
 		}
 		catch (IOException e) {
 
@@ -362,9 +367,9 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 			else {
 
 				logger.warn("IO exception request for "+sequence+" Aborting.");
-				
+
 				e.printStackTrace();
-				
+
 				return null;   	//davide
 			}
 		}
@@ -432,133 +437,131 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 	 * @param sequenceType
 	 * @return
 	 * @throws SQLException 
-	 * @throws InterruptedException 
-	 * @throws InvalidArgumentException 
 	 * @throws Exception
 	 */
-	public int blastSequencesEBI(String program, String database, int numberOfAlignments, double expectedVal, boolean eValueAutoAdjust, String sequenceType) throws InvalidArgumentException, InterruptedException {
+	public int blastSequencesEBI(String program, String database, int numberOfAlignments, double expectedVal, boolean eValueAutoAdjust, String sequenceType) throws Exception {
 
-			int errorCount = 0;
-			this.expectedVal = expectedVal;
-		
-			if(blastMatrix==null) {
+		int errorCount = 0;
+		this.expectedVal = expectedVal;
 
-				Map<String, AbstractSequence<?>> smaller = new HashMap<>();
-				Map<String, AbstractSequence<?>> pam30 = new HashMap<>();
-				Map<String, AbstractSequence<?>> pam70 = new HashMap<>();
-				Map<String, AbstractSequence<?>> blosum62 = new HashMap<>();
-				Map<String, AbstractSequence<?>> blosum80 = new HashMap<>();
+		if(blastMatrix==null) {
 
-				int unitLength = 1;
+			Map<String, AbstractSequence<?>> smaller = new HashMap<>();
+			Map<String, AbstractSequence<?>> pam30 = new HashMap<>();
+			Map<String, AbstractSequence<?>> pam70 = new HashMap<>();
+			Map<String, AbstractSequence<?>> blosum62 = new HashMap<>();
+			Map<String, AbstractSequence<?>> blosum80 = new HashMap<>();
 
-				if(!program.equalsIgnoreCase("blastp") ) {
+			int unitLength = 1;
 
-					unitLength=3;
+			if(!program.equalsIgnoreCase("blastp") ) {
 
-					if(expectedVal==1E-10)
-						expectedVal = 10;
-				}
-				
-				for(String key:this.sequenceFile.keySet()) {
+				unitLength=3;
 
-					int seqSize = this.sequenceFile.get(key).getLength()/unitLength;
-
-					if(seqSize<15)
-						smaller.put(key,this.sequenceFile.get(key));
-					else if(seqSize<35)
-						pam30.put(key,this.sequenceFile.get(key));
-					else if(seqSize<50)
-						pam70.put(key,this.sequenceFile.get(key));
-					else if(seqSize<85)
-						blosum80.put(key,this.sequenceFile.get(key));
-					else
-						blosum62.put(key,this.sequenceFile.get(key)); 
-				}
-
-				if(!this.cancel.get()) {
-
-					blastMatrix = this.selectMatrix(86);
-					
-					changes.firePropertyChange("updateLoadedGenes", false, true);
-					this.setBlosum62(this.getRequestsList(blosum62));
-
-					if(this.blosum62.size()>0 && !this.cancel.get())
-						errorCount +=	this.blastProcessGenesListEbi(this.blosum62, program, database, numberOfAlignments);
-				}
-
-				if(!this.cancel.get()) {
-
-					blastMatrix = this.selectMatrix(80);
-					
-					changes.firePropertyChange("updateLoadedGenes", false, true);
-					this.setBlosum80(this.getRequestsList(blosum80));
-
-					if(this.blosum80.size()>0 && !this.cancel.get())
-						errorCount +=	this.blastProcessGenesListEbi(this.blosum80, program, database, numberOfAlignments);
-				}
-
-				if(!this.cancel.get()) {
-
-					blastMatrix = this.selectMatrix(40);
-					
-					changes.firePropertyChange("updateLoadedGenes", false, true);
-					this.setPam70(this.getRequestsList(pam70));
-
-					if(this.pam70.size()>0 && !this.cancel.get())
-						errorCount +=this.blastProcessGenesListEbi(this.pam70, program, database, numberOfAlignments);
-				}
-
-				double oldEval = expectedVal;
-
-				if(!this.cancel.get()) {
-
-					if (eValueAutoAdjust) {
-
-						expectedVal = 1000;
-						logger.info("setting e-value to "+1000+" for <35mer sequences.");
-					}
-					blastMatrix= this.selectMatrix(30);
-					
-					changes.firePropertyChange("updateLoadedGenes", false, true);
-					this.setPam30(this.getRequestsList(pam30));
-					if(this.pam30.size()>0 && !this.cancel.get())
-						errorCount += this.blastProcessGenesListEbi(this.pam30, program, database, numberOfAlignments);
-				}
-
-				expectedVal = oldEval;
-				if(!this.cancel.get()) {
-
-					if (eValueAutoAdjust) {
-
-						expectedVal = 1000;
-						logger.info("setting e-value to "+expectedVal+" for 10-15mer or shorter sequences.");
-					}
-					blastMatrix= this.selectMatrix(15);
-					
-					changes.firePropertyChange("updateLoadedGenes", false, true);
-					this.setSmaller(this.getRequestsList(smaller));
-
-					if(this.smaller.size()>0 && !this.cancel.get())
-						errorCount += this.blastProcessGenesListEbi(this.smaller,program, database, numberOfAlignments);
-				}
+				if(expectedVal==1E-10)
+					expectedVal = 10;
 			}
-			else {
 
-				Map<String, AbstractSequence<?>> query = new HashMap<>();
+			for(String key:this.sequenceFile.keySet()) {
 
-				for(String key:this.sequenceFile.keySet())
-					query.put(key,this.sequenceFile.get(key));
+				int seqSize = this.sequenceFile.get(key).getLength()/unitLength;
 
-				this.setOtherSequences(this.getRequestsList(query));
-
-				if(this.wordSize == -1)
-					this.wordSize=3;
-
-				if(!this.cancel.get())
-					errorCount += this.blastProcessGenesListEbi(this.otherSequences,program, database, numberOfAlignments);
+				if(seqSize<15)
+					smaller.put(key,this.sequenceFile.get(key));
+				else if(seqSize<35)
+					pam30.put(key,this.sequenceFile.get(key));
+				else if(seqSize<50)
+					pam70.put(key,this.sequenceFile.get(key));
+				else if(seqSize<85)
+					blosum80.put(key,this.sequenceFile.get(key));
+				else
+					blosum62.put(key,this.sequenceFile.get(key)); 
 			}
-			
-			return errorCount;
+
+			if(!this.cancel.get()) {
+
+				blastMatrix = this.selectMatrix(86);
+
+				changes.firePropertyChange("updateLoadedGenes", false, true);
+				this.setBlosum62(this.getRequestsList(blosum62));
+
+				if(this.blosum62.size()>0 && !this.cancel.get())
+					errorCount +=	this.blastProcessGenesListEbi(this.blosum62, program, database, numberOfAlignments);
+			}
+
+			if(!this.cancel.get()) {
+
+				blastMatrix = this.selectMatrix(80);
+
+				changes.firePropertyChange("updateLoadedGenes", false, true);
+				this.setBlosum80(this.getRequestsList(blosum80));
+
+				if(this.blosum80.size()>0 && !this.cancel.get())
+					errorCount +=	this.blastProcessGenesListEbi(this.blosum80, program, database, numberOfAlignments);
+			}
+
+			if(!this.cancel.get()) {
+
+				blastMatrix = this.selectMatrix(40);
+
+				changes.firePropertyChange("updateLoadedGenes", false, true);
+				this.setPam70(this.getRequestsList(pam70));
+
+				if(this.pam70.size()>0 && !this.cancel.get())
+					errorCount +=this.blastProcessGenesListEbi(this.pam70, program, database, numberOfAlignments);
+			}
+
+			double oldEval = expectedVal;
+
+			if(!this.cancel.get()) {
+
+				if (eValueAutoAdjust) {
+
+					expectedVal = 1000;
+					logger.info("setting e-value to "+1000+" for <35mer sequences.");
+				}
+				blastMatrix= this.selectMatrix(30);
+
+				changes.firePropertyChange("updateLoadedGenes", false, true);
+				this.setPam30(this.getRequestsList(pam30));
+				if(this.pam30.size()>0 && !this.cancel.get())
+					errorCount += this.blastProcessGenesListEbi(this.pam30, program, database, numberOfAlignments);
+			}
+
+			expectedVal = oldEval;
+			if(!this.cancel.get()) {
+
+				if (eValueAutoAdjust) {
+
+					expectedVal = 1000;
+					logger.info("setting e-value to "+expectedVal+" for 10-15mer or shorter sequences.");
+				}
+				blastMatrix= this.selectMatrix(15);
+
+				changes.firePropertyChange("updateLoadedGenes", false, true);
+				this.setSmaller(this.getRequestsList(smaller));
+
+				if(this.smaller.size()>0 && !this.cancel.get())
+					errorCount += this.blastProcessGenesListEbi(this.smaller,program, database, numberOfAlignments);
+			}
+		}
+		else {
+
+			Map<String, AbstractSequence<?>> query = new HashMap<>();
+
+			for(String key:this.sequenceFile.keySet())
+				query.put(key,this.sequenceFile.get(key));
+
+			this.setOtherSequences(this.getRequestsList(query));
+
+			if(this.wordSize == -1)
+				this.wordSize=3;
+
+			if(!this.cancel.get())
+				errorCount += this.blastProcessGenesListEbi(this.otherSequences,program, database, numberOfAlignments);
+		}
+
+		return errorCount;
 	}
 
 	/**
@@ -570,11 +573,9 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 	 * @param matrix
 	 * @param maxRequests
 	 * @return
-	 * @throws InterruptedException 
-	 * @throws InvalidArgumentException 
 	 * @throws Exception
 	 */
-	private int blastProcessGenesListEbi(ConcurrentLinkedQueue<String> list, String program, String database, int numberOfAlignments) throws InvalidArgumentException, InterruptedException  {
+	private int blastProcessGenesListEbi(ConcurrentLinkedQueue<String> list, String program, String database, int numberOfAlignments) throws Exception  {
 
 		int errorCount = 0;
 		int requests = 0;
@@ -582,7 +583,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 		ConcurrentLinkedQueue<String> sequencesSubmited = new ConcurrentLinkedQueue<String>();
 
 		while(list.size()>0) {
-			
+
 			if(this.cancel.get()) {
 
 				list.clear();
@@ -640,7 +641,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 
 			if(this.wordSize==-1)
 				this.wordSize=3;
-			
+
 			return Matrix.BLOSUM80;
 		}
 		else {
@@ -863,7 +864,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 		this.loadedGenes = loadedGenes;
 	}
 
-	
+
 
 	/**
 	 * @param orgID
@@ -875,22 +876,22 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 		try {
 
 			String[] newTax = UniProtScrapers.getUniProtTaxonomy(orgID, 0);
-			
+
 			if(newTax == null)
 				throw new IllegalArgumentException("service unavailable. please check your internet connection.");
-			
+
 			return newTax;
 		}
-			
+
 		catch (Error e) {
-			
+
 			e.printStackTrace();
-			
+
 			throw new Error("Service unavailable");
-			
+
 		}
 		catch (Exception e) {
-			
+
 			this.similaritySearchProcessAvailable = false;
 			throw new IllegalArgumentException("Service unavailable. Please check your internet connection.");
 		}
@@ -1080,7 +1081,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 	public void setSequences_size(int sequences_size) {
 		this.sequences_size = sequences_size;
 	}
-	
+
 	/**
 	 * @param l
 	 */
@@ -1098,7 +1099,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
-		
+
 		this.changes.firePropertyChange(evt.getPropertyName(), evt.getOldValue(), evt.getNewValue());				
 	}
 }
