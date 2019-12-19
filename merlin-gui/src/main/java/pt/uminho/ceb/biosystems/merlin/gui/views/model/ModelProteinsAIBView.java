@@ -417,7 +417,7 @@ public class ModelProteinsAIBView extends WorkspaceUpdatablePanel {
 
 		this.infoSelectedRow = jTable.getSelectedRow();
 
-		new GenericDetailWindow(q, "protein data", "Protein: "+ modelProteins.getProteinName(jTable.getSelectedRow()));
+		new GenericDetailWindow(q, "protein data", "Protein: "+ modelProteins.getProteinName(jTable.convertRowIndexToModel(jTable.getSelectedRow())));
 	}
 
 	/* (non-Javadoc)

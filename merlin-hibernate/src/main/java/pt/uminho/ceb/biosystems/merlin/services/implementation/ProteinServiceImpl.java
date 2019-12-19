@@ -29,7 +29,6 @@ import pt.uminho.ceb.biosystems.merlin.entities.model.ModelProteinComposition;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelReaction;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelReactionHasModelProtein;
 import pt.uminho.ceb.biosystems.merlin.services.interfaces.IProteinService;
-import pt.uminho.ceb.biosystems.mew.utilities.datastructures.pair.Pair;
 
 
 public class ProteinServiceImpl implements IProteinService{
@@ -522,13 +521,8 @@ public class ProteinServiceImpl implements IProteinService{
 	}
 
 	@Override
-	public List<String[]> getAllEnzymes() throws Exception {
-		return this.modelproteinDAO.getAllEnzymes();
-	}
-	
-	@Override
-	public List<String[]> getAllEncodedEnzymes() throws Exception {
-		return this.modelproteinDAO.getAllEncodedEnzymes();
+	public List<String[]> getAllEnzymes(boolean isEncodedInGenome, boolean isCompartmentalizedModel) throws Exception {
+		return this.modelproteinDAO.getAllEnzymes(isEncodedInGenome, isCompartmentalizedModel);
 	}
 
 	@Override

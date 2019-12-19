@@ -53,8 +53,6 @@ public interface IModelProteinDAO  extends IGenericDao<ModelProtein>{
 
 	public String[][] getProteins();
 
-	public List<String[]> getAllEnzymes();
-
 	public Map<Integer, Long> getProteinsData2();
 
 //	public Map<String, Boolean> getModelProteinEcNumberAndInModelByProteinId(Integer protId);
@@ -100,7 +98,7 @@ public interface IModelProteinDAO  extends IGenericDao<ModelProtein>{
 
 	public List<CompartmentContainer> getProteinCompartmentsByProteinId(Integer proteinId);
 
-	public List<String[]> getAllEncodedEnzymes();
+	public List<String[]> getAllEnzymes(boolean isEncodedInGenome, boolean isCompartmentalizedModel);
 
 
 }

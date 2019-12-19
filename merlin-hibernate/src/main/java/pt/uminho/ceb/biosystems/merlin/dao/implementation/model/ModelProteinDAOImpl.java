@@ -417,15 +417,27 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 	}
 
 	@Override
-	public List<String[]> getAllEncodedEnzymes() {
+	public List<String[]> getAllEnzymes(boolean isEncodedInGenome, boolean isCompartmentalizedModel) {
 
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<Object[]> c = cb.createQuery(Object[].class);
 		Root<ModelProtein> protein = c.from(ModelProtein.class);
 		Join<ModelProtein, ModelReactionHasModelProtein> reactHasProtein = protein.join("modelReactionHasModelProteins", JoinType.INNER);
 		Join<ModelReaction, ModelReactionHasModelProtein> reaction = reactHasProtein.join("modelReaction", JoinType.INNER);
-		Join<ModelProtein, ModelSubunit> subunit = protein.join("modelSubunits", JoinType.INNER);		//the only difference between this method and the one bellow is the joinType here
-
+		Join<ModelProtein, ModelSubunit> subunit = null;
+		
+		List<Predicate> filters = new ArrayList<Predicate>();
+		
+		if(isEncodedInGenome) {
+			subunit = protein.join("modelSubunits", JoinType.INNER);		//the only difference between this method and the one bellow is the joinType here
+			filters.add(cb.equal(reaction.get("inModel"), true));
+		}
+		else
+			subunit = protein.join("modelSubunits", JoinType.LEFT);
+		
+		if(isCompartmentalizedModel)
+			filters.add(cb.isNotNull(reaction.get("modelCompartment").get("idcompartment")));
+		
 		c.multiselect(
 				protein.get("name"), 
 				protein.get("ecnumber"), 
@@ -436,8 +448,8 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 				protein.get("idprotein"),
 				cb.countDistinct(subunit.get("id").get("modelGeneIdgene"))).distinct(true);
 
-		Predicate filter1 = cb.equal(reaction.get("inModel"), true);
-		c.where(filter1);
+//		Predicate filter1 = cb.equal(reaction.get("inModel"), true);
+		c.where(cb.and(filters.toArray(new Predicate[] {})));
 
 		Order[] orderList = {cb.asc(protein.get("ecnumber")), cb.desc(reaction.get("inModel"))};
 		c.orderBy(orderList);
@@ -469,58 +481,6 @@ public class ModelProteinDAOImpl extends GenericDaoImpl<ModelProtein> implements
 		return parsedList;
 	}
 	
-	@Override
-	public List<String[]> getAllEnzymes() {
-
-		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
-		CriteriaQuery<Object[]> c = cb.createQuery(Object[].class);
-		Root<ModelProtein> protein = c.from(ModelProtein.class);
-		Join<ModelProtein, ModelReactionHasModelProtein> reactHasProtein = protein.join("modelReactionHasModelProteins", JoinType.INNER);
-		Join<ModelReaction, ModelReactionHasModelProtein> reaction = reactHasProtein.join("modelReaction", JoinType.INNER);
-		Join<ModelProtein, ModelSubunit> subunit = protein.join("modelSubunits", JoinType.LEFT);
-
-		c.multiselect(
-				protein.get("name"), 
-				protein.get("ecnumber"), 
-				cb.countDistinct(reactHasProtein.get("id").get("modelReactionIdreaction")),
-				protein.get("source"), 
-				subunit.get("id").get("modelProteinIdprotein"), 
-				reaction.get("inModel"), 
-				protein.get("idprotein"),
-				cb.countDistinct(subunit.get("id").get("modelGeneIdgene"))).distinct(true);
-
-		Predicate filter1 = cb.equal(reaction.get("inModel"), true);
-		c.where(filter1);
-
-		Order[] orderList = {cb.asc(protein.get("ecnumber")), cb.desc(reaction.get("inModel"))};
-		c.orderBy(orderList);
-
-		c.groupBy(protein.get("idprotein"), protein.get("ecnumber"), reaction.get("inModel"));
-
-		Query<Object[]> q = super.sessionFactory.getCurrentSession().createQuery(c);
-
-		List<Object[]> resultList = q.getResultList();
-
-		List<String[]> parsedList = new ArrayList<>();
-
-		if(resultList != null && resultList.size() > 0) {
-
-			for(Object[] item: resultList) {
-				String[] list = new String[8];
-				list[0] = (String) item[0];
-				list[1] = (String) item[1];
-				list[2] = String.valueOf(item[2]);
-				list[3] = String.valueOf(item[3]);
-				list[4] = null;
-				list[5] = String.valueOf(item[5]);
-				list[6] = String.valueOf(item[6]);
-				list[7] = String.valueOf(item[7]);
-				parsedList.add(list);
-			}
-		}
-
-		return parsedList;
-	}
 
 	@Override
 	public Map<Integer, Long> getProteinsData2(){

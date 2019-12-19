@@ -1356,11 +1356,11 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		}
 	}
 
-	public List<String[]> getAllEnzymes() throws Exception {
+	public List<String[]> getAllEnzymes(boolean isEncodedInGenome, boolean isCompartmentalizedModel) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			List<String[]> result = proteinservice.getAllEnzymes();
+			List<String[]> result = proteinservice.getAllEnzymes(isEncodedInGenome, isCompartmentalizedModel);
 			tx.commit();
 			return (List<String[]>) result;
 		} catch (RuntimeException e) {
@@ -1369,19 +1369,6 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		}
 	}
 	
-	public List<String[]> getAllEncodedEnzymes() throws Exception {
-		Transaction tx = null;
-		try {
-			tx = sessionFactory.getCurrentSession().beginTransaction();
-			List<String[]> result = proteinservice.getAllEncodedEnzymes();
-			tx.commit();
-			return (List<String[]>) result;
-		} catch (RuntimeException e) {
-			tx.rollback();
-			throw new Exception(e);
-		}
-	}
-
 	public Map<Integer, Long> getProteinsData2() throws Exception {
 		Transaction tx = null;
 		try {

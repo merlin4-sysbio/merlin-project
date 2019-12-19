@@ -47,8 +47,6 @@ public interface IProteinService {
 
 	public boolean checkEnzymeInModelExistence(Integer protId, String source) throws Exception;
 
-	public List<String[]> getAllEnzymes() throws Exception;
-
 	public void saveDatabaseStatus(String blastDatabase, Float threshold, Float upperThreshold, Float alpha, Float beta,
 			Integer minHits) throws Exception;
 
@@ -114,6 +112,6 @@ public interface IProteinService {
 
 	public Integer insertNewProteinEntry(ProteinContainer protein) throws Exception;
 
-	public List<String[]> getAllEncodedEnzymes() throws Exception;
+	public List<String[]> getAllEnzymes(boolean isEncodedInGenome, boolean isCompartmentalizedModel) throws Exception;
 
 }

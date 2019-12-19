@@ -45,7 +45,7 @@ public class ModelProteinsProcesses {
 	 * @param ids
 	 * @return
 	 */
-	public static WorkspaceGenericDataTable getMainTableData(Map<String,Integer> proteins, List<String[]> result, Map<Integer, String> namesIndex, Map<Integer, Integer> ids ) {
+	public static WorkspaceGenericDataTable getMainTableData(boolean encoded, List<String[]> result, Map<Integer, String> namesIndex, Map<Integer, Integer> ids ) {
 
 		namesIndex = new HashMap<>();
 		List<String> columnsNames = new ArrayList<String>();
@@ -53,10 +53,13 @@ public class ModelProteinsProcesses {
 		columnsNames.add("info");
 		columnsNames.add("names");
 		columnsNames.add("identifier");
-		columnsNames.add("number of reactions");
+		if(encoded)
+			columnsNames.add("number of reactions in model");
+		else
+			columnsNames.add("number of reactions");
 		columnsNames.add("encoding genes");
 //		columnsNames.add("encoded in Genome");
-		columnsNames.add("catalysing reactions in Model");
+//		columnsNames.add("catalysing reactions in Model");
 
 		WorkspaceGenericDataTable enzymeDataTable = new WorkspaceGenericDataTable(columnsNames, "proteins",""){
 			private static final long serialVersionUID = 1L;
@@ -74,23 +77,23 @@ public class ModelProteinsProcesses {
 			ArrayList<Object> ql = new ArrayList<Object>();
 			ql.add(""); //info
 
-			for(int i=0;i<5;i++) {
+			for(int i=0;i<4;i++) {
 
-				if(i>3 && i<5) {
-
-					if(i==4) {
-
-						if(Boolean.valueOf(list[i])==false && Integer.parseInt(list[6])==1)
-							ql.add(false); 
-						else 
-							ql.add(true); 
-					}
-					else {
-
-						ql.add(Boolean.valueOf(list[i]));
-					}
-				}
-				else {
+//				if(i>3 && i<5) {
+//
+//					if(i==4) {
+//
+//						if(Boolean.valueOf(list[i])==false && Integer.parseInt(list[6])==1)
+//							ql.add(false); 
+//						else 
+//							ql.add(true); 
+//					}
+//					else {
+//
+//						ql.add(Boolean.valueOf(list[i]));
+//					}
+//				}
+//				else {
 					if (i==3) {
 						
 //						if(proteins.containsKey(list[5]))
@@ -108,7 +111,7 @@ public class ModelProteinsProcesses {
 						else 
 							ql.add("");	
 					}
-				}
+//				}
 			}
 			enzymeDataTable.addLine(ql,Integer.parseInt(list[6]));
 

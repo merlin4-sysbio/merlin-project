@@ -68,10 +68,10 @@ public class ModelProteinsAIB extends ModelProteins implements IEntityAIB {
 			
 			if(super.getAllProteins() == null || update) {
 				
-				Map<String,Integer> proteins = new HashMap<>();
+//				Map<String,Integer> proteins = new HashMap<>();
 				
-				List<String[]> result = ModelProteinsServices.getMainTableData(workspaceName, encoded, proteins);
-				WorkspaceGenericDataTable allProteins = ModelProteinsProcesses.getMainTableData(proteins, result, this.namesIndex, this.identifiers);
+				List<String[]> result = ModelProteinsServices.getMainTableData(workspaceName, encoded);
+				WorkspaceGenericDataTable allProteins = ModelProteinsProcesses.getMainTableData(encoded, result, this.namesIndex, this.identifiers);
 				
 				super.setAllProteins(allProteins);			
 			}

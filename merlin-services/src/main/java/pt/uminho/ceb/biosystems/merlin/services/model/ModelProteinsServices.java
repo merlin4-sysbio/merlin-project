@@ -63,14 +63,12 @@ public class ModelProteinsServices  {
 	 * @return
 	 * @throws Exception 
 	 */
-	public static List<String[]> getMainTableData(String databaseName, boolean encoded,  Map<String,Integer> proteins) throws Exception {
+	public static List<String[]> getMainTableData(String databaseName, boolean encoded) throws Exception {
 
-		proteins.putAll(InitDataAccess.getInstance().getDatabaseService(databaseName).getProteinsCountFromSubunit());
+//		proteins.putAll(InitDataAccess.getInstance().getDatabaseService(databaseName).getProteinsCountFromSubunit());
 		
-		if(encoded)
-			return InitDataAccess.getInstance().getDatabaseService(databaseName).getAllEncodedEnzymes();
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).getAllEnzymes(encoded, ProjectServices.isCompartmentalisedModel(databaseName));
 
-		return InitDataAccess.getInstance().getDatabaseService(databaseName).getAllEnzymes();
 
 	}
 

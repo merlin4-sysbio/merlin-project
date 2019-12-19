@@ -27,8 +27,8 @@ public class ModelEnzymesServices {
 	 * @throws Exception 
 	 */
 	public static List<String[]> getAllEnzymes(String databaseName, boolean encoded) throws Exception {
-
-		return InitDataAccess.getInstance().getDatabaseService(databaseName).getAllEnzymes();
+		
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).getAllEnzymes(encoded, ProjectServices.isCompartmentalisedModel(databaseName));
 	}
 
 	/**
