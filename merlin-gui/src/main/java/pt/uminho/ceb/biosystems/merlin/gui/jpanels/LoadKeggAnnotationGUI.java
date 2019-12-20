@@ -76,7 +76,7 @@ public class LoadKeggAnnotationGUI extends javax.swing.JDialog implements InputG
 	private void initGUI() {
 		this.setModal(true);
 		{
-			this.setTitle("Load KEGG annotion");
+			this.setTitle("Load KEGG annotation");
 			jPanel1 = new JPanel();
 			getContentPane().add(jPanel1, BorderLayout.CENTER);
 			GridBagLayout jPanel1Layout = new GridBagLayout();
