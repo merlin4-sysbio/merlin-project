@@ -712,6 +712,8 @@
 			<menu-icon menu="model/tools" icon="conf/icons/tools.png" />
 
 			<menu-icon menu="settings" icon="conf/icons/settings.png" />
+			
+			
 		</extension>
 
 	</extensions>
