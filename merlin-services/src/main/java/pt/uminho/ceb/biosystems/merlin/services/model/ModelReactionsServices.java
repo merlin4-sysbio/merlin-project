@@ -807,6 +807,19 @@ public class ModelReactionsServices {
 		InitDataAccess.getInstance().getDatabaseService(databaseName).removeSelectedReaction(reaction_id);
 
 	}
+	
+	/**
+	 * @param selectedRow
+	 * 
+	 * remove a given reaction
+	 * @throws Exception 
+	 * @throws IOException 
+	 */
+	public static void removeReactionLabelByReactionLabelId(String databaseName, int reactionLabelId) throws IOException, Exception {
+
+		InitDataAccess.getInstance().getDatabaseService(databaseName).removeSelectedReactionLabel(reactionLabelId);
+
+	}
 
 
 	/**

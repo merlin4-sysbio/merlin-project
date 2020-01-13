@@ -376,9 +376,14 @@ public class ModelReactionsAIBView extends WorkspaceUpdatablePanel {
 										rowID= modelReactions.getIdentifiers().get(jTable.convertRowIndexToModel(jTable.getSelectedRow()));
 
 									if(removeReactionConfirmation()) {
-
+										
+										int reactionLabelId = ModelReactionsServices.getIdReactionLabelFromReactionId(modelReactions.getWorkspace().getName(),  rowID);
 										ModelReactionsServices.removeReactionByReactionId(modelReactions.getWorkspace().getName(), rowID);
+										ModelReactionsServices.removeReactionLabelByReactionLabelId(modelReactions.getWorkspace().getName(), reactionLabelId);
+										
 										fillList(true, true);
+										Workbench.getInstance().info("Reaction successfully removed!");
+										
 									}
 								}
 								else {

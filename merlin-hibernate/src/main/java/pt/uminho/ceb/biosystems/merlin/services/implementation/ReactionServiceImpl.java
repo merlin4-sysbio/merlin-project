@@ -120,6 +120,12 @@ public class ReactionServiceImpl implements IReactionService {
 	}
 
 	@Override
+	public boolean removeSelectedReactionLabel(Integer reactionLabelId) throws Exception {
+		return this.modelreactionLabelsDAO.deleteModelReactionLabelsById(reactionLabelId);
+	}
+	
+	
+	@Override
 	public List<ModelReactionHasModelProtein> getProteinHasReaction() throws Exception {
 		return this.modelreactionhasproteinDao.getAllModelReactionHasModelProteinOrderByReactionId();
 	}

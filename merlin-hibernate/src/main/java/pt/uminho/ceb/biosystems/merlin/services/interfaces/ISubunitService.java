@@ -31,7 +31,7 @@ public interface ISubunitService {
 	
 	public Map<String, List<String>> getECNumbers_() throws Exception;
 	
-	public Pair<Integer, Integer> countGenesEncodingEnzymesAndTransporters() throws Exception;
+	public List<Integer> countGenesEncodingEnzymesAndTransporters() throws Exception;
 	
 	public int countProteinsAssociatedToGenes() throws Exception;
 	

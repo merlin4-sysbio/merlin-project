@@ -18,6 +18,7 @@ import pt.uminho.ceb.biosystems.merlin.processes.model.ModelGenesProcesses;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelGenesServices;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelProteinsServices;
 
+
 @Datatype(structure = Structure.LIST,namingMethod="getName")
 public class ModelGenesAIB extends ModelGenes implements IEntityAIB {
 

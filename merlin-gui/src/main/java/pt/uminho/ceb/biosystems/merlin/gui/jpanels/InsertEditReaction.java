@@ -2553,15 +2553,17 @@ public class InsertEditReaction extends JDialog {
 						break;
 					}
 					else if(metaboliteName.getKey().equals(element)) {
-						if(metaboliteName.getValue().size() > 0) {
+						
+						
+						if(metaboliteName.getValue().size() > 0 && metaboliteName.getValue().get(0) != null) 
 							Metabolites.setSelectedItem(metaboliteName.getValue().get(0));
-						}else {
+						else {
 							Metabolites.setSelectedItem(metaboliteName.getKey());
 						}
 
-						if(metaboliteName.getValue().size() > 1) {
+						if(metaboliteName.getValue().size() > 1 && metaboliteName.getValue().get(1) != null) 
 							formula.setText(metaboliteName.getValue().get(1));
-						}else {
+						else {
 							formula.setText("------------");
 						}
 						break;
@@ -2579,11 +2581,13 @@ public class InsertEditReaction extends JDialog {
 
 	private void updateFieldsOnActionPerformedMetabolites (String element, JComboBox<String> Id, JLabel Formula) {
 		
+		// this method verifies if the newly selected metabolite matches the previously selected one by name. 
+		// Then it verifies by formula
+		
 		for (Map.Entry<String,List<String>> metaboliteName : mapMetabolites.entrySet()) {
 			if(metaboliteName != null) {
 
 				try {
-
 					if (element.equals("")) {
 						Id.setSelectedIndex(0);
 						Formula.setText("");
@@ -2594,17 +2598,23 @@ public class InsertEditReaction extends JDialog {
 						Formula.setText("------------");
 						break;
 					}
-					else if(metaboliteName.getValue().get(0).equals(element) && metaboliteName.getValue().get(1) != Formula.getText()) {
-												
-						Id.setSelectedItem(metaboliteName.getKey());
+					else if(metaboliteName.getValue().get(0).equals(element)) {
 
-						if(metaboliteName.getValue().size()>1 && metaboliteName.getValue().get(1)!=null && metaboliteName.getValue().get(1)!="") {
-							Formula.setText(metaboliteName.getValue().get(1));
+						String newFormula = metaboliteName.getValue().get(1) ;
+
+						if(newFormula == null)
+							newFormula = "------------";
+
+						if(newFormula != Formula.getText()) {
+							Id.setSelectedItem(metaboliteName.getKey());
+
+							if(metaboliteName.getValue().size()>1 && newFormula!="") 
+								Formula.setText(newFormula);	
+							else {
+								Formula.setText("------------");
+							}
+							break;
 						}
-						else {
-							Formula.setText("------------");
-						}
-						break;
 					}
 
 				}

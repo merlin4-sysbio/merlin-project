@@ -1,0 +1,697 @@
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-addons   [version 4.0.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-automatic-annotation   [version 4.0.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biocoiso   [version 4.0.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biomass   [version 4.0.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-compartments   [version 4.0.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-exporter   [version 4.0.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gpr   [version 4.0.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-interpro   [version 4.0.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-sampler   [version 4.0.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-settings   [version 4.0.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.2]
+2020 Jan 09 15:28:41 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-workspace-compatibility   [version 4.0.2]
+2020 Jan 09 15:28:46 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 Jan 09 15:29:20 [AWT-EventQueue-0] warn WARN  e.u.ei.aibench.workbench.Workbench - genome files not loaded!
+2020 Jan 09 15:29:49 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jan 09 15:29:49 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jan 09 15:29:49 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jan 09 15:29:54 [Thread-22] <init> INFO  p.u.c.b.m.b.io.readers.ModelImporter - Reading compartments...
+2020 Jan 09 15:29:54 [Thread-22] <init> INFO  p.u.c.b.m.b.io.readers.ModelImporter - Reading metabolites...
+2020 Jan 09 15:29:54 [Thread-22] <init> INFO  p.u.c.b.m.b.io.readers.ModelImporter - Reading pathways...
+2020 Jan 09 15:29:54 [Thread-22] <init> INFO  p.u.c.b.m.b.io.readers.ModelImporter - Reading genes...
+2020 Jan 09 15:29:55 [Thread-22] <init> INFO  p.u.c.b.m.b.io.readers.ModelImporter - Reading reactions...
+2020 Jan 09 15:29:56 [Thread-22] <init> INFO  p.u.c.b.m.b.io.readers.ModelImporter - Reading enzymes...
+2020 Jan 09 15:29:56 [Thread-22] run INFO  p.u.c.b.m.s.m.l.LoadMetabolicData - Loading Compartments...
+2020 Jan 09 15:29:57 [Thread-22] run INFO  p.u.c.b.m.s.m.l.LoadMetabolicData - Loading Pathways...
+2020 Jan 09 15:29:57 [Thread-22] run INFO  p.u.c.b.m.s.m.l.LoadMetabolicData - Loading Enzymes...
+2020 Jan 09 15:29:57 [Thread-22] run INFO  p.u.c.b.m.s.m.l.LoadMetabolicData - Loading Compounds...
+2020 Jan 09 15:30:34 [Thread-22] run INFO  p.u.c.b.m.s.m.l.LoadMetabolicData - Loading Genes...
+2020 Jan 09 15:32:19 [Thread-22] run INFO  p.u.c.b.m.s.m.l.LoadMetabolicData - Loading Modules...
+2020 Jan 09 15:32:19 [Thread-22] run INFO  p.u.c.b.m.s.m.l.LoadMetabolicData - Loading Reactions...
+2020 Jan 09 15:32:20 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01141__cytop has the same products and metabolites: H+ + L-Serine => H+ + L-Serine
+ reaction will be ignored!
+2020 Jan 09 15:32:27 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00510__cytop has the same products and metabolites: e- => e-
+ reaction will be ignored!
+2020 Jan 09 15:32:28 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T08133__cytop has the same products and metabolites: Acetate => Acetate
+ reaction will be ignored!
+2020 Jan 09 15:32:31 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00760__cytop has the same products and metabolites: NADH + Acetyl-CoA <=> Acetyl-CoA + NADH
+ reaction will be ignored!
+2020 Jan 09 15:32:31 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06494__cytop has the same products and metabolites: H+ + FAD <=> FAD + H+
+ reaction will be ignored!
+2020 Jan 09 15:32:33 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07136_3_0__cytop has the same products and metabolites: L-Glutamine + H+ => H+ + L-Glutamine
+ reaction will be ignored!
+2020 Jan 09 15:32:34 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04422__cytop has the same products and metabolites: H+ + Biotin <=> H+ + Biotin
+ reaction will be ignored!
+2020 Jan 09 15:32:34 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06423__cytop has the same products and metabolites: Succinate + 2-Oxoglutarate <=> Succinate + 2-Oxoglutarate
+ reaction will be ignored!
+2020 Jan 09 15:32:35 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04180__cytop has the same products and metabolites: D-Mannose <=> D-Mannose
+ reaction will be ignored!
+2020 Jan 09 15:32:36 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05472_3_0__cytop has the same products and metabolites: H+ + L-Alanine => H+ + L-Alanine
+ reaction will be ignored!
+2020 Jan 09 15:32:36 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06483__cytop has the same products and metabolites: H+ + 2-Oxoglutarate <=> H+ + 2-Oxoglutarate
+ reaction will be ignored!
+2020 Jan 09 15:32:37 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00812__cytop has the same products and metabolites: ADP <=> ADP
+ reaction will be ignored!
+2020 Jan 09 15:32:42 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07029_1_0__cytop has the same products and metabolites: L-Asparagine + H+ => L-Asparagine + H+
+ reaction will be ignored!
+2020 Jan 09 15:32:42 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04672__cytop has the same products and metabolites: L-Histidinol + H+ <=> L-Histidinol + H+
+ reaction will be ignored!
+2020 Jan 09 15:32:47 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T08334__cytop has the same products and metabolites: H+ + Fe2+ => H+ + Fe2+
+ reaction will be ignored!
+2020 Jan 09 15:32:48 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00155_7__cytop has the same products and metabolites: D-Glucose <=> D-Glucose
+ reaction will be ignored!
+2020 Jan 09 15:32:50 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04142__cytop has the same products and metabolites: H+ + D-Ribose <=> D-Ribose + H+
+ reaction will be ignored!
+2020 Jan 09 15:32:51 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07106__cytop has the same products and metabolites: Alanine + H+ => H+ + Alanine
+ reaction will be ignored!
+2020 Jan 09 15:32:51 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04683__cytop has the same products and metabolites: L-Threonine + H+ <=> H+ + L-Threonine
+ reaction will be ignored!
+2020 Jan 09 15:32:53 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07001_2_0__cytop has the same products and metabolites: H+ + L-Threonine => L-Threonine + H+
+ reaction will be ignored!
+2020 Jan 09 15:32:53 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01125__cytop has the same products and metabolites: H+ + Alanine => Alanine + H+
+ reaction will be ignored!
+2020 Jan 09 15:32:59 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01130__cytop has the same products and metabolites: H+ + Glutamate => Glutamate + H+
+ reaction will be ignored!
+2020 Jan 09 15:33:03 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T03398__cytop has the same products and metabolites: Urea => Urea
+ reaction will be ignored!
+2020 Jan 09 15:33:04 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T02611__cytop has the same products and metabolites: Nitrate <=> Nitrate
+ reaction will be ignored!
+2020 Jan 09 15:33:05 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05445__cytop has the same products and metabolites: H+ + L-Tyrosine => H+ + L-Tyrosine
+ reaction will be ignored!
+2020 Jan 09 15:33:05 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04679__cytop has the same products and metabolites: L-Alanine + H+ <=> H+ + L-Alanine
+ reaction will be ignored!
+2020 Jan 09 15:33:05 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05228_300__cytop has the same products and metabolites: Formate <=> Formate
+ reaction will be ignored!
+2020 Jan 09 15:33:06 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04175__cytop has the same products and metabolites: D-Xylose <=> D-Xylose
+ reaction will be ignored!
+2020 Jan 09 15:33:11 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05730_1_0__cytop has the same products and metabolites: L-Asparagine + H+ => L-Asparagine + H+
+ reaction will be ignored!
+2020 Jan 09 15:33:22 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07112_2_0__cytop has the same products and metabolites: L-Histidine + H+ => H+ + L-Histidine
+ reaction will be ignored!
+2020 Jan 09 15:33:23 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06997_2_0__cytop has the same products and metabolites: L-Phenylalanine + H+ => H+ + L-Phenylalanine
+ reaction will be ignored!
+2020 Jan 09 15:33:24 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07138_2_0__cytop has the same products and metabolites: L-Histidine + H+ => H+ + L-Histidine
+ reaction will be ignored!
+2020 Jan 09 15:33:27 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04996__cytop has the same products and metabolites: Acetate + H+ <=> Acetate + H+
+ reaction will be ignored!
+2020 Jan 09 15:33:30 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04624__cytop has the same products and metabolites: H+ + Spermidine <=> H+ + Spermidine
+ reaction will be ignored!
+2020 Jan 09 15:33:30 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00771__cytop has the same products and metabolites: ADP + CoA <=> ADP + CoA
+ reaction will be ignored!
+2020 Jan 09 15:33:32 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06992_5_0__cytop has the same products and metabolites: L-Isoleucine + H+ => H+ + L-Isoleucine
+ reaction will be ignored!
+2020 Jan 09 15:33:35 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07027_3_0__cytop has the same products and metabolites: H+ + L-Alanine => H+ + L-Alanine
+ reaction will be ignored!
+2020 Jan 09 15:33:35 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04613__cytop has the same products and metabolites: Pyridoxamine + H+ <=> Pyridoxamine + H+
+ reaction will be ignored!
+2020 Jan 09 15:33:36 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07032__cytop has the same products and metabolites: H+ + Glycine => Glycine + H+
+ reaction will be ignored!
+2020 Jan 09 15:33:36 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T12846__cytop has the same products and metabolites: H+ => H+
+ reaction will be ignored!
+2020 Jan 09 15:33:37 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07035_1_0__cytop has the same products and metabolites: L-Leucine + H+ => H+ + L-Leucine
+ reaction will be ignored!
+2020 Jan 09 15:33:43 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04226_0_57__cytop has the same products and metabolites: H+ + 6-Deoxy-L-galactose <=> H+ + 6-Deoxy-L-galactose
+ reaction will be ignored!
+2020 Jan 09 15:33:44 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T08181__cytop has the same products and metabolites: Sulfate + H+ => H+ + Sulfate
+ reaction will be ignored!
+2020 Jan 09 15:33:47 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00794__cytop has the same products and metabolites: NAD+ + Dephospho-CoA <=> NAD+ + Dephospho-CoA
+ reaction will be ignored!
+2020 Jan 09 15:33:49 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T02521__cytop has the same products and metabolites: L-Serine <=> L-Serine
+ reaction will be ignored!
+2020 Jan 09 15:33:50 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05473_1_0__cytop has the same products and metabolites: L-Asparagine + H+ => L-Asparagine + H+
+ reaction will be ignored!
+2020 Jan 09 15:33:50 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00811__cytop has the same products and metabolites: Adenosine 3\',5\'-bisphosphate <=> Adenosine 3\',5\'-bisphosphate
+ reaction will be ignored!
+2020 Jan 09 15:33:57 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00772__cytop has the same products and metabolites: ADP + Dephospho-CoA <=> ADP + Dephospho-CoA
+ reaction will be ignored!
+2020 Jan 09 15:34:00 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01137__cytop has the same products and metabolites: H+ + L-Methionine => H+ + L-Methionine
+ reaction will be ignored!
+2020 Jan 09 15:34:03 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00341__cytop has the same products and metabolites: Uridine <=> Uridine
+ reaction will be ignored!
+2020 Jan 09 15:34:05 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00305__cytop has the same products and metabolites: CoA <=> CoA
+ reaction will be ignored!
+2020 Jan 09 15:34:05 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07111__cytop has the same products and metabolites: H+ + Glycine => Glycine + H+
+ reaction will be ignored!
+2020 Jan 09 15:34:07 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00756__cytop has the same products and metabolites: AMP + Acetyl-CoA <=> Acetyl-CoA + AMP
+ reaction will be ignored!
+2020 Jan 09 15:34:07 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07149__cytop has the same products and metabolites: H+ + L-Tyrosine => H+ + L-Tyrosine
+ reaction will be ignored!
+2020 Jan 09 15:34:08 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09362__cytop has the same products and metabolites: UDP-glucuronate <=> UDP-glucuronate
+ reaction will be ignored!
+2020 Jan 09 15:34:13 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06422__cytop has the same products and metabolites: Oxaloacetate + 2-Oxoglutarate <=> 2-Oxoglutarate + Oxaloacetate
+ reaction will be ignored!
+2020 Jan 09 15:34:17 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06996_1_0__cytop has the same products and metabolites: L-Ornithine + H+ => H+ + L-Ornithine
+ reaction will be ignored!
+2020 Jan 09 15:34:17 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06601__cytop has the same products and metabolites: H+ + S-Adenosyl-L-methionine <=> S-Adenosyl-L-methionine + H+
+ reaction will be ignored!
+2020 Jan 09 15:34:19 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00734__cytop has the same products and metabolites: H+ + Orthophosphate <=> H+ + Orthophosphate
+ reaction will be ignored!
+2020 Jan 09 15:34:19 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00778__cytop has the same products and metabolites: AMP + CoA <=> AMP + CoA
+ reaction will be ignored!
+2020 Jan 09 15:34:19 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06998_2_0__cytop has the same products and metabolites: L-Proline + H+ => H+ + L-Proline
+ reaction will be ignored!
+2020 Jan 09 15:34:21 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00157__cytop has the same products and metabolites: Carnitine <=> Carnitine
+ reaction will be ignored!
+2020 Jan 09 15:34:25 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05724__cytop has the same products and metabolites: Alanine + H+ => H+ + Alanine
+ reaction will be ignored!
+2020 Jan 09 15:34:29 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00781__cytop has the same products and metabolites: AMP + NADH <=> NADH + AMP
+ reaction will be ignored!
+2020 Jan 09 15:34:31 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07468__cytop has the same products and metabolites: H+ + L-Cysteine <=> L-Cysteine + H+
+ reaction will be ignored!
+2020 Jan 09 15:34:31 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00802__cytop has the same products and metabolites: NAD+ + NADH <=> NAD+ + NADH
+ reaction will be ignored!
+2020 Jan 09 15:34:31 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04392__cytop has the same products and metabolites: L-Phenylalanine <=> L-Phenylalanine
+ reaction will be ignored!
+2020 Jan 09 15:34:36 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07000__cytop has the same products and metabolites: H+ + L-Serine => H+ + L-Serine
+ reaction will be ignored!
+2020 Jan 09 15:34:38 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07110_3_0__cytop has the same products and metabolites: L-Glutamine + H+ => H+ + L-Glutamine
+ reaction will be ignored!
+2020 Jan 09 15:34:40 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06450__cytop has the same products and metabolites: H+ + Glutarate <=> H+ + Glutarate
+ reaction will be ignored!
+2020 Jan 09 15:34:41 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04141__cytop has the same products and metabolites: Mannitol + H+ <=> Mannitol + H+
+ reaction will be ignored!
+2020 Jan 09 15:34:44 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07121__cytop has the same products and metabolites: H+ + L-Serine => H+ + L-Serine
+ reaction will be ignored!
+2020 Jan 09 15:34:45 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04623__cytop has the same products and metabolites: Putrescine + H+ <=> H+ + Putrescine
+ reaction will be ignored!
+2020 Jan 09 15:34:46 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07033_2_0__cytop has the same products and metabolites: L-Histidine + H+ => H+ + L-Histidine
+ reaction will be ignored!
+2020 Jan 09 15:34:46 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00788__cytop has the same products and metabolites: NADH + CoA <=> CoA + NADH
+ reaction will be ignored!
+2020 Jan 09 15:34:47 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00766__cytop has the same products and metabolites: NAD+ + Adenosine 3\',5\'-bisphosphate <=> Adenosine 3\',5\'-bisphosphate + NAD+
+ reaction will be ignored!
+2020 Jan 09 15:34:49 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T03397__cytop has the same products and metabolites: Ammonia => Ammonia
+ reaction will be ignored!
+2020 Jan 09 15:34:49 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06435__cytop has the same products and metabolites: Succinate + Oxaloacetate <=> Oxaloacetate + Succinate
+ reaction will be ignored!
+2020 Jan 09 15:34:50 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06989_3_0__cytop has the same products and metabolites: L-Glutamine + H+ => H+ + L-Glutamine
+ reaction will be ignored!
+2020 Jan 09 15:34:53 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T03427__cytop has the same products and metabolites: (S)-Lactate => (S)-Lactate
+ reaction will be ignored!
+2020 Jan 09 15:34:54 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07044__cytop has the same products and metabolites: H+ + L-Tryptophan => H+ + L-Tryptophan
+ reaction will be ignored!
+2020 Jan 09 15:34:58 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07730__cytop has the same products and metabolites: H+ + Guanine => H+ + Guanine
+ reaction will be ignored!
+2020 Jan 09 15:35:01 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07107_2_0__cytop has the same products and metabolites: H+ + L-Arginine => L-Arginine + H+
+ reaction will be ignored!
+2020 Jan 09 15:35:10 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05726__cytop has the same products and metabolites: H+ + L-Tryptophan => H+ + L-Tryptophan
+ reaction will be ignored!
+2020 Jan 09 15:35:15 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09322__cytop has the same products and metabolites: UDP-N-acetyl-alpha-D-glucosamine + UMP <=> UDP-N-acetyl-alpha-D-glucosamine + UMP
+ reaction will be ignored!
+2020 Jan 09 15:35:21 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00787__cytop has the same products and metabolites: NAD+ + CoA <=> CoA + NAD+
+ reaction will be ignored!
+2020 Jan 09 15:35:23 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05443__cytop has the same products and metabolites: L-Leucine + H+ => H+ + L-Leucine
+ reaction will be ignored!
+2020 Jan 09 15:35:29 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04625__cytop has the same products and metabolites: H+ + Spermine <=> H+ + Spermine
+ reaction will be ignored!
+2020 Jan 09 15:35:30 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00757__cytop has the same products and metabolites: CoA + Acetyl-CoA <=> Acetyl-CoA + CoA
+ reaction will be ignored!
+2020 Jan 09 15:35:30 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06387__cytop has the same products and metabolites: H+ + Thiosulfate <=> Thiosulfate + H+
+ reaction will be ignored!
+2020 Jan 09 15:35:32 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07142__cytop has the same products and metabolites: H+ + L-Methionine => H+ + L-Methionine
+ reaction will be ignored!
+2020 Jan 09 15:35:33 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04334__cytop has the same products and metabolites: Acetate + H+ <=> H+ + Acetate
+ reaction will be ignored!
+2020 Jan 09 15:35:33 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05100__cytop has the same products and metabolites: Sphingosine 1-phosphate <=> Sphingosine 1-phosphate
+ reaction will be ignored!
+2020 Jan 09 15:35:51 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T08089__cytop has the same products and metabolites: H+ + Nitrate <=> Nitrate + H+
+ reaction will be ignored!
+2020 Jan 09 15:35:51 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05487__cytop has the same products and metabolites: H+ + L-Tyrosine => H+ + L-Tyrosine
+ reaction will be ignored!
+2020 Jan 09 15:35:52 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05476__cytop has the same products and metabolites: H+ + Glycine => Glycine + H+
+ reaction will be ignored!
+2020 Jan 09 15:35:54 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06986_2_0__cytop has the same products and metabolites: H+ + L-Arginine => L-Arginine + H+
+ reaction will be ignored!
+2020 Jan 09 15:35:55 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T_Oxygen_Diffusion__cytop has the same products and metabolites: Oxygen <=> Oxygen
+ reaction will be ignored!
+2020 Jan 09 15:35:56 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00810__cytop has the same products and metabolites: Acetyl-CoA <=> Acetyl-CoA
+ reaction will be ignored!
+2020 Jan 09 15:36:00 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04920_2_0__cytop has the same products and metabolites: L-Arginine + H+ <=> H+ + L-Arginine
+ reaction will be ignored!
+2020 Jan 09 15:36:00 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06547__cytop has the same products and metabolites: H+ + Fe2+ <=> Fe2+ + H+
+ reaction will be ignored!
+2020 Jan 09 15:36:04 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05737__cytop has the same products and metabolites: H+ + L-Methionine => H+ + L-Methionine
+ reaction will be ignored!
+2020 Jan 09 15:36:06 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00795__cytop has the same products and metabolites: Dephospho-CoA + NADH <=> NADH + Dephospho-CoA
+ reaction will be ignored!
+2020 Jan 09 15:36:10 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07115_2_0__cytop has the same products and metabolites: L-Lysine + H+ => H+ + L-Lysine
+ reaction will be ignored!
+2020 Jan 09 15:36:10 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05734_2_0__cytop has the same products and metabolites: L-Histidine + H+ => H+ + L-Histidine
+ reaction will be ignored!
+2020 Jan 09 15:36:10 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06987_1_0__cytop has the same products and metabolites: L-Asparagine + H+ => L-Asparagine + H+
+ reaction will be ignored!
+2020 Jan 09 15:36:10 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09412__cytop has the same products and metabolites: Magnesium cation => Magnesium cation
+ reaction will be ignored!
+2020 Jan 09 15:36:11 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05731__cytop has the same products and metabolites: Cysteine + H+ => H+ + Cysteine
+ reaction will be ignored!
+2020 Jan 09 15:36:14 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07045__cytop has the same products and metabolites: H+ + L-Tyrosine => H+ + L-Tyrosine
+ reaction will be ignored!
+2020 Jan 09 15:36:19 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09026__cytop has the same products and metabolites: H+ + Guanidine => H+ + Guanidine
+ reaction will be ignored!
+2020 Jan 09 15:36:19 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09023__cytop has the same products and metabolites: 1-Methylnicotinamide + H+ => H+ + 1-Methylnicotinamide
+ reaction will be ignored!
+2020 Jan 09 15:36:20 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06425__cytop has the same products and metabolites: Fumarate + (S)-Malate <=> (S)-Malate + Fumarate
+ reaction will be ignored!
+2020 Jan 09 15:36:20 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00638__cytop has the same products and metabolites: L-Glutamate => L-Glutamate
+ reaction will be ignored!
+2020 Jan 09 15:36:21 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00385__cytop has the same products and metabolites: Orthophosphate + Phosphoenolpyruvate <=> Phosphoenolpyruvate + Orthophosphate
+ reaction will be ignored!
+2020 Jan 09 15:36:21 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06469__cytop has the same products and metabolites: H+ + (S)-Malate <=> H+ + (S)-Malate
+ reaction will be ignored!
+2020 Jan 09 15:36:24 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01151__cytop has the same products and metabolites: H+ + Glutamate => Glutamate + H+
+ reaction will be ignored!
+2020 Jan 09 15:36:30 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05440__cytop has the same products and metabolites: L-Asparagine + H+ => L-Asparagine + H+
+ reaction will be ignored!
+2020 Jan 09 15:36:32 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07034_5_0__cytop has the same products and metabolites: L-Isoleucine + H+ => H+ + L-Isoleucine
+ reaction will be ignored!
+2020 Jan 09 15:36:33 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00754__cytop has the same products and metabolites: Adenosine 3\',5\'-bisphosphate + Acetyl-CoA <=> Acetyl-CoA + Adenosine 3\',5\'-bisphosphate
+ reaction will be ignored!
+2020 Jan 09 15:36:37 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06495__cytop has the same products and metabolites: H+ + FMN <=> H+ + FMN
+ reaction will be ignored!
+2020 Jan 09 15:36:38 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07037__cytop has the same products and metabolites: H+ + L-Methionine => H+ + L-Methionine
+ reaction will be ignored!
+2020 Jan 09 15:36:45 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04151__cytop has the same products and metabolites: Xylitol + H+ <=> Xylitol + H+
+ reaction will be ignored!
+2020 Jan 09 15:36:46 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05484__cytop has the same products and metabolites: H+ + L-Serine => H+ + L-Serine
+ reaction will be ignored!
+2020 Jan 09 15:36:49 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06471__cytop has the same products and metabolites: Succinate + H+ <=> Succinate + H+
+ reaction will be ignored!
+2020 Jan 09 15:36:52 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06430__cytop has the same products and metabolites: Oxaloacetate + (S)-Malate <=> (S)-Malate + Oxaloacetate
+ reaction will be ignored!
+2020 Jan 09 15:36:53 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01175__cytop has the same products and metabolites: UDP + UDP-glucose <=> UDP + UDP-glucose
+ reaction will be ignored!
+2020 Jan 09 15:36:57 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06938__cytop has the same products and metabolites: Spermidine + H+ => H+ + Spermidine
+ reaction will be ignored!
+2020 Jan 09 15:36:57 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05370__cytop has the same products and metabolites: Sulfite => Sulfite
+ reaction will be ignored!
+2020 Jan 09 15:36:57 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00195__cytop has the same products and metabolites: Sucrose <=> Sucrose
+ reaction will be ignored!
+2020 Jan 09 15:36:57 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00764__cytop has the same products and metabolites: CoA + Adenosine 3\',5\'-bisphosphate <=> Adenosine 3\',5\'-bisphosphate + CoA
+ reaction will be ignored!
+2020 Jan 09 15:36:57 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06408__cytop has the same products and metabolites: H+ + L-Ornithine <=> L-Ornithine + H+
+ reaction will be ignored!
+2020 Jan 09 15:36:58 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06369__cytop has the same products and metabolites: H+ + CoA <=> H+ + CoA
+ reaction will be ignored!
+2020 Jan 09 15:36:59 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05744__cytop has the same products and metabolites: H+ + L-Tyrosine => H+ + L-Tyrosine
+ reaction will be ignored!
+2020 Jan 09 15:36:59 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05741__cytop has the same products and metabolites: H+ + L-Serine => H+ + L-Serine
+ reaction will be ignored!
+2020 Jan 09 15:37:07 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07042__cytop has the same products and metabolites: H+ + L-Serine => H+ + L-Serine
+ reaction will be ignored!
+2020 Jan 09 15:37:09 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01176_0_1__cytop has the same products and metabolites: UDP-glucose + UMP <=> UDP-glucose + UMP
+ reaction will be ignored!
+2020 Jan 09 15:37:10 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T02394__cytop has the same products and metabolites: Glutathione <=> Glutathione
+ reaction will be ignored!
+2020 Jan 09 15:37:10 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06993_1_0__cytop has the same products and metabolites: L-Leucine + H+ => H+ + L-Leucine
+ reaction will be ignored!
+2020 Jan 09 15:37:12 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06405__cytop has the same products and metabolites: H+ + L-Citrulline <=> H+ + L-Citrulline
+ reaction will be ignored!
+2020 Jan 09 15:37:17 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04393__cytop has the same products and metabolites: L-Tryptophan <=> L-Tryptophan
+ reaction will be ignored!
+2020 Jan 09 15:37:22 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00767__cytop has the same products and metabolites: NADH + Adenosine 3\',5\'-bisphosphate <=> Adenosine 3\',5\'-bisphosphate + NADH
+ reaction will be ignored!
+2020 Jan 09 15:37:25 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00816__cytop has the same products and metabolites: NAD+ <=> NAD+
+ reaction will be ignored!
+2020 Jan 09 15:37:26 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06443__cytop has the same products and metabolites: H+ + 2-Oxoadipate <=> 2-Oxoadipate + H+
+ reaction will be ignored!
+2020 Jan 09 15:37:29 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09324__cytop has the same products and metabolites: UDP-alpha-D-galactose + UMP <=> UDP-alpha-D-galactose + UMP
+ reaction will be ignored!
+2020 Jan 09 15:37:31 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09185__cytop has the same products and metabolites: H+ + Nicotianamine + Fe2+ => H+ + Nicotianamine + Fe2+
+ reaction will be ignored!
+2020 Jan 09 15:37:31 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05438__cytop has the same products and metabolites: H+ + L-Tyrosine => H+ + L-Tyrosine
+ reaction will be ignored!
+2020 Jan 09 15:37:32 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07750__cytop has the same products and metabolites: Uracil + H+ => H+ + Uracil
+ reaction will be ignored!
+2020 Jan 09 15:37:33 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04774__cytop has the same products and metabolites: H+ + Penicillin <=> Penicillin + H+
+ reaction will be ignored!
+2020 Jan 09 15:37:33 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T03400__cytop has the same products and metabolites: Hydrogen peroxide => Hydrogen peroxide
+ reaction will be ignored!
+2020 Jan 09 15:37:34 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00362__cytop has the same products and metabolites: GDP-mannose + GMP <=> GMP + GDP-mannose
+ reaction will be ignored!
+2020 Jan 09 15:37:36 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00615__cytop has the same products and metabolites: H2O <=> H2O
+ reaction will be ignored!
+2020 Jan 09 15:37:37 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06600__cytop has the same products and metabolites: H+ + Carnitine <=> H+ + Carnitine
+ reaction will be ignored!
+2020 Jan 09 15:37:37 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04612__cytop has the same products and metabolites: H+ + Pyridoxal <=> H+ + Pyridoxal
+ reaction will be ignored!
+2020 Jan 09 15:37:38 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04149__cytop has the same products and metabolites: H+ + D-Sorbitol <=> D-Sorbitol + H+
+ reaction will be ignored!
+2020 Jan 09 15:37:39 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01129__cytop has the same products and metabolites: H+ + Cysteine => Cysteine + H+
+ reaction will be ignored!
+2020 Jan 09 15:37:45 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07148__cytop has the same products and metabolites: H+ + L-Tryptophan => H+ + L-Tryptophan
+ reaction will be ignored!
+2020 Jan 09 15:37:46 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01144__cytop has the same products and metabolites: H+ + L-Tyrosine => H+ + L-Tyrosine
+ reaction will be ignored!
+2020 Jan 09 15:37:47 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05729__cytop has the same products and metabolites: Alanine + H+ => H+ + Alanine
+ reaction will be ignored!
+2020 Jan 09 15:37:48 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T03395__cytop has the same products and metabolites: CO2 <=> CO2
+ reaction will be ignored!
+2020 Jan 09 15:37:53 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07027__cytop has the same products and metabolites: Alanine + H+ => H+ + Alanine
+ reaction will be ignored!
+2020 Jan 09 15:37:53 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07179__cytop has the same products and metabolites: Choline + H+ => H+ + Choline
+ reaction will be ignored!
+2020 Jan 09 15:37:53 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05475_3_0__cytop has the same products and metabolites: L-Glutamine + H+ => H+ + L-Glutamine
+ reaction will be ignored!
+2020 Jan 09 15:37:55 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07106_3_0__cytop has the same products and metabolites: H+ + L-Alanine => H+ + L-Alanine
+ reaction will be ignored!
+2020 Jan 09 15:37:56 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06978_2_0__cytop has the same products and metabolites: H+ + L-Arginine => L-Arginine + H+
+ reaction will be ignored!
+2020 Jan 09 15:37:58 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00813__cytop has the same products and metabolites: AMP <=> AMP
+ reaction will be ignored!
+2020 Jan 09 15:38:00 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07132_1_0__cytop has the same products and metabolites: L-Asparagine + H+ => L-Asparagine + H+
+ reaction will be ignored!
+2020 Jan 09 15:38:01 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04922_2_0__cytop has the same products and metabolites: H+ + L-Lysine <=> H+ + L-Lysine
+ reaction will be ignored!
+2020 Jan 09 15:38:04 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04147_0_22__cytop has the same products and metabolites: D-Xylose + H+ <=> H+ + D-Xylose
+ reaction will be ignored!
+2020 Jan 09 15:38:05 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07109__cytop has the same products and metabolites: Cysteine + H+ => H+ + Cysteine
+ reaction will be ignored!
+2020 Jan 09 15:38:06 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00815__cytop has the same products and metabolites: Dephospho-CoA <=> Dephospho-CoA
+ reaction will be ignored!
+2020 Jan 09 15:38:08 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06610__cytop has the same products and metabolites: H+ + O-Acetylcarnitine <=> O-Acetylcarnitine + H+
+ reaction will be ignored!
+2020 Jan 09 15:38:15 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06464__cytop has the same products and metabolites: Isocitrate + H+ <=> H+ + Isocitrate
+ reaction will be ignored!
+2020 Jan 09 15:38:18 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05806__cytop has the same products and metabolites: Sucrose + H+ => H+ + Sucrose
+ reaction will be ignored!
+2020 Jan 09 15:38:20 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09778__cytop has the same products and metabolites: Orthophosphate => Orthophosphate
+ reaction will be ignored!
+2020 Jan 09 15:38:21 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00153_0_7__cytop has the same products and metabolites: D-Glucose + H+ <=> H+ + D-Glucose
+ reaction will be ignored!
+2020 Jan 09 15:38:24 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06426__cytop has the same products and metabolites: Oxaloacetate + Fumarate <=> Fumarate + Oxaloacetate
+ reaction will be ignored!
+2020 Jan 09 15:38:25 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06448__cytop has the same products and metabolites: L-2-Aminoadipate + H+ <=> L-2-Aminoadipate + H+
+ reaction will be ignored!
+2020 Jan 09 15:38:28 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04971__cytop has the same products and metabolites: H+ + Phenazine <=> H+ + Phenazine
+ reaction will be ignored!
+2020 Jan 09 15:38:29 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05743__cytop has the same products and metabolites: H+ + L-Tryptophan => H+ + L-Tryptophan
+ reaction will be ignored!
+2020 Jan 09 15:38:37 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05045__cytop has the same products and metabolites: D-Glucose 6-phosphate + Orthophosphate <=> D-Glucose 6-phosphate + Orthophosphate
+ reaction will be ignored!
+2020 Jan 09 15:38:37 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07002__cytop has the same products and metabolites: H+ + L-Tryptophan => H+ + L-Tryptophan
+ reaction will be ignored!
+2020 Jan 09 15:38:38 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05437__cytop has the same products and metabolites: H+ + L-Tryptophan => H+ + L-Tryptophan
+ reaction will be ignored!
+2020 Jan 09 15:38:39 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09365__cytop has the same products and metabolites: UDP-D-xylose + UDP <=> UDP-D-xylose + UDP
+ reaction will be ignored!
+2020 Jan 09 15:38:45 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05486__cytop has the same products and metabolites: H+ + L-Tryptophan => H+ + L-Tryptophan
+ reaction will be ignored!
+2020 Jan 09 15:38:47 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04615__cytop has the same products and metabolites: Thiamine + H+ <=> H+ + Thiamine
+ reaction will be ignored!
+2020 Jan 09 15:38:48 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00674__cytop has the same products and metabolites: Isopenicillin N + H+ <=> H+ + Isopenicillin N
+ reaction will be ignored!
+2020 Jan 09 15:38:48 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00774__cytop has the same products and metabolites: ADP + NADH <=> ADP + NADH
+ reaction will be ignored!
+2020 Jan 09 15:38:50 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00763__cytop has the same products and metabolites: Adenosine 3\',5\'-bisphosphate + AMP <=> Adenosine 3\',5\'-bisphosphate + AMP
+ reaction will be ignored!
+2020 Jan 09 15:38:51 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06420__cytop has the same products and metabolites: Fumarate + 2-Oxoglutarate <=> Fumarate + 2-Oxoglutarate
+ reaction will be ignored!
+2020 Jan 09 15:38:51 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06431__cytop has the same products and metabolites: Succinate + (S)-Malate <=> Succinate + (S)-Malate
+ reaction will be ignored!
+2020 Jan 09 15:38:52 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06385__cytop has the same products and metabolites: Oxaloacetate + H+ <=> H+ + Oxaloacetate
+ reaction will be ignored!
+2020 Jan 09 15:38:53 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07728__cytop has the same products and metabolites: Adenine + H+ => H+ + Adenine
+ reaction will be ignored!
+2020 Jan 09 15:38:53 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06363__cytop has the same products and metabolites: NAD+ + dAMP <=> dAMP + NAD+
+ reaction will be ignored!
+2020 Jan 09 15:38:56 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09321__cytop has the same products and metabolites: UDP-D-xylose + UMP <=> UDP-D-xylose + UMP
+ reaction will be ignored!
+2020 Jan 09 15:39:05 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04680__cytop has the same products and metabolites: L-Aspartate + H+ <=> H+ + L-Aspartate
+ reaction will be ignored!
+2020 Jan 09 15:39:05 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T03123__cytop has the same products and metabolites: Methylamine <=> Methylamine
+ reaction will be ignored!
+2020 Jan 09 15:39:08 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06490__cytop has the same products and metabolites: H+ + ADP <=> ADP + H+
+ reaction will be ignored!
+2020 Jan 09 15:39:08 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00759__cytop has the same products and metabolites: NAD+ + Acetyl-CoA <=> Acetyl-CoA + NAD+
+ reaction will be ignored!
+2020 Jan 09 15:39:09 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00379__cytop has the same products and metabolites: UDP-alpha-D-galactose + Orthophosphate <=> UDP-alpha-D-galactose + Orthophosphate
+ reaction will be ignored!
+2020 Jan 09 15:39:11 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00154__cytop has the same products and metabolites: D-Mannose + H+ <=> H+ + D-Mannose
+ reaction will be ignored!
+2020 Jan 09 15:39:12 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T13258__cytop has the same products and metabolites: Ethanolamine phosphate => Ethanolamine phosphate
+ reaction will be ignored!
+2020 Jan 09 15:39:12 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05436__cytop has the same products and metabolites: L-Phenylalanine + H+ => H+ + L-Phenylalanine
+ reaction will be ignored!
+2020 Jan 09 15:39:12 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00308__cytop has the same products and metabolites: H+ + Orthophosphate <=> H+ + Orthophosphate
+ reaction will be ignored!
+2020 Jan 09 15:39:13 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00514__cytop has the same products and metabolites: e- <=> e-
+ reaction will be ignored!
+2020 Jan 09 15:39:15 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07146__cytop has the same products and metabolites: H+ + L-Serine => H+ + L-Serine
+ reaction will be ignored!
+2020 Jan 09 15:39:18 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00673__cytop has the same products and metabolites: H+ + Phenylacetic acid <=> Phenylacetic acid + H+
+ reaction will be ignored!
+2020 Jan 09 15:39:21 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07119_2_0__cytop has the same products and metabolites: L-Proline + H+ => H+ + L-Proline
+ reaction will be ignored!
+2020 Jan 09 15:39:21 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T03424__cytop has the same products and metabolites: Selenite => Selenite
+ reaction will be ignored!
+2020 Jan 09 15:39:21 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05733__cytop has the same products and metabolites: H+ + Glycine => Glycine + H+
+ reaction will be ignored!
+2020 Jan 09 15:39:21 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07140_1_0__cytop has the same products and metabolites: L-Leucine + H+ => H+ + L-Leucine
+ reaction will be ignored!
+2020 Jan 09 15:39:24 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05480__cytop has the same products and metabolites: H+ + L-Methionine => H+ + L-Methionine
+ reaction will be ignored!
+2020 Jan 09 15:39:25 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06515__cytop has the same products and metabolites: H+ + ATP <=> ATP + H+
+ reaction will be ignored!
+2020 Jan 09 15:39:25 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T08330__cytop has the same products and metabolites: H+ + Fe2+ <=> H+ + Fe2+
+ reaction will be ignored!
+2020 Jan 09 15:39:26 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04448__cytop has the same products and metabolites: H+ + L-Glutamate <=> L-Glutamate + H+
+ reaction will be ignored!
+2020 Jan 09 15:39:26 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05727__cytop has the same products and metabolites: H+ + Glycine => Glycine + H+
+ reaction will be ignored!
+2020 Jan 09 15:39:32 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04676__cytop has the same products and metabolites: Caffeine + H+ <=> Caffeine + H+
+ reaction will be ignored!
+2020 Jan 09 15:39:32 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05442__cytop has the same products and metabolites: L-Isoleucine + H+ => H+ + L-Isoleucine
+ reaction will be ignored!
+2020 Jan 09 15:39:55 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06528__cytop has the same products and metabolites: NAD+ + AMP <=> NAD+ + AMP
+ reaction will be ignored!
+2020 Jan 09 15:39:55 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09075__cytop has the same products and metabolites: H+ + Citrate => H+ + Citrate
+ reaction will be ignored!
+2020 Jan 09 15:39:57 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07003__cytop has the same products and metabolites: H+ + L-Tyrosine => H+ + L-Tyrosine
+ reaction will be ignored!
+2020 Jan 09 15:39:57 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04278__cytop has the same products and metabolites: Sucrose + H+ <=> H+ + Sucrose
+ reaction will be ignored!
+2020 Jan 09 15:39:57 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04546_1002__cytop has the same products and metabolites: 4-Trimethylammoniobutanoate <=> 4-Trimethylammoniobutanoate
+ reaction will be ignored!
+2020 Jan 09 15:39:58 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06995__cytop has the same products and metabolites: H+ + L-Methionine => H+ + L-Methionine
+ reaction will be ignored!
+2020 Jan 09 15:39:58 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06491__cytop has the same products and metabolites: H+ + AMP <=> AMP + H+
+ reaction will be ignored!
+2020 Jan 09 15:39:59 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T03124__cytop has the same products and metabolites: Ammonia <=> Ammonia
+ reaction will be ignored!
+2020 Jan 09 15:40:03 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07137__cytop has the same products and metabolites: H+ + Glycine => Glycine + H+
+ reaction will be ignored!
+2020 Jan 09 15:40:05 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09366__cytop has the same products and metabolites: UDP-N-acetyl-alpha-D-glucosamine + UDP <=> UDP-N-acetyl-alpha-D-glucosamine + UDP
+ reaction will be ignored!
+2020 Jan 09 15:40:05 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00339__cytop has the same products and metabolites: Cytidine <=> Cytidine
+ reaction will be ignored!
+2020 Jan 09 15:40:07 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06386__cytop has the same products and metabolites: H+ + Sulfate <=> Sulfate + H+
+ reaction will be ignored!
+2020 Jan 09 15:40:07 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05474__cytop has the same products and metabolites: Cysteine + H+ => H+ + Cysteine
+ reaction will be ignored!
+2020 Jan 09 15:40:09 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07113_5_0__cytop has the same products and metabolites: L-Isoleucine + H+ => H+ + L-Isoleucine
+ reaction will be ignored!
+2020 Jan 09 15:40:09 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T02395__cytop has the same products and metabolites: Thiol <=> Thiol
+ reaction will be ignored!
+2020 Jan 09 15:40:16 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07124__cytop has the same products and metabolites: H+ + L-Tyrosine => H+ + L-Tyrosine
+ reaction will be ignored!
+2020 Jan 09 15:40:19 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05732_3_0__cytop has the same products and metabolites: L-Glutamine + H+ => H+ + L-Glutamine
+ reaction will be ignored!
+2020 Jan 09 15:40:19 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04614__cytop has the same products and metabolites: H+ + Pyridoxine <=> H+ + Pyridoxine
+ reaction will be ignored!
+2020 Jan 09 15:40:21 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07130__cytop has the same products and metabolites: Alanine + H+ => H+ + Alanine
+ reaction will be ignored!
+2020 Jan 09 15:40:21 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06364__cytop has the same products and metabolites: dGMP + NAD+ <=> dGMP + NAD+
+ reaction will be ignored!
+2020 Jan 09 15:40:28 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04394__cytop has the same products and metabolites: L-Tyrosine <=> L-Tyrosine
+ reaction will be ignored!
+2020 Jan 09 15:40:32 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06398__cytop has the same products and metabolites: AMP + ATP <=> ATP + AMP
+ reaction will be ignored!
+2020 Jan 09 15:40:33 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06365__cytop has the same products and metabolites: H+ + ADP-glucose <=> H+ + ADP-glucose
+ reaction will be ignored!
+2020 Jan 09 15:40:34 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00378_0_428__cytop has the same products and metabolites: Glycerone phosphate + Orthophosphate <=> Glycerone phosphate + Orthophosphate
+ reaction will be ignored!
+2020 Jan 09 15:40:34 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06985_3_0__cytop has the same products and metabolites: H+ + L-Alanine => H+ + L-Alanine
+ reaction will be ignored!
+2020 Jan 09 15:40:35 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T02475__cytop has the same products and metabolites: Magnesium cation <=> Magnesium cation
+ reaction will be ignored!
+2020 Jan 09 15:40:35 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04144__cytop has the same products and metabolites: H+ + Glycerol <=> H+ + Glycerol
+ reaction will be ignored!
+2020 Jan 09 15:40:36 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00224__cytop has the same products and metabolites: Nitrate + H+ => H+ + Nitrate
+ reaction will be ignored!
+2020 Jan 09 15:40:37 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T08440_200__cytop has the same products and metabolites: Inosine <=> Inosine
+ reaction will be ignored!
+2020 Jan 09 15:40:37 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07134__cytop has the same products and metabolites: Cysteine + H+ => H+ + Cysteine
+ reaction will be ignored!
+2020 Jan 09 15:40:39 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07123__cytop has the same products and metabolites: H+ + L-Tryptophan => H+ + L-Tryptophan
+ reaction will be ignored!
+2020 Jan 09 15:40:41 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05477_2_0__cytop has the same products and metabolites: L-Histidine + H+ => H+ + L-Histidine
+ reaction will be ignored!
+2020 Jan 09 15:40:51 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T02393__cytop has the same products and metabolites: gamma-L-Glutamyl-L-cysteine <=> gamma-L-Glutamyl-L-cysteine
+ reaction will be ignored!
+2020 Jan 09 15:40:53 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04546_996__cytop has the same products and metabolites: O-Acetylcarnitine <=> O-Acetylcarnitine
+ reaction will be ignored!
+2020 Jan 09 15:40:54 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07058_2_0__cytop has the same products and metabolites: L-Histidine + H+ => H+ + L-Histidine
+ reaction will be ignored!
+2020 Jan 09 15:40:54 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07030__cytop has the same products and metabolites: Cysteine + H+ => H+ + Cysteine
+ reaction will be ignored!
+2020 Jan 09 15:40:56 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00779__cytop has the same products and metabolites: AMP + Dephospho-CoA <=> Dephospho-CoA + AMP
+ reaction will be ignored!
+2020 Jan 09 15:40:59 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00675__cytop has the same products and metabolites: H+ + Penicillin N <=> Penicillin N + H+
+ reaction will be ignored!
+2020 Jan 09 15:41:03 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04682__cytop has the same products and metabolites: L-Homoserine + H+ <=> H+ + L-Homoserine
+ reaction will be ignored!
+2020 Jan 09 15:41:05 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00773__cytop has the same products and metabolites: NAD+ + ADP <=> ADP + NAD+
+ reaction will be ignored!
+2020 Jan 09 15:41:08 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00762__cytop has the same products and metabolites: ADP + Adenosine 3\',5\'-bisphosphate <=> Adenosine 3\',5\'-bisphosphate + ADP
+ reaction will be ignored!
+2020 Jan 09 15:41:10 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01143__cytop has the same products and metabolites: H+ + L-Tryptophan => H+ + L-Tryptophan
+ reaction will be ignored!
+2020 Jan 09 15:41:10 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05125__cytop has the same products and metabolites: N-Acetyl-D-glucosamine + H+ <=> N-Acetyl-D-glucosamine + H+
+ reaction will be ignored!
+2020 Jan 09 15:41:10 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01330__cytop has the same products and metabolites: Cardiolipin <=> Cardiolipin
+ reaction will be ignored!
+2020 Jan 09 15:41:11 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09328__cytop has the same products and metabolites: UDP-alpha-D-galactose + UDP <=> UDP + UDP-alpha-D-galactose
+ reaction will be ignored!
+2020 Jan 09 15:41:13 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06462__cytop has the same products and metabolites: H+ + cis-Aconitate <=> cis-Aconitate + H+
+ reaction will be ignored!
+2020 Jan 09 15:41:14 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01132__cytop has the same products and metabolites: Glycine + H+ => H+ + Glycine
+ reaction will be ignored!
+2020 Jan 09 15:41:16 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06994_2_0__cytop has the same products and metabolites: L-Lysine + H+ => H+ + L-Lysine
+ reaction will be ignored!
+2020 Jan 09 15:41:18 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04546_44__cytop has the same products and metabolites: Fe2+ <=> Fe2+
+ reaction will be ignored!
+2020 Jan 09 15:41:18 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01918__cytop has the same products and metabolites: H+ + Abscisate => H+ + Abscisate
+ reaction will be ignored!
+2020 Jan 09 15:41:19 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06414__cytop has the same products and metabolites: (S)-Malate + 2-Oxoglutarate <=> (S)-Malate + 2-Oxoglutarate
+ reaction will be ignored!
+2020 Jan 09 15:41:20 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06979_2_0__cytop has the same products and metabolites: L-Histidine + H+ => H+ + L-Histidine
+ reaction will be ignored!
+2020 Jan 09 15:41:22 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05228_1433__cytop has the same products and metabolites: Pyruvate <=> Pyruvate
+ reaction will be ignored!
+2020 Jan 09 15:41:22 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00817__cytop has the same products and metabolites: NADH <=> NADH
+ reaction will be ignored!
+2020 Jan 09 15:41:23 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06447__cytop has the same products and metabolites: H+ + Citrate <=> H+ + Citrate
+ reaction will be ignored!
+2020 Jan 09 15:41:26 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07731__cytop has the same products and metabolites: H+ + Hypoxanthine => H+ + Hypoxanthine
+ reaction will be ignored!
+2020 Jan 09 15:41:29 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05724_3_0__cytop has the same products and metabolites: H+ + L-Alanine => H+ + L-Alanine
+ reaction will be ignored!
+2020 Jan 09 15:41:30 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00627__cytop has the same products and metabolites: H2O => H2O
+ reaction will be ignored!
+2020 Jan 09 15:41:35 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07469__cytop has the same products and metabolites: H+ + L-Methionine <=> L-Methionine + H+
+ reaction will be ignored!
+2020 Jan 09 15:41:37 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01176__cytop has the same products and metabolites: UDP-glucose + UMP <=> UDP-glucose + UMP
+ reaction will be ignored!
+2020 Jan 09 15:41:37 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05439__cytop has the same products and metabolites: H+ + 4-Aminobutanoate => H+ + 4-Aminobutanoate
+ reaction will be ignored!
+2020 Jan 09 15:41:37 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06985__cytop has the same products and metabolites: Alanine + H+ => H+ + Alanine
+ reaction will be ignored!
+2020 Jan 09 15:41:38 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T01482__cytop has the same products and metabolites: Ammonia + H+ <=> H+ + Ammonia
+ reaction will be ignored!
+2020 Jan 09 15:41:39 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04546_47__cytop has the same products and metabolites: H+ <=> H+
+ reaction will be ignored!
+2020 Jan 09 15:41:40 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00765__cytop has the same products and metabolites: Adenosine 3\',5\'-bisphosphate + Dephospho-CoA <=> Adenosine 3\',5\'-bisphosphate + Dephospho-CoA
+ reaction will be ignored!
+2020 Jan 09 15:41:41 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T02374_44__cytop has the same products and metabolites: Fe2+ => Fe2+
+ reaction will be ignored!
+2020 Jan 09 15:41:47 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06511__cytop has the same products and metabolites: ADP + ATP <=> ADP + ATP
+ reaction will be ignored!
+2020 Jan 09 15:41:48 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09324_0_1__cytop has the same products and metabolites: UDP-alpha-D-galactose + UMP <=> UDP-alpha-D-galactose + UMP
+ reaction will be ignored!
+2020 Jan 09 15:41:48 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00338__cytop has the same products and metabolites: Adenosine <=> Adenosine
+ reaction will be ignored!
+2020 Jan 09 15:41:51 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05447__cytop has the same products and metabolites: H+ + Glycine => Glycine + H+
+ reaction will be ignored!
+2020 Jan 09 15:41:52 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07116__cytop has the same products and metabolites: H+ + L-Methionine => H+ + L-Methionine
+ reaction will be ignored!
+2020 Jan 09 15:41:55 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06427__cytop has the same products and metabolites: Succinate + Fumarate <=> Succinate + Fumarate
+ reaction will be ignored!
+2020 Jan 09 15:41:55 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04621__cytop has the same products and metabolites: Methylglyoxal + H+ <=> Methylglyoxal + H+
+ reaction will be ignored!
+2020 Jan 09 15:41:59 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04335__cytop has the same products and metabolites: Acetoacetate + H+ <=> Acetoacetate + H+
+ reaction will be ignored!
+2020 Jan 09 15:42:01 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09024__cytop has the same products and metabolites: Choline + H+ => H+ + Choline
+ reaction will be ignored!
+2020 Jan 09 15:42:06 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07139_5_0__cytop has the same products and metabolites: L-Isoleucine + H+ => H+ + L-Isoleucine
+ reaction will be ignored!
+2020 Jan 09 15:42:07 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04921_2_0__cytop has the same products and metabolites: L-Histidine + H+ <=> H+ + L-Histidine
+ reaction will be ignored!
+2020 Jan 09 15:42:07 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06990__cytop has the same products and metabolites: H+ + Glycine => Glycine + H+
+ reaction will be ignored!
+2020 Jan 09 15:42:08 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05444__cytop has the same products and metabolites: H+ + L-Tryptophan => H+ + L-Tryptophan
+ reaction will be ignored!
+2020 Jan 09 15:42:09 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09364__cytop has the same products and metabolites: UDP + UDP-glucuronate <=> UDP + UDP-glucuronate
+ reaction will be ignored!
+2020 Jan 09 15:42:12 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00621__cytop has the same products and metabolites: Glycerol => Glycerol
+ reaction will be ignored!
+2020 Jan 09 15:42:12 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06991_2_0__cytop has the same products and metabolites: L-Histidine + H+ => H+ + L-Histidine
+ reaction will be ignored!
+2020 Jan 09 15:42:14 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T08134__cytop has the same products and metabolites: Alanine => Alanine
+ reaction will be ignored!
+2020 Jan 09 15:42:18 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06493__cytop has the same products and metabolites: NAD+ + H+ <=> NAD+ + H+
+ reaction will be ignored!
+2020 Jan 09 15:42:22 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07031_3_0__cytop has the same products and metabolites: L-Glutamine + H+ => H+ + L-Glutamine
+ reaction will be ignored!
+2020 Jan 09 15:42:22 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07176_2_0__cytop has the same products and metabolites: L-Histidine + H+ => H+ + L-Histidine
+ reaction will be ignored!
+2020 Jan 09 15:42:28 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00266__cytop has the same products and metabolites: Glutamate + H+ => H+ + Glutamate
+ reaction will be ignored!
+2020 Jan 09 15:42:30 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05441__cytop has the same products and metabolites: L-Glutamine + H+ => H+ + L-Glutamine
+ reaction will be ignored!
+2020 Jan 09 15:42:30 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06344__cytop has the same products and metabolites: Folate + H+ <=> Folate + H+
+ reaction will be ignored!
+2020 Jan 09 15:42:30 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T08183__cytop has the same products and metabolites: Molybdate + H+ => H+ + Molybdate
+ reaction will be ignored!
+2020 Jan 09 15:42:30 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T02362__cytop has the same products and metabolites: L-Ornithine <=> L-Ornithine
+ reaction will be ignored!
+2020 Jan 09 15:42:32 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T09052__cytop has the same products and metabolites: Estrone 3-sulfate + H+ => Estrone 3-sulfate + H+
+ reaction will be ignored!
+2020 Jan 09 15:42:33 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06988__cytop has the same products and metabolites: Cysteine + H+ => H+ + Cysteine
+ reaction will be ignored!
+2020 Jan 09 15:42:34 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00384__cytop has the same products and metabolites: 3-Phospho-D-glycerate + Orthophosphate <=> 3-Phospho-D-glycerate + Orthophosphate
+ reaction will be ignored!
+2020 Jan 09 15:42:34 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07108_1_0__cytop has the same products and metabolites: L-Asparagine + H+ => L-Asparagine + H+
+ reaction will be ignored!
+2020 Jan 09 15:42:36 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05228__cytop has the same products and metabolites: Carboxylate <=> Carboxylate
+ reaction will be ignored!
+2020 Jan 09 15:42:36 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T03422__cytop has the same products and metabolites: Arsenite => Arsenite
+ reaction will be ignored!
+2020 Jan 09 15:42:39 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06496__cytop has the same products and metabolites: Adenosine 3\',5\'-bisphosphate + H+ <=> H+ + Adenosine 3\',5\'-bisphosphate
+ reaction will be ignored!
+2020 Jan 09 15:42:39 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04546_1870__cytop has the same products and metabolites: 1-Methylnicotinamide <=> 1-Methylnicotinamide
+ reaction will be ignored!
+2020 Jan 09 15:42:45 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07130_3_0__cytop has the same products and metabolites: H+ + L-Alanine => H+ + L-Alanine
+ reaction will be ignored!
+2020 Jan 09 15:42:45 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00232__cytop has the same products and metabolites: H+ + Nitrate => Nitrate + H+
+ reaction will be ignored!
+2020 Jan 09 15:42:45 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04340__cytop has the same products and metabolites: H+ + Pyruvate <=> H+ + Pyruvate
+ reaction will be ignored!
+2020 Jan 09 15:42:48 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00755__cytop has the same products and metabolites: ADP + Acetyl-CoA <=> Acetyl-CoA + ADP
+ reaction will be ignored!
+2020 Jan 09 15:42:50 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04111__cytop has the same products and metabolites: H+ + myo-Inositol <=> H+ + myo-Inositol
+ reaction will be ignored!
+2020 Jan 09 15:42:57 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00340__cytop has the same products and metabolites: Guanosine <=> Guanosine
+ reaction will be ignored!
+2020 Jan 09 15:42:58 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05472__cytop has the same products and metabolites: Alanine + H+ => H+ + Alanine
+ reaction will be ignored!
+2020 Jan 09 15:43:00 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00758__cytop has the same products and metabolites: Acetyl-CoA + Dephospho-CoA <=> Acetyl-CoA + Dephospho-CoA
+ reaction will be ignored!
+2020 Jan 09 15:43:03 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00786__cytop has the same products and metabolites: CoA + Dephospho-CoA <=> CoA + Dephospho-CoA
+ reaction will be ignored!
+2020 Jan 09 15:43:05 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04248__cytop has the same products and metabolites: Quinate + H+ <=> H+ + Quinate
+ reaction will be ignored!
+2020 Jan 09 15:43:07 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T07114_1_0__cytop has the same products and metabolites: L-Leucine + H+ => H+ + L-Leucine
+ reaction will be ignored!
+2020 Jan 09 15:43:09 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T04276__cytop has the same products and metabolites: Sucrose + H+ <=> H+ + Sucrose
+ reaction will be ignored!
+2020 Jan 09 15:43:09 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T00770__cytop has the same products and metabolites: ADP + AMP <=> AMP + ADP
+ reaction will be ignored!
+2020 Jan 09 15:43:09 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T05042__cytop has the same products and metabolites: DL-Glycerol 1-phosphate + Orthophosphate <=> DL-Glycerol 1-phosphate + Orthophosphate
+ reaction will be ignored!
+2020 Jan 09 15:43:12 [Thread-22] loadReactions WARN  p.u.c.b.m.s.m.l.LoadMetabolicData - Reaction T06468__cytop has the same products and metabolites: H+ + trans-Aconitate <=> H+ + trans-Aconitate
+ reaction will be ignored!
+2020 Jan 09 15:43:18 [Thread-22] info INFO  e.u.ei.aibench.workbench.Workbench - model successfully imported with name: DiogoTestImport

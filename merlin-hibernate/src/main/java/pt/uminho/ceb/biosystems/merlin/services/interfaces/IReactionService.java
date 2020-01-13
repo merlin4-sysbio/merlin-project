@@ -243,4 +243,6 @@ public interface IReactionService{
 
 	public void replaceReactionCompartment(Integer compartmentIdToKeep, Integer compartmentIdToReplace) throws Exception;
 
+	public boolean removeSelectedReactionLabel(Integer reactionLabelId) throws Exception;
+
 }

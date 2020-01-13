@@ -1,5 +1,6 @@
 package pt.uminho.ceb.biosystems.merlin.dao.interfaces.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -46,7 +47,7 @@ public interface IModelSubunitDAO extends IGenericDao<ModelSubunit>{
 
 	public List<ProteinContainer> getModelSubunitAttributes(Integer id);
 
-	public Map<Integer, String> getModelSubunitDistinctGeneIdAndSource();
+	public Map<Integer, ArrayList<String>> getModelSubunitDistinctGeneIdAndSource();
 
 	public Map<Integer, String> getModelSubunitDistinctEnzymeProteinIdAndEnzymeEcNumber();
 	

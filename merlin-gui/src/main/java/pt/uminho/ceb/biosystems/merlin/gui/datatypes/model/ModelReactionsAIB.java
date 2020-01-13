@@ -515,7 +515,9 @@ public class ModelReactionsAIB extends ModelReactions implements IEntityAIB {
 	 * @return
 	 */
 	public int getRowID(int row) {
-
+		
+		if(!this.getIdentifiers().containsKey(row))
+			row --;
 		return this.getIdentifiers().get(row);
 	}
 

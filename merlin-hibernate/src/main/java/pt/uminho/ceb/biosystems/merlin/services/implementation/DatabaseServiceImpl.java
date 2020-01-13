@@ -3832,13 +3832,13 @@ public class DatabaseServiceImpl implements IDatabaseService{
 	}
 
 
-	public Pair<Integer, Integer> countGenesEncodingEnzymesAndTransporters() throws Exception {
+	public List<Integer> countGenesEncodingEnzymesAndTransporters() throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			Pair<Integer, Integer> result = subunitservice.countGenesEncodingEnzymesAndTransporters();
+			List<Integer> result = subunitservice.countGenesEncodingEnzymesAndTransporters();
 			tx.commit();
-			return (Pair<Integer, Integer>) result;
+			return result;
 		} catch (RuntimeException e) {
 			tx.rollback();
 			throw new Exception(e);
@@ -8472,6 +8472,22 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
 			boolean result = this.subunitservice.isProteinEncodedByGenes(proteinId);
+			tx.commit();
+			return result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+
+
+	@Override
+	public boolean removeSelectedReactionLabel(Integer reactionLabelId) throws Exception {
+		
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			boolean result = this.reactionservice.removeSelectedReactionLabel(reactionLabelId);
 			tx.commit();
 			return result;
 		} catch (RuntimeException e) {

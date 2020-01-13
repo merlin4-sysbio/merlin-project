@@ -2,6 +2,7 @@ package pt.uminho.ceb.biosystems.merlin.services.implementation;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -16,11 +17,10 @@ import pt.uminho.ceb.biosystems.merlin.dao.interfaces.model.IModelProteinDAO;
 import pt.uminho.ceb.biosystems.merlin.dao.interfaces.model.IModelReactionDAO;
 import pt.uminho.ceb.biosystems.merlin.dao.interfaces.model.IModelReactionLabelsDAO;
 import pt.uminho.ceb.biosystems.merlin.dao.interfaces.model.IModelSubunitDAO;
-import pt.uminho.ceb.biosystems.merlin.entities.model.ModelModule;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelSubunit;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelSubunitId;
 import pt.uminho.ceb.biosystems.merlin.services.interfaces.ISubunitService;
-import pt.uminho.ceb.biosystems.mew.utilities.datastructures.pair.Pair;
+
 
 public class SubunitServiceImpl implements ISubunitService{
 
@@ -31,8 +31,6 @@ public class SubunitServiceImpl implements ISubunitService{
 	private IModelAliasesDAO aliasDAO;
 	private IModelGeneDAO geneDAO;
 	private IModelReactionLabelsDAO reactionsLabelsDAO;
-	private IModelModuleDAO moduleDAO;
-	private IModelModuleHasModelProteinDAO modelModuleHasModelProteinDAO;
 
 	public SubunitServiceImpl(IModelSubunitDAO modelsubunitDAO, IModelProteinDAO proteinDAO,
 			IModelReactionDAO reactionDAO, IModelAliasesDAO aliasDAO, IModelGeneDAO geneDAO,
@@ -43,8 +41,6 @@ public class SubunitServiceImpl implements ISubunitService{
 		this.aliasDAO = aliasDAO;
 		this.geneDAO = geneDAO;
 		this.reactionsLabelsDAO = reactionLabelsDAO;
-		this.moduleDAO = moduleDAO;
-		this.modelModuleHasModelProteinDAO = modelModuleHasModelProteinDAO;
 	}
 
 	public Map<String, List<Integer>> loadEnzymeGetReactions(Integer idgene, Set<String> ecNumber, String proteinName,
@@ -321,25 +317,44 @@ public class SubunitServiceImpl implements ISubunitService{
 		return enzymesReactions;
 	}
 
-	public Pair<Integer, Integer> countGenesEncodingEnzymesAndTransporters() throws Exception {
+	public List<Integer> countGenesEncodingEnzymesAndTransporters() throws Exception {
 		int enz=0, trp=0;
 
-		Pair<Integer, Integer> res = new Pair<Integer, Integer>(0, 0);
-
-		Map<Integer, String> dic = this.modelsubunitDAO.getModelSubunitDistinctGeneIdAndSource();
+		List<Integer> counts = new ArrayList<Integer>();
+		Map<Integer, ArrayList <String>> dic = this.modelsubunitDAO.getModelSubunitDistinctGeneIdAndSource();
+		List<Integer> enzymeIds = new ArrayList<Integer>();
+		List<Integer> transporterIds = new ArrayList<Integer>();
 
 		if (dic != null)
 			for (Integer x : dic.keySet()){
-
-				if(dic.get(x).equalsIgnoreCase(SourceType.TRANSPORTERS.toString()))
-					trp = x;
-				else
-					enz += x;
+				for(String source : dic.get(x)) {
+					if(source.equalsIgnoreCase(SourceType.TRANSPORTERS.toString()) && dic.get(x) != null) {
+						trp ++;
+						transporterIds.add(x);
+					}
+					else if(dic.get(x) != null) {
+						enz ++;
+						enzymeIds.add(x);
+					}
+				}
 			}
-
-		res.setA(enz);
-		res.setB(trp);
-		return res;
+		
+		HashSet<Integer> tempEnz = new HashSet<Integer>(enzymeIds);
+		HashSet<Integer> tempTrans = new HashSet<Integer>(transporterIds);
+		tempEnz.removeAll(tempTrans);
+		tempTrans.removeAll(enzymeIds);
+		
+		Integer CountGenesEncodingOnlyEnzymes = tempEnz.size();
+		Integer CountGenesEncodingOnlyTransporters = tempTrans.size();
+		
+		if(enzymeIds.contains(5000001))
+			System.out.println("here");
+		counts.add(enz);
+		counts.add(trp);
+		counts.add(CountGenesEncodingOnlyEnzymes);
+		counts.add(CountGenesEncodingOnlyTransporters);
+		
+		return counts;
 	}
 
 
@@ -412,8 +427,6 @@ public class SubunitServiceImpl implements ISubunitService{
 	
 	@Override
 	public void insertModelSubunit(Integer geneId, Integer protId, String note, String gprStatus) throws Exception{
-		
-		ModelModule module = null;
 		
 		ModelSubunit subunit = new ModelSubunit();
 		ModelSubunitId id = new ModelSubunitId(geneId, protId);

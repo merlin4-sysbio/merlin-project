@@ -392,7 +392,7 @@ public class ModelSubunitDAOImpl extends GenericDaoImpl<ModelSubunit> implements
 		CriteriaQuery<Object> c = cb.createQuery(Object.class);
 		Root<ModelSubunit> sub = c.from(ModelSubunit.class);
 
-		c.select(cb.count(sub.get("id").get("modelGeneIdgene"))).distinct(true);
+		c.select(cb.countDistinct(sub.get("id").get("modelGeneIdgene")));
 
 		Query<Object> q = super.sessionFactory.getCurrentSession().createQuery(c);
 		Object result = q.uniqueResult();
@@ -401,7 +401,7 @@ public class ModelSubunitDAOImpl extends GenericDaoImpl<ModelSubunit> implements
 	}	
 
 	@Override 
-	public Map<Integer, String> getModelSubunitDistinctGeneIdAndSource() {
+	public Map<Integer, ArrayList<String>> getModelSubunitDistinctGeneIdAndSource() {
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<Object[]> c = cb.createQuery(Object[].class);
 		Root<ModelSubunit> sub = c.from(ModelSubunit.class);
@@ -415,26 +415,32 @@ public class ModelSubunitDAOImpl extends GenericDaoImpl<ModelSubunit> implements
 
 		Query<Object[]> q = super.sessionFactory.getCurrentSession().createQuery(c);
 		List<Object[]> resultList = q.getResultList();
-		Map<Integer, String> res = new HashMap<Integer, String>();
+		Map<Integer, ArrayList<String>> res = new HashMap<Integer, ArrayList<String>>();
+		
+		
 		if(resultList.size() > 0) {
 			for (Object[] x : resultList) {
-				if(x[1] == null)
-					System.out.println(x[0]);
-				res.put((Integer) x[0], (String) x[1]);
+				if(res.containsKey((Integer) x[0]))
+					res.get((Integer) x[0]).add((String) x[1]);
+				else {
+					ArrayList<String> tempList = new ArrayList<String>();
+					tempList.add((String) x[1]);
+					res.put((Integer) x[0], tempList);
+				}
 			}
 		}
 		return res;
 	}
 
 	@Override 
-	public Long countGenesInModel() {
+	public Long countGenesInModel() { // this is not working properly
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<Object> c = cb.createQuery(Object.class);
 //		Root<ModelSubunit> sub = c.from(ModelSubunit.class);
 		Root<ModelProtein> protein = c.from(ModelProtein.class);
 		Join<ModelProtein, ModelSubunit> subunit = protein.join("modelSubunits", JoinType.INNER);
 
-		c.multiselect(cb.count(subunit.get("id").get("modelGeneIdgene"))).distinct(true);
+		c.select(cb.countDistinct(subunit.get("id").get("modelGeneIdgene")));
 
 		Query<Object> q = super.sessionFactory.getCurrentSession().createQuery(c);
 

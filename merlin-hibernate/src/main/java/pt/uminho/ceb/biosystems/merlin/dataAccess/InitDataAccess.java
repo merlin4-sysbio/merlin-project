@@ -91,14 +91,13 @@ public class InitDataAccess {
     	}else {
     		xmlFile = new File(this.getClass().getClassLoader().getResource(hibernateXMLPath).getFile());
     	}
-    	
     	return xmlFile;
     }
     
     public void generateDatabase(String databaseName) throws Exception{
     	IDatabaseAccess databaseacess = readDatabaseConfigurations();
 		databaseacess.setDatabaseName(databaseName);
-		IDatabaseService service = startDatabaseService(databaseacess, true, false, false);
+		IDatabaseService service = startDatabaseService(databaseacess, false, false, false);  // CAREFUL WITH CREATE_DROP
 		databases.put(databaseName, service);
 		dropConnection(databaseName);
     }
