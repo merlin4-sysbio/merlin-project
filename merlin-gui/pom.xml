@@ -355,20 +355,6 @@ progress.workingicon = conf/progress.gif
 							<includeArtifactIds>merlin-aibench-core,merlin-aibench-workbench, merlin-aibench-plugin-manager</includeArtifactIds>
 						</configuration>
 					</execution>
-					<execution>
-						<id>copy-aibench-dependencies-eclipse</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/plugins_bin</outputDirectory>
-							<overWriteReleases>true</overWriteReleases>
-							<overWriteSnapshots>true</overWriteSnapshots>
-							<overWriteIfNewer>true</overWriteIfNewer>
-							<includeArtifactIds>aibench-core,aibench-workbench</includeArtifactIds>
-						</configuration>
-					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -430,7 +416,6 @@ progress.workingicon = conf/progress.gif
 			</plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version>
 				<executions>
 					<execution>
 						<id>copy-resources-conf</id>
@@ -453,7 +438,7 @@ progress.workingicon = conf/progress.gif
 					</execution>
 					<execution>
 						<id>copy-resources-launcher</id>
-						<phase>generate-resources</phase>
+						<phase>install</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -463,7 +448,7 @@ progress.workingicon = conf/progress.gif
 								<resource>
 									<directory>lib</directory>
 									<includes>
-										<include>merlin-launcher.jar</include>
+										<include>merlin-launcher*.*</include>
 									</includes>
 								</resource>
 							</resources>
@@ -526,6 +511,9 @@ progress.workingicon = conf/progress.gif
 	
 	<profiles><profile>
 			<id>merlin</id>
+			    <activation>
+      				<activeByDefault>false</activeByDefault>
+    		</activation>
 			<build>
 				<plugins>
 					<plugin>
@@ -539,7 +527,7 @@ progress.workingicon = conf/progress.gif
 									<goal>run</goal>
 								</goals>
 								<configuration>
-									<tasks>
+									<target>
 										<taskdef classpathref="maven.plugin.classpath" resource="net/sf/antcontrib/antcontrib.properties"/>
 										<echo append="false" file="${merlin.build.directory}merlin.bat">SET HOME=%~d0%~sp0
 		wscript.exe %HOME%"utilities/invis.vbs" %HOME%"utilities/run.bat"%*
@@ -690,14 +678,14 @@ h2_username: root
 h2_password: password
 
 	</echo>
-	<echo append="false" file="${merlin.build.directory}conf/pluginmanager.conf">plugininstaller.dir=plugins_install
+										<echo append="false" file="${merlin.build.directory}conf/pluginmanager.conf">plugininstaller.dir=plugins_install
 pluginrepository.infofile=plugins.dat
 plugins.start.gui=true
 pluginrepository.host=https\://merlin-sysbio.org/data/plugins
 
 	</echo>
 										<chmod file="${merlin.build.directory}run.sh" perm="a+x"/>
-									</tasks>
+									</target>
 								</configuration>
 							</execution>
 						</executions>
