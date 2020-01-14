@@ -1,9 +1,13 @@
 package pt.uminho.ceb.biosystems.merlin.utilities.io;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.zip.GZIPInputStream;
 
 public class FileUtils extends pt.uminho.ceb.biosystems.mew.utilities.io.FileUtils{
@@ -222,5 +226,71 @@ public class FileUtils extends pt.uminho.ceb.biosystems.mew.utilities.io.FileUti
 		}
 	}
 	
+	/**
+	 * @param path
+	 * @return
+	 */
+	public static Map<String, String> readMapFromFile(String path){
+
+		Map<String, String> dic = new HashMap<>();
+
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(path));
+
+			String line = br.readLine();
+
+			while (line != null) {
+
+				if(!line.trim().isEmpty() && !line.startsWith("#")){
+
+					//					System.out.println(line);
+
+					try {
+						String[] content = line.split("=");
+
+						if(content.length > 1)
+							dic.put(content[0].trim(), content[1].trim());
+						else
+							dic.put(content[0].trim(), "");
+					} 
+					catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+
+				line = br.readLine();
+			}
+
+			br.close();
+
+		} 
+		catch(Exception e) {
+			return new HashMap<>();
+		}
+		return dic;
+	}
 	
+	/**
+	 * Method to get TranSyT's configurations from the file located at /conf/transyt.conf
+	 * 
+	 * @return
+	 */
+	public static Map<String, String> readTransytConfFile(){
+		
+		String path = getConfFolderPath().concat("transyt.conf");
+		
+		return readMapFromFile(path);
+	}
+	
+	/**
+	 * Method to get BioISO's configurations from the file located at /conf/bioiso.conf
+	 * 
+	 * @return
+	 */
+	public static Map<String, String> readBioisoConfFile(){
+		
+		String path = getConfFolderPath().concat("bioiso.conf");
+		
+		return readMapFromFile(path);
+	}
 }
