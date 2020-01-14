@@ -197,7 +197,7 @@ public class ModelPathwayHasModelProteinDAOImpl extends GenericDaoImpl<ModelPath
 		
 				
 	    c.multiselect(protein.get("ecnumber"), protein.get("idprotein"),
-	    		reaction.get("inModel"), reactionLabels.get("name"), protein.get("inModel"), protein.get("name"),
+	    		reaction.get("inModel"), reactionLabels.get("name"), protein.get("name"),
 	    		compound.get("externalIdentifier")); 
 
 	    Predicate filter1 = cb.equal(pathEnz.get("id").get("modelProteinIdprotein"), reactionHasenzyme.get("id").get("modelProteinIdprotein"));
@@ -232,14 +232,13 @@ public class ModelPathwayHasModelProteinDAOImpl extends GenericDaoImpl<ModelPath
 			
 			for(Object[] item: resultList) {
 
-				String[] list = new String[7];
+				String[] list = new String[6];
 				list[0] = String.valueOf(item[0]);
 				list[1] = String.valueOf(item[1]);
 				list[2] = String.valueOf(item[2]);
 				list[3] = (String) item[3];
-				list[4] = String.valueOf(item[4]);
+				list[4] = (String) item[4];
 				list[5] = (String) item[5];
-				list[6] = (String) item[6];
 				parsedList.add(list);
 				
 			}
