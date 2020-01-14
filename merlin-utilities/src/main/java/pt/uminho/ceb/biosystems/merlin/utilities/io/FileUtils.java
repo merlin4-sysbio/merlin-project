@@ -277,7 +277,7 @@ public class FileUtils extends pt.uminho.ceb.biosystems.mew.utilities.io.FileUti
 	 */
 	public static Map<String, String> readTransytConfFile(){
 		
-		String path = getConfFolderPath().concat("transyt.conf");
+		String path = getConfFolderPath().concat("transyt.cfg");
 		
 		return readMapFromFile(path);
 	}
@@ -289,7 +289,7 @@ public class FileUtils extends pt.uminho.ceb.biosystems.mew.utilities.io.FileUti
 	 */
 	public static Map<String, String> readBioisoConfFile(){
 		
-		String path = getConfFolderPath().concat("bioiso.conf");
+		String path = getConfFolderPath().concat("bioiso.cfg");
 		
 		return readMapFromFile(path);
 	}
