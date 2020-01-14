@@ -17,6 +17,7 @@
 */test-bin
 
 #merlin-gui
+merlin-gui/logs
 merlin-gui/temp
 merlin-gui/ws
 merlin-gui/plugins_bin
