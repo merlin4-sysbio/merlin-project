@@ -355,6 +355,17 @@ progress.workingicon = conf/progress.gif
 							<includeArtifactIds>merlin-aibench-core,merlin-aibench-workbench, merlin-aibench-plugin-manager</includeArtifactIds>
 						</configuration>
 					</execution>
+					<execution>
+						<id>list-dependencies</id>
+						<phase>install</phase>
+						<goals>
+							<goal>list</goal>
+						</goals>
+						<configuration>
+							<outputFile>${merlin.build.directory}conf/dependencieslist.txt</outputFile>
+							<outputScope>false</outputScope>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
