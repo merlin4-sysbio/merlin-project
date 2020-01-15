@@ -1,0 +1,8 @@
+2020 Jan 07 09:54:00 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 Jan 07 09:54:00 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 Jan 07 09:54:00 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 Jan 07 09:54:00 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.2]
+2020 Jan 07 09:54:00 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-workspace-compatibility   [version 4.0.2]
+2020 Jan 07 09:54:01 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 Jan 07 09:54:16 [AWT-EventQueue-0] updateComboBox WARN  p.u.c.b.m.g.jpanels.WorkspaceNewGUI - It was not possible to create a database service with validation method for database 'quercus_suber_v4'! Retrying with uptade to the database structure!
+2020 Jan 07 09:54:18 [AWT-EventQueue-0] updateComboBox INFO  p.u.c.b.m.g.jpanels.WorkspaceNewGUI - Success with update method

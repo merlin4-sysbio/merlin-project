@@ -15,6 +15,7 @@ import es.uvigo.ei.aibench.core.operation.annotation.Direction;
 import es.uvigo.ei.aibench.core.operation.annotation.Operation;
 import es.uvigo.ei.aibench.core.operation.annotation.Port;
 import es.uvigo.ei.aibench.workbench.Workbench;
+import pt.uminho.ceb.biosystems.merlin.biocomponents.container.Container;
 import pt.uminho.ceb.biosystems.merlin.biocomponents.io.Enumerators.SBMLLevelVersion;
 import pt.uminho.ceb.biosystems.merlin.biocomponents.io.readers.ContainerBuilder;
 import pt.uminho.ceb.biosystems.merlin.biocomponents.io.writers.SBMLLevel3Writer;
@@ -26,7 +27,6 @@ import pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelReactionsAIB;
 import pt.uminho.ceb.biosystems.merlin.services.ProjectServices;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelReactionsServices;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelStoichiometryServices;
-import pt.uminho.ceb.biosystems.mew.biocomponents.container.Container;
 
 @Operation(description="Export the local database to SBML",name="SBML exporter")
 public class ExportToSBML {

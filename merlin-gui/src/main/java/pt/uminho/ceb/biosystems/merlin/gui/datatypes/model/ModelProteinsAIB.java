@@ -17,6 +17,7 @@ import pt.uminho.ceb.biosystems.merlin.gui.datatypes.interfaces.IEntityAIB;
 import pt.uminho.ceb.biosystems.merlin.processes.model.ModelProteinsProcesses;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelGenesServices;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelProteinsServices;
+import pt.uminho.ceb.biosystems.merlin.services.model.ModelSubunitServices;
 
 @Datatype(structure = Structure.LIST,namingMethod="getName")
 public class ModelProteinsAIB extends ModelProteins implements IEntityAIB {
@@ -67,10 +68,10 @@ public class ModelProteinsAIB extends ModelProteins implements IEntityAIB {
 			
 			if(super.getAllProteins() == null || update) {
 				
-				Map<String,Integer> proteins = new HashMap<>();
+//				Map<String,Integer> proteins = new HashMap<>();
 				
-				List<String[]> result = ModelProteinsServices.getMainTableData(workspaceName, encoded, proteins);
-				WorkspaceGenericDataTable allProteins = ModelProteinsProcesses.getMainTableData(proteins, result, this.namesIndex, this.identifiers);
+				List<String[]> result = ModelProteinsServices.getMainTableData(workspaceName, encoded);
+				WorkspaceGenericDataTable allProteins = ModelProteinsProcesses.getMainTableData(encoded, result, this.namesIndex, this.identifiers);
 				
 				super.setAllProteins(allProteins);			
 			}
@@ -136,8 +137,9 @@ public class ModelProteinsAIB extends ModelProteins implements IEntityAIB {
 					data[8] = String.valueOf(res.getPi());
 				if(res.getExternalIdentifier() != null)
 					data[9]= res.getExternalIdentifier()+";";
-				if(res.getInModel() != null)
-					data[10]= res.getInModel()+";";
+//				if(res.getInModel() != null)
+//					data[10]= res.getInModel()+";";
+				data[10] = ModelSubunitServices.isProteinEncodedByGenes(this.workspaceName, res.getIdProtein())+";";
 				data[11] = String.valueOf(res.getSource());
 			}
 			catch (Exception ex) {

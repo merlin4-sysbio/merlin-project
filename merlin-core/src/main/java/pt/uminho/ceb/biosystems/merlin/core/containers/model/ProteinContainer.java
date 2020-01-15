@@ -18,7 +18,7 @@ public class ProteinContainer implements EntityContainer {
 	private	Map<String, String> pathways;
 	private	List<String> genes;
 	private List<String> reactionsExternalIdentifiers;
-	private Boolean inModel;
+//	private Boolean inModel;
 	private String source;
 	private String query;
 	private String inchi;
@@ -233,19 +233,19 @@ public class ProteinContainer implements EntityContainer {
 		this.class_ = class_;
 	}
 
-	/**
-	 * @return the inModel
-	 */
-	public Boolean getInModel() {
-		return inModel;
-	}
-
-	/**
-	 * @param inModel the inModel to set
-	 */
-	public void setInModel(Boolean inModel) {
-		this.inModel = inModel;
-	}
+//	/**
+//	 * @return the inModel
+//	 */
+//	public Boolean getInModel() {
+//		return inModel;
+//	}
+//
+//	/**
+//	 * @param inModel the inModel to set
+//	 */
+//	public void setInModel(Boolean inModel) {
+//		this.inModel = inModel;
+//	}
 
 	/**
 	 * @return the source

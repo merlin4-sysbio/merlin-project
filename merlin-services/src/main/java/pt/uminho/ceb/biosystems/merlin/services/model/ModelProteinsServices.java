@@ -63,11 +63,12 @@ public class ModelProteinsServices  {
 	 * @return
 	 * @throws Exception 
 	 */
-	public static List<String[]> getMainTableData(String databaseName, boolean encoded,  Map<String,Integer> proteins) throws Exception {
+	public static List<String[]> getMainTableData(String databaseName, boolean encoded) throws Exception {
 
-		proteins.putAll(InitDataAccess.getInstance().getDatabaseService(databaseName).getProteinsCountFromSubunit());
+//		proteins.putAll(InitDataAccess.getInstance().getDatabaseService(databaseName).getProteinsCountFromSubunit());
+		
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).getAllEnzymes(encoded, ProjectServices.isCompartmentalisedModel(databaseName));
 
-		return InitDataAccess.getInstance().getDatabaseService(databaseName).getAllEnzymes(ProjectServices.isCompartmentalisedModel(databaseName), encoded);
 
 	}
 
@@ -145,7 +146,7 @@ public class ModelProteinsServices  {
 	 * @param row
 	 * @throws Exception 
 	 */
-	public static void removeProtein(String databaseName, int identifier, boolean encodedOnly) throws Exception{
+	public static void removeProtein(String databaseName, int identifier) throws Exception{
 
 			List<String> enzymesIDs = new ArrayList<String>();
 			Boolean[] inModel = new Boolean[1];
@@ -155,7 +156,7 @@ public class ModelProteinsServices  {
 			if(protein != null) {	//isto é estranho, ao fazer debug deve alterar-se os parametros do removeEnzymesAssignments
 				
 				enzymesIDs.add(protein.getExternalIdentifier());
-				inModel[0] = protein.getInModel();
+//				inModel[0] = protein.getInModel();
 				
 			}
 				
@@ -218,9 +219,9 @@ public class ModelProteinsServices  {
 	 * @return
 	 */
 	public static boolean updateProtein(String databaseName, ProteinContainer protein, String[] synonyms,
-			String[] oldSynonyms, String[] enzymes, String[] oldEnzymes, Boolean[] inModel, Boolean[] oldInModel) throws Exception {
+			String[] oldSynonyms, String[] enzymes, String[] oldEnzymes) throws Exception {
 
-		return InitDataAccess.getInstance().getDatabaseService(databaseName).updateProtein(protein, synonyms, oldSynonyms, enzymes, oldEnzymes, inModel, oldInModel);
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).updateProtein(protein, synonyms, oldSynonyms, enzymes, oldEnzymes);
 	}
 
 
@@ -263,9 +264,9 @@ public class ModelProteinsServices  {
 	 * @return
 	 */
 	public static void insertProtein(String databaseName, ProteinContainer protein,
-			String[] synonyms, String[] enzymes, Boolean[] inModel)  throws Exception{
+			String[] synonyms, String[] enzymes)  throws Exception{
 
-		InitDataAccess.getInstance().getDatabaseService(databaseName).insertProtein(protein, synonyms, enzymes, inModel);
+		InitDataAccess.getInstance().getDatabaseService(databaseName).insertProtein(protein, synonyms, enzymes);
 	}
 
 	/**
@@ -421,4 +422,6 @@ public class ModelProteinsServices  {
 
 		return InitDataAccess.getInstance().getDatabaseService(databaseName).getProteinCompartmentsByProteinId(proteinId);
 	}
+
 }
+

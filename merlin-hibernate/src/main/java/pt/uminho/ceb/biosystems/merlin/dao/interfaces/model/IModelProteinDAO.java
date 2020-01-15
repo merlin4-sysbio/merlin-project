@@ -49,17 +49,13 @@ public interface IModelProteinDAO  extends IGenericDao<ModelProtein>{
 
 	public Integer insertModelProtein(String name, String classe, String inchi, Float molecularWeight,
 			Float molecularWeightExp, Float molecularWeightKd, Float molecularWeightSeq, Float pi, String ecnumber,
-			String source, Boolean inModel);
-
-	public boolean getInModelByProteinId(Integer proteinId);
+			String source);
 
 	public String[][] getProteins();
 
-	public List<String[]> getAllEnzymes(boolean isCompartimentalized, boolean encodedEnzyme);
-
 	public Map<Integer, Long> getProteinsData2();
 
-	public Map<String, Boolean> getModelProteinEcNumberAndInModelByProteinId(Integer protId);
+//	public Map<String, Boolean> getModelProteinEcNumberAndInModelByProteinId(Integer protId);
 
 	public List<ModelProtein> getAllModelProteinByAttributes(Integer protId, String source);
 
@@ -73,7 +69,7 @@ public interface IModelProteinDAO  extends IGenericDao<ModelProtein>{
 
 	public Boolean checkEnzymeInModelExistence(Integer protId, String source);
 
-	public void updateProteinSetEcNumberSourceAndInModel(Integer model_protein_idprotein, String ecnumber, boolean inModel,
+	public void updateProteinSetEcNumberSourceAndInModel(Integer model_protein_idprotein, String ecnumber,
 			String source) throws Exception;
 
 	public List<ModelProtein> getDistincModelProteinAttributesByAtt(boolean distinct);
@@ -101,5 +97,8 @@ public interface IModelProteinDAO  extends IGenericDao<ModelProtein>{
 	public List<ProteinContainer> getEnzymeHasReaction();
 
 	public List<CompartmentContainer> getProteinCompartmentsByProteinId(Integer proteinId);
+
+	public List<String[]> getAllEnzymes(boolean isEncodedInGenome, boolean isCompartmentalizedModel);
+
 
 }

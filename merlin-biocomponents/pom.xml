@@ -5,7 +5,7 @@
 		<parent>
 		<groupId>pt.uminho.ceb.biosystems.merlin</groupId>
 		<artifactId>merlin-project</artifactId>
-		<version>4.0.2.1-SNAPSHOT</version>
+		<version>4.0.2.4-SNAPSHOT</version>
 		<!--
 			WARNING: change version using (in the parent project):
 				mvn versions:set -DnewVersion=[new_version]

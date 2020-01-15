@@ -31,7 +31,7 @@ public interface ISubunitService {
 	
 	public Map<String, List<String>> getECNumbers_() throws Exception;
 	
-	public Pair<Integer, Integer> countGenesEncodingEnzymesAndTransporters() throws Exception;
+	public List<Integer> countGenesEncodingEnzymesAndTransporters() throws Exception;
 	
 	public int countProteinsAssociatedToGenes() throws Exception;
 	
@@ -56,5 +56,9 @@ public interface ISubunitService {
 	public boolean checkModelSubunitEntry(Integer geneId, Integer protId) throws Exception;
 
 	public void insertModelSubunit(Integer geneId, Integer protId, String note, String gprStatus) throws Exception;
+
+	public Long countSubunitEntries() throws Exception;
+
+	public boolean isProteinEncodedByGenes(Integer proteinId) throws Exception;
 
 }

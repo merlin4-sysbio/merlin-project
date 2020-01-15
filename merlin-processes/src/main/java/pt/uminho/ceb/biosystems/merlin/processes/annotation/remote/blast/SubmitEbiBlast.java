@@ -38,8 +38,8 @@ public class SubmitEbiBlast implements Runnable {
 	final static Logger logger = LoggerFactory.getLogger(SubmitEbiBlast.class);
 
 	private static final int _SAVE_LIST_SIZE = 50;
-
-	private static final Throwable e = null;
+	private static final int _ERRORS_LIMIT = 3;
+	private static final int _LATENCY = 60000;
 
 	private PropertyChangeSupport changes;
 
@@ -175,7 +175,7 @@ public class SubmitEbiBlast implements Runnable {
 
 								}
 
-								if(currentRequestTimer - lastRequestTimer > 60000) {
+								if(currentRequestTimer - lastRequestTimer > _LATENCY) {
 
 									logger.debug("Requesting status for RID "+aRid);
 									requestReady = this.rbw.isReady(aRid, GregorianCalendar.getInstance().getTimeInMillis());
@@ -184,7 +184,7 @@ public class SubmitEbiBlast implements Runnable {
 								}
 								else {
 
-									long sleep  = 63000 - (currentRequestTimer - lastRequestTimer); 
+									long sleep  = (_LATENCY + 3000) - (currentRequestTimer - lastRequestTimer); 
 									logger.debug("Sleeping..." + (sleep/1000) +" sec "+aRid);
 									MySleep.myWait(sleep);
 								}
@@ -310,7 +310,7 @@ public class SubmitEbiBlast implements Runnable {
 					errorCounter = errorCounter + 1;
 					if(!this.cancel.get()) {
 
-						if(errorCounter<25) {
+						if(errorCounter<_ERRORS_LIMIT) {
 
 							logger.warn("Submit Blast Exception "+e.getMessage()+"\n Reprocessing:\t"+aRid+" Error ounter: "+errorCounter+"");
 							this.rids.remove(aRid);
@@ -348,7 +348,7 @@ public class SubmitEbiBlast implements Runnable {
 
 			if(newRid == null) {
 
-				if(counter<5) {
+				if(counter<_ERRORS_LIMIT) {
 
 					return this.reprocessQuery(aRid,sequence,counter++);
 				}

@@ -73,7 +73,8 @@ public class InsertEditReaction extends JDialog {
 	private int rowID;
 	private String[] enzymesModel, pathwaysModel, reactants, 
 	reactantsStoichiometry, productsStoichiometry,
-	products, reactantsChains, productsChains, reactantsCompartments, productsCompartments, 
+	products, //reactantsChains, productsChains,
+	reactantsCompartments, productsCompartments, 
 	metabolitesCompartmentsModel, reactionsCompartmentsModel, genesModel;
 	private Map<Integer, MetaboliteContainer> metabolitesModel;
 	private boolean applyPressed;
@@ -127,7 +128,7 @@ public class InsertEditReaction extends JDialog {
 
 		this.rowID=rowID;
 
-		if(rowID == -10) {
+		if(rowID < 0) {
 
 			this.setTitle("insert reaction");
 			enzymesSet=new TreeSet<String>();
@@ -478,13 +479,14 @@ public class InsertEditReaction extends JDialog {
 							if(!applied)
 								try {
 									saveData();
+									closeAndUpdate();
 								} catch (NumberFormatException e1) {
+									Workbench.getInstance().error("please insert a valid stoichiometry value!");
 									e1.printStackTrace();
 								} catch (Exception e1) {
+									Workbench.getInstance().error(e1);
 									e1.printStackTrace();
 								}
-
-							closeAndUpdate();
 						}
 					}
 				});
@@ -569,10 +571,10 @@ public class InsertEditReaction extends JDialog {
 		{
 			reactants = new String[0]; //reactants = new String[2][0];
 			reactantsStoichiometry = new String[0];
-			reactantsChains= new String[0]; reactantsCompartments= new String[0];
+//			reactantsChains= new String[0]; reactantsCompartments= new String[0];
 			products = new String[0]; //products = new String[2][0];
 			productsStoichiometry = new String[0];
-			productsChains= new String[0];	productsCompartments= new String[0];
+//			productsChains= new String[0];	productsCompartments= new String[0];
 
 			jScrollPaneReactants = new JScrollPane();
 			panelReactants = this.addReactantsPanel();
@@ -1186,7 +1188,7 @@ public class InsertEditReaction extends JDialog {
 				if(reactantsStoichiometry.length<=s) {
 
 					reactantsStoichiometry[s]="-1";
-					reactantsChains[s]="1";
+//					reactantsChains[s]="1";
 				}
 				reactantsStoichiometryField[s].setText(reactantsStoichiometry[s]);
 				//				reactantsChainsField[s].setText(reactantsChains[s]);
@@ -1354,8 +1356,8 @@ public class InsertEditReaction extends JDialog {
 			productsStoichiometryField[0] = new JTextField();
 			productsStoichiometryField[0].setText("1");
 
-			productsChains = new String[1];
-			productsChains[0]="1";
+//			productsChains = new String[1];
+//			productsChains[0]="1";
 			//			productsChainsField = new JTextField[1];
 			//			productsChainsField[0] = new JTextField();
 			//			productsChainsField[0].setText("1");
@@ -1521,7 +1523,7 @@ public class InsertEditReaction extends JDialog {
 				if(productsStoichiometry.length<=s) {
 
 					productsStoichiometry[s]="1";
-					productsChains[s]="1";
+//					productsChains[s]="1";
 				}
 				productsStoichiometryField[s].setText(productsStoichiometry[s]);
 				//				productsChainsField[s].setText(productsChains[s]);
@@ -1944,7 +1946,7 @@ public class InsertEditReaction extends JDialog {
 	private void saveData() throws NumberFormatException, Exception {
 
 		Map<String, Double> metabolites = new TreeMap<>();
-		Map<String, String > chains = new TreeMap<String, String >(), compartments = new TreeMap<String, String >();
+		Map<String, String > compartments = new TreeMap<String, String >();
 		boolean go = true;
 
 		for(int i=0; i< reactantsExternalIdentifiersField.size(); i++) {
@@ -2086,7 +2088,7 @@ public class InsertEditReaction extends JDialog {
 			if(compName != null && !compName.isEmpty())
 				compId = ModelCompartmentServices.getCompartmentByName(reactionsInterface.getWorkspace().getName(), compName).getCompartmentID();
 			
-			if(rowID <0) {
+			if(rowID < 0) {
 				try {
 				ModelReactionsServices.insertNewReaction(jTextFieldName.getText(), jTextFieldEquation.getText(),
 						compartments, metabolites, jCheckBoxInModel.isSelected(), selectedEnzymesAndPathway, compId,
@@ -2102,8 +2104,8 @@ public class InsertEditReaction extends JDialog {
 
 			}
 			else {
-				ModelReactionsServices.updateReaction(rowID, jTextFieldName.getText(), jTextFieldEquation.getText(), jRadioButtonReversible.isSelected(), //enzymesSet,
-						chains, compartments, metabolites, jCheckBoxInModel.isSelected(), selectedEnzymesAndPathway, compId, 
+				ModelReactionsServices.updateReaction(rowID, jTextFieldName.getText(), jTextFieldEquation.getText(), jRadioButtonReversible.isSelected(),
+						compartments, metabolites, jCheckBoxInModel.isSelected(), selectedEnzymesAndPathway, compId, 
 						jSpontaneous.isSelected(), jNonEnzymatic.isSelected(), jIsGeneric.isSelected(),
 						(long) Double.valueOf(lowerBoundary.getText()).doubleValue(), (long) Double.valueOf(upperBoundary.getText()).doubleValue(), boolean_rule,
 						reactionsInterface.getWorkspace().getName());
@@ -2152,14 +2154,14 @@ public class InsertEditReaction extends JDialog {
 		jNonEnzymatic.setSelected(data.isNon_enzymatic());
 		jIsGeneric.setSelected(data.isGeneric());
 
-		if(data.isReversible())
-			this.lowerBoundary.setText("-999999");
-		else
-			this.lowerBoundary.setText("0");
+//		if(data.isReversible())
+//			this.lowerBoundary.setText("-999999");
+//		else
+//			this.lowerBoundary.setText("0");
 		if(data.getLowerBound()!=null)
 			this.lowerBoundary.setText(data.getLowerBound().toString());
 
-		this.upperBoundary.setText("999999");
+//		this.upperBoundary.setText("999999");
 		if(data.getUpperBound()!=null)
 			this.upperBoundary.setText(data.getUpperBound().toString());
 
@@ -2172,9 +2174,9 @@ public class InsertEditReaction extends JDialog {
 		List<String> r = new ArrayList<String>();
 		List<String> p = new ArrayList<String>();
 		List<String> rs = new ArrayList<String>();
-		List<String> rc = new ArrayList<String>();
+//		List<String> rc = new ArrayList<String>();
 		List<String> ps = new ArrayList<String>();
-		List<String> pc = new ArrayList<String>();
+//		List<String> pc = new ArrayList<String>();
 		List<String> compartmentReactant = new ArrayList<>();
 		List<String> compoundID_R = new ArrayList<>();
 		List<String> compartmentProduct = new ArrayList<>();
@@ -2202,12 +2204,12 @@ public class InsertEditReaction extends JDialog {
 
 		reactants = compoundID_R.toArray(reactants);
 		reactantsStoichiometry = rs.toArray(reactantsStoichiometry);
-		reactantsChains = rc.toArray(reactantsChains);
+//		reactantsChains = rc.toArray(reactantsChains);
 		reactantsCompartments = compartmentReactant.toArray(reactantsCompartments);
 
 		products = compoundID_P.toArray(products);
 		productsStoichiometry = ps.toArray(productsStoichiometry);
-		productsChains = pc.toArray(productsChains);
+//		productsChains = pc.toArray(productsChains);
 		productsCompartments = compartmentProduct.toArray(productsCompartments);
 
 		panelReactants = this.addReactantsPanel();
@@ -2551,15 +2553,17 @@ public class InsertEditReaction extends JDialog {
 						break;
 					}
 					else if(metaboliteName.getKey().equals(element)) {
-						if(metaboliteName.getValue().size() > 0) {
+						
+						
+						if(metaboliteName.getValue().size() > 0 && metaboliteName.getValue().get(0) != null) 
 							Metabolites.setSelectedItem(metaboliteName.getValue().get(0));
-						}else {
+						else {
 							Metabolites.setSelectedItem(metaboliteName.getKey());
 						}
 
-						if(metaboliteName.getValue().size() > 1) {
+						if(metaboliteName.getValue().size() > 1 && metaboliteName.getValue().get(1) != null) 
 							formula.setText(metaboliteName.getValue().get(1));
-						}else {
+						else {
 							formula.setText("------------");
 						}
 						break;
@@ -2577,11 +2581,13 @@ public class InsertEditReaction extends JDialog {
 
 	private void updateFieldsOnActionPerformedMetabolites (String element, JComboBox<String> Id, JLabel Formula) {
 		
+		// this method verifies if the newly selected metabolite matches the previously selected one by name. 
+		// Then it verifies by formula
+		
 		for (Map.Entry<String,List<String>> metaboliteName : mapMetabolites.entrySet()) {
 			if(metaboliteName != null) {
 
 				try {
-
 					if (element.equals("")) {
 						Id.setSelectedIndex(0);
 						Formula.setText("");
@@ -2592,17 +2598,23 @@ public class InsertEditReaction extends JDialog {
 						Formula.setText("------------");
 						break;
 					}
-					else if(metaboliteName.getValue().get(0).equals(element) && metaboliteName.getValue().get(1) != Formula.getText()) {
-												
-						Id.setSelectedItem(metaboliteName.getKey());
+					else if(metaboliteName.getValue().get(0).equals(element)) {
 
-						if(metaboliteName.getValue().size()>1 && metaboliteName.getValue().get(1)!=null && metaboliteName.getValue().get(1)!="") {
-							Formula.setText(metaboliteName.getValue().get(1));
+						String newFormula = metaboliteName.getValue().get(1) ;
+
+						if(newFormula == null)
+							newFormula = "------------";
+
+						if(newFormula != Formula.getText()) {
+							Id.setSelectedItem(metaboliteName.getKey());
+
+							if(metaboliteName.getValue().size()>1 && newFormula!="") 
+								Formula.setText(newFormula);	
+							else {
+								Formula.setText("------------");
+							}
+							break;
 						}
-						else {
-							Formula.setText("------------");
-						}
-						break;
 					}
 
 				}

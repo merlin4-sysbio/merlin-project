@@ -29,7 +29,6 @@ import pt.uminho.ceb.biosystems.merlin.entities.model.ModelProteinComposition;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelReaction;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelReactionHasModelProtein;
 import pt.uminho.ceb.biosystems.merlin.services.interfaces.IProteinService;
-import pt.uminho.ceb.biosystems.mew.utilities.datastructures.pair.Pair;
 
 
 public class ProteinServiceImpl implements IProteinService{
@@ -200,7 +199,7 @@ public class ProteinServiceImpl implements IProteinService{
 			container.setMolecularWeightSeq(protein.getMolecularWeightSeq());
 			container.setPi(protein.getPi());
 			container.setSource(protein.getSource());
-			container.setInModel(protein.getInModel());
+//			container.setInModel(protein.getInModel());
 
 			return container;
 		}
@@ -269,7 +268,7 @@ public class ProteinServiceImpl implements IProteinService{
 		Float pi = protein.getPi();
 		String ecnumber = protein.getExternalIdentifier();
 		String source = protein.getSource();
-		Boolean inModel = protein.getInModel();
+//		Boolean inModel = protein.getInModel();
 
 		if(name != null)
 			prot.setName(name);
@@ -301,17 +300,17 @@ public class ProteinServiceImpl implements IProteinService{
 		if(source != null)
 			prot.setSource(source);
 
-		if(inModel != null)
-			prot.setInModel(inModel);
+//		if(inModel != null)
+//			prot.setInModel(inModel);
 
 		return (Integer) this.modelproteinDAO.save(prot);
 
 	}
 
 	public boolean insertProtein(ProteinContainer protein,
-			String[] synonyms, String[] enzymes, Boolean[] inModel) throws Exception{
+			String[] synonyms, String[] enzymes) throws Exception{
 
-		protein.setInModel(inModel[0]);
+//		protein.setInModel(inModel[0]);
 
 		Integer proteinID = this.insertNewProteinEntry(protein);
 
@@ -344,7 +343,7 @@ public class ProteinServiceImpl implements IProteinService{
 
 				if(!exists) {
 
-					this.modelproteinDAO.updateProteinSetEcNumberSourceAndInModel(proteinID, id, true, "MANUAL");
+					this.modelproteinDAO.updateProteinSetEcNumberSourceAndInModel(proteinID, id, "MANUAL");
 
 				}
 
@@ -356,7 +355,7 @@ public class ProteinServiceImpl implements IProteinService{
 	}
 
 	public boolean updateProtein(ProteinContainer protein, String[] synonyms,
-			String[] oldSynonyms, String[] enzymes, String[] oldEnzymes, Boolean[] inModel, Boolean[] oldInModel) throws Exception {
+			String[] oldSynonyms, String[] enzymes, String[] oldEnzymes) throws Exception {
 
 		Integer proteinID = protein.getIdProtein();
 
@@ -398,8 +397,8 @@ public class ProteinServiceImpl implements IProteinService{
 		if(ecnumber != null)
 			prot.setEcnumber(ecnumber);
 
-		if(inModel != null)
-			prot.setInModel(inModel[0]);
+//		if(inModel != null)
+//			prot.setInModel(inModel[0]);
 
 		for(int s=0; s<synonyms.length; s++) {
 
@@ -522,8 +521,8 @@ public class ProteinServiceImpl implements IProteinService{
 	}
 
 	@Override
-	public List<String[]> getAllEnzymes(boolean isCompartimetalized, boolean encodedEnzyme) throws Exception {
-		return this.modelproteinDAO.getAllEnzymes(isCompartimetalized, encodedEnzyme);
+	public List<String[]> getAllEnzymes(boolean isEncodedInGenome, boolean isCompartmentalizedModel) throws Exception {
+		return this.modelproteinDAO.getAllEnzymes(isEncodedInGenome, isCompartmentalizedModel);
 	}
 
 	@Override
@@ -587,8 +586,8 @@ public class ProteinServiceImpl implements IProteinService{
 
 					trans_num++;
 
-					if(x.getInModel())
-						encoded_trans++;
+//					if(x.getInModel())
+//						encoded_trans++;
 				}
 				else {
 
@@ -596,34 +595,34 @@ public class ProteinServiceImpl implements IProteinService{
 
 						kegg_num++;
 
-						if(x.getInModel()){
-
-							encoded_kegg++;
-							encoded_enz++;
-
-						}
+//						if(x.getInModel()){
+//
+//							encoded_kegg++;
+//							encoded_enz++;
+//
+//						}
 					}
 
 					if(x.getSource().equalsIgnoreCase(SourceType.HOMOLOGY.toString())) {
 
 						hom_num++;
 
-						if(x.getInModel()){
-
-							encoded_hom++;
-							encoded_enz++;
-						}
+//						if(x.getInModel()){
+//
+//							encoded_hom++;
+//							encoded_enz++;
+//						}
 					}
 
 					if(x.getSource().equalsIgnoreCase(SourceType.MANUAL.toString())) {
 
 						man_num++;
 
-						if(x.getInModel()){
-
-							encoded_man++;
-							encoded_enz++;
-						}
+//						if(x.getInModel()){
+//
+//							encoded_man++;
+//							encoded_enz++;
+//						}
 					}
 
 					enz_num++;
@@ -645,56 +644,56 @@ public class ProteinServiceImpl implements IProteinService{
 	}
 
 
-	@Override
-	public Pair<List<String>, Boolean[]> getECnumber(int protId) throws Exception {
-		List<String> enzymesIDs = new ArrayList<String>();
-		Pair<List<String>, Boolean[]> result = new Pair<List<String>, Boolean[]>(enzymesIDs, null);
+//	@Override
+//	public Pair<List<String>, Boolean[]> getECnumber(int protId) throws Exception {
+//		List<String> enzymesIDs = new ArrayList<String>();
+//		Pair<List<String>, Boolean[]> result = new Pair<List<String>, Boolean[]>(enzymesIDs, null);
+//
+//		Map<String, Boolean> res = this.modelproteinDAO.getModelProteinEcNumberAndInModelByProteinId(protId);
+//
+//		int i = 0;
+//		Integer size = res.size();
+//
+//		Boolean[] inModel = new Boolean[size];
+//
+//		if (res != null)
+//			for (String x : res.keySet()) {
+//
+//				enzymesIDs.add(i, x);
+//				inModel[i] = res.get(x);
+//			}
+//
+//		result.setA(enzymesIDs);
+//		result.setB(inModel);
+//
+//		return result;
+//	}
 
-		Map<String, Boolean> res = this.modelproteinDAO.getModelProteinEcNumberAndInModelByProteinId(protId);
 
-		int i = 0;
-		Integer size = res.size();
-
-		Boolean[] inModel = new Boolean[size];
-
-		if (res != null)
-			for (String x : res.keySet()) {
-
-				enzymesIDs.add(i, x);
-				inModel[i] = res.get(x);
-			}
-
-		result.setA(enzymesIDs);
-		result.setB(inModel);
-
-		return result;
-	}
-
-
-	@Override
-	public String[] getECnumber2(int protId) throws Exception {
-		String[] list = new String[2];
-
-		String temp = "", tempBoolean="";
-
-		Map<String, Boolean> res = this.modelproteinDAO.getModelProteinEcNumberAndInModelByProteinId(protId);
-
-		if (res != null)
-			for (String x : res.keySet()){
-
-				temp+=(x+";");
-
-				if(res.get(x))
-					tempBoolean+=("true;");
-				else
-					tempBoolean+=("false;");
-			}
-
-		list[0] = temp;
-		list[1] = tempBoolean;
-
-		return list;
-	}
+//	@Override
+//	public String[] getECnumber2(int protId) throws Exception {
+//		String[] list = new String[2];
+//
+//		String temp = "", tempBoolean="";
+//
+//		Map<String, Boolean> res = this.modelproteinDAO.getModelProteinEcNumberAndInModelByProteinId(protId);
+//
+//		if (res != null)
+//			for (String x : res.keySet()){
+//
+//				temp+=(x+";");
+//
+//				if(res.get(x))
+//					tempBoolean+=("true;");
+//				else
+//					tempBoolean+=("false;");
+//			}
+//
+//		list[0] = temp;
+//		list[1] = tempBoolean;
+//
+//		return list;
+//	}
 
 	@Override
 	public void removeEnzymesAssignments(String ecnumber, Boolean[] inModel, List<String> enzymes_ids, Integer proteinID, boolean removeReaction) throws Exception {
@@ -706,7 +705,7 @@ public class ProteinServiceImpl implements IProteinService{
 			this.modelproteinDAO.removeAllEnzymeByProteinId(proteinID);
 		}
 		else {
-			this.modelproteinDAO.updateProteinSetEcNumberSourceAndInModel(proteinID, ec, false, null);
+			this.modelproteinDAO.updateProteinSetEcNumberSourceAndInModel(proteinID, ec, null);
 
 		}
 
@@ -990,7 +989,7 @@ public class ProteinServiceImpl implements IProteinService{
 
 	public void updateProteinSetEcNumberSourceAndInModel(Integer model_protein_idprotein, String ecnumber, boolean inModel, String source) throws Exception {
 
-		this.modelproteinDAO.updateProteinSetEcNumberSourceAndInModel(model_protein_idprotein, ecnumber, inModel, source);
+		this.modelproteinDAO.updateProteinSetEcNumberSourceAndInModel(model_protein_idprotein, ecnumber, source);
 
 	}
 
@@ -1008,7 +1007,7 @@ public class ProteinServiceImpl implements IProteinService{
 		if(retrievedProt != null) {
 
 			ProteinContainer container = new ProteinContainer(proteinId, retrievedProt.getEcnumber());
-			container.setInModel(retrievedProt.getInModel());
+//			container.setInModel(retrievedProt.getInModel());
 
 			return container;
 		}

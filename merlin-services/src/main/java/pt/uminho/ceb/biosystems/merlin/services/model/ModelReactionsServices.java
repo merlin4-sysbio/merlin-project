@@ -807,6 +807,19 @@ public class ModelReactionsServices {
 		InitDataAccess.getInstance().getDatabaseService(databaseName).removeSelectedReaction(reaction_id);
 
 	}
+	
+	/**
+	 * @param selectedRow
+	 * 
+	 * remove a given reaction
+	 * @throws Exception 
+	 * @throws IOException 
+	 */
+	public static void removeReactionLabelByReactionLabelId(String databaseName, int reactionLabelId) throws IOException, Exception {
+
+		InitDataAccess.getInstance().getDatabaseService(databaseName).removeSelectedReactionLabel(reactionLabelId);
+
+	}
 
 
 	/**
@@ -852,7 +865,7 @@ public class ModelReactionsServices {
 	 * @param boolean_rule 
 	 */
 	public static void updateReaction(Integer idReaction, String name, String equation, Boolean reversibility, //Set<String> enzymes,
-			Map<String, String> chains, Map<String, String > compartment, Map<String, Double> metabolites, Boolean inModel, 
+			Map<String, String > compartment, Map<String, Double> metabolites, Boolean inModel, 
 			Map<String, Set<String>> selectedEnzymesPathway, Integer compartmentId, Boolean isSpontaneous, Boolean isNonEnzymatic,
 			Boolean isGeneric, Long lowerBound, Long upperBound, String boolean_rule, String databaseName) throws Exception{
 

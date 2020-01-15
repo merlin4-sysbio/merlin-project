@@ -645,9 +645,9 @@ public class GenesServiceImpl implements IGenesService{
 
 		ModelProtein enzyme = this.modelproteinDAO.getModelProtein(idProtein);
 		if(enzyme == null) {
-			this.modelproteinDAO.updateProteinSetEcNumberSourceAndInModel(idProtein, ecnumber, true, source);
+			this.modelproteinDAO.updateProteinSetEcNumberSourceAndInModel(idProtein, ecnumber, source);
 		}else {
-			enzyme.setInModel(true);
+//			enzyme.setInModel(true);
 			if(editedReaction)
 				enzyme.setSource("MANUAL");
 			this.modelproteinDAO.update(enzyme);
@@ -723,7 +723,7 @@ public class GenesServiceImpl implements IGenesService{
 			this.modelproteinDAO.removeAllEnzymeByProteinId(proteinID);
 		}
 		else {
-			this.modelproteinDAO.updateProteinSetEcNumberSourceAndInModel(proteinID, ecnumber, false, null);
+			this.modelproteinDAO.updateProteinSetEcNumberSourceAndInModel(proteinID, ecnumber, null);
 
 		}
 
