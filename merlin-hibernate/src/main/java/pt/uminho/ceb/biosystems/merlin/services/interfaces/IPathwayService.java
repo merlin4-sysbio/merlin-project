@@ -121,4 +121,7 @@ public interface IPathwayService {
 	public Long countPathwayHasReaction(boolean isCompartimentalized) throws Exception;
 
 	public Map<Integer, List<PathwayContainer>> getPathwaysByReaction() throws Exception;
+	
+	public void deleteEmptyPathways(boolean checkReactions, boolean checkProteins) throws Exception;
+
 }
