@@ -362,7 +362,7 @@ progress.workingicon = conf/progress.gif
 							<goal>list</goal>
 						</goals>
 						<configuration>
-							<outputFile>${merlin.build.directory}conf/dependencieslist.txt</outputFile>
+							<outputFile>${merlin.build.directory}conf/dependenciesfiles</outputFile>
 							<outputScope>false</outputScope>
 						</configuration>
 					</execution>
