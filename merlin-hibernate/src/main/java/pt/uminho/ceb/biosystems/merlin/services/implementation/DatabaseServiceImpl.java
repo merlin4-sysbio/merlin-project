@@ -8496,4 +8496,19 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		}
 	}
 
+
+	@Override
+	public void deleteEmptyPathways(boolean checkReactions, boolean checkProteins) throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			pathwayservice.deleteEmptyPathways(checkReactions, checkProteins);
+			tx.commit();
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+		
+	}
+
 }

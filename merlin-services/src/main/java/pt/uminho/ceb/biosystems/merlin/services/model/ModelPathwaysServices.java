@@ -494,4 +494,16 @@ public class ModelPathwaysServices {
 
 		return InitDataAccess.getInstance().getDatabaseService(databaseName).getPathwaysByReaction();
 	}
+	
+	/**
+	 * This operation is used during data insertion (Example: kegg)
+	 * 
+	 * @param databaseName
+	 * @return
+	 * @throws Exception
+	 */
+	public static void deleteEmptyPathways(String databaseName, boolean checkReactions, boolean checkProteins) throws Exception {
+
+		InitDataAccess.getInstance().getDatabaseService(databaseName).deleteEmptyPathways(checkReactions, checkProteins);
+	}
 }
