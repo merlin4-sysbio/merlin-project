@@ -80,13 +80,16 @@ public class InsertEditGene extends javax.swing.JDialog {
 		proteinData = genes.getProteins(genes.getWorkspace().getName());
 
 		try {
-			if(selectedRow!=-10) {
+			if(selectedRow>-10) {
 
 				this.setTitle("Edit Gene");
 				//get proteins associated to such gene, and store new ones
 				subunits=genes.getSubunits(selectedRow, true);
 				//store original proteins associated to such gene, immutable
-				oldSubunits = genes.getSubunits(selectedRow, false);
+				oldSubunits = new String[genes.getSubunits(selectedRow, false).length];
+				String[] temp = genes.getSubunits(selectedRow, false);
+				for(int i = 0; i < temp.length;i++ )
+					oldSubunits[i] = new String(temp[i]);
 				initGUI();
 				
 				this.startFields(genes.getGeneData(selectedRow));
@@ -275,24 +278,10 @@ public class InsertEditGene extends javax.swing.JDialog {
 							@Override
 							public void actionPerformed(ActionEvent e) {
 
-//								String idChromosome="1",
 								String name, transcription_direction, left_end_position, right_end_position, locusTag;
 								boolean go = true;
 								boolean inserted = false;
 								boolean edited = false;
-
-//								if(jComboBoxChromosome.getModel().getSize()>0) {
-//
-//									if(jComboBoxChromosome.getSelectedItem().toString().equalsIgnoreCase("")) {
-//
-//										go = false;
-//									}
-//									else {
-//
-//										idChromosome = chromosomeData[0][jComboBoxChromosome.getSelectedIndex()];
-//									}
-//								}
-
 								name = jTextFieldName.getText();
 								transcription_direction=  (String) jComboBoxDirection.getSelectedItem();
 								left_end_position = jPosition1.getText();
@@ -307,7 +296,7 @@ public class InsertEditGene extends javax.swing.JDialog {
 								if(go) {
 
 									try {
-										if(selectedRow == -10) {
+										if(selectedRow < 0) {
 
 											ModelGenesServices.insertNewGene(genes.getWorkspace().getName(), name, transcription_direction, left_end_position, right_end_position, subunits, locusTag);
 											inserted = true;

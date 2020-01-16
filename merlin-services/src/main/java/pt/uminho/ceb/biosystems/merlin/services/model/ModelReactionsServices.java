@@ -1187,6 +1187,9 @@ public class ModelReactionsServices {
 		List<String[]> data = InitDataAccess.getInstance().getDatabaseService(databaseName).getPathwayHasEnzymeData(pathwayID, isCompartimentalized);
 
 		for(int i=0; i<data.size(); i++){
+			
+			System.out.println(Arrays.asList(data.get(i)));
+			
 			String[] list = data.get(i);
 
 			String reaction_id = list[3];
@@ -1195,7 +1198,7 @@ public class ModelReactionsServices {
 			if(reaction_id.contains("_"))
 				reaction_id=reaction_id.substring(0,reaction_id.indexOf("_"));
 
-			if(Boolean.valueOf(list[2]) && Boolean.valueOf(list[4]))
+			if(Boolean.valueOf(list[2]) )//&& Boolean.valueOf(list[4]))
 				enzymes.add(surrogateEnzID);
 
 			if(Boolean.valueOf(list[2]))
@@ -1204,9 +1207,8 @@ public class ModelReactionsServices {
 			//blockedReactions
 			if(blockedReactions!= null) {
 
-				String metabolite = list[6];
+				String metabolite = list[5];
 				compounds.add(metabolite);
-
 
 				Set<String> reactionsSet = new HashSet<String>();
 				if(enzymesGapReactions.containsKey(surrogateEnzID))

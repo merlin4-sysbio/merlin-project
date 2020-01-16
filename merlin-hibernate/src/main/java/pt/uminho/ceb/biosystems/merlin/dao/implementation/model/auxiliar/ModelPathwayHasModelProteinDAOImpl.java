@@ -207,19 +207,12 @@ public class ModelPathwayHasModelProteinDAOImpl extends GenericDaoImpl<ModelPath
 	    Predicate filter5 = cb.equal(compound.get("idcompound"), stoich.get("modelCompound").get("idcompound"));
 	    Predicate filter6 = cb.equal(reaction.get("idreaction"), pathHasReaction.get("id").get("reactionIdreaction"));
 	    Predicate filter11 = cb.equal(reaction.get("modelReactionLabels").get("idreactionLabel"), reactionLabels.get("idreactionLabel"));
-	    
 	    Predicate filter13 = cb.equal(protein.get("idprotein"), reactionHasenzyme.get("id").get("modelProteinIdprotein"));
-	    
-	    
 	    Predicate filter9 = cb.equal(pathEnz.get("id").get("modelPathwayIdpathway"), pathId);
 	    Predicate filter10 = cb.equal(pathHasReaction.get("id").get("pathwayIdpathway"), pathId);
-	    
-	    
 	    Predicate filter12 = cb.isNull(reaction.get("modelCompartment").get("idcompartment"));
 		if(isCompartimentalized) 
 			filter12 = cb.isNotNull(reaction.get("modelCompartment").get("idcompartment"));
-		
-		
 	    
 	    c.where(cb.and(filter1, filter3, filter4, filter5, filter6, filter9, filter10, filter11, filter12, filter13));
 

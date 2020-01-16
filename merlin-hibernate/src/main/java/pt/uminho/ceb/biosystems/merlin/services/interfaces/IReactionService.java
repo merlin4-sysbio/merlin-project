@@ -110,7 +110,7 @@ public interface IReactionService{
 	
 	public List<String[]> getStoichiometryInfo (boolean isCompartmentalisedModel) throws Exception;
 	
-	public List<String[]>  getReactionHasEnzymeData(Integer id) throws Exception;
+//	public List<String[]>  getReactionHasEnzymeData(Integer id) throws Exception;
 	
 	public List<String[]> countReactions(Integer id, boolean isCompartmentalized) throws Exception;
 	

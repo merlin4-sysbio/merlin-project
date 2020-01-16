@@ -715,23 +715,23 @@ public class ReactionServiceImpl implements IReactionService {
 		return this.modelreactionDAO.getModelReactionByInModelAndConditions(isCompartmentalizedModel);
 	}
 
-	public List<String[]> getReactionHasEnzymeData(Integer id) throws Exception {
-		ArrayList<String[]> result = new ArrayList<String[]>();
-
-		List<String[]> res = this.modelreactionhasproteinDao.getAllModelReactionHasModelProteinByreactionId2(id);
-
-		if (res != null)
-			for (String[] x : res) {
-				String[] list = new String[3];
-
-				list[0]= x[0];
-				list[1]= x[1];
-				list[2]= x[2] +"";
-
-				result.add(list);
-			}
-		return result;
-	}
+//	public List<String[]> getReactionHasEnzymeData(Integer id) throws Exception {
+//		ArrayList<String[]> result = new ArrayList<String[]>();
+//
+//		List<String[]> res = this.modelreactionhasproteinDao.getAllModelReactionHasModelProteinByreactionId2(id);
+//
+//		if (res != null)
+//			for (String[] x : res) {
+//				String[] list = new String[3];
+//
+//				list[0]= x[0];
+//				list[1]= x[1];
+//				list[2]= x[2] +"";
+//
+//				result.add(list);
+//			}
+//		return result;
+//	}
 	
 	@Override
 	public Integer countTotalOfReactions(boolean isCompartmentalized) throws Exception {
