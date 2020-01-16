@@ -36,3 +36,4 @@ merlin-gui/*.bak
 merlin-gui/conf/*.conf
 merlin-gui/Workbench_databases/
 merlin-gui/gff_error_report.txt
+merlin-gui/logs

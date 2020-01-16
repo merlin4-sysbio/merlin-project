@@ -131,7 +131,7 @@ public class ModelReactionHasModelProteinDAOImpl extends GenericDaoImpl<ModelRea
 		Root<ModelProtein> prot = c.from(ModelProtein.class);
 
 		c.multiselect(prot.get("ecnumber"),
-				prot.get("idprotein"), prot.get("name"), prot.get("inModel"));
+				prot.get("idprotein"), prot.get("name"), react.get("modelReaction").get("inModel"));
 
 		Predicate filter1 = cb.equal(react.get("id").get("modelProteinIdprotein"), prot.get("idprotein"));
 		Predicate filter2 = cb.equal(react.get("id").get("modelReactionIdreaction"), id);
@@ -169,7 +169,7 @@ public class ModelReactionHasModelProteinDAOImpl extends GenericDaoImpl<ModelRea
 		Root<ModelProtein> prot = c.from(ModelProtein.class);
 
 		c.multiselect(react.get("id").get("modelEnzymeEcnumber"), prot.get("name"), 
-				prot.get("inModel"), react.get("id").get("modelEnzymeModelProteinIdprotein"));
+				react.get("modelReaction").get("inModel"), react.get("id").get("modelEnzymeModelProteinIdprotein"));
 
 		Predicate filter = cb.equal(react.get("id").get("modelEnzymeModelProteinIdprotein"), prot.get("idprotein"));
 		//Predicate filter4 = cb.equal(react.get("id").get("modelEnzymeEcnumber"), enzyme.get("id").get("ecnumber")); REPETIDA
@@ -246,7 +246,7 @@ public class ModelReactionHasModelProteinDAOImpl extends GenericDaoImpl<ModelRea
 
 		c.multiselect(react.get("id").get("modelEnzymeModelProteinIdprotein"), react.get("id").get("modelEnzymeEcnumber"));
 
-		Predicate filter1 = cb.equal(prot.get("inModel"), true);
+		Predicate filter1 = cb.equal(react.get("modelReaction").get("inModel"), true);
 		Predicate filter2 = cb.equal(react.get("id").get("modelReactionIdreaction"), reactionId);
 		Predicate filter3 = cb.equal(react.get("id").get("modelProteinIdprotein"), prot.get("idprotein"));
 		c.where(cb.and(filter1, filter2, filter3));

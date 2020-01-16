@@ -197,7 +197,7 @@ public class ModelPathwayHasModelProteinDAOImpl extends GenericDaoImpl<ModelPath
 		
 				
 	    c.multiselect(protein.get("ecnumber"), protein.get("idprotein"),
-	    		reaction.get("inModel"), reactionLabels.get("name"), protein.get("inModel"), protein.get("name"),
+	    		reaction.get("inModel"), reactionLabels.get("name"), protein.get("name"),
 	    		compound.get("externalIdentifier")); 
 
 	    Predicate filter1 = cb.equal(pathEnz.get("id").get("modelProteinIdprotein"), reactionHasenzyme.get("id").get("modelProteinIdprotein"));
@@ -207,19 +207,12 @@ public class ModelPathwayHasModelProteinDAOImpl extends GenericDaoImpl<ModelPath
 	    Predicate filter5 = cb.equal(compound.get("idcompound"), stoich.get("modelCompound").get("idcompound"));
 	    Predicate filter6 = cb.equal(reaction.get("idreaction"), pathHasReaction.get("id").get("reactionIdreaction"));
 	    Predicate filter11 = cb.equal(reaction.get("modelReactionLabels").get("idreactionLabel"), reactionLabels.get("idreactionLabel"));
-	    
 	    Predicate filter13 = cb.equal(protein.get("idprotein"), reactionHasenzyme.get("id").get("modelProteinIdprotein"));
-	    
-	    
 	    Predicate filter9 = cb.equal(pathEnz.get("id").get("modelPathwayIdpathway"), pathId);
 	    Predicate filter10 = cb.equal(pathHasReaction.get("id").get("pathwayIdpathway"), pathId);
-	    
-	    
 	    Predicate filter12 = cb.isNull(reaction.get("modelCompartment").get("idcompartment"));
 		if(isCompartimentalized) 
 			filter12 = cb.isNotNull(reaction.get("modelCompartment").get("idcompartment"));
-		
-		
 	    
 	    c.where(cb.and(filter1, filter3, filter4, filter5, filter6, filter9, filter10, filter11, filter12, filter13));
 
@@ -232,14 +225,13 @@ public class ModelPathwayHasModelProteinDAOImpl extends GenericDaoImpl<ModelPath
 			
 			for(Object[] item: resultList) {
 
-				String[] list = new String[7];
+				String[] list = new String[6];
 				list[0] = String.valueOf(item[0]);
 				list[1] = String.valueOf(item[1]);
 				list[2] = String.valueOf(item[2]);
 				list[3] = (String) item[3];
-				list[4] = String.valueOf(item[4]);
+				list[4] = (String) item[4];
 				list[5] = (String) item[5];
-				list[6] = (String) item[6];
 				parsedList.add(list);
 				
 			}

@@ -3764,18 +3764,18 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		}
 	}
 
-	public List<String[]> getReactionHasEnzymeData(Integer id) throws Exception {
-		Transaction tx = null;
-		try {
-			tx = sessionFactory.getCurrentSession().beginTransaction();
-			List<String[]> result = reactionservice.getReactionHasEnzymeData(id);
-			tx.commit();
-			return (List<String[]>) result;
-		} catch (RuntimeException e) {
-			tx.rollback();
-			throw new Exception(e);
-		}
-	}
+//	public List<String[]> getReactionHasEnzymeData(Integer id) throws Exception {
+//		Transaction tx = null;
+//		try {
+//			tx = sessionFactory.getCurrentSession().beginTransaction();
+//			List<String[]> result = reactionservice.getReactionHasEnzymeData(id);
+//			tx.commit();
+//			return (List<String[]>) result;
+//		} catch (RuntimeException e) {
+//			tx.rollback();
+//			throw new Exception(e);
+//		}
+//	}
 
 
 	public List<String[]> countReactions(Integer id, boolean isCompartmentalized) throws Exception {

@@ -74,7 +74,7 @@ public class InsertEditProtein extends JDialog {
 	private String[] oldEnzymes;
 //	private Boolean[] inModel;
 //	private Boolean[] oldInModel;
-	private JCheckBox[] enzymeCheckBox;
+//	private JCheckBox[] enzymeCheckBox;
 	private JTextField[] textField;
 	private JTextField[] enzymeField;
 
@@ -648,32 +648,32 @@ public class InsertEditProtein extends JDialog {
 	 * @param isInModel
 	 * @return
 	 */
-	private JCheckBox addEnzymeCB(boolean isInModel) {
-
-		JCheckBox jCheckBox = new JCheckBox();
-		jCheckBox.setSelected(isInModel);
-		jCheckBox.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				JCheckBox jCheckBox = (JCheckBox) arg0.getSource();
-				int selectedField = 0;
-
-				for(int i=0; i<enzymeCheckBox.length;i++)
-				{
-					if(enzymeCheckBox[i]== jCheckBox)// find my object
-					{
-						selectedField=i;
-						i=enzymeCheckBox.length;
-					}
-				}
-
-//				inModel[selectedField]=jCheckBox.isSelected();
-			}
-
-		});
-		return jCheckBox;
-	}
+//	private JCheckBox addEnzymeCB(boolean isInModel) {
+//
+//		JCheckBox jCheckBox = new JCheckBox();
+//		jCheckBox.setSelected(isInModel);
+//		jCheckBox.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent arg0) {
+//				JCheckBox jCheckBox = (JCheckBox) arg0.getSource();
+//				int selectedField = 0;
+//
+//				for(int i=0; i<enzymeCheckBox.length;i++)
+//				{
+//					if(enzymeCheckBox[i]== jCheckBox)// find my object
+//					{
+//						selectedField=i;
+//						i=enzymeCheckBox.length;
+//					}
+//				}
+//
+////				inModel[selectedField]=jCheckBox.isSelected();
+//			}
+//
+//		});
+//		return jCheckBox;
+//	}
 
 	/**
 	 * @return
@@ -703,13 +703,13 @@ public class InsertEditProtein extends JDialog {
 		}
 
 		//number of columns (array size)
-		jPanelTextLayout.columnWeights = new double[] {0.0, 0.1, 0.0, 0.1, 0.0};
-		jPanelTextLayout.columnWidths = new int[] {7, 10, 7, 10, 7};
+		jPanelTextLayout.columnWeights = new double[] {0.0, 0.1, 0.0};//, 0.1, 0.0};
+		jPanelTextLayout.columnWidths = new int[] {7, 10, 7};//, 10, 7};
 		//set layout
 		panelEnzymes.setLayout(jPanelTextLayout);
 		//		panelEnzymes.setPreferredSize(new java.awt.Dimension(206, 165));
 		panelEnzymes.add(new JLabel("EC number"), new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
-		panelEnzymes.add(new JLabel("In Model"), new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+//		panelEnzymes.add(new JLabel("In Model"), new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
 
 		if(enzymes.length==0) {
 
@@ -722,12 +722,12 @@ public class InsertEditProtein extends JDialog {
 
 //			inModel = new Boolean[1];
 //			inModel[0] = false;
-			enzymeCheckBox = new JCheckBox[1];
-			//enzymeCheckBox[0] = new JCheckBox();
-			enzymeCheckBox[0] = addEnzymeCB(false);
-			panelEnzymes.add( enzymeField[0], new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-			panelEnzymes.add( enzymeCheckBox[0], new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-			enzymeCheckBox[0].setSelected(true);
+//			enzymeCheckBox = new JCheckBox[1];
+//			//enzymeCheckBox[0] = new JCheckBox();
+//			enzymeCheckBox[0] = addEnzymeCB(false);
+//			panelEnzymes.add( enzymeField[0], new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+//			panelEnzymes.add( enzymeCheckBox[0], new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+//			enzymeCheckBox[0].setSelected(true);
 
 		}
 		else
@@ -748,8 +748,8 @@ public class InsertEditProtein extends JDialog {
 
 				int r =s*2+1;
 				panelEnzymes.add(enzymeField[s], new GridBagConstraints(1, r, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-				panelEnzymes.add( enzymeCheckBox[s], new GridBagConstraints(3, r, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-				enzymeCheckBox[s].setSelected(true);
+//				panelEnzymes.add( enzymeCheckBox[s], new GridBagConstraints(3, r, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+//				enzymeCheckBox[s].setSelected(true);
 			}
 		}
 
