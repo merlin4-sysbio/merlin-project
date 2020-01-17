@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>pt.uminho.ceb.biosystems.merlin</groupId>
 		<artifactId>merlin-project</artifactId>
-		<version>4.0.03-SNAPSHOT</version>
+		<version>4.0.04-SNAPSHOT</version>
 		<!-- WARNING: change version using (in the parent project): mvn versions:set 
 			-DnewVersion=[new_version] mvn versions:commit This will change the version 
 			in all modules at-once -->
@@ -19,6 +19,10 @@
 	<name>merlin-bioapis</name>
 	<url>http://maven.apache.org</url>
 
+	<properties>		
+		<merlin.build.directory>${project.basedir}/../merlin-project/merlin-gui</merlin.build.directory>
+	</properties>
+	
 	<build>
 		<plugins>
 			<plugin>

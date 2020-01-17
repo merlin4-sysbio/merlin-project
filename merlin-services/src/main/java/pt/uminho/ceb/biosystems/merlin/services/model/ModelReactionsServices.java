@@ -675,9 +675,6 @@ public class ModelReactionsServices {
 		//			boolean compartmentalisedModel = ProjectServices.isCompartmentalisedModel(databaseName);
 
 
-		if(boolean_rule!=null)
-			boolean_rule = "'"+boolean_rule+"'";
-
 		if(!name.startsWith("R") && !name.startsWith("T")&& !name.startsWith("K") && !name.toLowerCase().contains("biomass"))
 			name = "R_"+name;
 

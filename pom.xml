@@ -6,7 +6,7 @@
 
 	<groupId>pt.uminho.ceb.biosystems.merlin</groupId>
 	<artifactId>merlin-project</artifactId>
-	<version>4.0.03-SNAPSHOT</version>
+	<version>4.0.04-SNAPSHOT</version>
 	<!-- WARNING: change version using: mvn versions:set -DnewVersion=[new_version] 
 		mvn versions:commit This will change the version in all modules at-once WARNING: 
 		Remember to also change the version manually in the docs/source/conf.py file -->
@@ -66,12 +66,13 @@
 
 	<properties>
 		<!-- merlin -->
-		<merlin.build.directory>${project.build.directory}/merlin/</merlin.build.directory>
+		<merlin.build.directory>${build.directory}/merlin/</merlin.build.directory>
+		<merlin.build.directory.conf>${project.basedir}/merlin-gui/conf/</merlin.build.directory.conf>
 		<merlin.plugins.directory>${project.basedir}/merlin-gui/merlin/plugins</merlin.plugins.directory>
 		<merlin.lib.directory>${project.basedir}/merlin-gui/merlin/lib</merlin.lib.directory>
 		<slf4j.version>1.8.0-beta4</slf4j.version>
 		<pt.uminho.ceb.biosystems.aibench.project.version>4.0.2-RELEASE</pt.uminho.ceb.biosystems.aibench.project.version>
-		<pt.uminho.ceb.biosystems.merlin.version>4.0.03-SNAPSHOT</pt.uminho.ceb.biosystems.merlin.version>
+		<pt.uminho.ceb.biosystems.merlin.version>4.0.04-SNAPSHOT</pt.uminho.ceb.biosystems.merlin.version>
 		<pt.uminho.ceb.biosystems.merlin.groupId>pt.uminho.ceb.biosystems.merlin</pt.uminho.ceb.biosystems.merlin.groupId>
 		<build.name>beta</build.name>
 
@@ -101,6 +102,8 @@
 		<axis2.version>1.6.2</axis2.version>
 		<axiom.version>1.2.14</axiom.version>
 		<uniprot.api.version>1.0.30</uniprot.api.version>
+		
+		
 	</properties>
 
 	<modules>
@@ -303,6 +306,24 @@
 								</configuration>
 							</execution>
 						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>list-dependencies</id>
+								<phase>deploy</phase>
+								<goals>
+									<goal>list</goal>
+								</goals>
+								<configuration>
+									<outputFile>${merlin.build.directory.conf}dependenciesfiles</outputFile>
+									<outputScope>false</outputScope>
+									<appendOutput>true</appendOutput>
+								</configuration>
+							</execution>
+				         </executions>	
 					</plugin>
 				</plugins>
 			</build>

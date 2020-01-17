@@ -5,7 +5,7 @@
 		<parent>
 		<groupId>pt.uminho.ceb.biosystems.merlin</groupId>
 		<artifactId>merlin-project</artifactId>
-		<version>4.0.03-SNAPSHOT</version>
+		<version>4.0.04-SNAPSHOT</version>
 		<!--
 			WARNING: change version using (in the parent project):
 				mvn versions:set -DnewVersion=[new_version]
@@ -355,7 +355,7 @@ progress.workingicon = conf/progress.gif
 							<includeArtifactIds>merlin-aibench-core,merlin-aibench-workbench, merlin-aibench-plugin-manager</includeArtifactIds>
 						</configuration>
 					</execution>
-					<execution>
+					<!-- <execution>
 						<id>list-dependencies</id>
 						<phase>install</phase>
 						<goals>
@@ -365,7 +365,7 @@ progress.workingicon = conf/progress.gif
 							<outputFile>${merlin.build.directory}conf/dependenciesfiles</outputFile>
 							<outputScope>false</outputScope>
 						</configuration>
-					</execution>
+					</execution> -->
 				</executions>
 			</plugin>
 			<plugin>

@@ -43,7 +43,7 @@
 	<logger name="u.a.e.u.d.s.a" level="OFF" />
 
 	<root level="INFO">
-		<!-- <appender-ref ref="STDOUT" /> -->
+		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE" />
 	</root>
 </configuration>
