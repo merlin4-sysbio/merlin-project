@@ -158,16 +158,16 @@ public class ReactionServiceImpl implements IReactionService {
 					ql.add("-");
 
 				if((Double.valueOf(x[5]) < 0 && Double.valueOf(x[6]+"") > 0))
-					ql.add(Boolean.valueOf(x[5])+"");
+					ql.add("reversible");
 				else
-					ql.add("-");
+					ql.add("irreversible");
 
 				ret.add(ql);
 			}
 
 		return ret;
 	}
-
+	
 
 	@Override
 	public long countReactionsInModel(boolean isCompartimentalized) throws Exception { 

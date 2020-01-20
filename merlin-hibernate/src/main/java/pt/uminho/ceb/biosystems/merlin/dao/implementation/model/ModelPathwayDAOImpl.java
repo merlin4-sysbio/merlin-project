@@ -28,6 +28,7 @@ import pt.uminho.ceb.biosystems.merlin.entities.model.ModelPathway;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelPathwayHasModelProtein;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelPathwayHasReaction;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelReaction;
+import pt.uminho.ceb.biosystems.merlin.entities.model.ModelReactionHasModelProtein;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelReactionLabels;
 
 public class ModelPathwayDAOImpl extends GenericDaoImpl<ModelPathway> implements IModelPathwayDAO {
@@ -124,12 +125,17 @@ public class ModelPathwayDAOImpl extends GenericDaoImpl<ModelPathway> implements
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<ModelPathwayHasModelProtein> c = cb.createQuery(ModelPathwayHasModelProtein.class);
 		Root<ModelPathwayHasModelProtein> pathwayHasProtein = c.from(ModelPathwayHasModelProtein.class);
-
+		Root<ModelReaction> reaction = c.from(ModelReaction.class);
+		Root<ModelReactionHasModelProtein> reactionHasProtein = c.from(ModelReactionHasModelProtein.class);
+		
 		c.select(pathwayHasProtein);
 
-		Predicate filter1 = cb.equal(pathwayHasProtein.get("modelProtein").get("inModel"),true);
+		Predicate filter1 = cb.equal(reaction.get("inModel"), true); 
+		Predicate filter2 = cb.equal(reaction.get("idreaction"), reactionHasProtein.get("modelProtein").get("idprotein"));
+		Predicate filter3 = cb.equal(reactionHasProtein.get("modelProtein").get("idprotein"), pathwayHasProtein.get("modelProtein").get("idprotein"));
 		
-		c.where(filter1);
+		c.where(cb.and(filter1, filter2, filter3));
+
 		c.orderBy(cb.asc(pathwayHasProtein.get("modelPathway").get("idpathway")));
 
 		Query<ModelPathwayHasModelProtein> q = super.sessionFactory.getCurrentSession().createQuery(c);
