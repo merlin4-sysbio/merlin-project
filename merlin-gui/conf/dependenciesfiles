@@ -2495,7 +2495,6 @@ The following files have been resolved:
    org.eclipse.swt.win32.win32:x86:jar:3.3.0-v3346
    pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.04-SNAPSHOT
    org.biojava:biojava-alignment:jar:5.2.0
-   pt.uminho.ceb.biosystems.merlin:merlin-databaseConnector:jar:4.0.2.4-SNAPSHOT
    org.xerial.snappy:snappy-java:jar:1.0.5
    commons-dbcp:commons-dbcp:jar:1.2.2
    org.apache.httpcomponents:httpmime:jar:4.5.3
@@ -2524,6 +2523,7 @@ The following files have been resolved:
    com.sun.xml.bind:jaxb-xjc:jar:2.1.6
    org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:jar:1.1.1.Final
    pt.uminho.ceb.biosystems.merlin:merlin-aibench-core:jar:4.0.2-RELEASE
+   pt.uminho.ceb.biosystems.merlin:merlin-databaseConnector:jar:4.0.2.4-SNAPSHOT
    com.fasterxml.jackson.core:jackson-databind:jar:2.8.7
    com.googlecode.json-simple:json-simple:jar:1.1.1
    javax.mail:javax.mail-api:jar:1.6.1
