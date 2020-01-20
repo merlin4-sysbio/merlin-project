@@ -45,8 +45,7 @@ public class LoaderWorkspaceDatabase implements PropertyChangeListener {
 	private int dataSize;
 	public TimeLeftProgress progress = new TimeLeftProgress();
 	private AtomicBoolean cancel = new AtomicBoolean(false);
-	private static final String FTP_MERLIN_KEGGDATA = "https://merlin-sysbio.org/data/kegg/keggXMLbackup.zip";
-	
+	private static final String FTP_MERLIN_KEGGDATA = "https://merlin-sysbio.org/data/kegg2/old_versions/keggXMLbackup20200116_0958.zip";
 	final static Logger logger = LoggerFactory.getLogger(LoaderWorkspaceDatabase.class);
 
 
@@ -64,7 +63,6 @@ public class LoaderWorkspaceDatabase implements PropertyChangeListener {
 				
 				String path = DatabaseFilesPaths.getModelPath(false);
 				DatabaseServices.executeDropTable(project.getName(), FileUtils.readLines(path));
-				
 				String keggXmlPath = FileUtils.getUtilitiesFolderPath().concat(KEGG_XML_FILENAME) ;
 				
 				try {

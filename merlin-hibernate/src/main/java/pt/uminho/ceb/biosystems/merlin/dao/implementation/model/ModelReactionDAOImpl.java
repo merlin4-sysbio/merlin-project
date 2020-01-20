@@ -164,7 +164,7 @@ public class ModelReactionDAOImpl extends GenericDaoImpl<ModelReaction> implemen
 		Root<ModelPathwayHasModelProtein> pathProtein = c.from(ModelPathwayHasModelProtein.class);
 		Root<ModelPathwayHasReaction> pathReaction = c.from(ModelPathwayHasReaction.class);
 		c.multiselect(reaction.get("idreaction")).distinct(true);
-		Predicate filter1 = cb.equal(reactionHasProtein.get("id").get("reactionIdreaction"),  reaction.get("idreaction"));
+		Predicate filter1 = cb.equal(reactionHasProtein.get("id").get("modelReactionIdreaction"),  reaction.get("idreaction"));
 		Predicate filter2 = cb.equal(pathProtein.get("id").get("modelProteinIdprotein"), reactionHasProtein.get("id").get("modelProteinIdprotein"));
 		Predicate filter3 = cb.equal(pathReaction.get("id").get("pathwayIdpathway"), pathProtein.get("id").get("modelPathwayIdpathway")); 
 		Predicate filter4 = cb.equal(reactionHasProtein.get("id").get("modelProteinIdprotein"), proteinId);

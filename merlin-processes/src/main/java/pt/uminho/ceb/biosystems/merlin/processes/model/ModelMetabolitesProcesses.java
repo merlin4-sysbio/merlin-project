@@ -107,7 +107,7 @@ public class ModelMetabolitesProcesses {
 		columnsNames.add("equations");
 		columnsNames.add("source");
 		columnsNames.add("in model");
-		columnsNames.add("reversible");
+		columnsNames.add("reversibility");
 		res[tab] = new WorkspaceDataTable(columnsNames, "reactions");
 
 		for(ArrayList<String> line : data.get("reactions"))

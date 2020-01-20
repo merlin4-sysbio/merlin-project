@@ -55,4 +55,6 @@ public interface IModelReactionHasModelProteinDAO extends IGenericDao<ModelReact
 	public List<Pair<String, String>> getModelReactionHasModelProteinData(boolean isCompartimentalised);
 
 	public List<Pair<Integer, String>> getModelReactionHasModelProteinData2(boolean isCompartimentalised);
+	
+	
 }

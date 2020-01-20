@@ -506,7 +506,7 @@ public class GenesServiceImpl implements IGenesService{
 
 	@Override
 	public void insertNewGene(String name, String transcription_direction, String left_end_position,
-			String right_end_position, String[] subunits, String locusTag) {
+			String right_end_position, String[] subunits, String locusTag) throws Exception {
 
 		Integer idNewGene = null; 
 
@@ -532,17 +532,12 @@ public class GenesServiceImpl implements IGenesService{
 			if(!subunits[s].equals("dummy") && !subunits[s].isEmpty()) {
 
 
-				String proteinID=subunits[s].split("__")[0];
+				Integer proteinID=Integer.valueOf(subunits[s].split("__")[0]);
 
-				this.subunitDAO.insertModelSubunit(idNewGene, Integer.valueOf(proteinID));
+				this.subunitDAO.insertModelSubunit(idNewGene, proteinID);
 
-				//	Set<Integer> reactionsIDs = ProjectAPI.getReactionID2(proteinID, e, stmt); -// nao tinha a view, nao fiz DAO
+				this.insertEnzymes(proteinID, subunits[s].split("__")[1], true); 
 
-				//					for(Integer idreaction: reactionsIDs) {
-				//						
-				//						this.modelReaction.updateInModelAndSourceByReactionId(idreaction, true, "MANUAL");
-				//	
-				//					}
 			}
 		}
 	}
@@ -633,7 +628,6 @@ public class GenesServiceImpl implements IGenesService{
 				this.subunitDAO.insertModelSubunit(geneIdentifier, protein_id);
 
 				this.insertEnzymes(protein_id, ecnumber, true); 
-
 			}
 		}
 	}
@@ -646,18 +640,19 @@ public class GenesServiceImpl implements IGenesService{
 		ModelProtein enzyme = this.modelproteinDAO.getModelProtein(idProtein);
 		if(enzyme == null) {
 			this.modelproteinDAO.updateProteinSetEcNumberSourceAndInModel(idProtein, ecnumber, source);
-		}else {
+		}
+		else {
 //			enzyme.setInModel(true);
 			if(editedReaction)
 				enzyme.setSource("MANUAL");
 			this.modelproteinDAO.update(enzyme);
 		}
 
-		List<ModelReactionHasModelProtein> reactions = this.modelReactionHasModelProteinDAO.getAllModelReactionHasModelProtein();
+		List<ModelReactionHasModelProtein> reactions = this.modelReactionHasModelProteinDAO.findBySingleAttribute("modelProtein", idProtein);
 
 		for(ModelReactionHasModelProtein enzymeReactions :reactions) {
 
-			ModelReaction reaction = reactionDAO.findById(enzymeReactions.getId());
+			ModelReaction reaction = reactionDAO.findById(enzymeReactions.getModelReaction().getIdreaction());
 			ModelReactionLabels reactionLabel = reaction.getModelReactionLabels();
 
 			if(editedReaction) 
@@ -672,15 +667,17 @@ public class GenesServiceImpl implements IGenesService{
 
 	public void removeGeneAssignemensts(Integer geneIdentifier, String proteindIdentifier) throws Exception {
 
-		this.subunitDAO.removeSubunitByGeneIdAndProteinId(geneIdentifier, Integer.valueOf(proteindIdentifier.split("__")[0]));
+		int proteinId = Integer.valueOf(proteindIdentifier.split("__")[0]);
+		String ecNumber = proteindIdentifier.split("__")[1];
+		
+		this.subunitDAO.removeSubunitByGeneIdAndProteinId(geneIdentifier, proteinId);
 
-
-		boolean exists = this.subunitDAO.checkSubunitData(Integer.valueOf(proteindIdentifier));
+		boolean exists = this.subunitDAO.checkSubunitData(proteinId);
 
 		if(!exists) {
 
 			List<String> enzymes_ids = new ArrayList<String>();
-			enzymes_ids.add(proteindIdentifier.split("__")[1]);
+			enzymes_ids.add(ecNumber);
 
 			Boolean[] inModel = new Boolean[enzymes_ids.size()];
 			for(int i= 0; i< inModel.length; i++) {
@@ -690,7 +687,7 @@ public class GenesServiceImpl implements IGenesService{
 
 
 			for(String e:enzymes_ids) {
-				this.removeEnzymesAssignments(String.valueOf(e), inModel, enzymes_ids, Integer.parseInt(proteindIdentifier.split("__")[0]), false);
+				this.removeEnzymesAssignments(String.valueOf(e), inModel, enzymes_ids, proteinId, false);
 
 			}
 		}

@@ -33,7 +33,7 @@ public class PathwayServiceImpl implements IPathwayService{
 	private IModelPathwayHasModelCompoundDAO modelPathwayHasModelCompoundDAO;
 	private IModelPathwayHasModuleDAO modelPathwayHasModuleDAO;
 	private IModelSuperpathwayDAO modelSuperpathwayDAO; 
-	
+
 	public PathwayServiceImpl(IModelPathwayDAO modelpathwayDAO, IModelPathwayHasReactionDAO modelpathwayhasreactionDAO, IModelPathwayHasModelProteinDAO modelpathwayhasenzymeDAO,
 			IModelPathwayHasModelCompoundDAO modelPathwayHasModelCompoundDAO, IModelPathwayHasModuleDAO modelPathwayHasModuleDAO,
 			IModelSuperpathwayDAO modelSuperpathwayDAO) {
@@ -58,7 +58,7 @@ public class PathwayServiceImpl implements IPathwayService{
 	@Override
 	public boolean addPathway_has_Reaction(Integer idPathway, Integer idReaction) throws Exception {
 		List<ModelPathwayHasReaction> res = this.modelpathwayhasreactionDAO.getAllModelPathwayHasReactionByAttributes(idReaction, idPathway);
-		
+
 		if (res != null) {
 			return false;
 		}
@@ -71,7 +71,7 @@ public class PathwayServiceImpl implements IPathwayService{
 	@Override
 	public Integer addBiomassPathway(String name, String code) throws Exception {
 		boolean res = this.modelpathwayDAO.checkIfModelPathwayNameExists(name);
-		
+
 		if (res == false) {
 			return this.modelpathwayDAO.insertModelPathwayCodeAndName(code, name);
 		}
@@ -85,26 +85,26 @@ public class PathwayServiceImpl implements IPathwayService{
 
 	@Override
 	public String getPathwaysByRowID(int id) throws Exception {
-	
+
 		return this.modelpathwayDAO.getModelPathwayNameByReactionId(id);
-		
+
 	}
 
 	@Override
 	public List<String> getPathwaysList() throws Exception {
 		List<String> lls = new ArrayList<String>();
-		
+
 		List<String[]> list = this.modelpathwayDAO.getModelPathwayIdAndName();
-		
+
 		if (list != null) {
 			for (String[] x : list) {
 				lls.add(x[1]);
 			}
 		}
-		
+
 		return lls;
 	}
-	
+
 
 	@Override
 	public List<Integer> getReactionsID(int pathwayId, int proteinId) throws Exception {
@@ -131,10 +131,10 @@ public class PathwayServiceImpl implements IPathwayService{
 		return this.modelpathwayhasenzymeDAO.getDistinctModelPathwayHasModelProteinCodeAndNameByAttributes( proteinId);
 	}
 
-	
+
 	@Override
 	public boolean hasDrains() throws Exception {
-		
+
 		boolean ret = false;
 
 		List<ModelPathway> list = this.modelpathwayDAO.getAllModelPathwayByCode("D0001");
@@ -147,13 +147,13 @@ public class PathwayServiceImpl implements IPathwayService{
 	@Override
 	public boolean isTransporterLoaded() throws Exception {
 		boolean ret = false;
-		
+
 		List<ModelPathway> list = this.modelpathwayDAO.getAllModelPathwayByCode(Pathways.TRANSPORTERS.getCode());
-		
+
 		if (list != null && !list.isEmpty())
 			ret = true;
 		return ret;
-		
+
 	}
 
 	@Override
@@ -164,17 +164,17 @@ public class PathwayServiceImpl implements IPathwayService{
 	@Override
 	public Map<Integer, String> getPathwaysNames() throws Exception {
 		return this.modelpathwayDAO.getAllModelPathwayIdAndName();
-		
+
 	}
 
 	@Override
 	public Map<Integer, String> getExistingPathwaysID(int idReaction) throws Exception {
 		List<PathwayContainer> list = this.modelpathwayhasreactionDAO.getModelPathwayHasReactionIdByReactionId(idReaction);
 		Map<Integer, String> existingPathwaysID = new HashMap<Integer, String>();
-		
+
 		for (PathwayContainer x: list)
 			existingPathwaysID.put(x.getIdPathway(), x.getName());
-		
+
 		return existingPathwaysID;
 	}
 
@@ -183,32 +183,32 @@ public class PathwayServiceImpl implements IPathwayService{
 			throws Exception {
 		Map <Integer, String> existingPathwaysID  = new HashMap<Integer, String>();
 		List<Integer> list = this.modelpathwayDAO.getPathwayIdByReactionId(idReaction);
-		
+
 		if(list != null) {
 			for (Integer x : list) {
-			existingPathwaysID.put(x, "");
-	}
+				existingPathwaysID.put(x, "");
+			}
 		}
 		return existingPathwaysID;
 	}
 
 	@Override
 	public Integer getPathwayID(String name) throws Exception {
-		
+
 		return this.modelpathwayDAO.getPathwayIdByName(name);
-		
+
 	}
 
 	@Override
 	public boolean checkPathwayHasEnzymeData(Integer idProtein, Integer pathId) throws Exception {
 		boolean exists = false;
-		
+
 		List<ModelPathwayHasModelProtein> list = this.modelpathwayhasenzymeDAO.getAllModelPathwayHasModelProteinByPathwayIdAndProteinId(pathId, idProtein);
 		if(list != null && list.size() > 0)
 			exists = true;
 		return exists;
 	}
-	
+
 	@Override
 	public List<String[]> getPathwayHasEnzymeData(int pathId, boolean isCompartimentalized) throws Exception {
 		return this.modelpathwayhasenzymeDAO.getModelPathwayHasModelProteinAttributesByPathwayId(pathId, isCompartimentalized);
@@ -237,33 +237,33 @@ public class PathwayServiceImpl implements IPathwayService{
 	@Override
 	public boolean checkPathwayHasEnzymeEntryByProteinId(Integer idprotein) throws Exception {
 		boolean exists = false;
-		
+
 		List<ModelPathwayHasModelProtein> list = this.modelpathwayhasenzymeDAO.getAllModelPathwayHasModelProteinByEcNumber(idprotein);
-		
+
 		if(list != null && !list.isEmpty())
 			exists = true;
-		
+
 		return exists;
 	}
 
 	@Override
 	public boolean checkPathwayHasEnzymeEntryByReactionID(Integer id) throws Exception {
 		boolean exists = false;
-		
+
 		List<ModelPathwayHasReaction> list = this.modelpathwayhasreactionDAO.getAllModelPathwayHasReactionByReactionId(id);
-		
+
 		if(list != null && !list.isEmpty())
 			exists = true;
-		
+
 		return exists;
 	}
 
 	@Override
 	public int getPathwayIdByNameAndCode(String name, String code) throws Exception {
 		int res = -1;
-		
+
 		List<ModelPathway> result = this.modelpathwayDAO.getAllModelPathwayByNameAndCode(name, code);
-		
+
 		if (result != null && !result.isEmpty())
 			res = result.get(0).getIdpathway();
 		return res;
@@ -272,18 +272,18 @@ public class PathwayServiceImpl implements IPathwayService{
 	@Override
 	public boolean checkPathwayHasReactionData(Integer idReaction, Integer pathId) throws Exception {
 		boolean exists = false;
-		
+
 		Integer result = this.modelpathwayhasreactionDAO.getModelPathwayHasReactionIdByReactionIdAndPathId(idReaction, pathId);
 		if (result != null)
 			exists = true;
-		
+
 		return exists;
 	}
 
 	@Override
 	public Map<Integer, String[]> countReactionsByPathwayID(Map<Integer, String[]> qls, boolean isCompartimentalized) throws Exception {
 		List<Object[]>  dic = this.modelpathwayDAO.getPathwayIdAndReactionId(isCompartimentalized);
-		
+
 		if (dic != null && !dic.isEmpty()) {
 			for (Object[] x : dic) {
 				Integer key = Integer.valueOf(x[0].toString());
@@ -293,7 +293,7 @@ public class PathwayServiceImpl implements IPathwayService{
 			}
 		}
 		return qls;
-				
+
 	}
 
 	@Override
@@ -311,7 +311,7 @@ public class PathwayServiceImpl implements IPathwayService{
 	public Integer insertModelPathwayCodeAndName(String code, String name) throws Exception{
 		return this.modelpathwayDAO.insertModelPathwayCodeAndName(code, name);
 	}
-	
+
 	@Override
 	public void insertModelPathwayIdAndSuperPathway(Integer id, Integer superID) throws Exception{
 		this.modelSuperpathwayDAO.insertModelPathwayIdAndSuperPathway(id, superID);
@@ -321,17 +321,17 @@ public class PathwayServiceImpl implements IPathwayService{
 	public boolean deleteModelPathwayHasModelProteinByPathwayId(Integer pathId) throws Exception {
 		return this.modelpathwayhasenzymeDAO.deleteModelPathwayHasModelProteinByPathwayId(pathId);
 	}
-	
+
 	@Override      
 	public boolean deleteModelPathwayHasModelProteinByIdProtein(Integer proteinId) throws Exception {
 		return this.modelpathwayhasenzymeDAO.deleteModelPathwayHasModelProteinByIdProtein(proteinId);
 	}
-	
+
 	@Override
 	public boolean deleteModelPathwayHasReactionByPathwayId(Integer id) throws Exception {
 		return this.modelpathwayhasreactionDAO.deleteModelPathwayHasReactionByPathwayId(id);
 	}
-	
+
 	@Override
 	public boolean deleteModelPathwayHasReactionByReactionId(Integer id) throws Exception{
 		return this.modelpathwayhasreactionDAO.deleteModelPathwayHasReactionByReactionId(id);
@@ -345,12 +345,12 @@ public class PathwayServiceImpl implements IPathwayService{
 
 	@Override
 	public void insertModelPathwayHasReaction(Integer idReaction, Integer idPathway) throws Exception {
-		 this.modelpathwayhasreactionDAO.insertModelPathwayHasReaction(idReaction, idPathway);
+		this.modelpathwayhasreactionDAO.insertModelPathwayHasReaction(idReaction, idPathway);
 	}
-	
+
 	@Override
 	public void insertModelPathwayHasCompound(Integer compoundId, Integer idPathway) throws Exception {
-		 this.modelPathwayHasModelCompoundDAO.insertModelPathwayHasModelCompound(idPathway, compoundId);
+		this.modelPathwayHasModelCompoundDAO.insertModelPathwayHasModelCompound(idPathway, compoundId);
 	}
 
 	@Override
@@ -371,7 +371,7 @@ public class PathwayServiceImpl implements IPathwayService{
 
 	@Override
 	public List<String> getAllPathwaysNamesOrdered() throws Exception {
-		
+
 		return this.modelpathwayDAO.getAllPathwaysNamesOrdered();
 	}
 
@@ -380,17 +380,17 @@ public class PathwayServiceImpl implements IPathwayService{
 	public List<String> getAllPathwaysOrderedByNameInModelWithReaction(Boolean inModel) throws Exception {
 		return this.modelpathwayDAO.getAllPathwaysOrderedByNameInModelWithReaction(inModel);
 	}
-	
+
 	@Override
 	public List<String[]> getUpdatedPathways(boolean isCompartimentalized, boolean encodedOnly) throws Exception {
 		return this.modelpathwayDAO.getUpdatedPathways(isCompartimentalized, encodedOnly);
 	}
-	
+
 	@Override
 	public Map<Integer, String[]> countProteinIdByPathwayID(Map<Integer,String[]> qls) throws Exception {
-		
+
 		List<Object[]> result = this.modelpathwayDAO.countProteinIdByPathwayID();
-		
+
 		if(result != null && !result.isEmpty()) {
 
 			for(Object[] item : result) {
@@ -399,79 +399,104 @@ public class PathwayServiceImpl implements IPathwayService{
 				if(qls.containsKey(key)) {
 					qls.get(key)[3] = item[1]+"";
 				}
-				
+
 			}
 		}
-		
+
 		return qls;
-		
+
 	}
 
 	@Override
 	public Map<String, Integer> getPathwayCodeAndIdpathway() throws Exception {
 		return this.modelpathwayDAO.getPathwayCodeAndIdpathway();
 	}
-	
+
 	@Override
 	public void insertModelPathwayHasModuleEntry(Integer pathId, Integer moduleId) throws Exception {
 		this.modelPathwayHasModuleDAO.insertModelPathwayHasModule(pathId, moduleId);
 	}
-	
+
 	@Override
 	public boolean checkModelPathwayHasModuleEntry(Integer pathId, Integer moduleId) throws Exception {
 		return this.modelPathwayHasModuleDAO.checkModelPathwayHasModuleEntry(pathId, moduleId);
 	}
-	
+
 	@Override
 	public boolean checkSuperPathwayData(Integer id, Integer superID) throws Exception{
-		
+
 		Map<String, Serializable> restrictions = new HashMap<>();
 		restrictions.put("id.pathwayIdpathway", id);
 		restrictions.put("id.superpathway", superID);
-		
+
 		ModelSuperpathway superpathway = this.modelSuperpathwayDAO.findUniqueByAttributes(restrictions);
-		
+
 		return (superpathway != null);
 	}
-	
+
 	@Override
 	public boolean checkPathwayHasCompoundData(Integer pathwayId, Integer compoundID) throws Exception{
-		
+
 		Map<String, Serializable> restrictions = new HashMap<>();
 		restrictions.put("id.modelPathwayIdpathway", pathwayId);
 		restrictions.put("id.modelCompoundIdcompound", compoundID);
-		
+
 		ModelPathwayHasCompound pathHasComp = this.modelPathwayHasModelCompoundDAO.findUniqueByAttributes(restrictions);
-		
+
 		return (pathHasComp != null);
-		
+
 	}
-	
+
 	@Override
 	public Long countPathwayHasReaction(boolean isCompartimentalized) throws Exception{
-		
+
 		return this.modelpathwayDAO.countPathwayHasReaction(isCompartimentalized);
 	}
-	
+
 	@Override
 	public Map<Integer, List<PathwayContainer>> getPathwaysByReaction(){
-		
+
 		List<ModelPathwayHasReaction> pathHasReact = this.modelpathwayhasreactionDAO.getAllModelPathwayHasReaction();
-		
+
 		Map<Integer, List<PathwayContainer>> map = new HashMap<>();
-			
+
 		for(ModelPathwayHasReaction entry : pathHasReact) {
-			
+
 			Integer reactionId = entry.getId().getReactionIdreaction();
-			
+
 			if(!map.containsKey(reactionId))
 				map.put(reactionId, new ArrayList<>());
-			
+
 			map.get(reactionId).add(new PathwayContainer(entry.getModelPathway().getIdpathway(),
 					entry.getModelPathway().getCode(), entry.getModelPathway().getName()));
 		}
-		
+
 		return map;
 	}
-	
+
+	@Override
+	public void deleteEmptyPathways(boolean checkReactions, boolean checkProteins) throws Exception {
+
+		List<ModelPathway> pathways = this.modelpathwayDAO.getAllModelPathway();
+
+		for(ModelPathway pathway : pathways) {
+
+			if(checkReactions && checkProteins) {
+				
+				if(pathway.getModelPathwayHasReactions().isEmpty() && pathway.getModelPathwayHasModelProtein().isEmpty())
+					this.modelpathwayDAO.removeModelPathway(pathway);
+				
+			}
+			else if(checkProteins) {
+				if(pathway.getModelPathwayHasModelProtein().isEmpty())
+					this.modelpathwayDAO.removeModelPathway(pathway);
+			}
+			else if(checkReactions) {
+				if(pathway.getModelPathwayHasReactions().isEmpty())
+					this.modelpathwayDAO.removeModelPathway(pathway);
+			}
+			
+		}
+	}
+
 }

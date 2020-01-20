@@ -69,8 +69,7 @@ public interface IModelProteinDAO  extends IGenericDao<ModelProtein>{
 
 	public Boolean checkEnzymeInModelExistence(Integer protId, String source);
 
-	public void updateProteinSetEcNumberSourceAndInModel(Integer model_protein_idprotein, String ecnumber,
-			String source) throws Exception;
+	public void updateProteinSetEcNumberSourceAndInModel(Integer model_protein_idprotein, String ecnumber, String source) throws Exception;
 
 	public List<ModelProtein> getDistincModelProteinAttributesByAtt(boolean distinct);
 

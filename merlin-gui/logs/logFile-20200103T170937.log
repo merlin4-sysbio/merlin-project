@@ -1,7 +1,0 @@
-2020 Jan 03 17:09:38 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
-2020 Jan 03 17:09:38 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
-2020 Jan 03 17:09:38 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
-2020 Jan 03 17:09:38 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.2]
-2020 Jan 03 17:09:38 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.2]
-2020 Jan 03 17:09:38 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-workspace-compatibility   [version 4.0.2]
-2020 Jan 03 17:09:38 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom

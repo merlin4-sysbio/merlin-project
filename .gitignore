@@ -17,6 +17,7 @@
 */test-bin
 
 #merlin-gui
+merlin-gui/logs
 merlin-gui/temp
 merlin-gui/ws
 merlin-gui/plugins_bin
@@ -35,3 +36,4 @@ merlin-gui/*.bak
 merlin-gui/conf/*.conf
 merlin-gui/Workbench_databases/
 merlin-gui/gff_error_report.txt
+merlin-gui/logs
