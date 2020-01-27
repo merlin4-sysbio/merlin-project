@@ -7,13 +7,13 @@ import java.util.Set;
  * @author Oscar Dias
  *
  */
-public class ModelReactionsmetabolitesEnzymesSets {
+public class ModelReactionsMetabolitesEnzymesSets {
 	
 	private Set<String> enzymes;
 	private Set<String> reactions = new HashSet<String>();
 	private Set<String> compounds = new HashSet<>();
 
-	public ModelReactionsmetabolitesEnzymesSets(){
+	public ModelReactionsMetabolitesEnzymesSets(){
 		
 	}
 	

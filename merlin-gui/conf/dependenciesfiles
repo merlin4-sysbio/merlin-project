@@ -16,7 +16,6 @@ The following files have been resolved:
 
 
 The following files have been resolved:
-   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.04-SNAPSHOT
    javax.xml.bind:jaxb-api:jar:2.4.0-b180830.0359
    commons-validator:commons-validator:jar:1.6
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
@@ -37,7 +36,6 @@ The following files have been resolved:
    org.apache.poi:ooxml-schemas:jar:1.3
    org.apache.httpcomponents:httpclient:jar:4.0.1
    com.univocity:univocity-parsers:jar:2.5.5
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
    org.khronos:opengl-api:jar:gl1.1-android-2.1_r1
    org.apache.poi:poi-ooxml-schemas:jar:3.17
    org.apache.poi:poi:jar:3.17
@@ -57,6 +55,8 @@ The following files have been resolved:
    org.apache.logging.log4j:log4j-core:jar:2.6.2
    be.cyberelf.nanoxml:lite:jar:2.2.3
    org.slf4j:slf4j-api:jar:1.8.0-beta4
+   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
    commons-pool:commons-pool:jar:1.3
    org.apache.commons:commons-math3:jar:3.4.1
    asm:asm-all:jar:2.2.3
@@ -155,8 +155,6 @@ The following files have been resolved:
    net.beeger:squareness:jar:1.0
    stax:stax-api:jar:1.0.1
    org.jvnet:mimepull:jar:1.3
-   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.04-SNAPSHOT
    com.fasterxml.jackson.core:jackson-databind:jar:2.9.4
    org.glassfish.jersey.bundles.repackaged:jersey-guava:jar:2.17
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
@@ -170,6 +168,7 @@ The following files have been resolved:
    com.google.code.javaparser:javaparser:jar:1.0.11
    org.json:json:jar:20140107
    org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13
+   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.05-SNAPSHOT
    com.google.android:android:jar:2.1_r1
    javax.ws.rs:javax.ws.rs-api:jar:2.0.1
    org.slf4j:jcl-over-slf4j:jar:1.7.7
@@ -186,7 +185,6 @@ The following files have been resolved:
    org.noggit:noggit:jar:0.8
    org.glassfish.jaxb:jaxb-core:jar:2.3.0
    com.univocity:univocity-parsers:jar:2.5.5
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
    stax:stax:jar:1.2.0
    org.khronos:opengl-api:jar:gl1.1-android-2.1_r1
    com.sun.org.apache.xml.internal:resolver:jar:20050927
@@ -205,6 +203,8 @@ The following files have been resolved:
    commons-dbcp:commons-dbcp:jar:1.2.2
    org.apache.httpcomponents:httpmime:jar:4.5.3
    org.jvnet.jaxb2_commons:jaxb2-basics-runtime:jar:1.11.1
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.05-SNAPSHOT
    org.mortbay.jetty:servlet-api:jar:2.5-20081211
    io.dropwizard.metrics:metrics-core:jar:3.2.2
    org.codehaus.woodstox:stax2-api:jar:3.1.4
@@ -225,8 +225,8 @@ The following files have been resolved:
    junit:junit:jar:4.12
    org.hamcrest:hamcrest-core:jar:1.3
    commons-io:commons-io:jar:1.3.2
-   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
    org.apache.poi:ooxml-schemas:jar:1.3
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
    stax:stax-api:jar:1.0.1
@@ -234,12 +234,12 @@ The following files have been resolved:
    org.apache.logging.log4j:log4j-slf4j-impl:jar:2.6.2
    org.apache.logging.log4j:log4j-api:jar:2.6.2
    org.apache.logging.log4j:log4j-core:jar:2.6.2
-   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.05-SNAPSHOT
    javax.xml.bind:jaxb-api:jar:2.4.0-b180830.0359
    javax.activation:javax.activation-api:jar:1.2.0
    com.sun.mail:javax.mail:jar:1.6.2
    javax.activation:activation:jar:1.1
-   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.05-SNAPSHOT
    org.biojava:biojava-ontology:jar:5.2.0
    org.biojava:biojava-genome:jar:5.2.0
    com.google.guava:guava:jar:24.0-jre
@@ -277,7 +277,7 @@ The following files have been resolved:
    com.fasterxml.jackson.core:jackson-databind:jar:2.8.7
    com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0
    com.fasterxml.jackson.core:jackson-core:jar:2.8.7
-   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.05-SNAPSHOT
    uk.ac.ebi.chebi.webapps.chebiWS.client:chebiWS-client:jar:2.4
    com.sun.xml.ws:jaxws-rt:jar:2.1.7
    com.sun.xml.stream.buffer:streambuffer:jar:0.9
@@ -361,8 +361,8 @@ The following files have been resolved:
    org.simpleframework:simple-xml:jar:2.7.1
    stax:stax:jar:1.2.0
    commons-httpclient:commons-httpclient:jar:3.1
-   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.05-SNAPSHOT
    org.slf4j:log4j-over-slf4j:jar:1.8.0-beta4
    org.hibernate:hibernate-core:pom:5.4.2.Final
    org.jboss.logging:jboss-logging:jar:3.3.2.Final
@@ -381,7 +381,7 @@ The following files have been resolved:
    mysql:mysql-connector-java:jar:5.1.46
    com.h2database:h2:jar:1.4.200
    net.sourceforge.jtds:jtds:jar:1.3.1
-   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.05-SNAPSHOT
    biosynth.core:graphapi:jar:1.0
    org.htmlparser:htmlparser:jar:2.1
    org.htmlparser:htmllexer:jar:2.1
@@ -443,8 +443,8 @@ The following files have been resolved:
    junit:junit:jar:4.12
    org.hamcrest:hamcrest-core:jar:1.3
    commons-io:commons-io:jar:1.3.2
-   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
    org.apache.poi:ooxml-schemas:jar:1.3
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
    stax:stax-api:jar:1.0.1
@@ -452,12 +452,12 @@ The following files have been resolved:
    org.apache.logging.log4j:log4j-slf4j-impl:jar:2.6.2
    org.apache.logging.log4j:log4j-api:jar:2.6.2
    org.apache.logging.log4j:log4j-core:jar:2.6.2
-   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.05-SNAPSHOT
    javax.xml.bind:jaxb-api:jar:2.4.0-b180830.0359
    javax.activation:javax.activation-api:jar:1.2.0
    com.sun.mail:javax.mail:jar:1.6.2
    javax.activation:activation:jar:1.1
-   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.05-SNAPSHOT
    org.biojava:biojava-ontology:jar:5.2.0
    org.biojava:biojava-genome:jar:5.2.0
    com.google.guava:guava:jar:24.0-jre
@@ -495,7 +495,7 @@ The following files have been resolved:
    com.fasterxml.jackson.core:jackson-databind:jar:2.8.7
    com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0
    com.fasterxml.jackson.core:jackson-core:jar:2.8.7
-   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.05-SNAPSHOT
    uk.ac.ebi.chebi.webapps.chebiWS.client:chebiWS-client:jar:2.4
    com.sun.xml.ws:jaxws-rt:jar:2.1.7
    com.sun.xml.stream.buffer:streambuffer:jar:0.9
@@ -579,8 +579,8 @@ The following files have been resolved:
    org.simpleframework:simple-xml:jar:2.7.1
    stax:stax:jar:1.2.0
    commons-httpclient:commons-httpclient:jar:3.1
-   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.05-SNAPSHOT
    org.slf4j:log4j-over-slf4j:jar:1.8.0-beta4
    org.hibernate:hibernate-core:pom:5.4.2.Final
    org.jboss.logging:jboss-logging:jar:3.3.2.Final
@@ -599,7 +599,7 @@ The following files have been resolved:
    mysql:mysql-connector-java:jar:5.1.46
    com.h2database:h2:jar:1.4.200
    net.sourceforge.jtds:jtds:jar:1.3.1
-   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.05-SNAPSHOT
    biosynth.core:graphapi:jar:1.0
    org.htmlparser:htmlparser:jar:2.1
    org.htmlparser:htmllexer:jar:2.1
@@ -690,7 +690,6 @@ The following files have been resolved:
    ant:ant:jar:1.6.5
    commons-lang:commons-lang:jar:2.6
    org.glassfish.jaxb:txw2:jar:2.3.0
-   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.04-SNAPSHOT
    com.sun.jersey:jersey-client:jar:1.18.1
    org.apache.axis:axis-jaxrpc:jar:1.4
    com.sun.mail:javax.mail:jar:1.6.2
@@ -699,7 +698,6 @@ The following files have been resolved:
    org.apache.logging.log4j:log4j-core:jar:2.6.2
    org.sbml.jsbml:jsbml:jar:1.4
    org.glassfish.jersey.media:jersey-media-jaxb:jar:2.17
-   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.04-SNAPSHOT
    org.glassfish.hk2:hk2-locator:jar:2.4.0-b10
    com.mchange:mchange-commons-java:jar:0.2.15
    commons-pool:commons-pool:jar:1.3
@@ -718,8 +716,6 @@ The following files have been resolved:
    org.hibernate:hibernate-validator:jar:5.0.1.Final
    net.beeger:squareness:jar:1.0
    org.hibernate:hibernate-core:jar:5.4.2.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.04-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-comp:jar:1.4
    org.w3c.jigsaw:jigsaw:jar:2.2.6
    org.apache.jcs:jcs:jar:1.3
@@ -730,6 +726,7 @@ The following files have been resolved:
    org.biojava:bytecode:jar:1.9.2
    org.json:json:jar:20140107
    org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13
+   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.05-SNAPSHOT
    com.google.android:android:jar:2.1_r1
    javax.ws.rs:javax.ws.rs-api:jar:2.0.1
    pt.uminho.ceb.biosystems.mew:mew-utilities:jar:1.1.0
@@ -738,26 +735,27 @@ The following files have been resolved:
    org.apache.poi:ooxml-schemas:jar:1.3
    com.beust:jcommander:jar:1.32
    org.slf4j:log4j-over-slf4j:jar:1.8.0-beta4
+   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.05-SNAPSHOT
    org.noggit:noggit:jar:0.8
+   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.05-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-distrib:jar:1.3.1
    com.univocity:univocity-parsers:jar:2.5.5
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
    stax:stax:jar:1.2.0
    com.sun.org.apache.xml.internal:resolver:jar:20050927
    com.jtattoo:JTattoo:jar:1.6.11
    org.glassfish.hk2:hk2-api:jar:2.4.0-b10
    biosynth.core:graphapi:jar:1.0
    xpp3:xpp3_min:jar:1.1.4c
-   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.04-SNAPSHOT
    org.apache.axis:axis-saaj:jar:1.4
    pt.uminho.ceb.biosystems.merlin:merlin-aibench-workbench:jar:4.0.2-RELEASE
    org.eclipse.swt.win32.win32:x86:jar:3.3.0-v3346
-   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.04-SNAPSHOT
    org.biojava:biojava-alignment:jar:5.2.0
    org.xerial.snappy:snappy-java:jar:1.0.5
    commons-dbcp:commons-dbcp:jar:1.2.2
    org.apache.httpcomponents:httpmime:jar:4.5.3
    org.htmlparser:htmlparser:jar:2.1
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.05-SNAPSHOT
    org.jvnet.jaxb2_commons:jaxb2-basics-runtime:jar:1.11.1
    org.mortbay.jetty:servlet-api:jar:2.5-20081211
    commons-digester:commons-digester:jar:1.8.1
@@ -805,7 +803,6 @@ The following files have been resolved:
    org.apache.poi:poi-ooxml-schemas:jar:3.17
    com.google.code.findbugs:jsr305:jar:1.3.9
    io.netty:netty:jar:3.4.0.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.04-SNAPSHOT
    org.hibernate:hibernate-core:pom:5.4.2.Final
    com.sun.xml.ws:jaxws-tools:jar:2.1.3
    net.java.dev.laf-plugin:laf-plugin:jar:1.1
@@ -827,8 +824,10 @@ The following files have been resolved:
    org.apache.commons:commons-lang3:jar:3.6
    com.sun.jersey:jersey-core:jar:1.18.1
    javax.xml.soap:saaj-api:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.05-SNAPSHOT
    stax:stax-api:jar:1.0.1
    org.jvnet:mimepull:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.05-SNAPSHOT
    com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
    org.glassfish.jersey.bundles.repackaged:jersey-guava:jar:2.17
@@ -837,6 +836,7 @@ The following files have been resolved:
    org.antlr:antlr4:jar:4.5.3
    org.sbml.jsbml.ext:jsbml-req:jar:1.4
    net.jodah:failsafe:jar:1.0.3
+   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.05-SNAPSHOT
    com.github.virtuald:curvesapi:jar:1.04
    org.mortbay.jetty:jetty-util:jar:6.1.26
    com.mchange:c3p0:jar:0.9.5.3
@@ -908,7 +908,6 @@ The following files have been resolved:
    ant:ant:jar:1.6.5
    commons-lang:commons-lang:jar:2.6
    org.glassfish.jaxb:txw2:jar:2.3.0
-   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.04-SNAPSHOT
    com.sun.jersey:jersey-client:jar:1.18.1
    org.apache.axis:axis-jaxrpc:jar:1.4
    com.sun.mail:javax.mail:jar:1.6.2
@@ -917,7 +916,6 @@ The following files have been resolved:
    org.apache.logging.log4j:log4j-core:jar:2.6.2
    org.sbml.jsbml:jsbml:jar:1.4
    org.glassfish.jersey.media:jersey-media-jaxb:jar:2.17
-   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.04-SNAPSHOT
    org.glassfish.hk2:hk2-locator:jar:2.4.0-b10
    com.mchange:mchange-commons-java:jar:0.2.15
    commons-pool:commons-pool:jar:1.3
@@ -936,8 +934,6 @@ The following files have been resolved:
    org.hibernate:hibernate-validator:jar:5.0.1.Final
    net.beeger:squareness:jar:1.0
    org.hibernate:hibernate-core:jar:5.4.2.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.04-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-comp:jar:1.4
    org.w3c.jigsaw:jigsaw:jar:2.2.6
    org.apache.jcs:jcs:jar:1.3
@@ -948,6 +944,7 @@ The following files have been resolved:
    org.biojava:bytecode:jar:1.9.2
    org.json:json:jar:20140107
    org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13
+   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.05-SNAPSHOT
    com.google.android:android:jar:2.1_r1
    javax.ws.rs:javax.ws.rs-api:jar:2.0.1
    pt.uminho.ceb.biosystems.mew:mew-utilities:jar:1.1.0
@@ -956,26 +953,27 @@ The following files have been resolved:
    org.apache.poi:ooxml-schemas:jar:1.3
    com.beust:jcommander:jar:1.32
    org.slf4j:log4j-over-slf4j:jar:1.8.0-beta4
+   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.05-SNAPSHOT
    org.noggit:noggit:jar:0.8
+   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.05-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-distrib:jar:1.3.1
    com.univocity:univocity-parsers:jar:2.5.5
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
    stax:stax:jar:1.2.0
    com.sun.org.apache.xml.internal:resolver:jar:20050927
    com.jtattoo:JTattoo:jar:1.6.11
    org.glassfish.hk2:hk2-api:jar:2.4.0-b10
    biosynth.core:graphapi:jar:1.0
    xpp3:xpp3_min:jar:1.1.4c
-   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.04-SNAPSHOT
    org.apache.axis:axis-saaj:jar:1.4
    pt.uminho.ceb.biosystems.merlin:merlin-aibench-workbench:jar:4.0.2-RELEASE
    org.eclipse.swt.win32.win32:x86:jar:3.3.0-v3346
-   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.04-SNAPSHOT
    org.biojava:biojava-alignment:jar:5.2.0
    org.xerial.snappy:snappy-java:jar:1.0.5
    commons-dbcp:commons-dbcp:jar:1.2.2
    org.apache.httpcomponents:httpmime:jar:4.5.3
    org.htmlparser:htmlparser:jar:2.1
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.05-SNAPSHOT
    org.jvnet.jaxb2_commons:jaxb2-basics-runtime:jar:1.11.1
    org.mortbay.jetty:servlet-api:jar:2.5-20081211
    commons-digester:commons-digester:jar:1.8.1
@@ -1023,7 +1021,6 @@ The following files have been resolved:
    org.apache.poi:poi-ooxml-schemas:jar:3.17
    com.google.code.findbugs:jsr305:jar:1.3.9
    io.netty:netty:jar:3.4.0.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.04-SNAPSHOT
    org.hibernate:hibernate-core:pom:5.4.2.Final
    com.sun.xml.ws:jaxws-tools:jar:2.1.3
    net.java.dev.laf-plugin:laf-plugin:jar:1.1
@@ -1045,8 +1042,10 @@ The following files have been resolved:
    org.apache.commons:commons-lang3:jar:3.6
    com.sun.jersey:jersey-core:jar:1.18.1
    javax.xml.soap:saaj-api:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.05-SNAPSHOT
    stax:stax-api:jar:1.0.1
    org.jvnet:mimepull:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.05-SNAPSHOT
    com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
    org.glassfish.jersey.bundles.repackaged:jersey-guava:jar:2.17
@@ -1055,6 +1054,7 @@ The following files have been resolved:
    org.antlr:antlr4:jar:4.5.3
    org.sbml.jsbml.ext:jsbml-req:jar:1.4
    net.jodah:failsafe:jar:1.0.3
+   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.05-SNAPSHOT
    com.github.virtuald:curvesapi:jar:1.04
    org.mortbay.jetty:jetty-util:jar:6.1.26
    com.mchange:c3p0:jar:0.9.5.3
@@ -1126,7 +1126,6 @@ The following files have been resolved:
    ant:ant:jar:1.6.5
    commons-lang:commons-lang:jar:2.6
    org.glassfish.jaxb:txw2:jar:2.3.0
-   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.04-SNAPSHOT
    com.sun.jersey:jersey-client:jar:1.18.1
    org.apache.axis:axis-jaxrpc:jar:1.4
    com.sun.mail:javax.mail:jar:1.6.2
@@ -1135,7 +1134,6 @@ The following files have been resolved:
    org.apache.logging.log4j:log4j-core:jar:2.6.2
    org.sbml.jsbml:jsbml:jar:1.4
    org.glassfish.jersey.media:jersey-media-jaxb:jar:2.17
-   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.04-SNAPSHOT
    org.glassfish.hk2:hk2-locator:jar:2.4.0-b10
    com.mchange:mchange-commons-java:jar:0.2.15
    commons-pool:commons-pool:jar:1.3
@@ -1154,8 +1152,6 @@ The following files have been resolved:
    org.hibernate:hibernate-validator:jar:5.0.1.Final
    net.beeger:squareness:jar:1.0
    org.hibernate:hibernate-core:jar:5.4.2.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.04-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-comp:jar:1.4
    org.w3c.jigsaw:jigsaw:jar:2.2.6
    org.apache.jcs:jcs:jar:1.3
@@ -1166,6 +1162,7 @@ The following files have been resolved:
    org.biojava:bytecode:jar:1.9.2
    org.json:json:jar:20140107
    org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13
+   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.05-SNAPSHOT
    com.google.android:android:jar:2.1_r1
    javax.ws.rs:javax.ws.rs-api:jar:2.0.1
    pt.uminho.ceb.biosystems.mew:mew-utilities:jar:1.1.0
@@ -1174,26 +1171,27 @@ The following files have been resolved:
    org.apache.poi:ooxml-schemas:jar:1.3
    com.beust:jcommander:jar:1.32
    org.slf4j:log4j-over-slf4j:jar:1.8.0-beta4
+   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.05-SNAPSHOT
    org.noggit:noggit:jar:0.8
+   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.05-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-distrib:jar:1.3.1
    com.univocity:univocity-parsers:jar:2.5.5
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
    stax:stax:jar:1.2.0
    com.sun.org.apache.xml.internal:resolver:jar:20050927
    com.jtattoo:JTattoo:jar:1.6.11
    org.glassfish.hk2:hk2-api:jar:2.4.0-b10
    biosynth.core:graphapi:jar:1.0
    xpp3:xpp3_min:jar:1.1.4c
-   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.04-SNAPSHOT
    org.apache.axis:axis-saaj:jar:1.4
    pt.uminho.ceb.biosystems.merlin:merlin-aibench-workbench:jar:4.0.2-RELEASE
    org.eclipse.swt.win32.win32:x86:jar:3.3.0-v3346
-   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.04-SNAPSHOT
    org.biojava:biojava-alignment:jar:5.2.0
    org.xerial.snappy:snappy-java:jar:1.0.5
    commons-dbcp:commons-dbcp:jar:1.2.2
    org.apache.httpcomponents:httpmime:jar:4.5.3
    org.htmlparser:htmlparser:jar:2.1
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.05-SNAPSHOT
    org.jvnet.jaxb2_commons:jaxb2-basics-runtime:jar:1.11.1
    org.mortbay.jetty:servlet-api:jar:2.5-20081211
    commons-digester:commons-digester:jar:1.8.1
@@ -1240,7 +1238,6 @@ The following files have been resolved:
    org.apache.poi:poi-ooxml-schemas:jar:3.17
    com.google.code.findbugs:jsr305:jar:1.3.9
    io.netty:netty:jar:3.4.0.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.04-SNAPSHOT
    org.hibernate:hibernate-core:pom:5.4.2.Final
    com.sun.xml.ws:jaxws-tools:jar:2.1.3
    net.java.dev.laf-plugin:laf-plugin:jar:1.1
@@ -1263,8 +1260,10 @@ The following files have been resolved:
    org.apache.commons:commons-lang3:jar:3.6
    com.sun.jersey:jersey-core:jar:1.18.1
    javax.xml.soap:saaj-api:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.05-SNAPSHOT
    stax:stax-api:jar:1.0.1
    org.jvnet:mimepull:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.05-SNAPSHOT
    com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
    org.glassfish.jersey.bundles.repackaged:jersey-guava:jar:2.17
@@ -1273,6 +1272,7 @@ The following files have been resolved:
    org.antlr:antlr4:jar:4.5.3
    org.sbml.jsbml.ext:jsbml-req:jar:1.4
    net.jodah:failsafe:jar:1.0.3
+   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.05-SNAPSHOT
    com.github.virtuald:curvesapi:jar:1.04
    org.mortbay.jetty:jetty-util:jar:6.1.26
    com.mchange:c3p0:jar:0.9.5.3
@@ -1313,8 +1313,8 @@ The following files have been resolved:
 
 The following files have been resolved:
    junit:junit:jar:3.8.1
-   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
    org.apache.poi:ooxml-schemas:jar:1.3
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
    stax:stax-api:jar:1.0.1
@@ -1322,14 +1322,14 @@ The following files have been resolved:
    org.apache.logging.log4j:log4j-slf4j-impl:jar:2.6.2
    org.apache.logging.log4j:log4j-api:jar:2.6.2
    org.apache.logging.log4j:log4j-core:jar:2.6.2
-   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.05-SNAPSHOT
    pt.uminho.ceb.biosystems.mew:mew-utilities:jar:1.1.0
    org.apache.commons:commons-math3:jar:3.4.1
    javax.xml.bind:jaxb-api:jar:2.4.0-b180830.0359
    javax.activation:javax.activation-api:jar:1.2.0
    com.sun.mail:javax.mail:jar:1.6.2
    javax.activation:activation:jar:1.1
-   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.05-SNAPSHOT
    org.biojava:biojava-ontology:jar:5.2.0
    org.biojava:biojava-genome:jar:5.2.0
    com.google.guava:guava:jar:24.0-jre
@@ -1367,7 +1367,7 @@ The following files have been resolved:
    com.fasterxml.jackson.core:jackson-databind:jar:2.8.7
    com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0
    com.fasterxml.jackson.core:jackson-core:jar:2.8.7
-   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.05-SNAPSHOT
    uk.ac.ebi.chebi.webapps.chebiWS.client:chebiWS-client:jar:2.4
    com.sun.xml.ws:jaxws-rt:jar:2.1.7
    com.sun.xml.stream.buffer:streambuffer:jar:0.9
@@ -1453,8 +1453,8 @@ The following files have been resolved:
    org.simpleframework:simple-xml:jar:2.7.1
    stax:stax:jar:1.2.0
    commons-httpclient:commons-httpclient:jar:3.1
-   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.05-SNAPSHOT
    org.slf4j:log4j-over-slf4j:jar:1.8.0-beta4
    org.hibernate:hibernate-core:pom:5.4.2.Final
    org.jboss.logging:jboss-logging:jar:3.3.2.Final
@@ -1473,7 +1473,7 @@ The following files have been resolved:
    mysql:mysql-connector-java:jar:5.1.46
    com.h2database:h2:jar:1.4.200
    net.sourceforge.jtds:jtds:jar:1.3.1
-   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.05-SNAPSHOT
    biosynth.core:graphapi:jar:1.0
    org.htmlparser:htmlparser:jar:2.1
    org.htmlparser:htmllexer:jar:2.1
@@ -1561,7 +1561,6 @@ The following files have been resolved:
    ant:ant:jar:1.6.5
    commons-lang:commons-lang:jar:2.6
    org.glassfish.jaxb:txw2:jar:2.3.0
-   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.04-SNAPSHOT
    com.sun.jersey:jersey-client:jar:1.18.1
    org.apache.axis:axis-jaxrpc:jar:1.4
    com.sun.mail:javax.mail:jar:1.6.2
@@ -1570,7 +1569,6 @@ The following files have been resolved:
    org.apache.logging.log4j:log4j-core:jar:2.6.2
    org.sbml.jsbml:jsbml:jar:1.4
    org.glassfish.jersey.media:jersey-media-jaxb:jar:2.17
-   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.04-SNAPSHOT
    org.glassfish.hk2:hk2-locator:jar:2.4.0-b10
    com.mchange:mchange-commons-java:jar:0.2.15
    commons-pool:commons-pool:jar:1.3
@@ -1589,8 +1587,6 @@ The following files have been resolved:
    org.hibernate:hibernate-validator:jar:5.0.1.Final
    net.beeger:squareness:jar:1.0
    org.hibernate:hibernate-core:jar:5.4.2.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.04-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-comp:jar:1.4
    org.w3c.jigsaw:jigsaw:jar:2.2.6
    org.apache.jcs:jcs:jar:1.3
@@ -1601,6 +1597,7 @@ The following files have been resolved:
    org.biojava:bytecode:jar:1.9.2
    org.json:json:jar:20140107
    org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13
+   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.05-SNAPSHOT
    com.google.android:android:jar:2.1_r1
    javax.ws.rs:javax.ws.rs-api:jar:2.0.1
    pt.uminho.ceb.biosystems.mew:mew-utilities:jar:1.1.0
@@ -1609,26 +1606,27 @@ The following files have been resolved:
    org.apache.poi:ooxml-schemas:jar:1.3
    com.beust:jcommander:jar:1.32
    org.slf4j:log4j-over-slf4j:jar:1.8.0-beta4
+   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.05-SNAPSHOT
    org.noggit:noggit:jar:0.8
+   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.05-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-distrib:jar:1.3.1
    com.univocity:univocity-parsers:jar:2.5.5
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
    stax:stax:jar:1.2.0
    com.sun.org.apache.xml.internal:resolver:jar:20050927
    com.jtattoo:JTattoo:jar:1.6.11
    org.glassfish.hk2:hk2-api:jar:2.4.0-b10
    biosynth.core:graphapi:jar:1.0
    xpp3:xpp3_min:jar:1.1.4c
-   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.04-SNAPSHOT
    org.apache.axis:axis-saaj:jar:1.4
    pt.uminho.ceb.biosystems.merlin:merlin-aibench-workbench:jar:4.0.2-RELEASE
    org.eclipse.swt.win32.win32:x86:jar:3.3.0-v3346
-   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.04-SNAPSHOT
    org.biojava:biojava-alignment:jar:5.2.0
    org.xerial.snappy:snappy-java:jar:1.0.5
    commons-dbcp:commons-dbcp:jar:1.2.2
    org.apache.httpcomponents:httpmime:jar:4.5.3
    org.htmlparser:htmlparser:jar:2.1
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.05-SNAPSHOT
    org.jvnet.jaxb2_commons:jaxb2-basics-runtime:jar:1.11.1
    org.mortbay.jetty:servlet-api:jar:2.5-20081211
    commons-digester:commons-digester:jar:1.8.1
@@ -1676,7 +1674,6 @@ The following files have been resolved:
    org.apache.poi:poi-ooxml-schemas:jar:3.17
    com.google.code.findbugs:jsr305:jar:1.3.9
    io.netty:netty:jar:3.4.0.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.04-SNAPSHOT
    org.hibernate:hibernate-core:pom:5.4.2.Final
    com.sun.xml.ws:jaxws-tools:jar:2.1.3
    net.java.dev.laf-plugin:laf-plugin:jar:1.1
@@ -1698,8 +1695,10 @@ The following files have been resolved:
    org.apache.commons:commons-lang3:jar:3.6
    com.sun.jersey:jersey-core:jar:1.18.1
    javax.xml.soap:saaj-api:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.05-SNAPSHOT
    stax:stax-api:jar:1.0.1
    org.jvnet:mimepull:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.05-SNAPSHOT
    com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
    org.glassfish.jersey.bundles.repackaged:jersey-guava:jar:2.17
@@ -1708,6 +1707,7 @@ The following files have been resolved:
    org.antlr:antlr4:jar:4.5.3
    org.sbml.jsbml.ext:jsbml-req:jar:1.4
    net.jodah:failsafe:jar:1.0.3
+   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.05-SNAPSHOT
    com.github.virtuald:curvesapi:jar:1.04
    org.mortbay.jetty:jetty-util:jar:6.1.26
    com.mchange:c3p0:jar:0.9.5.3
@@ -1748,8 +1748,8 @@ The following files have been resolved:
 
 The following files have been resolved:
    junit:junit:jar:3.8.1
-   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
    org.apache.poi:ooxml-schemas:jar:1.3
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
    stax:stax-api:jar:1.0.1
@@ -1757,14 +1757,14 @@ The following files have been resolved:
    org.apache.logging.log4j:log4j-slf4j-impl:jar:2.6.2
    org.apache.logging.log4j:log4j-api:jar:2.6.2
    org.apache.logging.log4j:log4j-core:jar:2.6.2
-   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.05-SNAPSHOT
    pt.uminho.ceb.biosystems.mew:mew-utilities:jar:1.1.0
    org.apache.commons:commons-math3:jar:3.4.1
    javax.xml.bind:jaxb-api:jar:2.4.0-b180830.0359
    javax.activation:javax.activation-api:jar:1.2.0
    com.sun.mail:javax.mail:jar:1.6.2
    javax.activation:activation:jar:1.1
-   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.05-SNAPSHOT
    org.biojava:biojava-ontology:jar:5.2.0
    org.biojava:biojava-genome:jar:5.2.0
    com.google.guava:guava:jar:24.0-jre
@@ -1802,7 +1802,7 @@ The following files have been resolved:
    com.fasterxml.jackson.core:jackson-databind:jar:2.8.7
    com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0
    com.fasterxml.jackson.core:jackson-core:jar:2.8.7
-   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.05-SNAPSHOT
    uk.ac.ebi.chebi.webapps.chebiWS.client:chebiWS-client:jar:2.4
    com.sun.xml.ws:jaxws-rt:jar:2.1.7
    com.sun.xml.stream.buffer:streambuffer:jar:0.9
@@ -1888,8 +1888,8 @@ The following files have been resolved:
    org.simpleframework:simple-xml:jar:2.7.1
    stax:stax:jar:1.2.0
    commons-httpclient:commons-httpclient:jar:3.1
-   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.05-SNAPSHOT
    org.slf4j:log4j-over-slf4j:jar:1.8.0-beta4
    org.hibernate:hibernate-core:pom:5.4.2.Final
    org.jboss.logging:jboss-logging:jar:3.3.2.Final
@@ -1908,7 +1908,7 @@ The following files have been resolved:
    mysql:mysql-connector-java:jar:5.1.46
    com.h2database:h2:jar:1.4.200
    net.sourceforge.jtds:jtds:jar:1.3.1
-   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.04-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.05-SNAPSHOT
    biosynth.core:graphapi:jar:1.0
    org.htmlparser:htmlparser:jar:2.1
    org.htmlparser:htmllexer:jar:2.1
@@ -1996,7 +1996,6 @@ The following files have been resolved:
    ant:ant:jar:1.6.5
    commons-lang:commons-lang:jar:2.6
    org.glassfish.jaxb:txw2:jar:2.3.0
-   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.04-SNAPSHOT
    com.sun.jersey:jersey-client:jar:1.18.1
    org.apache.axis:axis-jaxrpc:jar:1.4
    com.sun.mail:javax.mail:jar:1.6.2
@@ -2005,7 +2004,6 @@ The following files have been resolved:
    org.apache.logging.log4j:log4j-core:jar:2.6.2
    org.sbml.jsbml:jsbml:jar:1.4
    org.glassfish.jersey.media:jersey-media-jaxb:jar:2.17
-   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.04-SNAPSHOT
    org.glassfish.hk2:hk2-locator:jar:2.4.0-b10
    com.mchange:mchange-commons-java:jar:0.2.15
    commons-pool:commons-pool:jar:1.3
@@ -2024,8 +2022,6 @@ The following files have been resolved:
    org.hibernate:hibernate-validator:jar:5.0.1.Final
    net.beeger:squareness:jar:1.0
    org.hibernate:hibernate-core:jar:5.4.2.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.04-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-comp:jar:1.4
    org.w3c.jigsaw:jigsaw:jar:2.2.6
    org.apache.jcs:jcs:jar:1.3
@@ -2036,6 +2032,7 @@ The following files have been resolved:
    org.biojava:bytecode:jar:1.9.2
    org.json:json:jar:20140107
    org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13
+   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.05-SNAPSHOT
    com.google.android:android:jar:2.1_r1
    javax.ws.rs:javax.ws.rs-api:jar:2.0.1
    pt.uminho.ceb.biosystems.mew:mew-utilities:jar:1.1.0
@@ -2044,26 +2041,27 @@ The following files have been resolved:
    org.apache.poi:ooxml-schemas:jar:1.3
    com.beust:jcommander:jar:1.32
    org.slf4j:log4j-over-slf4j:jar:1.8.0-beta4
+   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.05-SNAPSHOT
    org.noggit:noggit:jar:0.8
+   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.05-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-distrib:jar:1.3.1
    com.univocity:univocity-parsers:jar:2.5.5
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
    stax:stax:jar:1.2.0
    com.sun.org.apache.xml.internal:resolver:jar:20050927
    com.jtattoo:JTattoo:jar:1.6.11
    org.glassfish.hk2:hk2-api:jar:2.4.0-b10
    biosynth.core:graphapi:jar:1.0
    xpp3:xpp3_min:jar:1.1.4c
-   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.04-SNAPSHOT
    org.apache.axis:axis-saaj:jar:1.4
    pt.uminho.ceb.biosystems.merlin:merlin-aibench-workbench:jar:4.0.2-RELEASE
    org.eclipse.swt.win32.win32:x86:jar:3.3.0-v3346
-   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.04-SNAPSHOT
    org.biojava:biojava-alignment:jar:5.2.0
    org.xerial.snappy:snappy-java:jar:1.0.5
    commons-dbcp:commons-dbcp:jar:1.2.2
    org.apache.httpcomponents:httpmime:jar:4.5.3
    org.htmlparser:htmlparser:jar:2.1
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.05-SNAPSHOT
    org.jvnet.jaxb2_commons:jaxb2-basics-runtime:jar:1.11.1
    org.mortbay.jetty:servlet-api:jar:2.5-20081211
    commons-digester:commons-digester:jar:1.8.1
@@ -2111,7 +2109,6 @@ The following files have been resolved:
    org.apache.poi:poi-ooxml-schemas:jar:3.17
    com.google.code.findbugs:jsr305:jar:1.3.9
    io.netty:netty:jar:3.4.0.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.04-SNAPSHOT
    org.hibernate:hibernate-core:pom:5.4.2.Final
    com.sun.xml.ws:jaxws-tools:jar:2.1.3
    net.java.dev.laf-plugin:laf-plugin:jar:1.1
@@ -2133,8 +2130,10 @@ The following files have been resolved:
    org.apache.commons:commons-lang3:jar:3.6
    com.sun.jersey:jersey-core:jar:1.18.1
    javax.xml.soap:saaj-api:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.05-SNAPSHOT
    stax:stax-api:jar:1.0.1
    org.jvnet:mimepull:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.05-SNAPSHOT
    com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
    org.glassfish.jersey.bundles.repackaged:jersey-guava:jar:2.17
@@ -2143,6 +2142,7 @@ The following files have been resolved:
    org.antlr:antlr4:jar:4.5.3
    org.sbml.jsbml.ext:jsbml-req:jar:1.4
    net.jodah:failsafe:jar:1.0.3
+   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.05-SNAPSHOT
    com.github.virtuald:curvesapi:jar:1.04
    org.mortbay.jetty:jetty-util:jar:6.1.26
    com.mchange:c3p0:jar:0.9.5.3
@@ -2214,7 +2214,6 @@ The following files have been resolved:
    ant:ant:jar:1.6.5
    commons-lang:commons-lang:jar:2.6
    org.glassfish.jaxb:txw2:jar:2.3.0
-   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.04-SNAPSHOT
    com.sun.jersey:jersey-client:jar:1.18.1
    org.apache.axis:axis-jaxrpc:jar:1.4
    com.sun.mail:javax.mail:jar:1.6.2
@@ -2223,7 +2222,6 @@ The following files have been resolved:
    org.apache.logging.log4j:log4j-core:jar:2.6.2
    org.sbml.jsbml:jsbml:jar:1.4
    org.glassfish.jersey.media:jersey-media-jaxb:jar:2.17
-   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.04-SNAPSHOT
    org.glassfish.hk2:hk2-locator:jar:2.4.0-b10
    com.mchange:mchange-commons-java:jar:0.2.15
    commons-pool:commons-pool:jar:1.3
@@ -2242,8 +2240,6 @@ The following files have been resolved:
    org.hibernate:hibernate-validator:jar:5.0.1.Final
    net.beeger:squareness:jar:1.0
    org.hibernate:hibernate-core:jar:5.4.2.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.04-SNAPSHOT
-   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.04-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-comp:jar:1.4
    org.w3c.jigsaw:jigsaw:jar:2.2.6
    org.apache.jcs:jcs:jar:1.3
@@ -2254,6 +2250,7 @@ The following files have been resolved:
    org.biojava:bytecode:jar:1.9.2
    org.json:json:jar:20140107
    org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13
+   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.05-SNAPSHOT
    com.google.android:android:jar:2.1_r1
    javax.ws.rs:javax.ws.rs-api:jar:2.0.1
    pt.uminho.ceb.biosystems.mew:mew-utilities:jar:1.1.0
@@ -2262,26 +2259,27 @@ The following files have been resolved:
    org.apache.poi:ooxml-schemas:jar:1.3
    com.beust:jcommander:jar:1.32
    org.slf4j:log4j-over-slf4j:jar:1.8.0-beta4
+   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.05-SNAPSHOT
    org.noggit:noggit:jar:0.8
+   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.05-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-distrib:jar:1.3.1
    com.univocity:univocity-parsers:jar:2.5.5
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
    stax:stax:jar:1.2.0
    com.sun.org.apache.xml.internal:resolver:jar:20050927
    com.jtattoo:JTattoo:jar:1.6.11
    org.glassfish.hk2:hk2-api:jar:2.4.0-b10
    biosynth.core:graphapi:jar:1.0
    xpp3:xpp3_min:jar:1.1.4c
-   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.04-SNAPSHOT
    org.apache.axis:axis-saaj:jar:1.4
    pt.uminho.ceb.biosystems.merlin:merlin-aibench-workbench:jar:4.0.2-RELEASE
    org.eclipse.swt.win32.win32:x86:jar:3.3.0-v3346
-   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.04-SNAPSHOT
    org.biojava:biojava-alignment:jar:5.2.0
    org.xerial.snappy:snappy-java:jar:1.0.5
    commons-dbcp:commons-dbcp:jar:1.2.2
    org.apache.httpcomponents:httpmime:jar:4.5.3
    org.htmlparser:htmlparser:jar:2.1
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
+   pt.uminho.ceb.biosystems.merlin:merlin-utilities:jar:4.0.05-SNAPSHOT
    org.jvnet.jaxb2_commons:jaxb2-basics-runtime:jar:1.11.1
    org.mortbay.jetty:servlet-api:jar:2.5-20081211
    commons-digester:commons-digester:jar:1.8.1
@@ -2328,7 +2326,6 @@ The following files have been resolved:
    org.apache.poi:poi-ooxml-schemas:jar:3.17
    com.google.code.findbugs:jsr305:jar:1.3.9
    io.netty:netty:jar:3.4.0.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.04-SNAPSHOT
    org.hibernate:hibernate-core:pom:5.4.2.Final
    com.sun.xml.ws:jaxws-tools:jar:2.1.3
    net.java.dev.laf-plugin:laf-plugin:jar:1.1
@@ -2351,8 +2348,10 @@ The following files have been resolved:
    org.apache.commons:commons-lang3:jar:3.6
    com.sun.jersey:jersey-core:jar:1.18.1
    javax.xml.soap:saaj-api:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.05-SNAPSHOT
    stax:stax-api:jar:1.0.1
    org.jvnet:mimepull:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.05-SNAPSHOT
    com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
    org.glassfish.jersey.bundles.repackaged:jersey-guava:jar:2.17
@@ -2361,6 +2360,7 @@ The following files have been resolved:
    org.antlr:antlr4:jar:4.5.3
    org.sbml.jsbml.ext:jsbml-req:jar:1.4
    net.jodah:failsafe:jar:1.0.3
+   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.05-SNAPSHOT
    com.github.virtuald:curvesapi:jar:1.04
    org.mortbay.jetty:jetty-util:jar:6.1.26
    com.mchange:c3p0:jar:0.9.5.3
@@ -2432,7 +2432,6 @@ The following files have been resolved:
    ant:ant:jar:1.6.5
    commons-lang:commons-lang:jar:2.6
    org.glassfish.jaxb:txw2:jar:2.3.0
-   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.04-SNAPSHOT
    com.sun.jersey:jersey-client:jar:1.18.1
    org.apache.axis:axis-jaxrpc:jar:1.4
    com.sun.mail:javax.mail:jar:1.6.2
@@ -2441,7 +2440,6 @@ The following files have been resolved:
    org.sbml.jsbml:jsbml:jar:1.4
    org.glassfish.jersey.media:jersey-media-jaxb:jar:2.17
    org.apache.logging.log4j:log4j-core:jar:2.6.2
-   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.04-SNAPSHOT
    org.glassfish.hk2:hk2-locator:jar:2.4.0-b10
    com.mchange:mchange-commons-java:jar:0.2.15
    commons-pool:commons-pool:jar:1.3
@@ -2460,7 +2458,6 @@ The following files have been resolved:
    org.hibernate:hibernate-validator:jar:5.0.1.Final
    net.beeger:squareness:jar:1.0
    org.hibernate:hibernate-core:jar:5.4.2.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.04-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-comp:jar:1.4
    org.w3c.jigsaw:jigsaw:jar:2.2.6
    org.apache.jcs:jcs:jar:1.3
@@ -2471,6 +2468,7 @@ The following files have been resolved:
    org.biojava:bytecode:jar:1.9.2
    org.json:json:jar:20140107
    org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13
+   pt.uminho.ceb.biosystems.merlin:merlin-bioapis:jar:4.0.05-SNAPSHOT
    com.google.android:android:jar:2.1_r1
    javax.ws.rs:javax.ws.rs-api:jar:2.0.1
    pt.uminho.ceb.biosystems.mew:mew-utilities:jar:1.1.0
@@ -2479,26 +2477,26 @@ The following files have been resolved:
    org.apache.poi:ooxml-schemas:jar:1.3
    com.beust:jcommander:jar:1.32
    org.slf4j:log4j-over-slf4j:jar:1.8.0-beta4
+   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.05-SNAPSHOT
    org.noggit:noggit:jar:0.8
+   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.05-SNAPSHOT
    org.sbml.jsbml.ext:jsbml-distrib:jar:1.3.1
    com.univocity:univocity-parsers:jar:2.5.5
-   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.04-SNAPSHOT
    stax:stax:jar:1.2.0
    com.sun.org.apache.xml.internal:resolver:jar:20050927
    com.jtattoo:JTattoo:jar:1.6.11
    org.glassfish.hk2:hk2-api:jar:2.4.0-b10
    biosynth.core:graphapi:jar:1.0
    xpp3:xpp3_min:jar:1.1.4c
-   pt.uminho.ceb.biosystems.merlin:merlin-hibernate:jar:4.0.04-SNAPSHOT
    org.apache.axis:axis-saaj:jar:1.4
    pt.uminho.ceb.biosystems.merlin:merlin-aibench-workbench:jar:4.0.2-RELEASE
    org.eclipse.swt.win32.win32:x86:jar:3.3.0-v3346
-   pt.uminho.ceb.biosystems.merlin:merlin-processes:jar:4.0.04-SNAPSHOT
    org.biojava:biojava-alignment:jar:5.2.0
    org.xerial.snappy:snappy-java:jar:1.0.5
    commons-dbcp:commons-dbcp:jar:1.2.2
    org.apache.httpcomponents:httpmime:jar:4.5.3
    org.htmlparser:htmlparser:jar:2.1
+   pt.uminho.ceb.biosystems.merlin:merlin-core:jar:4.0.05-SNAPSHOT
    org.jvnet.jaxb2_commons:jaxb2-basics-runtime:jar:1.11.1
    org.mortbay.jetty:servlet-api:jar:2.5-20081211
    commons-digester:commons-digester:jar:1.8.1
@@ -2547,7 +2545,6 @@ The following files have been resolved:
    org.apache.poi:poi-ooxml-schemas:jar:3.17
    com.google.code.findbugs:jsr305:jar:1.3.9
    io.netty:netty:jar:3.4.0.Final
-   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.04-SNAPSHOT
    org.hibernate:hibernate-core:pom:5.4.2.Final
    com.sun.xml.ws:jaxws-tools:jar:2.1.3
    net.java.dev.laf-plugin:laf-plugin:jar:1.1
@@ -2571,8 +2568,10 @@ The following files have been resolved:
    org.apache.commons:commons-lang3:jar:3.6
    com.sun.jersey:jersey-core:jar:1.18.1
    javax.xml.soap:saaj-api:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-gui:jar:4.0.05-SNAPSHOT
    stax:stax-api:jar:1.0.1
    org.jvnet:mimepull:jar:1.3
+   pt.uminho.ceb.biosystems.merlin:merlin-biocomponents:jar:4.0.05-SNAPSHOT
    com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0
    org.apache.xmlbeans:xmlbeans:jar:2.3.0
    org.glassfish.jersey.bundles.repackaged:jersey-guava:jar:2.17
@@ -2580,6 +2579,7 @@ The following files have been resolved:
    org.antlr:antlr4:jar:4.5.3
    org.sbml.jsbml.ext:jsbml-req:jar:1.4
    net.jodah:failsafe:jar:1.0.3
+   pt.uminho.ceb.biosystems.merlin:merlin-services:jar:4.0.05-SNAPSHOT
    com.github.virtuald:curvesapi:jar:1.04
    org.mortbay.jetty:jetty-util:jar:6.1.26
    com.mchange:c3p0:jar:0.9.5.3

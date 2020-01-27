@@ -129,15 +129,16 @@ public class ModelReactionHasModelProteinDAOImpl extends GenericDaoImpl<ModelRea
 		CriteriaQuery<Object[]> c = cb.createQuery(Object[].class);
 		Root<ModelReactionHasModelProtein> react = c.from(ModelReactionHasModelProtein.class);
 		Root<ModelProtein> prot = c.from(ModelProtein.class);
+		//Root<ModelSubunit> subunit = c.from(ModelSubunit.class);
 
 		c.multiselect(prot.get("ecnumber"),
 				prot.get("idprotein"), prot.get("name"), react.get("modelReaction").get("inModel"));
 
 		Predicate filter1 = cb.equal(react.get("id").get("modelProteinIdprotein"), prot.get("idprotein"));
 		Predicate filter2 = cb.equal(react.get("id").get("modelReactionIdreaction"), id);
+		//Predicate filter3 = cb.equal(prot.get("idprotein"), subunit.get("modelProtein").get("idprotein"));
 
 		c.where(cb.and(filter1, filter2));
-
 		Query<Object[]> q = super.sessionFactory.getCurrentSession().createQuery(c);
 
 		List<Object[]> resultList = q.getResultList();
@@ -244,7 +245,7 @@ public class ModelReactionHasModelProteinDAOImpl extends GenericDaoImpl<ModelRea
 		Root<ModelReactionHasModelProtein> react = c.from(ModelReactionHasModelProtein.class);
 		Root<ModelProtein> prot = c.from(ModelProtein.class);
 
-		c.multiselect(react.get("id").get("modelEnzymeModelProteinIdprotein"), react.get("id").get("modelEnzymeEcnumber"));
+		c.multiselect(react.get("modelProtein").get("idprotein"), react.get("modelProtein").get("ecnumber"));
 
 		Predicate filter1 = cb.equal(react.get("modelReaction").get("inModel"), true);
 		Predicate filter2 = cb.equal(react.get("id").get("modelReactionIdreaction"), reactionId);

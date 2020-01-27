@@ -465,4 +465,10 @@ public class SubunitServiceImpl implements ISubunitService{
 		return this.modelsubunitDAO.isProteinEncodedByGenes(proteinId);
 	}
 
+	@Override
+	public Map<Integer, Integer> getModelSubunitGeneIdAndEnzymeProteinIdByEcNumber(String ecNumber) throws Exception {
+		// TODO Auto-generated method stub
+		return this.modelsubunitDAO.getModelSubunitGeneIdAndEnzymeProteinIdByEcNumber(ecNumber);
+	}
+
 }		
