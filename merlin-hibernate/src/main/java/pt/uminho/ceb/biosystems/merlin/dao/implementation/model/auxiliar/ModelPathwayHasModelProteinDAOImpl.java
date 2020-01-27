@@ -27,6 +27,7 @@ import pt.uminho.ceb.biosystems.merlin.entities.model.ModelReaction;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelReactionHasModelProtein;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelReactionLabels;
 import pt.uminho.ceb.biosystems.merlin.entities.model.ModelStoichiometry;
+import pt.uminho.ceb.biosystems.merlin.entities.model.ModelSubunit;
 
 public class ModelPathwayHasModelProteinDAOImpl extends GenericDaoImpl<ModelPathwayHasModelProtein> implements IModelPathwayHasModelProteinDAO {
 
@@ -187,6 +188,7 @@ public class ModelPathwayHasModelProteinDAOImpl extends GenericDaoImpl<ModelPath
  		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<Object[]> c = cb.createQuery(Object[].class);
 		Root<ModelPathwayHasModelProtein> pathEnz = c.from(ModelPathwayHasModelProtein.class);
+		Root<ModelSubunit> subunit = c.from(ModelSubunit.class);
 		Root<ModelProtein> protein = c.from(ModelProtein.class);
 		Root<ModelReactionHasModelProtein> reactionHasenzyme = c.from(ModelReactionHasModelProtein.class);
 		Root<ModelReaction> reaction = c.from(ModelReaction.class);
@@ -201,7 +203,7 @@ public class ModelPathwayHasModelProteinDAOImpl extends GenericDaoImpl<ModelPath
 	    		compound.get("externalIdentifier")); 
 
 	    Predicate filter1 = cb.equal(pathEnz.get("id").get("modelProteinIdprotein"), reactionHasenzyme.get("id").get("modelProteinIdprotein"));
-	    
+	    Predicate filter2 = cb.equal(pathEnz.get("id").get("modelProteinIdprotein"), subunit.get("id").get("modelProteinIdprotein"));
 	    Predicate filter3 = cb.equal(reaction.get("idreaction"), reactionHasenzyme.get("id").get("modelReactionIdreaction"));
 	    Predicate filter4 = cb.equal(reaction.get("idreaction"), stoich.get("modelReaction").get("idreaction"));
 	    Predicate filter5 = cb.equal(compound.get("idcompound"), stoich.get("modelCompound").get("idcompound"));
@@ -214,7 +216,7 @@ public class ModelPathwayHasModelProteinDAOImpl extends GenericDaoImpl<ModelPath
 		if(isCompartimentalized) 
 			filter12 = cb.isNotNull(reaction.get("modelCompartment").get("idcompartment"));
 	    
-	    c.where(cb.and(filter1, filter3, filter4, filter5, filter6, filter9, filter10, filter11, filter12, filter13));
+	    c.where(cb.and(filter1, filter2, filter3, filter4, filter5, filter6, filter9, filter10, filter11, filter12, filter13));
 
 		Query<Object[]> q = super.sessionFactory.getCurrentSession().createQuery(c);
 		List<Object[]> resultList = q.getResultList();

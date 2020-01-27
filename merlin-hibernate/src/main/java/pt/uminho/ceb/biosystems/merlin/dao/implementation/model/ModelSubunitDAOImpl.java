@@ -218,7 +218,7 @@ public class ModelSubunitDAOImpl extends GenericDaoImpl<ModelSubunit> implements
 
 		c.multiselect(sub.get("id").get("modelGeneIdgene"), sub.get("id").get("modelProteinIdprotein")).distinct(true);
 
-		Predicate filter1 = cb.equal(sub.get("id").get("modelEnzymeEcnumber"), ecNumber);
+		Predicate filter1 = cb.equal(sub.get("modelProtein").get("ecnumber"), ecNumber);
 		c.where(cb.and(filter1));
 
 		Query<Object[]> q = super.sessionFactory.getCurrentSession().createQuery(c);
