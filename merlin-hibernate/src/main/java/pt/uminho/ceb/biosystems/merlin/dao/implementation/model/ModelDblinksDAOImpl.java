@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import org.hibernate.SessionFactory;
 
 import pt.uminho.ceb.biosystems.merlin.dao.implementation.GenericDaoImpl;
@@ -77,6 +78,7 @@ public class ModelDblinksDAOImpl extends GenericDaoImpl<ModelDblinks> implements
 
 		return list;
 	}
+	
 
 
 

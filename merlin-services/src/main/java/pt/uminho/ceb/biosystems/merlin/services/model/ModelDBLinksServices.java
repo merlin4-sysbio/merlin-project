@@ -16,4 +16,6 @@ public class ModelDBLinksServices {
 
 		InitDataAccess.getInstance().getDatabaseService(databaseName).insertDbLinksEntry(class_, internalId, database, externalId);
 	}
+	
+	
 }
