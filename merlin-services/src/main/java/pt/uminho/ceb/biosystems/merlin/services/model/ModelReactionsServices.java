@@ -22,7 +22,7 @@ import pt.uminho.ceb.biosystems.merlin.core.containers.model.PathwayContainer;
 import pt.uminho.ceb.biosystems.merlin.core.containers.model.ProteinContainer;
 import pt.uminho.ceb.biosystems.merlin.core.containers.model.ReactionContainer;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelBlockedReactions;
-import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelReactionsmetabolitesEnzymesSets;
+import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelReactionsMetabolitesEnzymesSets;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.view.ModelDesnormalizedReactionPathwayAndCompartment;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.Compartments;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.Pathways;
@@ -369,15 +369,25 @@ public class ModelReactionsServices {
 		results.add(counter++, resultLists);
 
 		List<String[]> result2 = InitDataAccess.getInstance().getDatabaseService(databaseName).getEnzymesByReaction(id);
+		
+	
 		resultLists = new ArrayList<>();
 		for(int i=0; i<result2.size(); i++){
 			String[] list = result2.get(i);
-
+			
+			String ecNumber = list[0];
+			String inModel = list[3];
+			
+			Map<Integer, Integer> enzymeIsInModel = InitDataAccess.getInstance().getDatabaseService(databaseName).getModelSubunitGeneIdAndEnzymeProteinIdByEcNumber(ecNumber);
+			
+			if(enzymeIsInModel == null)
+				inModel = "false";
+			
 			resultsList = new ArrayList<String>();
 
-			resultsList.add(list[0]);
+			resultsList.add(ecNumber);
 			resultsList.add(list[2]);
-			resultsList.add(list[3]);
+			resultsList.add(inModel);
 
 			resultLists.add(resultsList);
 		}
@@ -675,9 +685,6 @@ public class ModelReactionsServices {
 		//			boolean compartmentalisedModel = ProjectServices.isCompartmentalisedModel(databaseName);
 
 
-		if(boolean_rule!=null)
-			boolean_rule = "'"+boolean_rule+"'";
-
 		if(!name.startsWith("R") && !name.startsWith("T")&& !name.startsWith("K") && !name.toLowerCase().contains("biomass"))
 			name = "R_"+name;
 
@@ -807,6 +814,19 @@ public class ModelReactionsServices {
 		InitDataAccess.getInstance().getDatabaseService(databaseName).removeSelectedReaction(reaction_id);
 
 	}
+	
+	/**
+	 * @param selectedRow
+	 * 
+	 * remove a given reaction
+	 * @throws Exception 
+	 * @throws IOException 
+	 */
+	public static void removeReactionLabelByReactionLabelId(String databaseName, int reactionLabelId) throws IOException, Exception {
+
+		InitDataAccess.getInstance().getDatabaseService(databaseName).removeSelectedReactionLabel(reactionLabelId);
+
+	}
 
 
 	/**
@@ -852,7 +872,7 @@ public class ModelReactionsServices {
 	 * @param boolean_rule 
 	 */
 	public static void updateReaction(Integer idReaction, String name, String equation, Boolean reversibility, //Set<String> enzymes,
-			Map<String, String> chains, Map<String, String > compartment, Map<String, Double> metabolites, Boolean inModel, 
+			Map<String, String > compartment, Map<String, Double> metabolites, Boolean inModel, 
 			Map<String, Set<String>> selectedEnzymesPathway, Integer compartmentId, Boolean isSpontaneous, Boolean isNonEnzymatic,
 			Boolean isGeneric, Long lowerBound, Long upperBound, String boolean_rule, String databaseName) throws Exception{
 
@@ -1164,25 +1184,28 @@ public class ModelReactionsServices {
 	 * @return
 	 * @throws Exception 
 	 */
-	public static ModelReactionsmetabolitesEnzymesSets getEnzymesIdentifiersList(int pathwayID, ModelBlockedReactions blockedReactions, String databaseName) throws Exception {
+	public static ModelReactionsMetabolitesEnzymesSets getEnzymesIdentifiersList(int pathwayID, ModelBlockedReactions blockedReactions, String databaseName) throws Exception {
 
 		Set<String> enzymes = new HashSet<String>(), reactions = new HashSet<String>(), compounds = new HashSet<>();
 		Map<String, Set<String>> enzymesGapReactions = new HashMap<>();
-		ModelReactionsmetabolitesEnzymesSets rca = new ModelReactionsmetabolitesEnzymesSets();
+		ModelReactionsMetabolitesEnzymesSets rca = new ModelReactionsMetabolitesEnzymesSets();
 
 		boolean isCompartimentalized = ProjectServices.isCompartmentalisedModel(databaseName);
 		List<String[]> data = InitDataAccess.getInstance().getDatabaseService(databaseName).getPathwayHasEnzymeData(pathwayID, isCompartimentalized);
 
 		for(int i=0; i<data.size(); i++){
+			
+			System.out.println(Arrays.asList(data.get(i)));
+			
 			String[] list = data.get(i);
 
 			String reaction_id = list[3];
-			String surrogateEnzID = list[0]+"___"+list[5]; // +"___"+list[1]
+			String surrogateEnzID = list[0];//+"___"+list[5]; // +"___"+list[1]
 
 			if(reaction_id.contains("_"))
 				reaction_id=reaction_id.substring(0,reaction_id.indexOf("_"));
 
-			if(Boolean.valueOf(list[2]) && Boolean.valueOf(list[4]))
+			if(Boolean.valueOf(list[2]) )//&& Boolean.valueOf(list[4]))
 				enzymes.add(surrogateEnzID);
 
 			if(Boolean.valueOf(list[2]))
@@ -1191,9 +1214,8 @@ public class ModelReactionsServices {
 			//blockedReactions
 			if(blockedReactions!= null) {
 
-				String metabolite = list[6];
+				String metabolite = list[5];
 				compounds.add(metabolite);
-
 
 				Set<String> reactionsSet = new HashSet<String>();
 				if(enzymesGapReactions.containsKey(surrogateEnzID))
@@ -1234,15 +1256,14 @@ public class ModelReactionsServices {
 	 * @return
 	 * @throws Exception 
 	 */
-	public static ModelReactionsmetabolitesEnzymesSets getReactionsList(boolean noEnzymes, int pathwayID, ModelBlockedReactions blockedReactions, String databaseName) throws Exception {
+	public static ModelReactionsMetabolitesEnzymesSets getReactionsList(boolean noEnzymes, int pathwayID, ModelBlockedReactions blockedReactions, String databaseName) throws Exception {
 
 		Set<String> reactions = new HashSet<>(), compounds = new HashSet<>(), pathwayGapReactions = new HashSet<>();
-		ModelReactionsmetabolitesEnzymesSets rca = new ModelReactionsmetabolitesEnzymesSets();
+		ModelReactionsMetabolitesEnzymesSets rca = new ModelReactionsMetabolitesEnzymesSets();
 
 		boolean isCompartimentalized = ProjectServices.isCompartmentalisedModel(databaseName);
 
 		List<Object[]> result = InitDataAccess.getInstance().getDatabaseService(databaseName).getReactionsList(pathwayID, noEnzymes, isCompartimentalized);
-
 
 		for(int i=0; i<result.size(); i++) {
 

@@ -123,4 +123,23 @@ public class ModelSubunitServices {
 		}
 	}
 	
+	/**
+	 * @param databaseName
+	 * @return
+	 * @throws Exception
+	 */
+	public static int countSubunitEntries(String databaseName) throws Exception {
+
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).countSubunitEntries().intValue();
+	}
+	
+	/**
+	 * @param databaseName
+	 * @return
+	 * @throws Exception
+	 */
+	public static boolean isProteinEncodedByGenes(String databaseName, Integer proteinId) throws Exception {
+
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).isProteinEncodedByGenes(proteinId);
+	}
 }

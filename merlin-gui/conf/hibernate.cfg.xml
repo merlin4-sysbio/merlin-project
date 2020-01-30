@@ -26,7 +26,7 @@
 		<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
 		<property name="hibernate.validator.apply_to_ddl">false</property>
 		
-		<property name="hibernate.hbm2ddl.auto">create-drop</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
 		
 		<property name="hibernate.order_by.default_null_ordering">last</property>
 		
@@ -109,5 +109,8 @@
         <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelReactionLabels"/>
         <mapping class="pt.uminho.ceb.biosystems.merlin.entities.regulatory.RegulatoryRiFunction"/>
         <mapping class="pt.uminho.ceb.biosystems.merlin.entities.model.ModelModuleHasModelProtein"/>
+        
+        
+        
     </session-factory>
 </hibernate-configuration>

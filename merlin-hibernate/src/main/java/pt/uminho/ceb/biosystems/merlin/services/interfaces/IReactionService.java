@@ -110,7 +110,7 @@ public interface IReactionService{
 	
 	public List<String[]> getStoichiometryInfo (boolean isCompartmentalisedModel) throws Exception;
 	
-	public List<String[]>  getReactionHasEnzymeData(Integer id) throws Exception;
+//	public List<String[]>  getReactionHasEnzymeData(Integer id) throws Exception;
 	
 	public List<String[]> countReactions(Integer id, boolean isCompartmentalized) throws Exception;
 	
@@ -242,5 +242,7 @@ public interface IReactionService{
 	public Integer countTotalOfReactions(boolean isCompartmentalized) throws Exception;
 
 	public void replaceReactionCompartment(Integer compartmentIdToKeep, Integer compartmentIdToReplace) throws Exception;
+
+	public boolean removeSelectedReactionLabel(Integer reactionLabelId) throws Exception;
 
 }

@@ -44,6 +44,7 @@ import pt.uminho.ceb.biosystems.merlin.gui.utilities.SearchInTable;
 import pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceUpdatablePanel;
 import pt.uminho.ceb.biosystems.merlin.gui.views.windows.GenericDetailWindow;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelProteinsServices;
+import pt.uminho.ceb.biosystems.merlin.services.model.ModelSubunitServices;
 
 
 /**
@@ -55,7 +56,7 @@ public class ModelProteinsAIBView extends WorkspaceUpdatablePanel {
 	private static final long serialVersionUID = 1L;
 	private JScrollPane jScrollPane1;
 	private JButton jButtonExportTxt;
-	private JRadioButton jRadioButton1;
+	private JRadioButton jRadioButtonAllProteins;
 	private ButtonGroup buttonGroup1;
 	private JPanel jPanel1;
 	private JPanel jPanel2;
@@ -69,7 +70,7 @@ public class ModelProteinsAIBView extends WorkspaceUpdatablePanel {
 	private JButton jButtonEdit;
 	private JPanel jPanelExport;
 	private int infoSelectedRow;
-	private AbstractButton jRadioButtonEncoded;
+	private AbstractButton jRadioButtonEncodedOnly;
 	private SearchInTable searchInProteins;
 	private ButtonColumn buttonColumn;
 
@@ -85,6 +86,21 @@ public class ModelProteinsAIBView extends WorkspaceUpdatablePanel {
 		nameTabs.add(2);
 		this.searchInProteins = new SearchInTable(nameTabs);
 		this.initGUI();
+		
+		try {
+			int value = ModelSubunitServices.countSubunitEntries(proteins.getWorkspace().getName());
+			
+			if(value > 0) {
+				this.jRadioButtonEncodedOnly.setSelected(true);
+			}
+			else
+				this.jRadioButtonAllProteins.setSelected(true);
+		} 
+		catch (Exception e) {
+			this.jRadioButtonAllProteins.setSelected(true);
+			e.printStackTrace();
+		}
+		
 		this.fillList(true);
 		this.addListenersToGraphicalObjects();
 	}
@@ -122,26 +138,26 @@ public class ModelProteinsAIBView extends WorkspaceUpdatablePanel {
 				jPanelProteins.setBounds(718, 6, 157, 115);
 				jPanelProteins.setBorder(BorderFactory.createTitledBorder("protein types"));
 				{
-					jRadioButtonEncoded = new JRadioButton();
-					jPanelProteins.add(jRadioButtonEncoded, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
-					jRadioButtonEncoded.setText("in model");
+					jRadioButtonEncodedOnly = new JRadioButton();
+					jPanelProteins.add(jRadioButtonEncodedOnly, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
+					jRadioButtonEncodedOnly.setText("in model");
 				}
 				{
-					jRadioButton1 = new JRadioButton();
-					jRadioButton1.setSelected(!this.modelProteins.existGenes());
-					jPanelProteins.add(jRadioButton1, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
-					jRadioButton1.setText("all proteins");
+					jRadioButtonAllProteins = new JRadioButton();
+//					jRadioButton1.setSelected(!this.modelProteins.existGenes());
+					jPanelProteins.add(jRadioButtonAllProteins, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
+					jRadioButtonAllProteins.setText("all proteins");
 				}
 				buttonGroup1 = new ButtonGroup();
-				buttonGroup1.add(jRadioButtonEncoded);
-				jRadioButtonEncoded.setSelected(this.modelProteins.existGenes());
-				jRadioButtonEncoded.addActionListener(new ActionListener() {
+				buttonGroup1.add(jRadioButtonEncodedOnly);
+				jRadioButtonEncodedOnly.setSelected(this.modelProteins.existGenes());
+				jRadioButtonEncodedOnly.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
 						fillList(true);
 					}
 				});
-				buttonGroup1.add(jRadioButton1);
-				jRadioButton1.addActionListener(new ActionListener() {
+				buttonGroup1.add(jRadioButtonAllProteins);
+				jRadioButtonAllProteins.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent evt) {
 						fillList(true);
 					}
@@ -289,7 +305,7 @@ public class ModelProteinsAIBView extends WorkspaceUpdatablePanel {
 								if(jTable.getSelectedRow() != -1){
 
 									int identifierProtein = modelProteins.getIdentifiers().get(jTable.convertRowIndexToModel(jTable.getSelectedRow()));
-									ModelProteinsServices.removeProtein(modelProteins.getWorkspace().getName(), identifierProtein, jRadioButtonEncoded.isSelected());
+									ModelProteinsServices.removeProtein(modelProteins.getWorkspace().getName(), identifierProtein);
 									fillList(true);
 								}
 								else
@@ -331,7 +347,10 @@ public class ModelProteinsAIBView extends WorkspaceUpdatablePanel {
 	 */
 	public void fillList(boolean update){
 		
-		boolean encoded = this.jRadioButtonEncoded.isSelected();
+//		if(ProjectServices) ver se ha alguma coisa inModel na mdoel_protein
+		
+//		
+		boolean encoded = this.jRadioButtonEncodedOnly.isSelected();
 
 		mainTableData = this.modelProteins.getAllProteins(encoded, update);
 
@@ -398,7 +417,7 @@ public class ModelProteinsAIBView extends WorkspaceUpdatablePanel {
 
 		this.infoSelectedRow = jTable.getSelectedRow();
 
-		new GenericDetailWindow(q, "protein data", "Protein: "+ modelProteins.getProteinName(jTable.getSelectedRow()));
+		new GenericDetailWindow(q, "protein data", "Protein: "+ modelProteins.getProteinName(jTable.convertRowIndexToModel(jTable.getSelectedRow())));
 	}
 
 	/* (non-Javadoc)

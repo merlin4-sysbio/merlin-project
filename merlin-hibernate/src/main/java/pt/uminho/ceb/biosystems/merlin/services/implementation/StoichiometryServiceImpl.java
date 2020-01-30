@@ -193,9 +193,12 @@ public class StoichiometryServiceImpl implements IStoichiometryService{
 
 		ModelStoichiometry model = new ModelStoichiometry();
 		model.setStoichiometricCoefficient((float)stoichiometric_coef);
-		model.setModelCompartment(compartment);
-		model.setModelCompound(compound);
-		model.setModelReaction(reaction);
+		if (compartment != null)
+			model.setModelCompartment(compartment);
+		if (compound != null)
+			model.setModelCompound(compound);
+		if(reaction != null)
+			model.setModelReaction(reaction);
 
 		this.modelStoichiometryDAO.addModelStoichiometry(model);
 

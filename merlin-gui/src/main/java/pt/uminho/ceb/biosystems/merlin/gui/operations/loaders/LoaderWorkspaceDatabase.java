@@ -4,7 +4,10 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.slf4j.Logger;
@@ -42,8 +45,7 @@ public class LoaderWorkspaceDatabase implements PropertyChangeListener {
 	private int dataSize;
 	public TimeLeftProgress progress = new TimeLeftProgress();
 	private AtomicBoolean cancel = new AtomicBoolean(false);
-	private static final String FTP_MERLIN_KEGGDATA = "https://merlin-sysbio.org/data/kegg/keggXMLbackup.zip";
-	
+	private static final String FTP_MERLIN_KEGGDATA = "https://merlin-sysbio.org/data/kegg2/old_versions/keggXMLbackup20200116_0958.zip";
 	final static Logger logger = LoggerFactory.getLogger(LoaderWorkspaceDatabase.class);
 
 
@@ -61,7 +63,6 @@ public class LoaderWorkspaceDatabase implements PropertyChangeListener {
 				
 				String path = DatabaseFilesPaths.getModelPath(false);
 				DatabaseServices.executeDropTable(project.getName(), FileUtils.readLines(path));
-				
 				String keggXmlPath = FileUtils.getUtilitiesFolderPath().concat(KEGG_XML_FILENAME) ;
 				
 				try {
@@ -89,6 +90,8 @@ public class LoaderWorkspaceDatabase implements PropertyChangeListener {
 				org.apache.commons.io.FileUtils.deleteDirectory(new File (workspaceKeggTaxonomyPath));
 				
 				NewWorkspaceRequirements.injectRequiredDataToNewWorkspace(project.getName());
+				
+				
 				
 				if(!this.cancel.get()) {
 					
@@ -124,6 +127,8 @@ public class LoaderWorkspaceDatabase implements PropertyChangeListener {
 		return workspaceMetabolicData;
 
 	}
+	
+	
 
 	/**
 	 * @return

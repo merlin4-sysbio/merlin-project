@@ -6,13 +6,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.axis2.AxisFault;
 import org.apache.commons.validator.routines.EmailValidator;
@@ -138,6 +143,7 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 			Workbench.getInstance().warn("your email is invalid");
 			return;
 		}
+		
 
 
 		if(!this.email.equals("")){
@@ -362,6 +368,7 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 				this.progress.setTime((GregorianCalendar.getInstance().getTimeInMillis()-this.startTime), sequencesCounter, this.ebiBlastSearch.getSequences_size());
 			}
 			else if(evt.getPropertyName().equalsIgnoreCase("saveToDatabase")) {
+				
 
 				while(this.resultsList.size()>0) {
 
@@ -372,12 +379,31 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 					lbr.setWordSize(this.ebiBlastSearch.getWordSize());
 					lbr.loadData(project.getName());
 				}
+				
+
 			}
 			else if(evt.getPropertyName().equalsIgnoreCase("updateLoadedGenes")) {
 
 				Set<String> genes = AnnotationEnzymesServices.getGenesFromDatabase(this.project.getName(), Double.parseDouble(this.eVal), this.ebiBlastSearch.getBlastMatrix().toString(), 
 						this.numberOfAlignments.index(), this.ebiBlastSearch.getWordSize(), program,  database.toString(), true);
 				this.ebiBlastSearch.setLoadedGenes(genes);
+			}
+			else if (evt.getPropertyName().equalsIgnoreCase("invalidEmail")) {
+				
+				progress.setTime((GregorianCalendar.getInstance().getTimeInMillis()-GregorianCalendar.getInstance().getTimeInMillis()),1,1);
+				Random r = new Random();
+				TimeUnit.MILLISECONDS.sleep(r.nextInt(100));
+				if(!ebiBlastSearch.isCancel().get()) {
+					ebiBlastSearch.setCancel();
+					Workbench.getInstance().error("invalid email. please set a valid email address! hold on while the operation is canceled." );
+					logger.warn("BLAST search canceled!");
+					
+				}
+				
+				this.propertyChange(new PropertyChangeEvent(this, "saveToDatabase", null, this.resultsList.size()));
+				
+				
+			
 			}
 			else
 				logger.warn("Property {} not being processed!", evt.getPropertyName());
@@ -418,6 +444,9 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 
 		String validation = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
+		boolean verify = EmailValidator.getInstance().isValid(this.email);
+		
+		
 		if(this.email.matches(validation)) 
 			this.emailValid = true;
 		else

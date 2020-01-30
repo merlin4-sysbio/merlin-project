@@ -143,7 +143,8 @@ public class ModelPathwaysServices {
 			item[0] = items.getExternalIdentifier();
 			item[1] = items.getName();
 			item[2] = items.getClass_();
-			item[3] = String.valueOf(items.getInModel());
+//			item[3] = String.valueOf(items.getInModel());
+			item[3] = "";    //Verify what this is		
 
 			data.add(item);
 		}
@@ -492,5 +493,17 @@ public class ModelPathwaysServices {
 	public static Map<Integer, List<PathwayContainer>> getPathwaysByReaction(String databaseName) throws IOException, Exception {
 
 		return InitDataAccess.getInstance().getDatabaseService(databaseName).getPathwaysByReaction();
+	}
+	
+	/**
+	 * This operation is used during data insertion (Example: kegg)
+	 * 
+	 * @param databaseName
+	 * @return
+	 * @throws Exception
+	 */
+	public static void deleteEmptyPathways(String databaseName, boolean checkReactions, boolean checkProteins) throws Exception {
+
+		InitDataAccess.getInstance().getDatabaseService(databaseName).deleteEmptyPathways(checkReactions, checkProteins);
 	}
 }

@@ -133,7 +133,7 @@ public class ModelMetabolitesServices {
 
 			Object[] list = data.get(i);
 			int speciesId = Integer.valueOf(list[0]+"") + (Integer.valueOf(list[1]+"")*_ID_CREATOR);
-			sum_not_transport.put(speciesId, Integer.valueOf(list[2]+""));
+			sum_transport.put(speciesId, Integer.valueOf(list[2]+""));
 		}
 
 		//calculate which metabolites have both properties and add to table 

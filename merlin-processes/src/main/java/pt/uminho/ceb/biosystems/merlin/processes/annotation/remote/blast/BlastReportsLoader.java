@@ -4,6 +4,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -19,6 +20,7 @@ import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.BlastProgram;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.BlastSource;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.HomologySearchServer;
 import pt.uminho.ceb.biosystems.merlin.processes.annotation.remote.RemoteDataRetriever;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.EbiBlastParser;
 
 public class BlastReportsLoader implements Runnable {
 
@@ -111,35 +113,36 @@ public class BlastReportsLoader implements Runnable {
 	private void runner(File outFile) throws Exception {
 
 		CheckBlastResult cbr = new CheckBlastResult(new FileInputStream(outFile.getAbsolutePath()));
+		EbiBlastParser ebiBlastParser = new EbiBlastParser(new FileInputStream(outFile.getAbsolutePath()));
+
 		boolean go = cbr.isBlastResultOK();
 		String query = cbr.getQuery().split(" ")[0];
 		RemoteDataRetriever homologyDataClient;
-
+		
+		
 		logger.debug("Processing "+query);
 
 		if(go) {
 
 			if(cbr.isSimilarityFound()) {
+				
+				if(!ebiBlastParser.isReprocessQuery()) {
 
-				ReadBlasttoList blastToList = new ReadBlasttoList(cbr);
-
-				if(!blastToList.isReprocessQuery()) {
-
-					if(!existingGenes.contains(blastToList.getQuery())) {
+					if(!existingGenes.contains(ebiBlastParser.getResults().get(0).getQueryID())) {
 
 						if(!this.cancel.get()) {
 
 							HomologySearchServer hss = HomologySearchServer.EBI;
 
-							homologyDataClient = new RemoteDataRetriever(blastToList, this.organismTaxa, this.taxonomyMap, this.uniprotStar, 
+							homologyDataClient = new RemoteDataRetriever(ebiBlastParser, this.organismTaxa, this.taxonomyMap, this.uniprotStar, 
 									this.cancel, false, hss, this.blastSource, taxonomyIdentifier);
 
 							if(sequences.containsKey(query))
 								homologyDataClient.setFastaSequence(sequences.get(query).getSequenceAsString());
 
-							if(homologyDataClient.isDataRetrieved() && !existingGenes.contains(blastToList.getQuery())) {
+							if(homologyDataClient.isDataRetrieved() && !existingGenes.contains(ebiBlastParser.getResults().get(0).getQueryID())) {
 
-								homologyDataClient.setDatabaseIdentifier(blastToList.getDatabaseId());
+								homologyDataClient.setDatabaseIdentifier(ebiBlastParser.getResults().get(0).getSeqDb());
 								resultsList.add(homologyDataClient.getHomologuesData());
 								changes.firePropertyChange("resultsList", sequencesCounter.get(), sequencesCounter.incrementAndGet());
 								if(this.resultsList.size()>25)
@@ -157,7 +160,7 @@ public class BlastReportsLoader implements Runnable {
 
 					else {
 
-						logger.debug("Gene {} already processed.", blastToList.getQuery());
+						logger.debug("Gene {} already processed.", ebiBlastParser.getResults().get(0).getQueryID());
 					}
 				}
 				else {

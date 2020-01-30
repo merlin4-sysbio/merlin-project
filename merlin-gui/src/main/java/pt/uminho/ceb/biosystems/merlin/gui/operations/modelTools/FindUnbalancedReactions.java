@@ -6,6 +6,7 @@ import es.uvigo.ei.aibench.core.operation.annotation.Direction;
 import es.uvigo.ei.aibench.core.operation.annotation.Operation;
 import es.uvigo.ei.aibench.core.operation.annotation.Port;
 import es.uvigo.ei.aibench.workbench.Workbench;
+import pt.uminho.ceb.biosystems.merlin.biocomponents.container.Container;
 import pt.uminho.ceb.biosystems.merlin.biocomponents.io.readers.ContainerBuilder;
 import pt.uminho.ceb.biosystems.merlin.core.containers.model.MetaboliteContainer;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceEntity;
@@ -13,7 +14,6 @@ import pt.uminho.ceb.biosystems.merlin.gui.datatypes.WorkspaceAIB;
 import pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelReactionsAIB;
 import pt.uminho.ceb.biosystems.merlin.gui.utilities.MerlinUtils;
 import pt.uminho.ceb.biosystems.merlin.services.ProjectServices;
-import pt.uminho.ceb.biosystems.mew.biocomponents.container.Container;
 import pt.uminho.ceb.biosystems.mew.biocomponents.validation.chemestry.BalanceValidator;
 
 @Operation(description="Find unbalanced reactions in the metabolic network.")
@@ -85,11 +85,10 @@ public class FindUnbalancedReactions {
 			bv.setFormulasFromContainer();
 			bv.validateAllReactions();
 			bv.balanceH(proton);
-			Container cont = bv.getBalancedContainer();
+			pt.uminho.ceb.biosystems.mew.biocomponents.container.Container cont = bv.getBalancedContainer();
 
 			for(String id : cont.getReactions().keySet())
 				this.reaction.getExternalModelIdentifiers().put(container.getReactionsExtraInfo().get(id).get("MERLIN_ID"),id);
-
 
 			this.reaction.setBalanceValidator(bv);
 			reaction.setNewBlockedReaction(true);

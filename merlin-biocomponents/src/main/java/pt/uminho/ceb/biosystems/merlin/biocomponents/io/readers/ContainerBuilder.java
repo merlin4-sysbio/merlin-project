@@ -353,7 +353,7 @@ public class ContainerBuilder implements IContainerBuilder {
 
 		if(compartment == null)
 			System.out.println("null compartment");
-
+		
 		String output = identifier.concat("__").concat(compartment.toLowerCase());
 
 		if(!output.startsWith(prefix))

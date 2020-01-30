@@ -120,6 +120,12 @@ public class ReactionServiceImpl implements IReactionService {
 	}
 
 	@Override
+	public boolean removeSelectedReactionLabel(Integer reactionLabelId) throws Exception {
+		return this.modelreactionLabelsDAO.deleteModelReactionLabelsById(reactionLabelId);
+	}
+	
+	
+	@Override
 	public List<ModelReactionHasModelProtein> getProteinHasReaction() throws Exception {
 		return this.modelreactionhasproteinDao.getAllModelReactionHasModelProteinOrderByReactionId();
 	}
@@ -152,16 +158,16 @@ public class ReactionServiceImpl implements IReactionService {
 					ql.add("-");
 
 				if((Double.valueOf(x[5]) < 0 && Double.valueOf(x[6]+"") > 0))
-					ql.add(Boolean.valueOf(x[5])+"");
+					ql.add("reversible");
 				else
-					ql.add("-");
+					ql.add("irreversible");
 
 				ret.add(ql);
 			}
 
 		return ret;
 	}
-
+	
 
 	@Override
 	public long countReactionsInModel(boolean isCompartimentalized) throws Exception { 
@@ -709,23 +715,23 @@ public class ReactionServiceImpl implements IReactionService {
 		return this.modelreactionDAO.getModelReactionByInModelAndConditions(isCompartmentalizedModel);
 	}
 
-	public List<String[]> getReactionHasEnzymeData(Integer id) throws Exception {
-		ArrayList<String[]> result = new ArrayList<String[]>();
-
-		List<String[]> res = this.modelreactionhasproteinDao.getAllModelReactionHasModelProteinByreactionId2(id);
-
-		if (res != null)
-			for (String[] x : res) {
-				String[] list = new String[3];
-
-				list[0]= x[0];
-				list[1]= x[1];
-				list[2]= x[2] +"";
-
-				result.add(list);
-			}
-		return result;
-	}
+//	public List<String[]> getReactionHasEnzymeData(Integer id) throws Exception {
+//		ArrayList<String[]> result = new ArrayList<String[]>();
+//
+//		List<String[]> res = this.modelreactionhasproteinDao.getAllModelReactionHasModelProteinByreactionId2(id);
+//
+//		if (res != null)
+//			for (String[] x : res) {
+//				String[] list = new String[3];
+//
+//				list[0]= x[0];
+//				list[1]= x[1];
+//				list[2]= x[2] +"";
+//
+//				result.add(list);
+//			}
+//		return result;
+//	}
 	
 	@Override
 	public Integer countTotalOfReactions(boolean isCompartmentalized) throws Exception {

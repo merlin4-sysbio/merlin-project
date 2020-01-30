@@ -13,6 +13,7 @@ import es.uvigo.ei.aibench.core.operation.annotation.Direction;
 import es.uvigo.ei.aibench.core.operation.annotation.Operation;
 import es.uvigo.ei.aibench.core.operation.annotation.Port;
 import es.uvigo.ei.aibench.workbench.Workbench;
+import pt.uminho.ceb.biosystems.merlin.biocomponents.container.Container;
 import pt.uminho.ceb.biosystems.merlin.biocomponents.io.readers.ContainerBuilder;
 import pt.uminho.ceb.biosystems.merlin.core.containers.model.CompartmentContainer;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceEntity;
@@ -26,7 +27,6 @@ import pt.uminho.ceb.biosystems.merlin.services.ProjectServices;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelCompartmentServices;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelPathwaysServices;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelReactionsServices;
-import pt.uminho.ceb.biosystems.mew.biocomponents.container.Container;
 import pt.uminho.ceb.biosystems.mew.biocomponents.container.components.CompartmentCI;
 import pt.uminho.ceb.biosystems.mew.biocomponents.container.components.ReactionCI;
 
@@ -56,7 +56,6 @@ public class CreateDrains {
 				this.project.getName(), ProjectServices.isCompartmentalisedModel(this.project.getName()), reactionsExtraInfoRequired, this.project.getOrganismName(),
 				null));
 
-		cont.verifyDepBetweenClass();
 		Integer compartmentID = null;
 
 		if(ProjectServices.isCompartmentalisedModel(this.project.getName())) {
