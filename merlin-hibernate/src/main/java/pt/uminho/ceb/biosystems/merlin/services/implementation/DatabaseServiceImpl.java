@@ -8510,5 +8510,20 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		}
 		
 	}
+	
+	@Override
+	public Map<Integer, Integer> getModelSubunitGeneIdAndEnzymeProteinIdByEcNumber(String ecNumber) throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			Map<Integer, Integer> result = subunitservice.getModelSubunitGeneIdAndEnzymeProteinIdByEcNumber(ecNumber);
+			tx.commit();
+			return result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+		
+	}
 
 }

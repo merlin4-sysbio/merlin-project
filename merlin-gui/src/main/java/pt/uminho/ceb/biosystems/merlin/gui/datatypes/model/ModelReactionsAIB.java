@@ -21,7 +21,7 @@ import pt.uminho.ceb.biosystems.merlin.core.containers.model.ProteinContainer;
 import pt.uminho.ceb.biosystems.merlin.core.containers.model.ReactionContainer;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceDataTable;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelBlockedReactions;
-import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelReactionsmetabolitesEnzymesSets;
+import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelReactionsMetabolitesEnzymesSets;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.model.ModelReactions;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.model.datatables.ModelPathwayReactions;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.Compartments;
@@ -413,7 +413,7 @@ public class ModelReactionsAIB extends ModelReactions implements IEntityAIB {
 	 * @return
 	 * @throws Exception 
 	 */
-	public ModelReactionsmetabolitesEnzymesSets getEnzymesIdentifiersList(int pathwayID) throws Exception {
+	public ModelReactionsMetabolitesEnzymesSets getEnzymesIdentifiersList(int pathwayID) throws Exception {
 
 		return ModelReactionsServices.getEnzymesIdentifiersList(pathwayID, blockedReactions, workspaceName);
 	}
@@ -424,7 +424,7 @@ public class ModelReactionsAIB extends ModelReactions implements IEntityAIB {
 	 * @return
 	 * @throws Exception 
 	 */
-	public ModelReactionsmetabolitesEnzymesSets getReactionsList(boolean noEnzymes, int pathwayID) throws Exception {
+	public ModelReactionsMetabolitesEnzymesSets getReactionsList(boolean noEnzymes, int pathwayID) throws Exception {
 
 		return ModelReactionsServices.getReactionsList(noEnzymes, pathwayID, blockedReactions, workspaceName);
 	}

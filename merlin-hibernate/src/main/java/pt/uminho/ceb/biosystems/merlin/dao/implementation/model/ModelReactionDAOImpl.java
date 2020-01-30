@@ -220,20 +220,27 @@ public class ModelReactionDAOImpl extends GenericDaoImpl<ModelReaction> implemen
 
 		Predicate constraints = cb.and(filter1, filter2, filter3, filter4, filter5, filter10, filter11);
 
+
 		if(noEnzymes) {
+			
+			c.where(constraints);
+		}
+		else {
+			
+			
 			Join<ModelReaction, ModelReactionHasModelProtein> enz = reaction.join("modelReactionHasModelProteins",JoinType.LEFT);
 
 			Predicate filter6 = cb.equal(reactionLabels.get("isNonEnzymatic"), true);
 			Predicate filter7 = cb.equal(reactionLabels.get("isSpontaneous"), true);
 			Predicate filter8 = cb.equal(reactionLabels.get("source"), SourceType.MANUAL.toString());
-			Predicate filter9 = cb.isNull(enz.get("modelProtein").get("ecnumber"));
+			Predicate filter9 = cb.isNull(enz.get("modelProtein"));
 
 			Predicate constraints2 = cb.or(filter6, filter7, filter8, filter9);
 
 			c.where(constraints, constraints2);
+
 		}
-		else
-			c.where(constraints);
+
 
 		Query<Object[]> q = super.sessionFactory.getCurrentSession().createQuery(c);
 		List<Object[]> list = q.getResultList();
@@ -611,18 +618,18 @@ public class ModelReactionDAOImpl extends GenericDaoImpl<ModelReaction> implemen
 		if(result != null) {
 
 			for(ModelReaction reaction : result) {
-				
+
 				ModelReactionLabels label = reaction.getModelReactionLabels();
-				
+
 				ModelCompartment compartment = reaction.getModelCompartment();
-				
+
 				ReactionContainer container = new ReactionContainer(reaction.getIdreaction(), label.getName(), label.getEquation());
 				container.setInModel(reaction.getInModel());
-				
+
 				if(compartment != null)
 					container.setLocalisation(new CompartmentContainer(compartment.getIdcompartment(),
 							compartment.getName(), compartment.getAbbreviation()));
-				
+
 				container.setSpontaneous(label.getIsSpontaneous());
 				container.setNon_enzymatic(label.getIsNonEnzymatic());
 				container.setGeneric(label.getIsGeneric());
@@ -1945,7 +1952,7 @@ public class ModelReactionDAOImpl extends GenericDaoImpl<ModelReaction> implemen
 
 				list2[0] = x[0].toString(); // reactionId
 				list2[1] = x[1].toString(); // proteinId
-				
+
 				if(x[2] != null)
 					list2[2] = x[2].toString(); // ecNumber
 
@@ -2060,7 +2067,7 @@ public class ModelReactionDAOImpl extends GenericDaoImpl<ModelReaction> implemen
 
 	@Override
 	public List<Integer> getDistinctReactionIdWhereSourceTransporters(Boolean isTransporter) { 
-		
+
 		boolean compartmentalized = true;
 
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
@@ -2077,12 +2084,12 @@ public class ModelReactionDAOImpl extends GenericDaoImpl<ModelReaction> implemen
 			filter = cb.equal(reaction.get("modelReactionLabels").get("source"), SourceType.TRANSPORTERS.toString());
 
 		Predicate filter1;
-		
+
 		if(compartmentalized)
 			filter1 = cb.isNotNull(reaction.get("modelCompartment").get("idcompartment"));
 		else
 			filter1 = cb.isNull(reaction.get("modelCompartment").get("idcompartment"));
-		
+
 		c.where(filter,filter1);
 
 		Query<ModelReaction> q = super.sessionFactory.getCurrentSession().createQuery(c);
@@ -2221,9 +2228,9 @@ public class ModelReactionDAOImpl extends GenericDaoImpl<ModelReaction> implemen
 
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<Object[]> c = cb.createQuery(Object[].class);
-		
+
 		Root<ModelModule> module = c.from(ModelModule.class);
-		
+
 		Join<ModelModule, ModelModuleHasModelProtein> moduleHasProt = module.join("modelModuleHasModelProteins",JoinType.INNER);
 		Join<ModelProtein, ModelModuleHasModelProtein> protein = moduleHasProt.join("modelProtein",JoinType.INNER);
 		Join<ModelModule, ModelModuleHasOrthology> modHasOrth = module.join("modelModuleHasOrthologies",JoinType.INNER);
@@ -2232,8 +2239,8 @@ public class ModelReactionDAOImpl extends GenericDaoImpl<ModelReaction> implemen
 		Join<ModelGeneHasOrthology, ModelGene> gene = geneHasOrth.join("modelGene",JoinType.INNER);
 
 		c.multiselect(module.get("reaction"), protein.get("ecnumber"),
-						module.get("definition"), geneHasOrth.get("id").get("modelGeneIdgene"), orth.get("entryId"),
-							geneHasOrth.get("similarity"), geneHasOrth.get("id").get("modelOrthologyId")).distinct(true);		
+				module.get("definition"), geneHasOrth.get("id").get("modelGeneIdgene"), orth.get("entryId"),
+				geneHasOrth.get("similarity"), geneHasOrth.get("id").get("modelOrthologyId")).distinct(true);		
 
 		Query<Object[]> q = super.sessionFactory.getCurrentSession().createQuery(c);
 		List<Object[]> resultList = q.getResultList();
@@ -2245,7 +2252,7 @@ public class ModelReactionDAOImpl extends GenericDaoImpl<ModelReaction> implemen
 			for (Object[] x: resultList) {
 
 				String[] list = new String[7] ;
-				
+
 				list[0] =  x[0].toString();
 				list[1] =  x[1].toString();
 				list[2] =  x[2].toString();
@@ -2267,23 +2274,23 @@ public class ModelReactionDAOImpl extends GenericDaoImpl<ModelReaction> implemen
 		Root<ModelReaction> reaction = c.from(ModelReaction.class);
 
 		c.select(cb.count(reaction.get("idreaction")));
-		
+
 		Predicate filter = cb.isNull(reaction.get("modelCompartment").get("idcompartment"));
 
 		if(isCompartmentalized) 
 			filter = cb.isNotNull(reaction.get("modelCompartment").get("idcompartment"));
 
 		c.where(filter);
-		
+
 		Query<Long> q = super.sessionFactory.getCurrentSession().createQuery(c);
 		Long count = q.getSingleResult();
 
 		if(count != null)
 			return count.intValue();
-		
+
 		return null;	
 	}
-	
+
 	@Override
 	public void replaceCompartment(Integer compartmentIdToKeep, Integer compartmentIdToReplace) {
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
@@ -2292,7 +2299,7 @@ public class ModelReactionDAOImpl extends GenericDaoImpl<ModelReaction> implemen
 
 		update.set(reaction.get("modelCompartment").get("idcompartment"), compartmentIdToKeep);
 		update.where(cb.equal(reaction.get("modelCompartment").get("idcompartment"), compartmentIdToReplace));
-		
+
 		super.sessionFactory.getCurrentSession().createQuery(update).executeUpdate();
 	}
 }

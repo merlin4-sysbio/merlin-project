@@ -4,7 +4,10 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.slf4j.Logger;
@@ -88,6 +91,8 @@ public class LoaderWorkspaceDatabase implements PropertyChangeListener {
 				
 				NewWorkspaceRequirements.injectRequiredDataToNewWorkspace(project.getName());
 				
+				
+				
 				if(!this.cancel.get()) {
 					
 					MerlinUtils.updateAllViews(project.getName());
@@ -122,6 +127,8 @@ public class LoaderWorkspaceDatabase implements PropertyChangeListener {
 		return workspaceMetabolicData;
 
 	}
+	
+	
 
 	/**
 	 * @return

@@ -1,7 +1,7 @@
 <plugin start="true">
 	<uid>merlin</uid>
 	<name>merlin-gui</name>
-	<version>4.0.04</version>
+	<version>4.0.05</version>
 
 	<lifecycleclass>pt.uminho.ceb.biosystems.merlin.gui.utilities.Lifecycle
 	</lifecycleclass>
@@ -700,6 +700,7 @@
 			<menu-icon menu="annotation/compartments" icon="conf/icons/compartments.png" />
 			
 			<menu-icon menu="validation" icon="conf/icons/validation.png" />
+			<menu-icon menu="validation/BioISO" icon="conf/icons/Lifecycle/remote.png" />
 			
 			<menu-icon menu="regulation" icon="conf/icons/regulation_new_icon.png" />
 			
@@ -712,6 +713,7 @@
 			<menu-icon menu="model/tools" icon="conf/icons/tools.png" />
 
 			<menu-icon menu="settings" icon="conf/icons/settings.png" />
+			
 		</extension>
 
 	</extensions>
