@@ -26,4 +26,5 @@ public interface IModelDblinksDAO extends IGenericDao<ModelDblinks>{
 	public void updateModelDblinks(ModelDblinks modelDblinks);
 
 	public List<ModelDblinks> getAllModelDblinksByAttributes(String class_, Integer int_id, String ext_db);
+
 }
