@@ -287,4 +287,12 @@ public class CompoundServiceImpl implements ICompoundService{
 				this.compoundDAO.delete(compound);
 		}
 	}
+	
+	@Override
+	public String getCompoundExternalIdentifierByInternalID(Integer internalID) {
+		
+		ModelCompound compound = this.compoundDAO.getModelCompound(internalID);
+		
+		return compound.getExternalIdentifier();
+	}
 }

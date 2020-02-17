@@ -8526,4 +8526,19 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		
 	}
 
+
+	@Override
+	public String getCompoundExternalIdentifierByInternalID(Integer internalID) throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			String result = compoundservice.getCompoundExternalIdentifierByInternalID(internalID);
+			tx.commit();
+			return result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+
 }

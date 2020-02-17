@@ -60,5 +60,7 @@ public interface ICompoundService {
 	public void removeCompoundByExternalIdentifier(String identifier) throws Exception;
 
 	public MetaboliteContainer getModelCompoundByName(String name) throws Exception;
+
+	public String getCompoundExternalIdentifierByInternalID(Integer internalID) throws Exception;
 }
 

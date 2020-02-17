@@ -522,7 +522,11 @@ public class ModelMetabolitesServices {
 
 		InitDataAccess.getInstance().getDatabaseService(databaseName).removeCompoundByExternalIdentifier(compoundIdentifier);
 	}
+	
+	public static String getCompoundExternalIdentifierByInternalID(String databaseName, Integer compoundIdentifier) throws Exception {
 
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).getCompoundExternalIdentifierByInternalID(compoundIdentifier);
+	}
 	/**
 	 * Load metabolites
 	 * 
