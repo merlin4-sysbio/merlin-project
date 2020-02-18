@@ -22,6 +22,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
 import pt.uminho.ceb.biosystems.merlin.dao.interfaces.IGenericDao;
+import pt.uminho.ceb.biosystems.merlin.entities.model.ModelDblinks;
 
 public class GenericDaoImpl<T> implements IGenericDao<T> {
 
@@ -481,6 +482,8 @@ public class GenericDaoImpl<T> implements IGenericDao<T> {
 		T castedObj = (T) sessionFactory.getCurrentSession().merge(object);
 		return castedObj;	
 	}
+
+
 
 
 

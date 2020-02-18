@@ -16,4 +16,15 @@ public class ModelDBLinksServices {
 
 		InitDataAccess.getInstance().getDatabaseService(databaseName).insertDbLinksEntry(class_, internalId, database, externalId);
 	}
+	
+	public static boolean hasInternalIdFromDblinks(String databaseName, String class_, int internal, String database) throws Exception {
+		
+		boolean exists = InitDataAccess.getInstance().getDatabaseService(databaseName).
+				checkInternalIdFromDblinks(class_, internal, database);
+		
+		return exists;
+		
+		
+	}
+	
 }
