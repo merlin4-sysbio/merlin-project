@@ -166,7 +166,8 @@ public class EnzymesAnnotationGeneHomologyHasHomologuesDAOImpl extends GenericDa
 	}
 
 	@Override
-	public void insertEnzymesAnnotationGeneHomologyHasHomologues(Integer geneHomology_s_key, String referenceID, String gene, Float eValue, Float bits, Integer homologues_s_key){
+	public void insertEnzymesAnnotationGeneHomologyHasHomologues(Integer geneHomology_s_key, String referenceID, String gene, Float eValue, Float bits, Integer homologues_s_key, 
+			Float identity, Float positives, Float queryCoverage, Float targetCoverage){
 		EnzymesAnnotationGeneHomologyHasHomologues hasHomologues = new EnzymesAnnotationGeneHomologyHasHomologues();
 		EnzymesAnnotationGeneHomologyHasHomologuesId id = new EnzymesAnnotationGeneHomologyHasHomologuesId();
 		id.setGeneHomologySKey(geneHomology_s_key);
@@ -175,6 +176,10 @@ public class EnzymesAnnotationGeneHomologyHasHomologuesDAOImpl extends GenericDa
 		hasHomologues.setEvalue(eValue);
 		hasHomologues.setReferenceId(referenceID);
 		hasHomologues.setId(id);
+		hasHomologues.setIdentity(identity);
+		hasHomologues.setPositives(positives);
+		hasHomologues.setQueryCoverage(queryCoverage);
+		hasHomologues.setTargetCoverage(targetCoverage);
 		this.save(hasHomologues);	
 	}
 }

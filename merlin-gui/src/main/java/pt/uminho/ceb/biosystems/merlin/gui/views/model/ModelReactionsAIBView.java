@@ -63,7 +63,7 @@ import es.uvigo.ei.aibench.core.operation.OperationDefinition;
 import es.uvigo.ei.aibench.workbench.Workbench;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceDataTable;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceGenericDataTable;
-import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelReactionsmetabolitesEnzymesSets;
+import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelReactionsMetabolitesEnzymesSets;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.model.datatables.ModelPathwayReactions;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.Plugins;
 import pt.uminho.ceb.biosystems.merlin.gui.datatypes.WorkspaceAIB;
@@ -737,7 +737,7 @@ public class ModelReactionsAIBView extends WorkspaceUpdatablePanel {
 
 							String buildQuery = pathway_id;
 
-							ModelReactionsmetabolitesEnzymesSets enzymes = modelReactions.getEnzymesIdentifiersList(modelReactions.getPathwayID(pathsComboBox.getSelectedItem().toString()));
+							ModelReactionsMetabolitesEnzymesSets enzymes = modelReactions.getEnzymesIdentifiersList(modelReactions.getPathwayID(pathsComboBox.getSelectedItem().toString()));
 
 							if(enzymes.getEnzymes()!= null)
 								for(String enzymes_id : enzymes.getEnzymes())
@@ -769,7 +769,7 @@ public class ModelReactionsAIBView extends WorkspaceUpdatablePanel {
 
 							boolean noEnzymes = enzymes.getEnzymes().size()==0;
 
-							ModelReactionsmetabolitesEnzymesSets reactions = modelReactions.getReactionsList(noEnzymes, modelReactions.getPathwayID(pathsComboBox.getSelectedItem().toString()));
+							ModelReactionsMetabolitesEnzymesSets reactions = modelReactions.getReactionsList(noEnzymes, modelReactions.getPathwayID(pathsComboBox.getSelectedItem().toString()));
 
 							if(reactions.getReactions()!= null)
 								for(String pathwayReaction : reactions.getReactions()) {
@@ -813,7 +813,8 @@ public class ModelReactionsAIBView extends WorkspaceUpdatablePanel {
 										"therefore the KEGG pathway cannot be drawn.");
 							}
 							else {
-
+								
+								System.out.println(buildQuery);
 								String url="http://www.kegg.jp/pathway/"+buildQuery;
 								OpenBrowser  openUrl = new OpenBrowser();
 								openUrl.setUrl(url);

@@ -4457,11 +4457,11 @@ public class DatabaseServiceImpl implements IDatabaseService{
 
 
 	public void load_geneHomology_has_homologues(String referenceID, String gene, Float eValue, Float bits,
-			Integer geneHomology_s_key, Integer homologues_s_key) throws Exception{
+			Integer geneHomology_s_key, Integer homologues_s_key , Float identity, Float positives, Float queryCoverage, Float targetCoverage) throws Exception{
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			annotationService.load_geneHomology_has_homologues(referenceID, gene, eValue, bits, geneHomology_s_key, homologues_s_key);;
+			annotationService.load_geneHomology_has_homologues(referenceID, gene, eValue, bits, geneHomology_s_key, homologues_s_key, identity, positives, queryCoverage, targetCoverage);
 			tx.commit();
 		} catch (RuntimeException e) {
 			tx.rollback();
@@ -8504,6 +8504,21 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			tx = sessionFactory.getCurrentSession().beginTransaction();
 			pathwayservice.deleteEmptyPathways(checkReactions, checkProteins);
 			tx.commit();
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+		
+	}
+	
+	@Override
+	public Map<Integer, Integer> getModelSubunitGeneIdAndEnzymeProteinIdByEcNumber(String ecNumber) throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			Map<Integer, Integer> result = subunitservice.getModelSubunitGeneIdAndEnzymeProteinIdByEcNumber(ecNumber);
+			tx.commit();
+			return result;
 		} catch (RuntimeException e) {
 			tx.rollback();
 			throw new Exception(e);

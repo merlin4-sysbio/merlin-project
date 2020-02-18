@@ -19,7 +19,7 @@ public class AnnotationEnzymesHomologuesData {
 	private ConcurrentHashMap<String, String> locusTags;
 	private ConcurrentHashMap<String, ProteinSequence> sequences;
 	private Map<String, String> organism, taxonomy, product, calculated_mol_wt, definition, blastLocusTag, organelles, genes;
-	private Map<String, Double> eValue, bits;
+	private Map<String, Double> eValue, bits, identity, positives, target_coverage, query_coverage;
 	private TreeMap<String, String[]> ecnumber;
 	private List<String> locusIDs = new LinkedList<String>();
 	private String organismID, fastaSequence;
@@ -61,6 +61,10 @@ public class AnnotationEnzymesHomologuesData {
 		this.taxonomyMap = new ConcurrentHashMap<String, String[]>();
 		this.eValue= new TreeMap<String, Double>();
 		this.bits= new TreeMap<String, Double>();
+		this.identity= new TreeMap<String, Double>();
+		this.positives= new TreeMap<String, Double>();
+		this.query_coverage= new TreeMap<String, Double>();
+		this.target_coverage= new TreeMap<String, Double>();
 		this.gene = "";
 		this.chromosome = "";
 		this.locusIDs = new ArrayList<String>();
@@ -111,6 +115,41 @@ public class AnnotationEnzymesHomologuesData {
 		this.bits.put(name, bits);
 	}
 
+	/**
+	 * @param name
+	 * @param identity
+	 */
+	public void addIdentity(String name, double identity){
+
+		this.identity.put(name, identity);
+	}
+	
+	/**
+	 * @param name
+	 * @param positives
+	 */
+	public void addPositives(String name, double positives){
+
+		this.positives.put(name, positives);
+	}
+	
+	/**
+	 * @param queryCoverage
+	 * @param bits
+	 */
+	public void addQueryCoverage(String name, double queryCoverage){
+
+		this.query_coverage.put(name, queryCoverage);
+	}
+	
+	/**
+	 * @param targetCoverage
+	 * @param bits
+	 */
+	public void addTargetCoverage(String name, double targetCoverage){
+
+		this.target_coverage.put(name, targetCoverage);
+	}
 
 	/**
 	 * @param locus
@@ -729,6 +768,38 @@ public class AnnotationEnzymesHomologuesData {
 
 	public void setSequence_code(String sequence_code) {
 		this.sequence_code = sequence_code;
+	}
+
+	public Map<String, Double> getIdentity() {
+		return identity;
+	}
+
+	public void setIdentity(Map<String, Double> identity) {
+		this.identity = identity;
+	}
+
+	public Map<String, Double> getPositives() {
+		return positives;
+	}
+
+	public void setPositives(Map<String, Double> positives) {
+		this.positives = positives;
+	}
+
+	public Map<String, Double> getTarget_coverage() {
+		return target_coverage;
+	}
+
+	public void setTarget_coverage(Map<String, Double> target_coverage) {
+		this.target_coverage = target_coverage;
+	}
+
+	public Map<String, Double> getQuery_coverage() {
+		return query_coverage;
+	}
+
+	public void setQuery_coverage(Map<String, Double> query_coverage) {
+		this.query_coverage = query_coverage;
 	}
 
 }

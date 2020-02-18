@@ -5,7 +5,7 @@
 		<parent>
 		<groupId>pt.uminho.ceb.biosystems.merlin</groupId>
 		<artifactId>merlin-project</artifactId>
-		<version>4.0.04-SNAPSHOT</version>
+		<version>4.0.05-SNAPSHOT</version>
 		<!--
 			WARNING: change version using (in the parent project):
 				mvn versions:set -DnewVersion=[new_version]
@@ -606,8 +606,8 @@ REM SET LAF="-Dswing.defaultlaf=com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel
 SET	LEGACY="-Djava.util.Arrays.useLegacyMergeSort=true"
 SET LOCALE="-Duser.language=en"
 SET CHARSET="-Dfile.encoding=utf-8"
-SET MAXMEM="-Xmx1G"
-SET MINMEM="-Xms512M"
+SET MAXMEM="-Xmx64M"
+SET MINMEM="-Xms64M"
 SET UNIPROTDTD="-Djavax.xml.accessExternalDTD=all"
 
 SET COMMAND=%JAVA% %LAF% %LEGACY% %LPATH% %LOCALE% %CHARSET% %MAXMEM% %MINMEM% %UNIPROTDTD% -cp %CLASSPATH% %MAIN_CLASS% %JAR_ARGS%

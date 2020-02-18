@@ -61,4 +61,6 @@ public interface ISubunitService {
 
 	public boolean isProteinEncodedByGenes(Integer proteinId) throws Exception;
 
+	public Map<Integer, Integer> getModelSubunitGeneIdAndEnzymeProteinIdByEcNumber(String ecNumber) throws Exception;
+
 }

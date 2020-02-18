@@ -673,7 +673,7 @@ public class AnnotationEnzymesServiceImpl implements IAnnotationEnzymesService {
 	}
 	
 	@Override
-	public void load_geneHomology_has_homologues(String referenceID, String gene, Float eValue, Float bits, Integer geneHomology_s_key, Integer homologues_s_key) {
+	public void load_geneHomology_has_homologues(String referenceID, String gene, Float eValue, Float bits, Integer geneHomology_s_key, Integer homologues_s_key, Float identity, Float positives, Float queryCoverage, Float targetCoverage) {
 
 		if(gene!=null) {
 
@@ -684,7 +684,7 @@ public class AnnotationEnzymesServiceImpl implements IAnnotationEnzymesService {
 				exists = true;
 
 			if(!exists)
-				this.hasHomologuesDAO.insertEnzymesAnnotationGeneHomologyHasHomologues(geneHomology_s_key, referenceID, gene, eValue, bits, homologues_s_key);
+				this.hasHomologuesDAO.insertEnzymesAnnotationGeneHomologyHasHomologues(geneHomology_s_key, referenceID, gene, eValue, bits, homologues_s_key, identity, positives, queryCoverage, targetCoverage);
 
 		}
 		else {
@@ -697,7 +697,7 @@ public class AnnotationEnzymesServiceImpl implements IAnnotationEnzymesService {
 
 			if(!exists) {
 
-				this.hasHomologuesDAO.insertEnzymesAnnotationGeneHomologyHasHomologues(geneHomology_s_key, referenceID, null, eValue, bits, homologues_s_key);
+				this.hasHomologuesDAO.insertEnzymesAnnotationGeneHomologyHasHomologues(geneHomology_s_key, referenceID, null, eValue, bits, homologues_s_key, identity, positives, queryCoverage, targetCoverage);
 			}
 		}
 	}

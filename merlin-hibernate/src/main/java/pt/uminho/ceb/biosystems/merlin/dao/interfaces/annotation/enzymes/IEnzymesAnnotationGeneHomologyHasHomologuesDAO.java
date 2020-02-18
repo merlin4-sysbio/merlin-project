@@ -32,7 +32,7 @@ public interface IEnzymesAnnotationGeneHomologyHasHomologuesDAO extends IGeneric
 
 	public Map<Integer, Long> getEnzymesAnnotationGeneHomologyHasHomologuesAttributes2();
 	
-	public void insertEnzymesAnnotationGeneHomologyHasHomologues(Integer geneHomology_s_key, String referenceID, String gene, Float eValue, Float bits, Integer homologues_s_key);
+	public void insertEnzymesAnnotationGeneHomologyHasHomologues(Integer geneHomology_s_key, String referenceID, String gene, Float eValue, Float bits, Integer homologues_s_key, Float identity, Float positives, Float queryCoverage, Float targetCoverage);
 	
 	public List<EnzymesAnnotationGeneHomologyHasHomologues> getAllEnzymesAnnotationGeneHomologyHasHomologuesByAttributes(Integer homologyskey, Integer homologuesSkey, String referenceId, Float evalue, Float bits,String gene);
 }

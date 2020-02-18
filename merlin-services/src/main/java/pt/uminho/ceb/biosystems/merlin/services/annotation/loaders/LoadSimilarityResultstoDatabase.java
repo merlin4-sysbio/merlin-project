@@ -389,11 +389,15 @@ public class LoadSimilarityResultstoDatabase {
 	 * @param gene
 	 * @param eValue
 	 * @param bits
+	 * @param targetCoverage 
+	 * @param queryCoverage 
+	 * @param positives 
+	 * @param identity 
 	 * @throws SQLException
 	 */
-	private void load_geneHomology_has_homologues(String databaseName, String referenceID, String gene, Float eValue, Float bits) throws Exception{
+	private void load_geneHomology_has_homologues(String databaseName, String referenceID, String gene, Float eValue, Float bits, float identity, float positives, float queryCoverage, float targetCoverage) throws Exception{
 
-		InitDataAccess.getInstance().getDatabaseService(databaseName).load_geneHomology_has_homologues(referenceID, gene, eValue, bits, geneHomology_s_key, homologues_s_key);
+		InitDataAccess.getInstance().getDatabaseService(databaseName).load_geneHomology_has_homologues(referenceID, gene, eValue, bits, geneHomology_s_key, homologues_s_key, identity, positives, queryCoverage, targetCoverage);
 	}
 
 
@@ -713,6 +717,11 @@ public class LoadSimilarityResultstoDatabase {
 								if(this.homologyDataClient.getEValue().containsKey(locus) && this.homologyDataClient.getBits().containsKey(locus)) {
 
 									float bits = (float) this.homologyDataClient.getBits().get(locus).doubleValue();
+									float identity = (float) this.homologyDataClient.getIdentity().get(locus).doubleValue();
+									float positives = (float) this.homologyDataClient.getPositives().get(locus).doubleValue();
+									float queryCoverage = (float) this.homologyDataClient.getQuery_coverage().get(locus).doubleValue();
+									float targetCoverage = (float) this.homologyDataClient.getTarget_coverage().get(locus).doubleValue();
+
 									String gene= this.homologyDataClient.getGenes().get(locus);
 
 									if(this.homologyDataClient.getBits().get(locus)<0) {
@@ -730,7 +739,7 @@ public class LoadSimilarityResultstoDatabase {
 										ecNumberRank = loadECNumbers(ecNumberRank, ecOrg, locus);
 										
 
-										this.load_geneHomology_has_homologues(database, locus, gene, eValue, bits);
+										this.load_geneHomology_has_homologues(database, locus, gene, eValue, bits, identity, positives, queryCoverage, targetCoverage);
 										
 									}
 								}

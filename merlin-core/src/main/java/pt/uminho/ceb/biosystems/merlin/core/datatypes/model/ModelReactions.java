@@ -8,7 +8,7 @@ import pt.uminho.ceb.biosystems.merlin.core.containers.model.MetaboliteContainer
 import pt.uminho.ceb.biosystems.merlin.core.containers.model.ReactionContainer;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceEntity;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceTable;
-import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelReactionsmetabolitesEnzymesSets;
+import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelReactionsMetabolitesEnzymesSets;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.model.datatables.ModelPathwayReactions;
 import pt.uminho.ceb.biosystems.merlin.core.interfaces.IEntity;
 
@@ -35,8 +35,8 @@ public class ModelReactions extends WorkspaceEntity implements IEntity{
 	private ReactionContainer reactionContainer;
 	private Map<String, MetaboliteContainer> metabolitesMap;
 	private Map<Integer, MetaboliteContainer> allMetabolites;
-	private ModelReactionsmetabolitesEnzymesSets enzymesIdentifiersList;
-	private ModelReactionsmetabolitesEnzymesSets reactionsList;
+	private ModelReactionsMetabolitesEnzymesSets enzymesIdentifiersList;
+	private ModelReactionsMetabolitesEnzymesSets reactionsList;
 	private String[] compartments;
 	
 	/**
@@ -267,7 +267,7 @@ public class ModelReactions extends WorkspaceEntity implements IEntity{
 	 * @param pathwayID
 	 * @return
 	 */
-	public ModelReactionsmetabolitesEnzymesSets getEnzymesIdentifiersList() {
+	public ModelReactionsMetabolitesEnzymesSets getEnzymesIdentifiersList() {
 		
 		return this.enzymesIdentifiersList;
 	}
@@ -275,7 +275,7 @@ public class ModelReactions extends WorkspaceEntity implements IEntity{
 	/**
 	 * @param reactionsCompoundsEnzymesSets
 	 */
-	public void getEnzymesIdentifiersList(ModelReactionsmetabolitesEnzymesSets enzymesIdentifiersList) {
+	public void getEnzymesIdentifiersList(ModelReactionsMetabolitesEnzymesSets enzymesIdentifiersList) {
 		
 		this.enzymesIdentifiersList = enzymesIdentifiersList;
 	}
@@ -285,7 +285,7 @@ public class ModelReactions extends WorkspaceEntity implements IEntity{
 	 * @param pathwayID
 	 * @return
 	 */
-	public ModelReactionsmetabolitesEnzymesSets getReactionsList() {
+	public ModelReactionsMetabolitesEnzymesSets getReactionsList() {
 		
 		return this.reactionsList; 
 	}
@@ -295,7 +295,7 @@ public class ModelReactions extends WorkspaceEntity implements IEntity{
 	 * @param pathwayID
 	 * @return
 	 */
-	public void setReactionsList(ModelReactionsmetabolitesEnzymesSets reactionsList) {
+	public void setReactionsList(ModelReactionsMetabolitesEnzymesSets reactionsList) {
 		
 		this.reactionsList = reactionsList;
 	}
