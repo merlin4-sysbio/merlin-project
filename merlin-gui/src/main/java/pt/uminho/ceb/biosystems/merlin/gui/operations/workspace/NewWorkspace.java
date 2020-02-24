@@ -273,31 +273,4 @@ public class NewWorkspace {
 	}
 	
 		
-	private ArrayList<File> getNLatestFilefromDir(String dirPath, int n){
-		File dir = new File(dirPath);
-		File[] files = dir.listFiles();
-		if (files == null || files.length == 0) {
-			return null;
-		}
-		
-		
-		ArrayList<File> orderedList = new ArrayList<>(Arrays.asList(files));
-	
-		
-		for (int i = 0; i < orderedList.size(); i++) {
-			File lastModifiedFile = orderedList.get(i);
-			for (int j=i+1; j<orderedList.size(); j++) {
-				if (lastModifiedFile.lastModified() < orderedList.get(j).lastModified()) {
-					
-					lastModifiedFile = orderedList.get(j);
-					orderedList.set(j, orderedList.get(i));
-					orderedList.set(i, lastModifiedFile);
-
-				}
-				
-			}
-			
-		}
-		return (ArrayList<File>) orderedList.subList(0, n);
-	}
 }

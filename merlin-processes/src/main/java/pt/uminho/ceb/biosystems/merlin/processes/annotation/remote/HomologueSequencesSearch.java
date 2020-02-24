@@ -71,6 +71,11 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 	private String email;
 
 	private double expectedVal;
+	private Float identityLowerThreshold;
+	private Float identityUpperThreshold;
+	private Float positives;
+	private Float queryCoverage;
+	private Float targetCoverage;
 
 	private PropertyChangeSupport changes;
 
@@ -200,7 +205,7 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 		rqb.setBlastDatabase(database);
 		rqb.setBlastExpectEBI(expectedVal);	
 		rqb.setBlastMatrix(matrix.toString().toUpperCase());
-
+	
 		if(gapOpenPenalty!=-1)
 			rqb.setBlastGapCreation(gapOpenPenalty);
 
@@ -291,7 +296,8 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 					for(int i=0; i<threadsNumber; i++) {
 
 						Runnable lc	= new SubmitEbiBlast(rbwArray[i], rqb, taxonomyMap, uniprotStar, rids.get(i), resultsList,
-								sequencesCounter, errorCounter, cancel, queryRIDMap, organismTaxa, latencyWaitingPeriod, this.organismTaxonomyIdentifier, uniprotStatus, expectedVal);
+								sequencesCounter, errorCounter, cancel, queryRIDMap, organismTaxa, latencyWaitingPeriod, this.organismTaxonomyIdentifier, uniprotStatus, expectedVal, identityLowerThreshold, 
+								identityUpperThreshold, positives, queryCoverage, targetCoverage);
 
 						((SubmitEbiBlast) lc).addPropertyChangeListener(this);
 						Thread thread = new Thread(lc);
@@ -439,10 +445,16 @@ public class HomologueSequencesSearch implements PropertyChangeListener{
 	 * @throws SQLException 
 	 * @throws Exception
 	 */
-	public int blastSequencesEBI(String program, String database, int numberOfAlignments, double expectedVal, boolean eValueAutoAdjust, String sequenceType) throws Exception {
+	public int blastSequencesEBI(String program, String database, int numberOfAlignments, double expectedVal, Float identityLowerThreshold, 
+			Float identityUpperThreshold, Float positivesThreshold, Float queryCoverageThreshold, Float targetCoverageThreshold, boolean eValueAutoAdjust, String sequenceType) throws Exception {
 
 		int errorCount = 0;
 		this.expectedVal = expectedVal;
+		this.identityLowerThreshold = identityLowerThreshold;
+		this.identityUpperThreshold = identityUpperThreshold;
+		this.positives = positivesThreshold;
+		this.queryCoverage = queryCoverageThreshold;
+		this.targetCoverage = targetCoverageThreshold;
 
 		if(blastMatrix==null) {
 

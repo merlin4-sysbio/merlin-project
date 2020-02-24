@@ -316,12 +316,15 @@ public class DatabaseServiceEntityExporterBatch extends DatabaseServiceImpl impl
 			try {
 				
 				tx = sessionFactory.getCurrentSession().beginTransaction();
+				//tx = sessionFactory.openStatelessSession().beginTransaction();
 				genericDao = new GenericDaoImpl(this.sessionFactory, entity.getInstances().get(0).getClass());
 				for(int i = 0; i < entity.getInstances().size(); i++) {
 					genericDao.save(entity.getInstances().get(i));
 					if( i % 50 == 0 ) {
 						genericDao.flushSession();        
 						genericDao.clearSession();
+						tx.commit();
+						tx = sessionFactory.getCurrentSession().beginTransaction();
 					}
 				}
 				tx.commit();

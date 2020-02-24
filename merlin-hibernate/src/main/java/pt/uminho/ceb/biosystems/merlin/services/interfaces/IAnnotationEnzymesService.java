@@ -128,7 +128,7 @@ public interface IAnnotationEnzymesService {
 	public Integer getGeneHomologySkey(Integer skey, String query) throws Exception;
 
 	public void load_geneHomology_has_homologues(String referenceID, String gene, Float eValue, Float bits,
-			Integer geneHomology_s_key, Integer homologues_s_key) throws Exception;
+			Integer geneHomology_s_key, Integer homologues_s_key, Float identity, Float positives, Float queryCoverage, Float targetCoverage) throws Exception;
 
 	public GeneContainer getGeneHomologyEntryByQuery(String query) throws Exception;
 

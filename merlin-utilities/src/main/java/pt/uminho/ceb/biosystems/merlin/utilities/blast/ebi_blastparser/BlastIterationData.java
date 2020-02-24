@@ -205,6 +205,7 @@ public class BlastIterationData {
 		return Integer.parseInt(this.hits.get(Integer.parseInt(hitNum)-1).getLength() +"");
 	}
 	
+		
 	/**
 	 * @param hit
 	 * @return hitBestScore
@@ -241,6 +242,29 @@ public class BlastIterationData {
 		return Integer.parseInt(this.hits.get(Integer.parseInt(hitNum)-1).getAlignments().getAlignment().get(0).getIdentity() + "");
 	}
 	
+	/**
+	 * @param hit
+	 * @return hitIdentity
+	 */
+	public Integer getHitIdentity(THit hit){
+		
+		return hit.getAlignments().getAlignment().get(0).getIdentity().intValue();
+	}
+	
+	public Integer getHitPositive(THit hit){
+		
+		return hit.getAlignments().getAlignment().get(0).getPositives().intValue();
+	}
+	
+	public Integer getHitQuerySeqLength(THit hit){
+		
+		return hit.getAlignments().getAlignment().get(0).getQuerySeq().getEnd() - hit.getAlignments().getAlignment().get(0).getQuerySeq().getStart() + 1;
+	}
+	
+	public Integer getHitMatchSeqLength(THit hit){
+		
+		return hit.getAlignments().getAlignment().get(0).getMatchSeq().getEnd() - hit.getAlignments().getAlignment().get(0).getMatchSeq().getStart() + 1;
+	}
 	
 	/**
 	 * @param hit
@@ -248,9 +272,8 @@ public class BlastIterationData {
 	 */
 	public Integer getHitPositive(String hitNum){
 		
-		return Integer.parseInt(this.hits.get(Integer.parseInt(hitNum)-1).getAlignments().getAlignment().get(0).getPositives() + "");
+		return this.hits.get(Integer.parseInt(hitNum)-1).getAlignments().getAlignment().get(0).getPositives().intValue();
 	}
-	
 	
 	/**
 	 * @param hitNum
