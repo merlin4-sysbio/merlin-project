@@ -1,0 +1,14 @@
+#This file contains the configurations in which Blast depends.
+#All configurations are editable, just place the value or array of values desired next to the "=" sign after the keyWord
+
+# 1 - E-value threshold to automatically accept result.
+EvalueAccept=1E-6
+
+# 2 - E-value threshold for blast against sequences file (use the format xE-x where x represents numbers).
+Evalue=1E-10
+
+# 3 - Blast query coverage threshold.
+coverage=0.75
+
+# 4 - Blast bit score threshold.
+bitScore=50

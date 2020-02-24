@@ -1,0 +1,6 @@
+2
+e_coli_core;
+1E-10
+50
+0.75
+teste
