@@ -241,7 +241,7 @@ public class SubmitEbiBlast implements Runnable {
 							List<BlastIterationData> ebiBlastResultsWithValidEval = filterByUserEval(ebiBlastParser, this.userEval, this.identityLowerThreshold, this.identityUpperThreshold,
 									this.positives, this.queryCoverage, this.targetCoverage);   // blast results that passed the Eval threshold
 
-							if(ebiBlastParser.isSimilarityFound() && !ebiBlastResultsWithValidEval.isEmpty()) { // if we found any homologues and they passed the Eval threshold
+							if(ebiBlastParser.isSimilarityFound() && !ebiBlastResultsWithValidEval.isEmpty()) { // if we found any homologues and they passed the thresholds
 								
 								ebiBlastParser.setResults(ebiBlastResultsWithValidEval); // use only the results that passed the Eval threshold
 								logger.debug("Similarity found for "+ebiBlastParser.getResults().get(0).getQueryID());
@@ -250,7 +250,7 @@ public class SubmitEbiBlast implements Runnable {
 
 									RemoteDataRetriever homologyDataEbiClient = new RemoteDataRetriever(ebiBlastParser, this.organismTaxa, this.taxonomyMap, this.uniprotStar, this.cancel, 
 											HomologySearchServer.EBI, this.rqb.getHitlistSize(), this.uniprotStatus, this.taxonomyIdentifier);
-
+									
 									if(homologyDataEbiClient.getFastaSequence()==null)
 										homologyDataEbiClient.setFastaSequence(this.queryRIDMap.get(aRid).split("\n")[1]);
 

@@ -455,17 +455,18 @@ public class AnnotationEnzymesServiceImpl implements IAnnotationEnzymesService {
 	
 	
 	@Override
-	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal,
+			Float lowerIdentity, Float upperIdentity, Float positives, Float queryCoverage, Float targetCoverage, String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) throws Exception {
 		
-		return this.setupDAO.getHomologySetupSkeyByAttributes(databaseID, program, eVal, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
+		return this.setupDAO.getHomologySetupSkeyByAttributes(databaseID, program, eVal, lowerIdentity, upperIdentity, positives, queryCoverage, targetCoverage,  matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
 	}
 	
 	@Override
-	public Integer insertHomologySetup(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public Integer insertHomologySetup(String databaseID, String program, double eVal, Float lowerIdentity, Float upperIdentity, Float positives, Float queryCoverage, Float targetCoverage, String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) throws Exception {
 		
-		return this.setupDAO.insertHomologySetup(databaseID, program, eVal, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
+		return this.setupDAO.insertHomologySetup(databaseID, program, eVal, lowerIdentity, upperIdentity, positives, queryCoverage, targetCoverage, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
 
 	}
 
@@ -662,6 +663,11 @@ public class AnnotationEnzymesServiceImpl implements IAnnotationEnzymesService {
 		re.add(setup.getProgramVersion());
 		re.add(setup.getDatabaseId());
 		re.add(setup.getEvalue());
+		re.add(setup.getLowerIdentity());
+		re.add(setup.getUpperIdentity());
+		re.add(setup.getPositives());
+		re.add(setup.getQueryCoverage());
+		re.add(setup.getTargetCoverage());
 		re.add(setup.getMatrix());
 		re.add(setup.getWordSize());
 		re.add(setup.getGapCosts());

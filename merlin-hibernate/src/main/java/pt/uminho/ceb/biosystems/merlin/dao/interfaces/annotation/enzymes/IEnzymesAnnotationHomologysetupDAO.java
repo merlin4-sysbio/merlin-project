@@ -54,10 +54,11 @@ public interface IEnzymesAnnotationHomologysetupDAO extends IGenericDao<EnzymesA
 
 	List<EnzymesAnnotationHomologySetup> getEnzymesAnnotationHomologysetupDataByQuery(String query);
 
-	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, Float lowerIdentity, Float upperIdentity, Float positives, Float queryCoverage, Float targetCoverage, String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version);
 
-	public Integer insertHomologySetup(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public Integer insertHomologySetup(String databaseID, String program, double eVal, Float lowerIdentity, Float upperIdentity, Float positives, Float queryCoverage, Float targetCoverage,
+			String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version);
 
 	public int getHomologySetupSkeyByAttributes2(String databaseID, String program, double eVal, int maxNumberOfAlignments,

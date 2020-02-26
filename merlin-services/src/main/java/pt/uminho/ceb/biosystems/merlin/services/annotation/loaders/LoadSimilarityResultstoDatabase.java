@@ -44,6 +44,12 @@ public class LoadSimilarityResultstoDatabase {
 	private boolean loaded;
 	private int maxNumberOfAlignments;
 	private double eVal;
+	private Float lowerIdentity;
+	private Float upperIdentity;
+	private Float positives;
+	private Float queryCoverage;
+	private Float targetCoverage;
+
 	private AtomicBoolean cancel;
 
 	private boolean hmmerSearch;
@@ -70,7 +76,8 @@ public class LoadSimilarityResultstoDatabase {
 	 * @param hmmerSearch
 	 * @param statement
 	 */
-	public LoadSimilarityResultstoDatabase(String workspaceName, AnnotationEnzymesHomologuesData homologyData, double expectedVal, int maxNumberOfAlignments,
+	public LoadSimilarityResultstoDatabase(String workspaceName, AnnotationEnzymesHomologuesData homologyData, double expectedVal, Float lowerIdentity, 
+			Float upperIdentity, Float positives, Float queryCoverage, Float targetCoverage, int maxNumberOfAlignments,
 			AtomicBoolean cancel, boolean hmmerSearch, Map<String,AbstractSequence<?>> sequences) {
 
 		this.workspaceName = workspaceName;
@@ -89,6 +96,11 @@ public class LoadSimilarityResultstoDatabase {
 		if(homologyData.getLocusTag()!=null) 
 			this.locusTag = homologyData.getLocusTag();
 		this.sequences = sequences;
+		this.lowerIdentity = lowerIdentity;
+		this.upperIdentity = upperIdentity;
+		this.positives = positives;
+		this.queryCoverage = queryCoverage;
+		this.targetCoverage = targetCoverage;
 	}
 
 	/**
@@ -435,11 +447,13 @@ public class LoadSimilarityResultstoDatabase {
 	private void loadhomologySetup(String databaseID, String program, String version) throws Exception {
 
 		int sKey = AnnotationEnzymesServices.getHomologySetupSkeyByAttributes(this.workspaceName, databaseID, program,
-				this.eVal, this.getMatrix(), this.getWordSize(), this.getGapCosts(), this.maxNumberOfAlignments, version);
+				this.eVal, this.lowerIdentity, this.upperIdentity, this.positives, this.queryCoverage, this.targetCoverage,
+				this.getMatrix(), this.getWordSize(), this.getGapCosts(), this.maxNumberOfAlignments, version);
 
 		if(sKey<0) {
 
 			sKey = AnnotationEnzymesServices.insertHomologySetup(this.workspaceName, databaseID, program, this.eVal, 
+					this.lowerIdentity, this.upperIdentity, this.positives, this.queryCoverage, this.targetCoverage,
 					this.getMatrix(), this.getWordSize(), this.getGapCosts(), this.maxNumberOfAlignments, version);
 		}
 		this.homologySetupID = sKey;

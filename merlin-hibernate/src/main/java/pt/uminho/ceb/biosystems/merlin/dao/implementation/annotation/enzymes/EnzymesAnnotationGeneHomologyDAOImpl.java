@@ -938,7 +938,10 @@ public class EnzymesAnnotationGeneHomologyDAOImpl extends GenericDaoImpl<Enzymes
 				homologuesHasEcNumber.join("enzymesAnnotationEcNumber", JoinType.LEFT);
 
 		c.multiselect(geneHomologyHasHomologues.get("referenceId"), homologues.get("locusId"), organism.get("organism"), 
-				geneHomologyHasHomologues.get("evalue"), geneHomologyHasHomologues.get("bits"), homologues.get("product"),
+				geneHomologyHasHomologues.get("evalue"), geneHomologyHasHomologues.get("bits"),
+				geneHomologyHasHomologues.get("identity"), geneHomologyHasHomologues.get("positives"), 
+				geneHomologyHasHomologues.get("queryCoverage"), geneHomologyHasHomologues.get("targetCoverage"),
+				homologues.get("product"),
 				homologues.get("SKey"), ecNumber.get("ecNumber"),
 				homologues.get("uniprotStar")); 
 
@@ -954,16 +957,20 @@ public class EnzymesAnnotationGeneHomologyDAOImpl extends GenericDaoImpl<Enzymes
 			ArrayList<String[]> parsedList = new ArrayList<String[]>();
 
 			for(Object[] item: resultList) {
-				String[] list = new String[9];
+				String[] list = new String[13];
 				list[0] = (String) item[0];
 				list[1] = (String) item[1];
 				list[2] = (String) item[2];
 				list[3] = String.valueOf(item[3]);
 				list[4] = String.valueOf(item[4]);
-				list[5] = (String) item[5];
+				list[5] = String.valueOf(item[5]);
 				list[6] = String.valueOf(item[6]);
-				list[7] = (String) item[7];
+				list[7] = String.valueOf(item[7]);
 				list[8] = String.valueOf(item[8]);
+				list[9] = (String) item[9];
+				list[10] = String.valueOf(item[10]);
+				list[11] = (String) item[11];
+				list[12] = String.valueOf(item[12]);
 
 				parsedList.add(list);	
 			}

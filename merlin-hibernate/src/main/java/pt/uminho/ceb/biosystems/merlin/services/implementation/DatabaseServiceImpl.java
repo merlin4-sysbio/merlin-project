@@ -6861,12 +6861,14 @@ public class DatabaseServiceImpl implements IDatabaseService{
 
 
 	@Override
-	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, 
+			Float lowerIdentity, Float upperIdentity, Float positives, Float queryCoverage, Float targetCoverage, String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			int res = annotationService.getHomologySetupSkeyByAttributes(databaseID, program, eVal, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
+			int res = annotationService.getHomologySetupSkeyByAttributes(databaseID, program, eVal, lowerIdentity, upperIdentity, positives, queryCoverage, targetCoverage,
+					matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
 			tx.commit();
 			return res;
 
@@ -6893,12 +6895,13 @@ public class DatabaseServiceImpl implements IDatabaseService{
 
 
 	@Override
-	public Integer insertHomologySetup(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public Integer insertHomologySetup(String databaseID, String program, double eVal, Float lowerIdentity, Float upperIdentity, Float positives,
+			Float queryCoverage, Float targetCoverage,String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			int res = annotationService.insertHomologySetup(databaseID, program, eVal, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
+			int res = annotationService.insertHomologySetup(databaseID, program, eVal, lowerIdentity, upperIdentity, positives, queryCoverage, targetCoverage, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
 			tx.commit();
 			return res;
 

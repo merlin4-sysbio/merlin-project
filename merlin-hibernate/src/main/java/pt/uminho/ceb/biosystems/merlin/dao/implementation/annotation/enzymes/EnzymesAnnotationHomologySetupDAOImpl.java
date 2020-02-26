@@ -473,12 +473,17 @@ public class EnzymesAnnotationHomologySetupDAOImpl extends GenericDaoImpl<Enzyme
 
 	
 	@Override
-	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, Float lowerIdentity, Float upperIdentity, Float positives, Float queryCoverage, Float targetCoverage, String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version){
 		Map<String, Serializable> dic = new HashMap<String, Serializable>();
 		dic.put("databaseId", databaseID);
 		dic.put("program", program);
 		dic.put("evalue", eVal);
+		dic.put("lowerIdentity", lowerIdentity);
+		dic.put("upperIdentity", upperIdentity);
+		dic.put("positives", positives);
+		dic.put("queryCoverage", queryCoverage);
+		dic.put("targetCoverage", targetCoverage);
 		dic.put("matrix", matrix);
 		dic.put("wordSize", wordSize);
 		dic.put("gapCosts", gapCosts);
@@ -497,7 +502,8 @@ public class EnzymesAnnotationHomologySetupDAOImpl extends GenericDaoImpl<Enzyme
 	
 	
 	@Override
-	public Integer insertHomologySetup(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public Integer insertHomologySetup(String databaseID, String program, double eVal, Float lowerIdentity, Float upperIdentity, 
+			Float positives, Float queryCoverage, Float targetCoverage, String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) {
 		
 		long time = System.currentTimeMillis();
@@ -507,6 +513,11 @@ public class EnzymesAnnotationHomologySetupDAOImpl extends GenericDaoImpl<Enzyme
 		homologySetup.setDatabaseId(databaseID);
 		homologySetup.setProgram(program);
 		homologySetup.setEvalue(eVal+"");
+		homologySetup.setLowerIdentity(lowerIdentity+"");
+		homologySetup.setUpperIdentity(upperIdentity+"");
+		homologySetup.setPositives(positives+"");
+		homologySetup.setQueryCoverage(queryCoverage+"");
+		homologySetup.setTargetCoverage(targetCoverage+"");
 		homologySetup.setMatrix(matrix);
 		homologySetup.setWordSize(wordSize+"");
 		homologySetup.setGapCosts(gapCosts);

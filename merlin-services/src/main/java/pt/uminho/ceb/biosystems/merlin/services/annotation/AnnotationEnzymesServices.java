@@ -769,17 +769,19 @@ public class AnnotationEnzymesServices {
 	}
 
 
-	public static int getHomologySetupSkeyByAttributes(String databaseName, String databaseID, String program, double eVal, String matrix, short wordSize,
+	public static int getHomologySetupSkeyByAttributes(String databaseName, String databaseID, String program, double eVal, Float lowerIdentity, Float upperIdentity, Float positives, Float queryCoverage, Float targetCoverage, String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) throws Exception {
 
-		return InitDataAccess.getInstance().getDatabaseService(databaseName).getHomologySetupSkeyByAttributes(databaseID, program, eVal, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).getHomologySetupSkeyByAttributes(databaseID, program, eVal, lowerIdentity, upperIdentity, positives, queryCoverage, targetCoverage,
+				matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
 
 	}
 
-	public static Integer insertHomologySetup(String databaseName, String databaseID, String program, double eVal, String matrix, short wordSize,
+	public static Integer insertHomologySetup(String databaseName, String databaseID, String program, double eVal, Float lowerIdentity, Float upperIdentity, Float positives, Float queryCoverage, Float targetCoverage, String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) throws Exception {
 
-		return InitDataAccess.getInstance().getDatabaseService(databaseName).insertHomologySetup(databaseID, program, eVal, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).insertHomologySetup(databaseID, program, eVal, lowerIdentity, upperIdentity, positives, queryCoverage, targetCoverage,
+				matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
 	}
 
 	public static int getHomologySetupSkeyByAttributes2(String databaseName, String databaseID, String program, double eVal,  int maxNumberOfAlignments, String version) throws Exception {

@@ -283,7 +283,7 @@ public class GenericDetailWindowBlast extends javax.swing.JDialog implements Ser
 		int colCount = colModel.getColumnCount();
 		int headerWidth;
 		/* default width set to prevent the columns width to be set to a very small value */
-		int defaultWidth = 980/colCount; 
+		int defaultWidth = 1400/colCount; 
 
 		/*Setting each column width as the maximum between the width of the header 
 		 and a default width*/

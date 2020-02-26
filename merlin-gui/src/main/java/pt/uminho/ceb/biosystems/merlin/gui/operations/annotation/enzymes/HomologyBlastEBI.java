@@ -437,7 +437,9 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 				while(this.resultsList.size()>0) {
 
 					LoadSimilarityResultstoDatabase lbr = new LoadSimilarityResultstoDatabase(this.project.getName(),this.resultsList.poll(), 
-							Double.parseDouble(this.eVal), this.numberOfAlignments.index(), this.ebiBlastSearch.isCancel(), false, this.sequences);
+							Double.parseDouble(this.eVal), Float.parseFloat(this.identityLowerThreshold), Float.parseFloat(this.identityUpperThreshold), Float.parseFloat(this.positivesThreshold), 
+							Float.parseFloat(this.queryCoverageThreshold), Float.parseFloat(this.targetCoverageThreshold),
+							this.numberOfAlignments.index(), this.ebiBlastSearch.isCancel(), false, this.sequences);
 					lbr.setGapCosts(this.ebiBlastSearch.getGapOpenPenalty()+"+"+this.ebiBlastSearch.getGapExtensionPenalty());
 					lbr.setMatrix(this.ebiBlastSearch.getBlastMatrix().toString());
 					lbr.setWordSize(this.ebiBlastSearch.getWordSize());

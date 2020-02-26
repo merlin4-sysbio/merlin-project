@@ -358,13 +358,13 @@ public class HomologyServiceImpl implements IHomologyService{
 				go = false;
 
 				String s_key = "";
-				if(x[6] != null) {
+				if(x[10] != null) {
 
-					s_key = x[6];
+					s_key = x[10];
 
 					if(previous_homology_s_key.equals(s_key)) {
 
-						ecnumber+=", "+x[7];
+						ecnumber+=", "+x[11];
 					}
 					else {
 
@@ -379,14 +379,18 @@ public class HomologyServiceImpl implements IHomologyService{
 						ql = new ArrayList<String>();
 						ql.add(x[0]);  // referenceID
 						ql.add(x[1]); // locusID
-						ql.add(x[8]); // uniprotStar
+						ql.add(x[12]); // uniprotStar
 						ql.add(x[2]); // organism
 						ql.add(x[3]); // Evalue
 						ql.add(x[4]); // Bits
-						ql.add(x[5]); // product
+						ql.add(x[5]); // Identity
+						ql.add(x[6]); // Positives
+						ql.add(x[7]); // queryCoverage
+						ql.add(x[8]); // targetCoverage
+						ql.add(x[9]); // product
 						
-						if(x[7]!=null)
-							ecnumber=x[7];
+						if(x[11]!=null)
+							ecnumber=x[11];
 
 					}
 					counter++;
@@ -408,6 +412,10 @@ public class HomologyServiceImpl implements IHomologyService{
 					ql.add("");
 					ql.add("");
 					ql.add("");
+					ql.add("");
+					ql.add("");
+					ql.add("");
+					ql.add("");
 					result.add(ql);
 				}
 			}
@@ -418,6 +426,10 @@ public class HomologyServiceImpl implements IHomologyService{
 				ql.add("");
 				ql.add("");
 				ql.add("-1");
+				ql.add("");
+				ql.add("");
+				ql.add("");
+				ql.add("");
 				ql.add("");
 				ql.add("");
 				ql.add("");
