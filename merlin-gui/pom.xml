@@ -606,8 +606,8 @@ REM SET LAF="-Dswing.defaultlaf=com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel
 SET	LEGACY="-Djava.util.Arrays.useLegacyMergeSort=true"
 SET LOCALE="-Duser.language=en"
 SET CHARSET="-Dfile.encoding=utf-8"
-SET MAXMEM="-Xmx1G"
-SET MINMEM="-Xms512M"
+SET MAXMEM="-Xmx64M"
+SET MINMEM="-Xms64M"
 SET UNIPROTDTD="-Djavax.xml.accessExternalDTD=all"
 
 SET COMMAND=%JAVA% %LAF% %LEGACY% %LPATH% %LOCALE% %CHARSET% %MAXMEM% %MINMEM% %UNIPROTDTD% -cp %CLASSPATH% %MAIN_CLASS% %JAR_ARGS%

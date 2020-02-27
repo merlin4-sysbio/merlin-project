@@ -26,6 +26,11 @@ public class EnzymesAnnotationGeneHomologyHasHomologues implements java.io.Seria
 	private String gene;
 	private Float evalue;
 	private Float bits;
+	private Float identity;
+	private Float positives;
+	private Float queryCoverage;
+	private Float targetCoverage;
+
 
 	public EnzymesAnnotationGeneHomologyHasHomologues() {
 	}
@@ -120,6 +125,48 @@ public class EnzymesAnnotationGeneHomologyHasHomologues implements java.io.Seria
 
 	public void setBits(Float bits) {
 		this.bits = bits;
+	}
+
+	
+	@Column(name = "identity", precision = 12, scale = 0)
+	public Float getIdentity() {
+		return this.identity;
+	}
+	
+	public void setIdentity(Float identity) {
+		this.identity = identity;
+	}
+
+	@Column(name = "positives", precision = 12, scale = 0)
+	public Float getPositives() {
+		return this.positives;
+	}
+	
+	public void setPositives(Float positives) {
+		this.positives = positives;
+		
+	}
+
+	@Column(name = "queryCoverage", precision = 12, scale = 0)
+	public Float getQueryCoverage() {
+		return this.queryCoverage;
+	}
+	
+	public void setQueryCoverage(Float queryCoverage) {
+		this.queryCoverage = queryCoverage;
+		
+	}
+
+	
+	@Column(name = "targetCoverage", precision = 12, scale = 0)
+	public Float getTargetCoverage() {
+		return this.targetCoverage;
+	}
+	
+	
+	public void setTargetCoverage(Float targetCoverage) {
+		this.targetCoverage = targetCoverage;
+		
 	}
 
 }
