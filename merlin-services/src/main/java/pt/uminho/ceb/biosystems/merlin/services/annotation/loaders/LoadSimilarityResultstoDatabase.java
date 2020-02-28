@@ -45,7 +45,6 @@ public class LoadSimilarityResultstoDatabase {
 	private int maxNumberOfAlignments;
 	private double eVal;
 	private Float lowerIdentity;
-	private Float upperIdentity;
 	private Float positives;
 	private Float queryCoverage;
 	private Float targetCoverage;
@@ -77,7 +76,7 @@ public class LoadSimilarityResultstoDatabase {
 	 * @param statement
 	 */
 	public LoadSimilarityResultstoDatabase(String workspaceName, AnnotationEnzymesHomologuesData homologyData, double expectedVal, Float lowerIdentity, 
-			Float upperIdentity, Float positives, Float queryCoverage, Float targetCoverage, int maxNumberOfAlignments,
+			Float positives, Float queryCoverage, Float targetCoverage, int maxNumberOfAlignments,
 			AtomicBoolean cancel, boolean hmmerSearch, Map<String,AbstractSequence<?>> sequences) {
 
 		this.workspaceName = workspaceName;
@@ -97,7 +96,6 @@ public class LoadSimilarityResultstoDatabase {
 			this.locusTag = homologyData.getLocusTag();
 		this.sequences = sequences;
 		this.lowerIdentity = lowerIdentity;
-		this.upperIdentity = upperIdentity;
 		this.positives = positives;
 		this.queryCoverage = queryCoverage;
 		this.targetCoverage = targetCoverage;
@@ -447,13 +445,13 @@ public class LoadSimilarityResultstoDatabase {
 	private void loadhomologySetup(String databaseID, String program, String version) throws Exception {
 
 		int sKey = AnnotationEnzymesServices.getHomologySetupSkeyByAttributes(this.workspaceName, databaseID, program,
-				this.eVal, this.lowerIdentity, this.upperIdentity, this.positives, this.queryCoverage, this.targetCoverage,
+				this.eVal, this.lowerIdentity, this.positives, this.queryCoverage, this.targetCoverage,
 				this.getMatrix(), this.getWordSize(), this.getGapCosts(), this.maxNumberOfAlignments, version);
 
 		if(sKey<0) {
 
 			sKey = AnnotationEnzymesServices.insertHomologySetup(this.workspaceName, databaseID, program, this.eVal, 
-					this.lowerIdentity, this.upperIdentity, this.positives, this.queryCoverage, this.targetCoverage,
+					this.lowerIdentity, this.positives, this.queryCoverage, this.targetCoverage,
 					this.getMatrix(), this.getWordSize(), this.getGapCosts(), this.maxNumberOfAlignments, version);
 		}
 		this.homologySetupID = sKey;

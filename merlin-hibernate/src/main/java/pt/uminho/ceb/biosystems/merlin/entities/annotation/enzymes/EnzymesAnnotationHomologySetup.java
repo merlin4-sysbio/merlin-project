@@ -34,7 +34,6 @@ public class EnzymesAnnotationHomologySetup implements java.io.Serializable {
 	private String databaseId;
 	private String evalue;
 	private String lowerIdentity;
-	private String upperIdentity;
 	private String positives;
 	private String queryCoverage;
 	private String targetCoverage;
@@ -54,7 +53,7 @@ public class EnzymesAnnotationHomologySetup implements java.io.Serializable {
 	}
 
 	public EnzymesAnnotationHomologySetup(int SKey, String program, String programVersion, String databaseId,
-			String evalue, String lowerIdentity, String upperIdentity, String positives, String queryCoverage, String targetCoverage,
+			String evalue, String lowerIdentity, String positives, String queryCoverage, String targetCoverage,
 			String matrix, String wordSize, String gapCosts, Integer maxNumberOfAlignments, Date date,
 			Set<EnzymesAnnotationGeneHomology> enzymesAnnotationGeneHomologies) {
 		this.SKey = SKey;
@@ -69,7 +68,6 @@ public class EnzymesAnnotationHomologySetup implements java.io.Serializable {
 		this.date = date;
 		this.enzymesAnnotationGeneHomologies = enzymesAnnotationGeneHomologies;
 		this.lowerIdentity = lowerIdentity;
-		this.upperIdentity = upperIdentity;
 		this.positives = positives;
 		this.queryCoverage = queryCoverage;
 		this.targetCoverage = targetCoverage;
@@ -132,14 +130,6 @@ public class EnzymesAnnotationHomologySetup implements java.io.Serializable {
 		this.lowerIdentity = lowerIdentity;
 	}
 	
-	@Column(name = "upperIdentity", length = 45)
-	public String getUpperIdentity() {
-		return this.upperIdentity;
-	}
-
-	public void setUpperIdentity(String upperIdentity) {
-		this.upperIdentity = upperIdentity;
-	}
 	
 	@Column(name = "positives", length = 45)
 	public String getPositives() {

@@ -74,8 +74,6 @@ public class SubmitEbiBlast implements Runnable {
 	
 	private Float identityLowerThreshold;
 	
-	private Float identityUpperThreshold;
-	
 	private Float positives;
 	
 	private Float queryCoverage;
@@ -112,7 +110,7 @@ public class SubmitEbiBlast implements Runnable {
 			Map<String, String> queryRIDMap, 
 			String[] orgArray, 
 			long latencyWaitingPeriod, long taxonomyIdentifier, 
-			boolean uniprotStatus, Double userEval, Float identityLowerThreshold, Float identityUpperThreshold, Float positives,
+			boolean uniprotStatus, Double userEval, Float identityLowerThreshold, Float positives,
 			Float queryCoverage, Float targetCoverage) throws Exception  {
 
 		this.sequencesCounter = sequencesCounter;
@@ -124,7 +122,6 @@ public class SubmitEbiBlast implements Runnable {
 		this.taxonomyIdentifier = taxonomyIdentifier;
 		this.userEval = userEval;
 		this.identityLowerThreshold = identityLowerThreshold;
-		this.identityUpperThreshold = identityUpperThreshold;
 		this.positives = positives;
 		this.queryCoverage = queryCoverage;
 		this.targetCoverage = targetCoverage;
@@ -238,7 +235,7 @@ public class SubmitEbiBlast implements Runnable {
 						}
 						else {
 							
-							List<BlastIterationData> ebiBlastResultsWithValidEval = filterByUserEval(ebiBlastParser, this.userEval, this.identityLowerThreshold, this.identityUpperThreshold,
+							List<BlastIterationData> ebiBlastResultsWithValidEval = filterByUserEval(ebiBlastParser, this.userEval, this.identityLowerThreshold,
 									this.positives, this.queryCoverage, this.targetCoverage);   // blast results that passed the Eval threshold
 
 							if(ebiBlastParser.isSimilarityFound() && !ebiBlastResultsWithValidEval.isEmpty()) { // if we found any homologues and they passed the thresholds
@@ -442,7 +439,7 @@ public class SubmitEbiBlast implements Runnable {
 	 * @return
 	 */
 	private  List<BlastIterationData> filterByUserEval(EbiBlastParser ebiBlastParser, Double eval, Float identityLowerThreshold, 
-			Float identityUpperThreshold, Float positivesThreshold, Float queryCoverageThreshold, Float targetCoverageThreshold) {
+			Float positivesThreshold, Float queryCoverageThreshold, Float targetCoverageThreshold) {
 
 		List<BlastIterationData> blastResults = new ArrayList<BlastIterationData>();
 		if(ebiBlastParser != null) 
@@ -470,7 +467,7 @@ public class SubmitEbiBlast implements Runnable {
 					Float identity = (float) result.getHitIdentity(hit) / 100;
 					
 					// See later if it is worth it to implement the POSITIVES threshold
-					if(Double.parseDouble(hit.getAlignments().getAlignment().get(0).getExpectation() +"") <= eval && identity>=identityLowerThreshold && identity<=identityUpperThreshold && queryCoverage>=queryCoverageThreshold && targetCoverage>=targetCoverageThreshold)
+					if(Double.parseDouble(hit.getAlignments().getAlignment().get(0).getExpectation() +"") <= eval && identity>=identityLowerThreshold && queryCoverage>=queryCoverageThreshold && targetCoverage>=targetCoverageThreshold)
 						hitsThatPassedEvalueThreshold.add(hit);
 				}
 			}

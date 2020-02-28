@@ -66,7 +66,6 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 	private NumberofAlignments numberOfAlignments;
 	private String eVal;
 	private String identityLowerThreshold;
-	private String identityUpperThreshold;
 	private String positivesThreshold;
 	private String queryCoverageThreshold;
 	private String targetCoverageThreshold;
@@ -104,7 +103,7 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 			this.eVal = eVal;
 	}
 	
-	@Port(direction=Direction.INPUT, name="identity lower threshold",defaultValue="0", advanced = true, description="lower threshold of identity to accept a BLAST hit (0-1)",order=4)
+	@Port(direction=Direction.INPUT, name="identity threshold",defaultValue="0", advanced = true, description="lower threshold of identity to accept a BLAST hit (0-1)",order=4)
 	public void setLowerIdentityThreshold(String identityLowerThreshold) {
 
 		if(identityLowerThreshold.isEmpty())
@@ -115,16 +114,6 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 			this.identityLowerThreshold = identityLowerThreshold;
 	}
 	
-	@Port(direction=Direction.INPUT, name="identity upper threshold", defaultValue="1", advanced = true, description="upper threshold of identity to accept a BLAST hit (0-1)",order=5)
-	public void setUpperIdentityThreshold(String identityUpperThreshold) {
-
-		if(identityUpperThreshold.isEmpty())
-			this.identityUpperThreshold="1";
-		if(Float.parseFloat(identityUpperThreshold) > 1)
-			this.identityUpperThreshold = Float.parseFloat(identityUpperThreshold)/100+"".replace(",", ".");
-		else
-			this.identityUpperThreshold = identityUpperThreshold;
-	}
 	
 	@Port(direction=Direction.INPUT, name="positives threshold", defaultValue="0", advanced = true, description="positives threshold to accept a BLAST hit (0-1)",order=6)
 	public void setPositivesThreshold(String positivesThreshold) {
@@ -251,7 +240,7 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 					this.ebiBlastSearch.setSimilaritySearchProcessAvailable(true);
 					
 					errorOutput += this.ebiBlastSearch.blastSequencesEBI(this.program.toString(), this.database.toString(), this.numberOfAlignments.index(), Double.parseDouble(this.eVal) , Float.parseFloat(this.identityLowerThreshold), 
-							Float.parseFloat(this.identityUpperThreshold), Float.parseFloat(this.positivesThreshold), Float.parseFloat(this.queryCoverageThreshold),
+							Float.parseFloat(this.positivesThreshold), Float.parseFloat(this.queryCoverageThreshold),
 									Float.parseFloat(this.targetCoverageThreshold), this.autoEval, this.sequenceType.toString());
 
 					if(this.ebiBlastSearch.isReBlast()) {
@@ -274,7 +263,7 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 
 					if(AnnotationEnzymesServices.removeDuplicates(this.project.getName()) && !this.ebiBlastSearch.isCancel().get())
 						errorOutput = this.ebiBlastSearch.blastSequencesEBI(this.program.toString(), this.database.toString(), this.numberOfAlignments.index(), Double.parseDouble(this.eVal), 
-								Float.parseFloat(this.identityLowerThreshold), Float.parseFloat(this.identityUpperThreshold), Float.parseFloat(this.positivesThreshold),
+								Float.parseFloat(this.identityLowerThreshold), Float.parseFloat(this.positivesThreshold),
 								Float.parseFloat(this.queryCoverageThreshold), Float.parseFloat(this.targetCoverageThreshold), this.autoEval, this.sequenceType.toString());
 
 					if(errorOutput == 0 && !this.ebiBlastSearch.isCancel().get()) {
@@ -437,7 +426,7 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 				while(this.resultsList.size()>0) {
 
 					LoadSimilarityResultstoDatabase lbr = new LoadSimilarityResultstoDatabase(this.project.getName(),this.resultsList.poll(), 
-							Double.parseDouble(this.eVal), Float.parseFloat(this.identityLowerThreshold), Float.parseFloat(this.identityUpperThreshold), Float.parseFloat(this.positivesThreshold), 
+							Double.parseDouble(this.eVal), Float.parseFloat(this.identityLowerThreshold), Float.parseFloat(this.positivesThreshold), 
 							Float.parseFloat(this.queryCoverageThreshold), Float.parseFloat(this.targetCoverageThreshold),
 							this.numberOfAlignments.index(), this.ebiBlastSearch.isCancel(), false, this.sequences);
 					lbr.setGapCosts(this.ebiBlastSearch.getGapOpenPenalty()+"+"+this.ebiBlastSearch.getGapExtensionPenalty());

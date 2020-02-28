@@ -276,7 +276,6 @@ public class AnnotationEnzymesProcesses {
 		columnsNames.add("databaseID");
 		columnsNames.add("e-value");
 		columnsNames.add("lower identity");
-		columnsNames.add("upper identity");
 		columnsNames.add("positives");
 		columnsNames.add("query coverage");
 		columnsNames.add("target coverage");

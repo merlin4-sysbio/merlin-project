@@ -259,7 +259,7 @@ public class HomologyHmmer implements PropertyChangeListener {
 				while(this.resultsList.size()>0) {
 
 					LoadSimilarityResultstoDatabase lbr = new LoadSimilarityResultstoDatabase(this.project.getName(),this.resultsList.poll(), 
-							Double.parseDouble(this.eVal), (float) 0, (float) 1, (float) 0, (float) 0, (float) 0,  Integer.parseInt(this.numberOfAlignments), 
+							Double.parseDouble(this.eVal), (float) 0, (float) 0, (float) 0, (float) 0,  Integer.parseInt(this.numberOfAlignments), 
 							this.hmmer_loader.isCancel(), true, this.sequences);
 	
 					lbr.loadData(project.getName());
