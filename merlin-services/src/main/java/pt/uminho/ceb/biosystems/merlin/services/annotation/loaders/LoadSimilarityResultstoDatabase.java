@@ -693,11 +693,18 @@ public class LoadSimilarityResultstoDatabase {
 					Map<Set<String>, Integer> ecNumberRank = new HashMap<Set<String>,Integer>();
 					Map<Set<String>, List<Integer>> ecOrg = new HashMap<>();
 					String myOrganismTaxonomy="";
-
-					myOrganismTaxonomy = this.homologyDataClient.getOrganismTaxa()[1].concat("; "+this.homologyDataClient.getOrganismTaxa()[0]);
+					String[] organismTaxa = this.homologyDataClient.getOrganismTaxa();
 					
+					if(organismTaxa[0] != null && organismTaxa[1] != null) {
+						
+						myOrganismTaxonomy = organismTaxa[1].concat("; "+organismTaxa[0]);
+						this.loadOrganism(organismTaxa[0], organismTaxa[1],myOrganismTaxonomy,"origin organism");
+					}
 					
-					this.loadOrganism(this.homologyDataClient.getOrganismTaxa()[0], this.homologyDataClient.getOrganismTaxa()[1],myOrganismTaxonomy,"origin organism");
+					else {
+						this.loadOrganism("", "", myOrganismTaxonomy, "origin organism");
+					}
+					
 					logger.info("homologues total" + this.homologyDataClient.getLocusIDs().size());
 
 					for(int l = 0 ; l< this.homologyDataClient.getLocusIDs().size(); l++) {

@@ -1311,14 +1311,14 @@ public class ModelReactionsServices {
 	 */
 	public static String incrementName(String databaseName, String name) throws Exception {
 
-		if(name.contains(".")) {
+		if(name.contains("_V")) {
 
-			String[] rName = name.split("\\.");
+			String[] rName = name.split("\\_V");
 			int version = Integer.parseInt(rName[1]);
 			version=version+1;
-			name=name.replace("."+rName[1], "."+version);
+			name=name.replace("_V"+rName[1], "_V"+version);
 		}
-		else{name=name.concat(".1");}
+		else{name=name.concat("_V1");}
 
 		boolean exists = ModelReactionsServices.checkIfReactionNameExists(databaseName, name);
 

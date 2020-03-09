@@ -2604,8 +2604,10 @@ public class InsertEditReaction extends JDialog {
 
 						if(newFormula == null)
 							newFormula = "------------";
+						
+						String formula = Formula.getText();
 
-						if(newFormula != Formula.getText()) {
+						if(!newFormula.equalsIgnoreCase(formula)) {
 							Id.setSelectedItem(metaboliteName.getKey());
 
 							if(metaboliteName.getValue().size()>1 && newFormula!="") 
