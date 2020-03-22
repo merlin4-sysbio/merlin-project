@@ -62,5 +62,10 @@ public interface ICompoundService {
 	public MetaboliteContainer getModelCompoundByName(String name) throws Exception;
 
 	public String getCompoundExternalIdentifierByInternalID(Integer internalID) throws Exception;
+
+	public void updateModelCompoundAttributesByInternalId(Integer id, String name, String entryType, String formula,
+			String molecularW, Short charge, String externalIdentifier) throws Exception;
+
+	public List<String> getAllCompounds() throws Exception;
 }
 

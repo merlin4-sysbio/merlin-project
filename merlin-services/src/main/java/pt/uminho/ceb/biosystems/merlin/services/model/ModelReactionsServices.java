@@ -852,6 +852,53 @@ public class ModelReactionsServices {
 		return InitDataAccess.getInstance().getDatabaseService(databaseName).checkReactionsBySource(source.toString());
 
 	}
+	
+	
+	public static void updateReactionShort(String databaseName, String name, String equation, Boolean reversible, Integer compartmentId,
+			Boolean isSpontaneous, Boolean isNonEnzymatic, Boolean isGeneric, String booleanRule, Long lower,
+			Long upper, Integer reactionId, Boolean inModel, Map<String,Double> metabolites, Map<String,String> compartment) throws Exception {
+		
+		InitDataAccess.getInstance().getDatabaseService(databaseName).updateReaction(name, equation, reversible, compartmentId, isSpontaneous, isNonEnzymatic, isGeneric, booleanRule, lower, upper, reactionId, inModel);
+		
+		
+		
+		Map<String,Pair<String,Pair<Double,String>>> existingMetabolitesID = InitDataAccess.getInstance().getDatabaseService(databaseName).getExistingMetabolitesID(reactionId);
+
+		for(String m: new ArrayList<String>(metabolites.keySet())) {
+
+			if(existingMetabolitesID.keySet().contains(m) && existingMetabolitesID.get(m).getB().getA()==(metabolites.get(m))) {
+
+				if(existingMetabolitesID.get(m).getB().getB().equalsIgnoreCase(compartment.get(m))) {
+
+					existingMetabolitesID.remove(m);
+					metabolites.remove(m);
+				}
+			}
+		}
+
+		for(String compound : existingMetabolitesID.keySet()) {
+			InitDataAccess.getInstance().getDatabaseService(databaseName).deleteModelStoichiometryByStoichiometryId(Integer.valueOf(existingMetabolitesID.get(compound).getA()));
+		}
+		
+		for(String m :metabolites.keySet()) {
+
+			int idCompartment = InitDataAccess.getInstance().getDatabaseService(databaseName).getCompartmentID(compartment.get(m)); 
+
+			Integer idstoichiometry = ModelStoichiometryServices.getStoichiometryID(databaseName, reactionId, m, idCompartment, metabolites.get(m));
+
+			if(idstoichiometry != null) {
+				ModelStoichiometryServices.updateModelStoichiometryByStoichiometryId(databaseName ,Integer.valueOf(idstoichiometry), metabolites.get(m), idCompartment, Integer.valueOf(m.replace("-", "")));
+
+			}
+			else {
+				InitDataAccess.getInstance().getDatabaseService(databaseName).insertModelStoichiometry(reactionId, Integer.valueOf(m.replace("-", "")), idCompartment, metabolites.get(m));
+
+			}
+		}
+
+		
+		
+	}
 
 	/**
 	 * @param rowID

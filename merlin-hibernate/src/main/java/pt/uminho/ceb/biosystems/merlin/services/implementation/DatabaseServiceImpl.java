@@ -204,7 +204,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 		} catch (CommandAcceptanceException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
+			//			e.printStackTrace();
 			//usually this error is thrown by hibernate when it is searching for a table that does not exists yet! Try to fix this issue
 		}
 
@@ -1368,7 +1368,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
-	
+
 	public Map<Integer, Long> getProteinsData2() throws Exception {
 		Transaction tx = null;
 		try {
@@ -3764,18 +3764,18 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		}
 	}
 
-//	public List<String[]> getReactionHasEnzymeData(Integer id) throws Exception {
-//		Transaction tx = null;
-//		try {
-//			tx = sessionFactory.getCurrentSession().beginTransaction();
-//			List<String[]> result = reactionservice.getReactionHasEnzymeData(id);
-//			tx.commit();
-//			return (List<String[]>) result;
-//		} catch (RuntimeException e) {
-//			tx.rollback();
-//			throw new Exception(e);
-//		}
-//	}
+	//	public List<String[]> getReactionHasEnzymeData(Integer id) throws Exception {
+	//		Transaction tx = null;
+	//		try {
+	//			tx = sessionFactory.getCurrentSession().beginTransaction();
+	//			List<String[]> result = reactionservice.getReactionHasEnzymeData(id);
+	//			tx.commit();
+	//			return (List<String[]>) result;
+	//		} catch (RuntimeException e) {
+	//			tx.rollback();
+	//			throw new Exception(e);
+	//		}
+	//	}
 
 
 	public List<String[]> countReactions(Integer id, boolean isCompartmentalized) throws Exception {
@@ -4215,32 +4215,32 @@ public class DatabaseServiceImpl implements IDatabaseService{
 	}
 
 
-//	public Pair<List<String>, Boolean[]> getECnumber(int proteinID) throws Exception {
-//		Transaction tx = null;
-//		try {
-//			tx = sessionFactory.getCurrentSession().beginTransaction();
-//			Pair<List<String>, Boolean[]> result = proteinservice.getECnumber(proteinID);
-//			tx.commit();
-//			return (Pair<List<String>, Boolean[]>) result;
-//		} catch (RuntimeException e) {
-//			tx.rollback();
-//			throw new Exception(e);
-//		}
-//	}
+	//	public Pair<List<String>, Boolean[]> getECnumber(int proteinID) throws Exception {
+	//		Transaction tx = null;
+	//		try {
+	//			tx = sessionFactory.getCurrentSession().beginTransaction();
+	//			Pair<List<String>, Boolean[]> result = proteinservice.getECnumber(proteinID);
+	//			tx.commit();
+	//			return (Pair<List<String>, Boolean[]>) result;
+	//		} catch (RuntimeException e) {
+	//			tx.rollback();
+	//			throw new Exception(e);
+	//		}
+	//	}
 
 
-//	public String[] getECnumber2(int proteinID) throws Exception {
-//		Transaction tx = null;
-//		try {
-//			tx = sessionFactory.getCurrentSession().beginTransaction();
-//			String[] result = proteinservice.getECnumber2(proteinID);
-//			tx.commit();
-//			return (String[]) result;
-//		} catch (RuntimeException e) {
-//			tx.rollback();
-//			throw new Exception(e);
-//		}
-//	}
+	//	public String[] getECnumber2(int proteinID) throws Exception {
+	//		Transaction tx = null;
+	//		try {
+	//			tx = sessionFactory.getCurrentSession().beginTransaction();
+	//			String[] result = proteinservice.getECnumber2(proteinID);
+	//			tx.commit();
+	//			return (String[]) result;
+	//		} catch (RuntimeException e) {
+	//			tx.rollback();
+	//			throw new Exception(e);
+	//		}
+	//	}
 
 
 	public Map<String, Pair<String, Pair<Double, String>>> getExistingMetabolitesID(int idReaction) throws Exception {
@@ -7353,7 +7353,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}	
 	}
-	
+
 	@Override
 	public Long countPathwayHasReaction(boolean isCompartimentalized)
 			throws Exception {
@@ -7509,8 +7509,8 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}	
 	}
-	
-	
+
+
 	@Override
 	public List<InterproResults> getAllInterproResultsByQuery(String query) throws Exception {
 		Transaction tx = null;
@@ -7525,7 +7525,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		}	
 	}
 
-	
+
 	@Override
 	public Integer insertInterproResults(String query, String querySequence, 
 			String mostLikelyEc, String mostLikelyLocalization, 
@@ -7542,7 +7542,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}	
 	}
-	
+
 	@Override
 	public List<InterproResult> getAllInterproResultByDatabaseAndAccessionAndResultsId(String database, String accession,
 			Integer results) throws Exception {
@@ -7557,8 +7557,8 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}	
 	}
-	
-	
+
+
 	@Override
 	public Integer insertInterproResultData(String tool, Float eValue, Float score, String familyName, String accession,
 			String name, String ec, String goName, String localization, String database, Integer resultId) throws Exception {
@@ -7573,7 +7573,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}	
 	}
-	
+
 	@Override
 	public List<InterproEntry> getAllInterproEntryByAccession(String accession) throws Exception {
 		Transaction tx = null;
@@ -7587,8 +7587,8 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}	
 	}
-	
-	
+
+
 	@Override
 	public Integer insertInterproEntryData(String accession, String name, String description, String type) throws Exception {
 		Transaction tx = null;
@@ -7602,8 +7602,8 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}	
 	}
-	
-	
+
+
 	@Override
 	public List<InterproXRef> getAllInterproXRefByExternalIdAndEtryId(String external, Integer entryId) throws Exception {
 		Transaction tx = null;
@@ -7617,8 +7617,8 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}	
 	}
-	
-	
+
+
 	@Override
 	public Integer insertInterproXRefData(String category, String database, String name, String external_id, Integer entry_id) throws Exception {
 		Transaction tx = null;
@@ -7765,7 +7765,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
-	
+
 	@Override
 	public List<String> getInterproModelAccessionByAccession(String accession) throws Exception {
 		Transaction tx = null;
@@ -7779,8 +7779,8 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}	
 	}
-	
-	
+
+
 	@Override
 	public Integer insertInterproModelData(String accession, String description, String name) throws Exception {
 		Transaction tx = null;
@@ -7794,7 +7794,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}	
 	}
-	
+
 	@Override
 	public List<InterproResultHasEntry> getAllInterproResultHasEntryByResultIdAndEntryID(int resultId, int entryId) throws Exception {
 		Transaction tx = null;
@@ -7808,8 +7808,8 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}	
 	}
-	
-	
+
+
 	@Override
 	public Integer insertInterproResultHasEntry(int resultId, int entryId) throws Exception {
 		Transaction tx = null;
@@ -7823,8 +7823,8 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}	
 	}
-	
-	
+
+
 
 	@Override
 	public Set<String> getHomologyGenesQueryByStatus(HomologyStatus status, String program) throws Exception {
@@ -7888,14 +7888,14 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
-			
+
 	@Override
 	public Integer insertHomologyData(Integer geneHomologySKey, String locusTag, String geneName,
 			String product, String ecnumber, Boolean selected, String chromossome, String notes) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			 Integer result = annotationService.insertHomologyData(geneHomologySKey, locusTag, geneName, product, ecnumber, selected, chromossome, notes);
+			Integer result = annotationService.insertHomologyData(geneHomologySKey, locusTag, geneName, product, ecnumber, selected, chromossome, notes);
 			tx.commit();
 			return result;			
 		} catch (RuntimeException e) {
@@ -7918,7 +7918,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
-	
+
 	@Override
 	public Integer getOrthologyIdByEntryIdWherwLocusIdIsNullOrEmpty(String entryId) throws Exception {
 		Transaction tx = null;
@@ -7961,14 +7961,14 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
-	
+
 	@Override
 	public Set<Integer> getSKeyForAutomaticAnnotation(String blastDatabase) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			  Set<Integer> result = annotationService.getSKeyForAutomaticAnnotation(blastDatabase);
-			  tx.commit();
+			Set<Integer> result = annotationService.getSKeyForAutomaticAnnotation(blastDatabase);
+			tx.commit();
 			return result;			
 		} catch (RuntimeException e) {
 			tx.rollback();
@@ -8186,7 +8186,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
-	
+
 	@Override
 	public void deleteCompartment(Integer compartmentId) throws Exception {
 		Transaction tx = null;
@@ -8199,12 +8199,12 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
-	
+
 	public List<Pair<Integer, String>> getReactionHasEnzyme2(boolean isCompartimentalised) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			 List<Pair<Integer, String>> result = reactionservice.getReactionHasEnzyme2(isCompartimentalised);
+			List<Pair<Integer, String>> result = reactionservice.getReactionHasEnzyme2(isCompartimentalised);
 			tx.commit();		
 			return result;
 		} catch (RuntimeException e) {
@@ -8230,7 +8230,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			 Map<Integer, List<CompartmentContainer>> result = annotationCompartmentsService.getReportsByGene();
+			Map<Integer, List<CompartmentContainer>> result = annotationCompartmentsService.getReportsByGene();
 			tx.commit();		
 			return result;
 		} catch (RuntimeException e) {
@@ -8245,7 +8245,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			 Map<Integer, List<CompartmentContainer>> result = this.geneservice.getCompartmentsRelatedToGenes();
+			Map<Integer, List<CompartmentContainer>> result = this.geneservice.getCompartmentsRelatedToGenes();
 			tx.commit();		
 			return result;
 		} catch (RuntimeException e) {
@@ -8309,7 +8309,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
-			
+
 	public void updateProjectsByGenomeID(Long genomeID, Map<String, String> documentSummaryMap) throws Exception {
 		Transaction tx = null;
 		try {
@@ -8320,13 +8320,13 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			tx.rollback();
 			throw new Exception(e);
 		}
-		
+
 	}
 
 
 	@Override
 	public void insertModelModuleHasModelProtein(Integer proteinId, Integer moduleId) throws Exception {
-		
+
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
@@ -8336,13 +8336,13 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			tx.rollback();
 			throw new Exception(e);
 		}
-		
+
 	}
 
 
 	@Override
 	public boolean checkModelModuletHasProteinData(Integer proteinId, Integer moduleId) throws Exception {
-		
+
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
@@ -8353,10 +8353,10 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			tx.rollback();
 			throw new Exception(e);
 		}
-		
+
 	}
-	
-	
+
+
 	@Override
 	public Integer countCompartmentsAnnotationReports() throws Exception {
 
@@ -8370,9 +8370,9 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			tx.rollback();
 			throw new Exception(e);
 		}
-		
+
 	}
-	
+
 	@Override
 	public List<String[]> getHomologyProductsByGeneHomologySkey(Integer skey) throws Exception {
 
@@ -8386,9 +8386,9 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			tx.rollback();
 			throw new Exception(e);
 		}
-		
+
 	}
-	
+
 	@Override
 	public Integer getAnnotationHomologySkeyBySequenceId(int sequenceId) throws Exception {
 
@@ -8402,9 +8402,9 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			tx.rollback();
 			throw new Exception(e);
 		}
-		
+
 	}
-	
+
 	@Override
 	public Integer insertTranscriptionUnitName(String gene) throws Exception {
 
@@ -8418,9 +8418,9 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			tx.rollback();
 			throw new Exception(e);
 		}
-		
+
 	}
-	
+
 	@Override
 	public boolean checkTranscriptionUnitNameExists(String name) throws Exception {
 
@@ -8483,7 +8483,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 
 	@Override
 	public boolean removeSelectedReactionLabel(Integer reactionLabelId) throws Exception {
-		
+
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
@@ -8508,9 +8508,9 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			tx.rollback();
 			throw new Exception(e);
 		}
-		
+
 	}
-	
+
 	@Override
 	public Map<Integer, Integer> getModelSubunitGeneIdAndEnzymeProteinIdByEcNumber(String ecNumber) throws Exception {
 		Transaction tx = null;
@@ -8523,7 +8523,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			tx.rollback();
 			throw new Exception(e);
 		}
-		
+
 	}
 
 
@@ -8540,5 +8540,38 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
+
+
+	@Override
+	public void updateModelCompoundAttributesByInternalId(Integer id, String name, String entryType, String formula,
+			String molecularW, Short charge, String externalIdentifier) throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			compoundservice.updateModelCompoundAttributesByInternalId(id, name, entryType, formula, molecularW, charge, externalIdentifier);
+			tx.commit();
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+
+
+	@Override
+	public List<String> getAllCompounds() throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			List<String> res = compoundservice.getAllCompoundsInModel();
+			tx.commit();
+			return res;
+		}
+		catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+		
+	}
+
 
 }

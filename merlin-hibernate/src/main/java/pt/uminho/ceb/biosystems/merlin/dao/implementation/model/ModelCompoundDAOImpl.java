@@ -525,6 +525,25 @@ public class ModelCompoundDAOImpl extends GenericDaoImpl<ModelCompound> implemen
 	}
 	
 	@Override
+	public void updateModelCompoundAttributesByInternalId(Integer id, String name, String entryType, String formula, String molecularW, Short charge, String externalIdentifier) {
+		
+		Map<String, Serializable> filterAttributes = new HashMap<String, Serializable>();
+		filterAttributes.put("idcompound",id);
+
+		Map<String, Serializable> updateAttributes = new HashMap<String, Serializable>();
+		updateAttributes.put("externalIdentifier", externalIdentifier);
+		updateAttributes.put("name", name);
+		updateAttributes.put("entryType", entryType);
+		updateAttributes.put("formula", formula);
+		updateAttributes.put("molecularWeight", molecularW);
+		updateAttributes.put("charge", charge);
+		updateAttributes.put("name", name);
+
+		this.updateAttributesByAndFilterAttributes(updateAttributes, filterAttributes);
+		
+	}
+	
+	@Override
 	public List<String> getAllCompoundsInModel() {
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<String> c = cb.createQuery(String.class);
@@ -545,6 +564,29 @@ public class ModelCompoundDAOImpl extends GenericDaoImpl<ModelCompound> implemen
 		
 		Query<String> q = super.sessionFactory.getCurrentSession().createQuery(c);
 		return q.getResultList();
+	}
+	
+	@Override
+	public List<String> getAllCompounds(){
+		
+		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
+		CriteriaQuery<String> c = cb.createQuery(String.class);
+		Root<ModelCompound> compound = c.from(ModelCompound.class);
+		Root<ModelStoichiometry> stoichiometry = c.from(ModelStoichiometry.class);
+		Root<ModelReaction> reaction = c.from(ModelReaction.class);
+		
+		c.multiselect(compound.get("externalIdentifier")).distinct(true);
+		
+		List<Predicate> filters = new ArrayList<>();
+		
+		filters.add(cb.equal(compound.get("idcompound"), stoichiometry.get("modelCompound").get("idcompound")));
+		filters.add(cb.equal(stoichiometry.get("modelReaction").get("idreaction"), reaction.get("idreaction")));
+		
+		c.where(cb.and(filters.toArray(new Predicate[] {})));
+		
+		Query<String> q = super.sessionFactory.getCurrentSession().createQuery(c);
+		return q.getResultList();
+		
 	}
 	
 	@Override

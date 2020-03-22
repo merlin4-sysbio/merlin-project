@@ -17,7 +17,7 @@ import pt.uminho.ceb.biosystems.merlin.utilities.io.FileUtils;
 public class ModelSeedCompoundsDB {
 
 	private static final String HTTP_FILE_URL = "https://raw.githubusercontent.com/ModelSEED/ModelSEEDDatabase/master/Biochemistry/compounds.tsv";
-	
+
 	private Map<String, String[]> compoundsDB;
 	private Set<String> coreCompounds;
 
@@ -39,7 +39,7 @@ public class ModelSeedCompoundsDB {
 	public void readCompoundsDBFile() {
 
 		String filePath = FileUtils.getConfFolderPath().concat("ModelSeedCompounds.tsv");
-//		String httpFileUrl = "https://raw.githubusercontent.com/ModelSEED/ModelSEEDDatabase/master/Biochemistry/compounds.tsv";
+		//		String httpFileUrl = "https://raw.githubusercontent.com/ModelSEED/ModelSEEDDatabase/master/Biochemistry/compounds.tsv";
 
 		List<String> compoundsList = new ArrayList<>();
 
@@ -64,16 +64,15 @@ public class ModelSeedCompoundsDB {
 
 		for(String line : compoundsList){
 
-			String[] compoundInfo = new String[8];
+			String[] compoundInfo = new String[9];
 			String[] infoList = line.split("\t");
 
-//			for(int i=1 ; i<8 ; i++)
-//				compoundInfo.add(infoList[i]);
-			
+			//			for(int i=1 ; i<8 ; i++)
+			//				compoundInfo.add(infoList[i]);
+
 			boolean isObsolete = infoList[9].equals("1");
 
-			if(!isObsolete){
-			
+
 			compoundInfo[0] = infoList[1];	//abbreviation
 			compoundInfo[1] = infoList[2];	//name
 			compoundInfo[2] = infoList[3];	//formula
@@ -88,13 +87,15 @@ public class ModelSeedCompoundsDB {
 			else{
 				compoundInfo[6] = "false";
 			}
-			
+
 			compoundInfo[7] = infoList[10]; //linked compounds
+			
+			compoundInfo[8] = Boolean.toString(isObsolete);
 
 			this.compoundsDB.put(infoList[0], compoundInfo);
 			
-			}
 		}
+
 	}
 
 
@@ -133,6 +134,15 @@ public class ModelSeedCompoundsDB {
 		return this.compoundsDB.get(compoundID)[0];	
 
 	}
+	
+	
+	
+	public boolean isObsolete(String compoundID){
+
+		return Boolean.getBoolean(this.compoundsDB.get(compoundID)[8]);	
+
+	}
+	
 
 	/**
 	 * method to get compound formula
@@ -143,7 +153,7 @@ public class ModelSeedCompoundsDB {
 
 		return this.compoundsDB.get(compoundID)[2];	
 	}
-	
+
 	/**
 	 * method to get compound charge
 	 * @param compoundID
@@ -173,36 +183,36 @@ public class ModelSeedCompoundsDB {
 
 		return this.compoundsDB.get(compoundID)[4];
 	}
-	
+
 	/**
 	 * @param compoundID
 	 * @return
 	 */
 	public boolean isCoreCompound(String compoundID){
-		
+
 		return Boolean.parseBoolean(this.compoundsDB.get(compoundID)[6]);
-		
+
 	}
-	
+
 	/**
 	 * @param compoundID
 	 * @return
 	 */
 	public List<String> getLinkedCompounds(String compoundID){
-		
+
 		List<String> linkedCompounds = new ArrayList<>();
-		
+
 		if(this.compoundsDB.get(compoundID)[7]!=null && !this.compoundsDB.get(compoundID)[7].equals("null"))
 			linkedCompounds = Arrays.asList(this.compoundsDB.get(compoundID)[7].split(";"));
-		
+
 		return linkedCompounds;
 	}
-	
+
 	/**
 	 * @return
 	 */
 	public Set<String> getCoreCompounds(){
-		
+
 		return this.coreCompounds;
 	}
 }

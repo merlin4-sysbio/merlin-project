@@ -252,6 +252,8 @@ public class NewWorkspace {
 
 			project.setGenomeLocusTag(ModelGenesServices.getGenesLocusTagBySequenceId(this.databaseName));
 
+			FileUtils.writeIdsConverterConfFile(project.getName());
+			
 			return project;
 		}
 		catch (IllegalArgumentException e) {

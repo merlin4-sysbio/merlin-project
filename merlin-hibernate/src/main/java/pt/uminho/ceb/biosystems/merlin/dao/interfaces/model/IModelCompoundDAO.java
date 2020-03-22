@@ -67,4 +67,9 @@ public interface IModelCompoundDAO extends IGenericDao<ModelCompound>{
 
 	public Map<String, Integer> getExternalIdentifierAndIdCompound();
 
+	public void updateModelCompoundAttributesByInternalId(Integer id, String name, String entryType, String formula,
+			String molecularW, Short charge, String externalIdentifier);
+
+	public List<String> getAllCompounds();
+
 }

@@ -309,6 +309,17 @@ public class ModelMetabolitesServices {
 		InitDataAccess.getInstance().getDatabaseService(databaseName).updateModelCompoundAttributes(name, entryType, formula, molecularW, charge, externalIdentifier);
 
 	}
+	
+	public static void updateDataByInternalId(Integer id, String name, String entryType, String formula, String molecularW, Short charge, String externalIdentifier, String databaseName) throws Exception{
+
+		InitDataAccess.getInstance().getDatabaseService(databaseName).updateModelCompoundAttributesByInternalId(id, name, entryType, formula, molecularW, charge, externalIdentifier);
+
+	}
+	
+	public static List<String> getEntryType(String databaseName, Integer id) throws Exception {
+		
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).getEntryType(id);
+	}
 
 	/**
 	 * @param name
@@ -480,6 +491,18 @@ public class ModelMetabolitesServices {
 		return InitDataAccess.getInstance().getDatabaseService(databaseName).getAllCompoundsInModel();
 
 	}
+	
+	/**
+	 * @param databaseName
+	 * @return
+	 * @throws IOException
+	 * @throws Exception
+	 */
+	public static List<String> getAllCompounds(String databaseName) throws Exception {
+
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).getAllCompounds();
+
+	}
 
 	/**
 	 * @param databaseName
@@ -582,6 +605,8 @@ public class ModelMetabolitesServices {
 				
 				metaboliteContainer.setMetaboliteID(id);
 			}
+			
+			
 		}
 	}
 }

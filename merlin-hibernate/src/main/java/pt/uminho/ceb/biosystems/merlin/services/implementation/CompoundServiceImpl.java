@@ -226,12 +226,23 @@ public class CompoundServiceImpl implements ICompoundService{
 	public void updateModelCompoundAttributes(String name, String entryType, String formula, String molecularW, Short charge, String externalIdentifier) {
 		this.compoundDAO.updateModelCompoundAttributes(name, entryType, formula, molecularW, charge, externalIdentifier);
 	}
+	
+	@Override
+	public void updateModelCompoundAttributesByInternalId(Integer id, String name, String entryType, String formula, String molecularW, Short charge, String externalIdentifier) {
+		this.compoundDAO.updateModelCompoundAttributesByInternalId(id, name, entryType, formula, molecularW, charge, externalIdentifier);
+	}
 
 	@Override
 	public List<String> getAllCompoundsInModel() {
 		return this.compoundDAO.getAllCompoundsInModel();
 	}
 
+	
+	@Override
+	public List<String> getAllCompounds() {
+		return this.compoundDAO.getAllCompounds();
+	}
+	
 	@Override
 	public MetaboliteContainer getCompoundByExternalIdentifier(String identifier) {
 
