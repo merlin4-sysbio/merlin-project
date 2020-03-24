@@ -8574,4 +8574,19 @@ public class DatabaseServiceImpl implements IDatabaseService{
 	}
 
 
+	@Override
+	public void updateReactionCompartment(Integer reactionId, Integer compartmentId) throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			reactionservice.updateReactionCompartment(reactionId,compartmentId);
+			tx.commit();
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+		
+	}
+
+
 }

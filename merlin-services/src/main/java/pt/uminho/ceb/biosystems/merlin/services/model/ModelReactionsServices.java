@@ -369,20 +369,20 @@ public class ModelReactionsServices {
 		results.add(counter++, resultLists);
 
 		List<String[]> result2 = InitDataAccess.getInstance().getDatabaseService(databaseName).getEnzymesByReaction(id);
-		
-	
+
+
 		resultLists = new ArrayList<>();
 		for(int i=0; i<result2.size(); i++){
 			String[] list = result2.get(i);
-			
+
 			String ecNumber = list[0];
 			String inModel = list[3];
-			
+
 			Map<Integer, Integer> enzymeIsInModel = InitDataAccess.getInstance().getDatabaseService(databaseName).getModelSubunitGeneIdAndEnzymeProteinIdByEcNumber(ecNumber);
-			
+
 			if(enzymeIsInModel == null)
 				inModel = "false";
-			
+
 			resultsList = new ArrayList<String>();
 
 			resultsList.add(ecNumber);
@@ -467,7 +467,7 @@ public class ModelReactionsServices {
 		resultLists = new ArrayList<>();
 		if(aliases.size() == 0)
 			aliases.add("");
-		
+
 		for(String alias : aliases) {
 
 			resultsList = new ArrayList<String>();
@@ -814,7 +814,7 @@ public class ModelReactionsServices {
 		InitDataAccess.getInstance().getDatabaseService(databaseName).removeSelectedReaction(reaction_id);
 
 	}
-	
+
 	/**
 	 * @param selectedRow
 	 * 
@@ -852,52 +852,70 @@ public class ModelReactionsServices {
 		return InitDataAccess.getInstance().getDatabaseService(databaseName).checkReactionsBySource(source.toString());
 
 	}
+
+
+	public static void updateReactionCompartment(String databaseName, Integer reactionId, Integer compartmentId) throws Exception {
+		
+		
+		InitDataAccess.getInstance().getDatabaseService(databaseName).updateReactionCompartment(reactionId, compartmentId);
+		
+	}
 	
 	
 	public static void updateReactionShort(String databaseName, String name, String equation, Boolean reversible, Integer compartmentId,
 			Boolean isSpontaneous, Boolean isNonEnzymatic, Boolean isGeneric, String booleanRule, Long lower,
 			Long upper, Integer reactionId, Boolean inModel, Map<String,Double> metabolites, Map<String,String> compartment) throws Exception {
-		
-		InitDataAccess.getInstance().getDatabaseService(databaseName).updateReaction(name, equation, reversible, compartmentId, isSpontaneous, isNonEnzymatic, isGeneric, booleanRule, lower, upper, reactionId, inModel);
-		
-		
-		
-		Map<String,Pair<String,Pair<Double,String>>> existingMetabolitesID = InitDataAccess.getInstance().getDatabaseService(databaseName).getExistingMetabolitesID(reactionId);
 
-		for(String m: new ArrayList<String>(metabolites.keySet())) {
+		try {
+			InitDataAccess.getInstance().getDatabaseService(databaseName).updateReaction(name, equation, reversible, compartmentId, isSpontaneous, isNonEnzymatic, isGeneric, booleanRule, lower, upper, reactionId, inModel);
 
-			if(existingMetabolitesID.keySet().contains(m) && existingMetabolitesID.get(m).getB().getA()==(metabolites.get(m))) {
 
-				if(existingMetabolitesID.get(m).getB().getB().equalsIgnoreCase(compartment.get(m))) {
+			Map<String,Pair<String,Pair<Double,String>>> existingMetabolitesID = InitDataAccess.getInstance().getDatabaseService(databaseName).getExistingMetabolitesID(reactionId);
 
-					existingMetabolitesID.remove(m);
-					metabolites.remove(m);
+			for(String m: new ArrayList<String>(metabolites.keySet())) {
+
+				if(existingMetabolitesID.keySet().contains(m) && existingMetabolitesID.get(m).getB().getA()==(metabolites.get(m))) {
+
+					if(existingMetabolitesID.get(m).getB().getB().equalsIgnoreCase(compartment.get(m))) {
+
+						existingMetabolitesID.remove(m);
+						metabolites.remove(m);
+					}
+				}
+			}
+
+			for(String compound : existingMetabolitesID.keySet()) 
+				InitDataAccess.getInstance().getDatabaseService(databaseName).deleteModelStoichiometryByStoichiometryId(Integer.valueOf(existingMetabolitesID.get(compound).getA()));
+			
+
+			for(String m :metabolites.keySet()) {
+
+				int idCompartment = InitDataAccess.getInstance().getDatabaseService(databaseName).getCompartmentID(compartment.get(m));
+
+				//attention  to the following lines (adding metabolites that were not in the previous reaction)
+				if (idCompartment==-1)
+					idCompartment = compartmentId;
+
+
+				Integer idstoichiometry = ModelStoichiometryServices.getStoichiometryID(databaseName, reactionId, m, idCompartment, metabolites.get(m));
+
+
+				if(idstoichiometry != null) {
+					ModelStoichiometryServices.updateModelStoichiometryByStoichiometryId(databaseName ,Integer.valueOf(idstoichiometry), metabolites.get(m), idCompartment, Integer.valueOf(m.replace("-", "")));
+
+				}
+				else {
+					InitDataAccess.getInstance().getDatabaseService(databaseName).insertModelStoichiometry(reactionId, Integer.valueOf(m.replace("-", "")), idCompartment, metabolites.get(m));
+
 				}
 			}
 		}
+		catch (Exception e) {
 
-		for(String compound : existingMetabolitesID.keySet()) {
-			InitDataAccess.getInstance().getDatabaseService(databaseName).deleteModelStoichiometryByStoichiometryId(Integer.valueOf(existingMetabolitesID.get(compound).getA()));
-		}
-		
-		for(String m :metabolites.keySet()) {
+			System.out.println(reactionId+ "not converted");
 
-			int idCompartment = InitDataAccess.getInstance().getDatabaseService(databaseName).getCompartmentID(compartment.get(m)); 
-
-			Integer idstoichiometry = ModelStoichiometryServices.getStoichiometryID(databaseName, reactionId, m, idCompartment, metabolites.get(m));
-
-			if(idstoichiometry != null) {
-				ModelStoichiometryServices.updateModelStoichiometryByStoichiometryId(databaseName ,Integer.valueOf(idstoichiometry), metabolites.get(m), idCompartment, Integer.valueOf(m.replace("-", "")));
-
-			}
-			else {
-				InitDataAccess.getInstance().getDatabaseService(databaseName).insertModelStoichiometry(reactionId, Integer.valueOf(m.replace("-", "")), idCompartment, metabolites.get(m));
-
-			}
 		}
 
-		
-		
 	}
 
 	/**
@@ -1241,9 +1259,9 @@ public class ModelReactionsServices {
 		List<String[]> data = InitDataAccess.getInstance().getDatabaseService(databaseName).getPathwayHasEnzymeData(pathwayID, isCompartimentalized);
 
 		for(int i=0; i<data.size(); i++){
-			
+
 			System.out.println(Arrays.asList(data.get(i)));
-			
+
 			String[] list = data.get(i);
 
 			String reaction_id = list[3];
@@ -2071,9 +2089,9 @@ public class ModelReactionsServices {
 						GeneContainer gene = ModelGenesServices.getGeneDataById(databaseName, geneId);
 
 						if(gene != null) {
-							
+
 							String locus = gene.getLocusTag();
-							
+
 							if(locus == null || locus.isEmpty())
 								locus = gene.getExternalIdentifier();
 
@@ -2152,7 +2170,7 @@ public class ModelReactionsServices {
 
 				String idGene = line[3];
 				String entryId = line[4];
-	
+
 				pga.addLocusTag(entryId, idGene);
 				rpg.addProteinGPR_CI(pga);
 				rpgs.put(rpg.getReaction(), rpg);
@@ -2249,4 +2267,5 @@ public class ModelReactionsServices {
 		return InitDataAccess.getInstance().getDatabaseService(databaseName).getModelReactionIdsRelatedToName(name);
 
 	}
+
 }

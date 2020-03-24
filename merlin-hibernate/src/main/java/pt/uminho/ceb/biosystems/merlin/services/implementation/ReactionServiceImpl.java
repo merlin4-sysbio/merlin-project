@@ -890,6 +890,22 @@ public class ReactionServiceImpl implements IReactionService {
 
 
 	@Override
+	public void updateReactionCompartment(Integer reactionId, Integer compartmentId) {
+		ModelReaction modelReaction = this.modelreactionDAO.findById(reactionId);
+		if(modelReaction !=null) {
+			
+			ModelCompartment modelCompartment = null;
+			if(compartmentId != null)
+				modelCompartment = this.compartmentDAO.findById(compartmentId);
+		
+			modelReaction.setModelCompartment(modelCompartment);
+			
+			this.modelreactionDAO.update(modelReaction);
+		}
+	}
+	
+	
+	@Override
 	public boolean deleteModelReactionHasModelProteinByReactionId(Integer reactionId, Integer protId)
 			throws Exception {
 		return this.modelreactionhasproteinDao.deleteModelReactionHasModelProteinByReactionId(reactionId, protId);
