@@ -188,7 +188,7 @@ public class ModelGenesProcesses {
 				databaseName, ProjectServices.isCompartmentalisedModel(databaseName), false, null,
 				null));
 
-		cont.verifyDepBetweenClass();
+		cont.verifyDepBetweenClass(false);
 
 		Map<String, Integer> reactionsCount = new HashMap<>();
 
