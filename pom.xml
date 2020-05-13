@@ -101,7 +101,7 @@
 		
 		<axis2.version>1.6.2</axis2.version>
 		<axiom.version>1.2.14</axiom.version>
-		<uniprot.api.version>1.0.30</uniprot.api.version>
+		<uniprot.api.version>1.0.31</uniprot.api.version>
 		
 		
 	</properties>
