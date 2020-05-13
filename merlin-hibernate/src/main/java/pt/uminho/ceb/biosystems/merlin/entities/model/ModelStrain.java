@@ -23,7 +23,7 @@ import org.hibernate.annotations.OnDeleteAction;
 public class ModelStrain implements java.io.Serializable {
 
 	private int idstrain;
-	private String name;
+	private String name, version;
 	private ModelEntityisfrom modelEntityisfrom;
 
 	public ModelStrain() {
@@ -39,6 +39,7 @@ public class ModelStrain implements java.io.Serializable {
 		this.modelEntityisfrom = modelEntityisfrom;
 	}
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY, generator="UseExistingIdOtherwiseGenerateUsingIdentity")
 	@GenericGenerator(name = "UseExistingIdOtherwiseGenerateUsingIdentity", strategy = "pt.uminho.ceb.biosystems.merlin.auxiliary.UseExistingIdOtherwiseGenerateUsingIdentity")	
@@ -59,7 +60,18 @@ public class ModelStrain implements java.io.Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
+	@Column(name = "version", length = 60)
+	public String getVersion() {
+		return this.version;
+	}
 
+	public void setVersion(String version) {
+		this.version = version;
+	}
+	
+	
 	@XmlTransient
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "modelStrain")
 	@OnDelete(action = OnDeleteAction.CASCADE)
