@@ -43,6 +43,7 @@ public class KeggAPI {
 
 	static {
 		try {
+			
 			cache = JCS.getInstance("KEGG_API");
 		}
 		catch (CacheException e ) {
@@ -323,7 +324,6 @@ public class KeggAPI {
 
 		try {
 			KeggECNumberEntry entry = (KeggECNumberEntry) cache.get(ecNumber);
-
 			if(entry == null) {
 
 				String raw = KeggRestful.getDBEntry("ec", ecNumber);
@@ -358,9 +358,11 @@ public class KeggAPI {
 						if(debug )
 							e.printStackTrace();
 					}
-
 				}
 			}
+			
+			else
+				res = entry.getReactionIds();
 
 			return res;
 
@@ -968,7 +970,7 @@ public class KeggAPI {
 
 				Matcher matcher = pattern.matcher(brite);
 
-				if (matcher.find()) {
+				while (matcher.find()) {
 
 					brite_set.add(matcher.group());
 				}

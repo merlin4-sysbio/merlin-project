@@ -3,7 +3,7 @@
 #########################################
 jcs.default=DC
 jcs.default.cacheattributes=org.apache.jcs.engine.CompositeCacheAttributes
-jcs.default.cacheattributes.MaxObjects=100
+jcs.default.cacheattributes.MaxObjects=100000
 jcs.default.cacheattributes.MemoryCacheName=org.apache.jcs.engine.memory.lru.LRUMemoryCache
 
 #########################
@@ -11,7 +11,7 @@ jcs.default.cacheattributes.MemoryCacheName=org.apache.jcs.engine.memory.lru.LRU
 #########################
 jcs.region.KEGG_API=DC
 jcs.region.KEGG_API.cacheattributes=org.apache.jcs.engine.CompositeCacheAttributes
-jcs.region.KEGG_API.cacheattributes.MaxObjects=10000
+jcs.region.KEGG_API.cacheattributes.MaxObjects=100000
 jcs.region.KEGG_API.cacheattributes.MemoryCacheName=org.apache.jcs.engine.memory.lru.LRUMemoryCache
 jcs.region.KEGG_API.cacheattributes.UseMemoryShrinker=true
 jcs.region.KEGG_API.cacheattributes.MaxMemoryIdleTimeSeconds=36000000
@@ -25,8 +25,8 @@ jcs.region.KEGG_API.cacheattributes.MaxSpoolPerRun=500
 jcs.auxiliary.DC=org.apache.jcs.auxiliary.disk.indexed.IndexedDiskCacheFactory
 jcs.auxiliary.DC.attributes=org.apache.jcs.auxiliary.disk.indexed.IndexedDiskCacheAttributes
 jcs.auxiliary.DC.attributes.DiskPath=./cache
-jcs.auxiliary.DC.attributes.MaxPurgatorySize=1000000
-jcs.auxiliary.DC.attributes.MaxKeySize=1000000
+jcs.auxiliary.DC.attributes.MaxPurgatorySize=10000000
+jcs.auxiliary.DC.attributes.MaxKeySize=100000000
 jcs.auxiliary.DC.attributes.OptimizeAtRemoveCount=3000000
 jcs.auxiliary.DC.attributes.OptimizeOnShutdown=true
 jcs.auxiliary.DC.attributes.MaxRecycleBinSize=1000000
