@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class GeneAssociation {
 
@@ -36,6 +37,14 @@ public class GeneAssociation {
 
 		this.genes.add(gene);
 	}
+	
+    /**
+     * @param gene
+     */
+    public void addAllGenes(Set<String> genes) {
+ 
+        this.genes.addAll(genes);
+    }
 	
 	/**
 	 * @param gene
