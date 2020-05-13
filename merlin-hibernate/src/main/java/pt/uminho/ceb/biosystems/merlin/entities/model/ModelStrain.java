@@ -23,7 +23,7 @@ import org.hibernate.annotations.OnDeleteAction;
 public class ModelStrain implements java.io.Serializable {
 
 	private int idstrain;
-	private String name, version;
+	private String name;
 	private ModelEntityisfrom modelEntityisfrom;
 
 	public ModelStrain() {
@@ -60,17 +60,6 @@ public class ModelStrain implements java.io.Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	@Column(name = "version", length = 60)
-	public String getVersion() {
-		return this.version;
-	}
-
-	public void setVersion(String version) {
-		this.version = version;
-	}
-	
 	
 	@XmlTransient
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "modelStrain")
