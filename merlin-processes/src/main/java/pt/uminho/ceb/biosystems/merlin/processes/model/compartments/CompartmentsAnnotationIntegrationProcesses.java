@@ -54,6 +54,7 @@ public class CompartmentsAnnotationIntegrationProcesses implements IIntegrateDat
 	private boolean isEukaryote;
 
 
+
 	/**
 	 * @param project
 	 * @param threshold
@@ -97,8 +98,10 @@ public class CompartmentsAnnotationIntegrationProcesses implements IIntegrateDat
 	public boolean performIntegration() {
 
 		try {
+			
 
 			this.processingTotal.set(this.geneCompartments.size());
+
 
 			Map<String, Integer> sequenceID_geneID = ModelGenesServices.getQueriesByGeneID(this.workspaceName);
 
