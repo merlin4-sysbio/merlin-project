@@ -96,14 +96,15 @@
 		<!-- license-maven-plugin configuration -->
 		<license.licenseName>GPLv3</license.licenseName>
 		<license.copyrightOwners>Oscar Dias</license.copyrightOwners>
-		<license.organizationName>Biosystems Research Group - CEB - University of Minho</license.organizationName>
+		<license.organizationName>Biosystems Research Group - CEB - University
+			of Minho</license.organizationName>
 		<license.addJavaLicenseAfterPackage>false</license.addJavaLicenseAfterPackage>
-		
+
 		<axis2.version>1.6.2</axis2.version>
 		<axiom.version>1.2.14</axiom.version>
 		<uniprot.api.version>1.0.31</uniprot.api.version>
-		
-		
+
+
 	</properties>
 
 	<modules>
@@ -115,6 +116,8 @@
 		<module>merlin-biocomponents</module>
 		<module>merlin-processes</module>
 		<module>merlin-gui</module>
+		<module>merlin-alignments</module>
+
 	</modules>
 
 	<dependencyManagement>
@@ -128,6 +131,12 @@
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>merlin-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>merlin-alignments</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
@@ -323,7 +332,7 @@
 									<appendOutput>true</appendOutput>
 								</configuration>
 							</execution>
-				         </executions>	
+						</executions>
 					</plugin>
 				</plugins>
 			</build>

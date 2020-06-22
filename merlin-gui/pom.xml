@@ -733,6 +733,11 @@ pluginrepository.host=https\://merlin-sysbio.org/data/plugins
 	
 	<dependencies>
 		<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>merlin-alignments</artifactId>
+				<version>${pt.uminho.ceb.biosystems.merlin.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
 			<artifactId>merlin-core</artifactId>
 			<version>${pt.uminho.ceb.biosystems.merlin.version}</version>

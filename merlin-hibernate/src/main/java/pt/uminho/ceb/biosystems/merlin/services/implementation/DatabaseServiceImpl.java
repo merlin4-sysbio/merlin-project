@@ -5821,6 +5821,40 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
+	
+	
+
+	
+	@Override
+	public void updateModelAlias(int modelAliasId, String cl, int entity, String alias) throws Exception {
+
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			aliasesService.updateModelAlias(modelAliasId, cl, entity, alias);
+			tx.commit();
+		}
+		catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+	
+	
+	@Override
+	public void removeModelAlias(int modelAliasId) throws Exception {
+
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			aliasesService.removeModelAlias(modelAliasId);
+			tx.commit();
+		}
+		catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
 
 
 	@Override
