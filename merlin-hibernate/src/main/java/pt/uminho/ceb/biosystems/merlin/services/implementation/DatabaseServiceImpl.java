@@ -1264,6 +1264,21 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
+	
+	
+	public Map<Integer, String> getGeneIdAndGeneQuery() throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			Map<Integer, String> result = geneservice.getGeneIdAndGeneQuery();
+			tx.commit();
+			return (Map<Integer, String>) result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+	
 
 	public void deleteDuplicatedQuerys(String query) throws Exception {  
 		Transaction tx = null;
@@ -8561,6 +8576,22 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 		
+	}
+
+
+	@Override
+	public List<SequenceContainer> getSequencesbySequenceType(SequenceType seqtype) throws Exception {
+		
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			List<SequenceContainer> result = sequenceservice.getSequencesbySequenceType(seqtype);
+			tx.commit();
+			return result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
 	}
 
 }

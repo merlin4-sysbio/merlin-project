@@ -1,7 +1,7 @@
 <plugin start="true">
 	<uid>merlin</uid>
 	<name>merlin-gui</name>
-	<version>4.0.3</version>
+	<version>4.0.4</version>
 
 	<lifecycleclass>pt.uminho.ceb.biosystems.merlin.gui.utilities.Lifecycle
 	</lifecycleclass>

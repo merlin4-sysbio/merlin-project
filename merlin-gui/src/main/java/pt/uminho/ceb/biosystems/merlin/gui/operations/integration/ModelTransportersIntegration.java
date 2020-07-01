@@ -101,7 +101,7 @@ public class ModelTransportersIntegration implements PropertyChangeListener {
 						container = new Container(reader);
 
 						Map<String, ReactionCI> reactions = container.getReactions();  //assuming that all retrieved reactions are already only transporters! If not, perform container.identifyTransportReactions() first
-
+						
 						this.transportersData = new IntegrateTransportersDataTransyt(project, reactions);
 						this.transportersData.setTimeLeftProgress(this.progress);
 

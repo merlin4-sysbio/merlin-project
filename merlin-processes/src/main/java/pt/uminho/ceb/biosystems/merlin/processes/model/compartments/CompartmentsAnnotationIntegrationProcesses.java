@@ -308,7 +308,9 @@ public class CompartmentsAnnotationIntegrationProcesses implements IIntegrateDat
 
 		if(geneRule != null)
 			geneRule = geneRule.toUpperCase();
-
+		
+		System.out.println(reaction.getReactionID());
+		System.out.println(geneRule);
 		Set<Set<Integer>> rules = Utilities.parseStringRuleToSet(geneRule);			//deve faltar tirar os parentesis
 
 		for(Set<Integer> rule : rules) {

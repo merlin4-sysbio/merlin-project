@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
-	<timestamp key="byDay" datePattern="yyyyMMdd'T'HHmmss"/>
+	<timestamp key="byDay" datePattern="yyyyMMdd'T'HHmmss" />
 
 	<appender name="STDOUT"
 		class="ch.qos.logback.core.ConsoleAppender">
@@ -15,7 +15,8 @@
 		<append>true</append>
 		<encoder
 			class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<pattern>%d{yyyy MMM dd HH:mm:ss} [%thread] %M %-5level %logger{36} - %msg%n
+			<pattern>%d{yyyy MMM dd HH:mm:ss} [%thread] %M %-5level %logger{36} -
+				%msg%n
 			</pattern>
 		</encoder>
 	</appender>
@@ -32,14 +33,16 @@
 	<logger name="httpclient.wire" level="INFO" />
 	<logger name="org.sbml.jsbml" level="INFO" />
 	<logger name="es.uvigo" level="INFO" />
-	<logger name="com.mchange" level="INFO" />
+	<logger name="com.mchange" level="OFF" />
 	<logger name="httpclient.wire" level="INFO" />
 	<logger name="pt.uminho.ceb.biosystems.mew.biocomponents"
 		level="INFO" />
 	<logger name="pt.uminho.ceb.biosystems.mew.optflux.OptFlux"
 		level="INFO" />
 	<logger name="c.m.v" level="ERROR" />
-	<logger name="com.mchange.v2" level="ERROR" />
+	<logger name="com.mchange.v2" level="OFF" />
+	<logger name="com.mchange.v2.log" level="OFF" />
+
 	<logger name="u.a.e.u.d.s.a" level="OFF" />
 
 	<root level="INFO">

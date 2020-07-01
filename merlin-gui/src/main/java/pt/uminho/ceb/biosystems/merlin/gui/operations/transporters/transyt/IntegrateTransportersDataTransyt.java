@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -117,8 +118,9 @@ public class IntegrateTransportersDataTransyt implements IIntegrateData {
 
 			Map<String, String> compartments_ids = new HashMap<>();
 			
-			Map<String, Integer> allGenes = ModelGenesServices.getGeneIDsByQuery(this.workspaceName);
+			Map<Integer, String> allGenes = ModelGenesServices.getGeneIdandGeneQuery(this.workspaceName);
 
+			
 			for(String reactionName : reactions.keySet()) {
 
 				if(this.cancel.get()) {
@@ -127,13 +129,12 @@ public class IntegrateTransportersDataTransyt implements IIntegrateData {
 					break;
 				}
 				else {
-
+					
 					ReactionCI reactionCi = reactions.get(reactionName);
 					
 					String geneRule = this.getGeneRuleWithGeneIDs(reactionCi, allGenes);
 
 					TransportReactionCI reaction = new TransportReactionCI(reactionName, reactionName, reactionCi.getReversible(), reactionCi.getReactants(), reactionCi.getProducts());
-
 					boolean isReversible = reaction.isReversible();
 
 					try  {
@@ -332,6 +333,7 @@ public class IntegrateTransportersDataTransyt implements IIntegrateData {
 		}
 	}
 	
+
 	/**
 	 * Get compartment identifier.
 	 * 
@@ -381,7 +383,7 @@ public class IntegrateTransportersDataTransyt implements IIntegrateData {
 	 * @param allGenes
 	 * @return
 	 */
-	private String getGeneRuleWithGeneIDs(ReactionCI reactionCi, Map<String, Integer> allLocustoGeneID) {
+	private String getGeneRuleWithGeneIDs(ReactionCI reactionCi, Map<Integer, String> allLocustoGeneID) {
 
 		String transytGeneRule = reactionCi.getGeneRuleString();
 		
@@ -391,12 +393,10 @@ public class IntegrateTransportersDataTransyt implements IIntegrateData {
 
 			for(String gene : genes) {
 				
-				String geneAux = gene.replace("G_", "").replace("_1", ".1");
-				
+				Integer geneAux = Integer.valueOf(gene.replace("G_" , ""));
+
 				if(allLocustoGeneID.containsKey(geneAux))
-					transytGeneRule = transytGeneRule.replaceAll(gene, allLocustoGeneID.get(geneAux).toString());
-				else if (allLocustoGeneID.containsKey(geneAux.concat(".1")))
-					transytGeneRule = transytGeneRule.replaceAll(gene, allLocustoGeneID.get(geneAux.concat(".1")).toString());
+					transytGeneRule = transytGeneRule.replaceAll(gene, geneAux.toString());
 				else {
 					transytGeneRule = "";
 					break;
@@ -409,6 +409,9 @@ public class IntegrateTransportersDataTransyt implements IIntegrateData {
 		return transytGeneRule;
 	}
 
+
+	
+	
 	/**
 	 * 
 	 */

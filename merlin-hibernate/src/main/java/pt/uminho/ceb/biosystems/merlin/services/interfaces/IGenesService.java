@@ -137,5 +137,7 @@ public interface IGenesService{
 	public Map<Integer, List<CompartmentContainer>> getCompartmentsRelatedToGenes() throws Exception;
 
 	public void removeAllFromModelGeneHasCompartment() throws Exception;
+	
+	public Map<Integer, String> getGeneIdAndGeneQuery() throws Exception;
 
 }
