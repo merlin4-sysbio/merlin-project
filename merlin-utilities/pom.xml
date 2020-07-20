@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+		<parent>
+		<groupId>pt.uminho.ceb.biosystems.merlin</groupId>
+		<artifactId>merlin-project</artifactId>
+		<version>4.0.3-RELEASE</version>
+		<!--
+			WARNING: change version using (in the parent project):
+				mvn versions:set -DnewVersion=[new_version]
+				mvn versions:commit
+
+			This will change the version in all modules at-once
+		-->
+
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	
+	<artifactId>merlin-utilities</artifactId>
+	<packaging>jar</packaging>
+	<name>merlin-utilities</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>pt.uminho.ceb.biosystems.mew</groupId>
+			<artifactId>mew-utilities</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.4.0-b180830.0359</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+	</dependencies>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>biosystems-snapshots</id>
+			<url>https://nexus.bio.di.uminho.pt/content/repositories/biosystems-snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>biosystems-releases</id>
+			<url>https://nexus.bio.di.uminho.pt/content/repositories/biosystems-releases</url>
+		</repository>
+	</distributionManagement>
+</project>

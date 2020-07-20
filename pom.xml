@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>pt.uminho.ceb.biosystems.merlin</groupId>
+	<artifactId>merlin-project</artifactId>
+	<version>4.0.3-RELEASE</version>
+	<!-- WARNING: change version using: mvn versions:set -DnewVersion=[new_version] 
+		mvn versions:commit This will change the version in all modules at-once WARNING: 
+		Remember to also change the version manually in the docs/source/conf.py file -->
+
+	<name>merlin-project</name>
+	<description>A Java application focused on GUI-based metabolic models recontruction</description>
+	<inceptionYear>2015</inceptionYear>
+	<url>http://www.merlin-sysbio.org</url>
+	<packaging>pom</packaging>
+
+	<developers>
+		<developer>
+			<name>Davide Lagoa</name>
+			<organization>Biosystems Research Group - CEB - University of Minho</organization>
+			<organizationUrl>https://www.ceb.uminho.pt/</organizationUrl>
+			<email>dlagoa@ceb.uminho.pt</email>
+		</developer>
+		<developer>
+			<name>Diogo Lima</name>
+			<organization>Biosystems Research Group - CEB - University of Minho</organization>
+			<organizationUrl>https://www.ceb.uminho.pt/</organizationUrl>
+			<email>b8716@ceb.uminho.pt</email>
+		</developer>
+		<developer>
+			<name>João Ribeiro</name>
+			<organization>Biosystems Research Group - CEB - University of Minho</organization>
+			<organizationUrl>https://www.ceb.uminho.pt/</organizationUrl>
+			<email>jcapels96@gmail.com</email>
+		</developer>
+		<developer>
+			<name>Rúben Rodrigues</name>
+			<organization>Biosystems Research Group - CEB - University of Minho</organization>
+			<organizationUrl>https://www.ceb.uminho.pt/</organizationUrl>
+			<email>rrodrigues@ceb.uminho.pt</email>
+		</developer>
+	</developers>
+
+	<contributors>
+		<contributor>
+			<name>Oscar Dias</name>
+			<organization>Biosystems Research Group - CEB - University of Minho</organization>
+			<organizationUrl>https://www.ceb.uminho.pt/</organizationUrl>
+			<email>odias@deb.uminho.pt</email>
+			<roles>
+				<role>Project Coordinator</role>
+			</roles>
+		</contributor>
+	</contributors>
+
+	<licenses>
+		<license>
+			<name>GNU GENERAL PUBLIC LICENSE, Version 3</name>
+			<url>https://www.gnu.org/licenses/gpl-3.0.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<properties>
+		<!-- merlin -->
+		<merlin.build.directory>${build.directory}/merlin/</merlin.build.directory>
+		<merlin.build.directory.conf>${project.basedir}/merlin-gui/conf/</merlin.build.directory.conf>
+		<merlin.plugins.directory>${project.basedir}/merlin-gui/merlin/plugins</merlin.plugins.directory>
+		<merlin.lib.directory>${project.basedir}/merlin-gui/merlin/lib</merlin.lib.directory>
+		<slf4j.version>1.8.0-beta4</slf4j.version>
+		<pt.uminho.ceb.biosystems.aibench.project.version>4.0.2-RELEASE</pt.uminho.ceb.biosystems.aibench.project.version>
+		<pt.uminho.ceb.biosystems.merlin.version>4.0.3-RELEASE</pt.uminho.ceb.biosystems.merlin.version>
+		<pt.uminho.ceb.biosystems.merlin.groupId>pt.uminho.ceb.biosystems.merlin</pt.uminho.ceb.biosystems.merlin.groupId>
+		<build.name>beta</build.name>
+
+		<!-- General -->
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- Plugin versions -->
+		<license-maven-plugin.version>1.8</license-maven-plugin.version>
+		<maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+		<maven-dependency-plugin.version>3.0.0</maven-dependency-plugin.version>
+		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+		<maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
+		<maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+		<maven-resources-plugin.version>3.0.2</maven-resources-plugin.version>
+		<maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+		<maven.build.timestamp.format>yyyy</maven.build.timestamp.format>
+
+		<!-- license-maven-plugin configuration -->
+		<license.licenseName>GPLv3</license.licenseName>
+		<license.copyrightOwners>Oscar Dias</license.copyrightOwners>
+		<license.organizationName>Biosystems Research Group - CEB - University of Minho</license.organizationName>
+		<license.addJavaLicenseAfterPackage>false</license.addJavaLicenseAfterPackage>
+		
+		<axis2.version>1.6.2</axis2.version>
+		<axiom.version>1.2.14</axiom.version>
+		<uniprot.api.version>1.0.30</uniprot.api.version>
+		
+		
+	</properties>
+
+	<modules>
+		<module>merlin-utilities</module>
+		<module>merlin-core</module>
+		<module>merlin-hibernate</module>
+		<module>merlin-services</module>
+		<module>merlin-bioapis</module>
+		<module>merlin-biocomponents</module>
+		<module>merlin-processes</module>
+		<module>merlin-gui</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>merlin-gui</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>merlin-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>merlin-bioapis</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>merlin-biocomponents</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>merlin-hibernate</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>merlin-processes</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>merlin-services</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>merlin-utilities</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>versions:set -DnewVersion=4.0.3-RELEASE</id>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven-jar-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>${license-maven-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>${maven-gpg-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${maven-dependency-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${maven-javadoc-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven-source-plugin.version}</version>
+				</plugin>
+
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-dependency-plugin
+										</artifactId>
+										<versionRange>
+											[2.1,)
+										</versionRange>
+										<goals>
+											<goal>
+												copy-dependencies
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>sign-artifacts</id>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+								<configuration>
+									<keyname>${aibench.gpg.keyname}</keyname>
+									<passphraseServerId>${aibench.gpg.passphraseServerId}</passphraseServerId>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>list-dependencies</id>
+								<phase>deploy</phase>
+								<goals>
+									<goal>list</goal>
+								</goals>
+								<configuration>
+									<outputFile>${merlin.build.directory.conf}dependenciesfiles</outputFile>
+									<outputScope>false</outputScope>
+									<appendOutput>true</appendOutput>
+								</configuration>
+							</execution>
+				         </executions>	
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>biosystems-snapshots</id>
+			<url>https://nexus.bio.di.uminho.pt/content/repositories/biosystems-snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>biosystems-releases</id>
+			<url>https://nexus.bio.di.uminho.pt/content/repositories/biosystems-releases</url>
+		</repository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>Nexus BioSystems Server</name>
+			<url>https://nexus.bio.di.uminho.pt/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>sing-repository</id>
+			<name>SING repository</name>
+			<url>http://maven.sing-group.org/repository/maven/</url>
+		</repository>
+		<repository>
+			<id>ebi-repo</id>
+			<name>The EBI internal repository</name>
+			<url>http://www.ebi.ac.uk/~maven/m2repo</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+</project>

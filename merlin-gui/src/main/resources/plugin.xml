@@ -1,0 +1,721 @@
+<plugin start="true">
+	<uid>merlin</uid>
+	<name>merlin-gui</name>
+	<version>4.0.3</version>
+
+	<lifecycleclass>pt.uminho.ceb.biosystems.merlin.gui.utilities.Lifecycle
+	</lifecycleclass>
+
+	<extensions>
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.workspace.NewWorkspace">
+			<operation-description name="open"
+				path="10@workspace/" uid="operations.NewWorkspace.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation operation="operations.NewWorkspace.ID"
+				icon="icons/Lifecycle/db_open.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.modelTools.UpdateLocusTags">
+			<operation-description name="reset locus tag"
+				path="20@model/30@tools/" uid="operations.UpdateLocusTags.ID" />
+		</extension>
+		
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation operation="operations.UpdateLocusTags.ID"
+				icon="icons/Lifecycle/reset.png" />
+		</extension>
+
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.workspace.ImportSbmlModel">
+			<operation-description name="model"
+				path="20@workspace/20@import/" uid="operations.ImportModel.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation operation="operations.ImportModel.ID"
+				icon="icons/Lifecycle/upload.png" />
+		</extension>
+
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.modelTools.ExportToSBML">
+			<operation-description name="model"
+				path="30@workspace/10@export/" uid="operations.ExportToSBML.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation operation="operations.ExportToSBML.ID"
+				icon="icons/Lifecycle/export.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.workspace.ExportFiles">
+			<operation-description name="genome files"
+				path="30@workspace/20@export/" uid="operations.ExportFiles.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation operation="operations.ExportFiles.ID"
+				icon="icons/Lifecycle/export.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.workspace.SetGenomeFastaFiles">
+			<operation-description name="genome"
+				path="20@workspace/10@import/"
+				uid="operations.SetGenomeFastaFiles.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.SetGenomeFastaFiles.ID"
+				icon="icons/Lifecycle/upload.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.workspace.DownloadNcbiFiles">
+			<operation-description
+				name="download NCBI files" path="45@workspace/"
+				uid="operations.DownloadFilesFromNcbiFtp.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.DownloadFilesFromNcbiFtp.ID"
+				icon="icons/Lifecycle/download.png" />
+		</extension>
+
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.workspace.DownloadNcbiFiles">
+			<operation-description
+				name="download NCBI files" path=""
+				uid="operations.DownloadNcbiFtpFiles.ID" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.database.CleanDatabase">
+			<operation-description name="clean"
+				path="50@workspace/" uid="operations.CleanDatabase.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.CleanDatabase.ID"
+				icon="icons/Lifecycle/clean_database_icon.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.database.DropDatabase">
+			<operation-description name="delete"
+				path="60@workspace/" uid="operations.DropDatabase.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation operation="operations.DropDatabase.ID"
+				icon="icons/Lifecycle/db_delete.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.workspace.QuitOperation">
+			<operation-description name="exit"
+				path="70@workspace/" uid="operations.QuitOperation.ID" />
+		</extension>
+	
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+
+		<!-- <extension uid="aibench.core" name="aibench.core.operation-definition" 
+			<extension uid="aibench.core" name="aibench.core.operation-definition" class="pt.uminho.ceb.biosystems.merlin.gui.operations.homology.NcbiBlastHomologySearch"> 
+			<operation-description name="NCBI" path="10@annotation/10@enzymes/0@BLAST/" 
+			uid="operations.NcbiBlastSimilaritySearch.ID" /> </extension> <extension 
+			uid="aibench.workbench" name="aibench.workbench.view"> <icon-operation operation="operations.NcbiBlastSimilaritySearch.ID" 
+			icon="icons/Lifecycle/remote.png" /> </extension> -->
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<!-- <extension uid="aibench.core" name="aibench.core.operation-definition" 
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.automaticAnnotation.EnzymesAutomaticAnnotation"> 
+			<operation-description name="automatic workflow" path="10@annotation/10@enzymes/" 
+			uid="operations.EnzymesAutomaticAnnotation.ID" /> </extension> <extension 
+			uid="aibench.workbench" name="aibench.workbench.view"> <icon-operation operation="operations.EnzymesAutomaticAnnotation.ID" 
+			icon="icons/Lifecycle/clipboard.png" /> </extension> -->
+
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.annotation.enzymes.HomologyBlastEBI">
+			<operation-description name="EBI"
+				path="10@annotation/10@enzymes/10@BLAST/"
+				uid="operations.HomologyBlastEBI.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.HomologyBlastEBI.ID"
+				icon="icons/Lifecycle/remote.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.annotation.enzymes.HomologyReportLoader">
+			<operation-description name="load report"
+				path="10@annotation/10@enzymes/10@BLAST/"
+				uid="operations.HomologyReportLoader.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.HomologyReportLoader.ID"
+				icon="icons/Lifecycle/upload.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.annotation.enzymes.HomologyHmmer">
+			<operation-description name="HMMER"
+				path="10@annotation/30@enzymes/"
+				uid="operations.HmmerSimilaritySearch.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.HmmerSimilaritySearch.ID"
+				icon="icons/Lifecycle/hmmer_logo.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+			<extension uid="aibench.core" name="aibench.core.operation-definition" class="pt.uminho.ceb.biosystems.merlin.gui.operations.triage.TransportersSimilaritySearch"> 
+			<operation-description name="transport proteins identification" path="20@annotation/10@TRIAGE/" 
+			uid="operations.TransportersSimilaritySearch.ID" /> </extension> <extension 
+			uid="aibench.workbench" name="aibench.workbench.view"> <icon-operation operation="operations.TransportersSimilaritySearch.ID" 
+			icon="icons/Lifecycle/remote.png" /> </extension> %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.integration.ModelEnzymesIntegration">
+			<operation-description
+				name="integrate homology data" path=""
+				uid="operations.ModelEnzymesIntegration.ID" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+			<extension uid="aibench.core" name="aibench.core.operation-definition" class="pt.uminho.ceb.biosystems.merlin.gui.operations.triage.AddTriageData"> 
+			<operation-description name="add TRIAGE data" path="" uid="operations.AddTRIAGEData.ID" 
+			/> </extension> %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+			<extension uid="aibench.core" name="aibench.core.operation-definition" class="pt.uminho.ceb.biosystems.merlin.gui.operations.triage.CreateTransportReactions"> 
+			<operation-description name="create transport reactions" path="" uid="operations.CreateTransportReactions.ID" 
+			/> </extension> %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<!--<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.annotation.enzymes.AnnotationEnzymesParametersSetting">
+			<operation-description
+				name="generate random sample" path=""
+				uid="operations.AnnotationEnzymesParametersSetting.ID" />
+		</extension> -->
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<!--<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.annotation.enzymes.AnnotationEnzymesBestAlpha">
+			<operation-description name="find best alpha"
+				path="" uid="operations.AnnotationEnzymesBestAlpha.ID" />
+		</extension> -->
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.integration.ModelTransportersIntegration">
+			<operation-description
+				name="integrate transporters to database" path=""
+				uid="operations.ModelTransporterstoIntegration.ID" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.integration.ModelCompartmentsIntegration">
+			<operation-description
+				name="integrate compartments" path=""
+				uid="operations.ModelCompartmentsIntegration.ID" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+			<extension uid="aibench.core" name="aibench.core.operation-definition" class="pt.uminho.ceb.biosystems.merlin.gui.operations.triage.NewTransportersing"> 
+			<operation-description name="new transporters loading" path="20@annotation/20@TRIAGE/" 
+			uid="operations.NewTransportersLoading.ID" /> </extension> <extension uid="aibench.workbench" 
+			name="aibench.workbench.view"> <icon-operation operation="operations.NewTransportersLoading.ID" 
+			icon="icons/Lifecycle/upload.png" /> </extension> %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+		
+			<!--<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+
+			<gui-operation operation="operations.ChooseToolCompartmentalization.ID"
+				class="pt.uminho.ceb.biosystems.merlin.gui.operations.loaders.annotation.compartments_new.ChooseToolGUI" />
+		</extension>
+		
+	extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.loaders.annotation.compartments.LoadPSortReports">
+			<operation-description
+				name="load reports - PSortb3" path="30@annotation/10@compartments/"
+				uid="operations.LoadPSortReports.ID" />
+		</extension>
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.loaders.annotation.compartments.LoadLocTreeReports">
+			<operation-description
+				name="load reports - LocTree3" path="30@annotation/20@compartments/"
+				uid="operations.LoadLocTreeReports.ID" />
+		</extension>
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.loaders.annotation.compartments.LoadWoLFPSORTReports">
+			<operation-description
+				name="load reports - WoLFPSORT"
+				path="30@annotation/30@compartments/"
+				uid="operations.LoadWoLFPSORTReports.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.LoadPSortReports.ID"
+				icon="icons/Lifecycle/upload.png" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.LoadLocTreeReports.ID"
+				icon="icons/Lifecycle/upload.png" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.LoadWoLFPSORTReports.ID"
+				icon="icons/Lifecycle/upload.png" />
+		</extension>-->
+		
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.loaders.LoaderWorkspaceDatabase">
+			<operation-description
+				name=" KEGG metabolic data" path="11@model/10@load"
+				uid="operations.LoaderWorkspaceDatabase.ID" />
+
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.LoaderWorkspaceDatabase.ID"
+				icon="icons/Lifecycle/remote.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.loaders.annotation.enzymes.LoadAnnotationKegg">
+			<operation-description name="KEGG annotation"
+				path="10@annotation/20@enzymes/10@load/"
+				uid="operations.LoadAnnotationKegg.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.LoadAnnotationKegg.ID"
+				icon="icons/Lifecycle/remote.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.loaders.annotation.enzymes.LoadAnnotationGFF">
+			<operation-description name="GFF3"
+				path="10@annotation/20@enzymes/20@load/"
+				uid="operations.LoadAnnotationGFF.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.LoadAnnotationGFF.ID"
+				icon="icons/Lifecycle/upload.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.loaders.annotation.enzymes.LoadAnnotationGenBank">
+			<operation-description name="GenBank"
+				path="10@annotation/20@enzymes/30@load"
+				uid="operations.LoadAnnotationGenBank.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.LoadAnnotationGenBank.ID"
+				icon="icons/Lifecycle/upload.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.modelTools.CorrectReversibility">
+			<operation-description
+				name="correct reversibility" path="20@model/10@tools/"
+				uid="operations.CorrectReversibility.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.CorrectReversibility.ID"
+				icon="icons/Lifecycle/reversibility.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+				<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.modelTools.CreateDrains">
+			<operation-description name=" drains"
+				path="30@model/10@create/" uid="operations.CreateDrains.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation operation="operations.CreateDrains.ID"
+				icon="icons/Lifecycle/drain.png" />
+		</extension>
+		
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+		
+				<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.modelTools.FindUnbalancedReactions">
+			<operation-description name="unbalanced reactions"
+				path="30@model/10@find/"
+				uid="operations.FindUnbalancedReactions.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.FindUnbalancedReactions.ID"
+				icon="icons/Lifecycle/zoom.png" />
+		</extension>
+		
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.modelTools.FindGaps">
+			<operation-description name="blocked reactions"
+				path="30@model/10@find/"
+				uid="operations.FindGaps.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation operation="operations.FindGaps.ID"
+				icon="icons/Lifecycle/zoom.png" />
+		</extension>
+		
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+		
+		<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.modelTools.RemoveUnconnectedReactions">
+			<operation-description name="blocked reactions"
+				path="30@model/10@remove/"
+				uid="operations.RemoveUnconnectedReactions.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.RemoveUnconnectedReactions.ID"
+				icon="icons/Lifecycle/exit.png" />
+		</extension>
+		
+				<extension uid="aibench.core"
+			name="aibench.core.operation-definition"
+			class="pt.uminho.ceb.biosystems.merlin.gui.operations.modelTools.RemoveDrains">
+			<operation-description name="drains"
+				path="30@model/10@remove/" uid="operations.RemoveDrains.ID" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation operation="operations.RemoveDrains.ID"
+				icon="icons/Lifecycle/exit.png" />
+		</extension>
+
+		<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+			<extension uid="aibench.core" name="aibench.core.operation-definition" class="pt.uminho.ceb.biosystems.merlin.gui.operations.NewQuery"> 
+			<operation-description name="New Query" path="7@Database/" uid= "operations.NewQuery.ID"/> 
+			</extension> <extension uid="aibench.workbench" name="aibench.workbench.view" 
+			> <icon-operation operation="operations.NewQuery.ID" icon="icons/Lifecycle/Folder_Burn.png"/> 
+			</extension> %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+			<extension uid="aibench.core" name="aibench.core.operation-definition" class="pt.uminho.ceb.biosystems.merlin.gui.operations.IntegrateHomologyToDatabase"> 
+			<operation-description name="Metabolic (Re)-Annotation Data Integration" 
+			path="1@Integration/" uid= "operations.IntegrateHomologyToDatabase.ID"/> 
+			</extension> <extension uid="aibench.workbench" name="aibench.workbench.view" 
+			> <icon-operation operation="operations.IntegrateHomologyToDatabase.ID" icon="icons/Lifecycle/FolderBlue.png"/> 
+			board.png </extension> %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<icon-operation
+				operation="operations.QuitOperation.ID"
+				icon="icons/Lifecycle/logout_icon.png" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+
+			<!-- %%%%% Annotation Views %%%%% -->
+			<view name="enzymes annotation"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.annotation.AnnotationEnzymesAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.annotation.AnnotationEnzymesView" />
+
+			<view name="transporters annotation"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.annotation.AnnotationTransportersAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.annotation.AnnotationTransportersView" />
+
+			<view name="compartments annotation"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.annotation.AnnotationCompartmentsAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.annotation.AnnotationCompartmentsView" />
+
+			<!-- %%%%% Workspace Views %%%%% -->
+			<view name="workspace"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.WorkspaceAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceAIBView" />
+
+			<view name="genes"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelGenesAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.model.ModelGenesAIBView" />
+
+			<view name="protein"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelProteinsAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.model.ModelProteinsAIBView" />
+
+
+			<view name="metabolites"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelMetabolitesAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.model.ModelMetabolitesAIBView" />
+
+			<view name="reactions"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelReactionsAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.model.ModelReactionsAIBView" />
+
+			<!-- <view name="metabolites" datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelCompartmentAIB" 
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceGenericEntityDataView" 
+				/> -->
+
+			<view name="pathways"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelPathwaysAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceGenericEntityDataView" />
+
+			<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% STATS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+			<!-- %%%%% Annotation Views %%%%% -->
+
+			<view name="statistics"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.annotation.AnnotationEnzymesAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceEntityAIBView" />
+
+			<view name="statistics"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.annotation.AnnotationTransportersAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceEntityAIBView" />
+
+			<view name="statistics"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.annotation.AnnotationCompartmentsAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceEntityAIBView" />
+
+
+			<view name="statistics"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelGenesAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceEntityAIBView" />
+
+			<view name="statistics"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelProteinsAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceEntityAIBView" />
+
+
+			<view name="statistics"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelReactionsAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceEntityAIBView" />
+
+			<view name="statistics"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelMetabolitesAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceEntityAIBView" />
+
+			<!-- <view name="statistics" datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelEnzymesAIB" 
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceEntityAIBView" 
+				/> -->
+
+			<!-- <view name="statistics" datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelMetabolitesAIB" 
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceEntityAIBView" 
+				/> -->
+
+			<view name="statistics"
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelPathwaysAIB"
+				class="pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceEntityAIBView" />
+
+
+			<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% GUI %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+			<gui-operation operation="operations.NewWorkspace.ID"
+				class="pt.uminho.ceb.biosystems.merlin.gui.jpanels.WorkspaceNewGUI" />
+
+			<gui-operation
+				operation="operations.DownloadFilesFromNcbiFtp.ID"
+				class="pt.uminho.ceb.biosystems.merlin.gui.jpanels.DownloadNcbiFilesGUI" />
+
+			<gui-operation operation="operations.KeggAnnotation.ID"
+				class="pt.uminho.ceb.biosystems.merlin.gui.jpanels.LoadKeggAnnotationGUI" />
+
+			<gui-operation operation="operations.QuitOperation.ID"
+				class="pt.uminho.ceb.biosystems.merlin.gui.jpanels.WorkspaceQuitGUI" />
+				
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+
+			<icon-datatype
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.WorkspaceAIB"
+				icon="icons/Lifecycle/database.png" />
+
+			<icon-datatype
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.WorkspaceModelEntitiesAIB"
+				icon="icons/Lifecycle/cell.png" />
+
+			<icon-datatype
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.annotation.WorkspaceAnnotationEntitiesAIB"
+				icon="icons/Lifecycle/annotation_icon.png" />
+				
+			<icon-datatype
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.validation.WorkspaceValidationEntitiesAIB"
+				icon="icons/Lifecycle/validation.png" />
+				
+			<icon-datatype
+				datatype="pt.uminho.ceb.biosystems.merlin.gui.datatypes.regulation.WorkspaceRegulationEntitiesAIB"
+				icon="icons/Lifecycle/regulation_new_icon.png" />
+
+			<icon-datatype
+				datatype="pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceEntity"
+				icon="icons/Lifecycle/board.png" />
+		</extension>
+
+		<extension uid="aibench.workbench"
+			name="aibench.workbench.view">
+			<menu-icon menu="workspace" icon="conf/icons/database.png" />
+			<menu-icon menu="workspace/import" icon="conf/icons/database_import.png" />
+			<menu-icon menu="workspace/export" icon="conf/icons/export.png" />
+			<menu-icon menu="workspace/compatibility" icon="conf/icons/compatibility.png" />
+			
+			<menu-icon menu="annotation" icon="conf/icons/annotation_icon.png" />
+			<menu-icon menu="annotation/enzymes" icon="conf/icons/enzymes_black.png" />
+			<!-- <menu-icon menu="annotation/enzymes/BLAST/" icon="conf/icons/page_search.png" />
+			<menu-icon menu="annotation/enzymes/load" icon="conf/icons/integrate.png" /> -->
+			<menu-icon menu="annotation/compartments" icon="conf/icons/compartments.png" />
+			
+			<menu-icon menu="validation" icon="conf/icons/validation.png" />
+			<menu-icon menu="validation/BioISO" icon="conf/icons/Lifecycle/remote.png" />
+			
+			<menu-icon menu="regulation" icon="conf/icons/regulation_new_icon.png" />
+			
+			<menu-icon menu="model" icon="conf/icons/cell.png" />
+			
+			<menu-icon menu="model/load" icon="conf/icons/integrate.png" />
+			<menu-icon menu="model/find" icon="conf/icons/page_search.png" />
+			<menu-icon menu="model/create" icon="conf/icons/create.png" />
+			<menu-icon menu="model/remove" icon="conf/icons/eraser.png" />
+			<menu-icon menu="model/tools" icon="conf/icons/tools.png" />
+
+			<menu-icon menu="settings" icon="conf/icons/settings.png" />
+			
+		</extension>
+
+	</extensions>
+
+</plugin>

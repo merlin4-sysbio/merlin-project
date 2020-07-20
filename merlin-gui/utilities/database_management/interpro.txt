@@ -1,0 +1,7 @@
+interpro_xRef
+interpro_result_has_entry
+interpro_entry
+interpro_result_has_model
+interpro_location
+interpro_result
+interpro_results

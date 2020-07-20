@@ -1,0 +1,26 @@
+log4j.rootLogger=INFO,textArea,stdout,RollingAppender
+
+#
+# My TextAreaAppender (build by us)
+#
+log4j.appender.textArea=es.uvigo.ei.aibench.TextAreaAppender
+log4j.appender.textArea.layout=org.apache.log4j.PatternLayout
+# The Text Area is user-oriented, no debug messages!
+log4j.appender.textArea.Threshold=DEBUG
+log4j.appender.textArea.layout.ConversionPattern=[%d{yyyy-MM-dd_HH:mm:ss}] [%c] %m%n
+#log4j.appender.textArea.layout.ConversionPattern=%-4r [%t] %-5p %c %x - %m%n
+
+#
+# File Appender
+log4j.appender.RollingAppender=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.RollingAppender.File=./logs/logsAibench/AIBENCH
+log4j.appender.RollingAppender.DatePattern='_'yyyy-MM-dd_HH-mm'.log'
+log4j.appender.RollingAppender.layout=org.apache.log4j.PatternLayout
+log4j.appender.RollingAppender.layout.ConversionPattern=[%d{HH:mm:ss,SSS}] [%t] %-5p %c %x - %m%n
+
+#
+# ConsoleAppender
+#
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=[%d{yyyy-MM-dd_HH:mm:ss,SSS}] [%t] %-5p %c %x - %m%n

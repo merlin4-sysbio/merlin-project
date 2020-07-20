@@ -1,0 +1,32 @@
+package pt.uminho.ceb.biosystems.merlin.dao.interfaces.annotation.enzymes;
+
+import java.util.List;
+
+import pt.uminho.ceb.biosystems.merlin.dao.interfaces.IGenericDao;
+import pt.uminho.ceb.biosystems.merlin.entities.annotation.enzymes.EnzymesAnnotationEcNumberRankHasOrganism;
+
+
+public interface IEnzymesAnnotationEcNumberrankHasOrganismDAO extends IGenericDao<EnzymesAnnotationEcNumberRankHasOrganism>{
+
+	public void addEnzymesAnnotationEcNumberRankHasOrganism(EnzymesAnnotationEcNumberRankHasOrganism EnzymesAnnotationEcNumberRankHasOrganism); 
+	
+	public void addEnzymesAnnotationEcNumberrankList(List<EnzymesAnnotationEcNumberRankHasOrganism> EnzymesAnnotationEcNumberRankHasOrganismList); 
+	
+	public List<EnzymesAnnotationEcNumberRankHasOrganism> getAllEnzymesAnnotationEcNumberRankHasOrganism(); 
+	
+	public EnzymesAnnotationEcNumberRankHasOrganism getEnzymesAnnotationEcNumberRankHasOrganism(Integer id); 
+	
+	public void removeEnzymesAnnotationEcNumberRankHasOrganism(EnzymesAnnotationEcNumberRankHasOrganism EnzymesAnnotationEcNumberRankHasOrganism); 
+	
+	public void removeEnzymesAnnotationEcNumberRankHasOrganismList(List<EnzymesAnnotationEcNumberRankHasOrganism> EnzymesAnnotationEcNumberRankHasOrganismList); 
+	
+	public void updateEnzymesAnnotationEcNumberRankHasOrganismList(List<EnzymesAnnotationEcNumberRankHasOrganism> EnzymesAnnotationEcNumberRankHasOrganismList); 
+	
+	public void updateEnzymesAnnotationEcNumberRankHasOrganism(EnzymesAnnotationEcNumberRankHasOrganism EnzymesAnnotationEcNumberRankHasOrganism);
+
+	public Boolean FindEnzymesAnnotationEcNumberRankHasOrganismByIds(Integer sKey, Integer orgKey);
+
+	public void InsertEnzymesAnnotationEcNumberRankHasOrganism(Integer sKey, Integer orgKey);
+
+	public List<Integer> getAllEcRankSKeyInEcRankHasOrganism();
+}

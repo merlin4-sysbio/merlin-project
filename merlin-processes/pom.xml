@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>pt.uminho.ceb.biosystems.merlin</groupId>
+		<artifactId>merlin-project</artifactId>
+		<version>4.0.3-RELEASE</version>
+		<!-- WARNING: change version using (in the parent project): mvn versions:set 
+			-DnewVersion=[new_version] mvn versions:commit This will change the version 
+			in all modules at-once -->
+
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>merlin-processes</artifactId>
+	<packaging>jar</packaging>
+	<name>merlin-processes</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
+			<artifactId>merlin-core</artifactId>
+			<version>${pt.uminho.ceb.biosystems.merlin.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
+			<artifactId>merlin-utilities</artifactId>
+			<version>${pt.uminho.ceb.biosystems.merlin.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
+			<artifactId>merlin-bioapis</artifactId>
+			<version>${pt.uminho.ceb.biosystems.merlin.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
+			<artifactId>merlin-biocomponents</artifactId>
+			<version>${pt.uminho.ceb.biosystems.merlin.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>biosynth.core</groupId>
+			<artifactId>graphapi</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.htmlparser</groupId>
+			<artifactId>htmlparser</artifactId>
+			<version>2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.11.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
+		</dependency>
+	</dependencies>
+</project>
