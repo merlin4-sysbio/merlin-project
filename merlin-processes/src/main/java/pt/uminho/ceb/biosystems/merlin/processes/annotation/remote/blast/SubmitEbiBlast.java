@@ -71,6 +71,15 @@ public class SubmitEbiBlast implements Runnable {
 	private Map<String, Long> ridsLatency;
 
 	private Double userEval;
+	
+	private Float identityLowerThreshold;
+	
+	private Float positives;
+	
+	private Float queryCoverage;
+	
+	private Float targetCoverage;
+
 
 
 	/**
@@ -101,7 +110,8 @@ public class SubmitEbiBlast implements Runnable {
 			Map<String, String> queryRIDMap, 
 			String[] orgArray, 
 			long latencyWaitingPeriod, long taxonomyIdentifier, 
-			boolean uniprotStatus, Double userEval) throws Exception  {
+			boolean uniprotStatus, Double userEval, Float identityLowerThreshold, Float positives,
+			Float queryCoverage, Float targetCoverage) throws Exception  {
 
 		this.sequencesCounter = sequencesCounter;
 		this.organismTaxa=orgArray;
@@ -111,6 +121,10 @@ public class SubmitEbiBlast implements Runnable {
 		this.rids = rids;
 		this.taxonomyIdentifier = taxonomyIdentifier;
 		this.userEval = userEval;
+		this.identityLowerThreshold = identityLowerThreshold;
+		this.positives = positives;
+		this.queryCoverage = queryCoverage;
+		this.targetCoverage = targetCoverage;
 		
 		this.rof = new NCBIQBlastOutputProperties();
 		if(rqb.getOrganism()!=null)
@@ -221,9 +235,10 @@ public class SubmitEbiBlast implements Runnable {
 						}
 						else {
 							
-							List<BlastIterationData> ebiBlastResultsWithValidEval = filterByUserEval(ebiBlastParser, this.userEval);   // blast results that passed the Eval threshold
+							List<BlastIterationData> ebiBlastResultsWithValidEval = filterByUserEval(ebiBlastParser, this.userEval, this.identityLowerThreshold,
+									this.positives, this.queryCoverage, this.targetCoverage);   // blast results that passed the Eval threshold
 
-							if(ebiBlastParser.isSimilarityFound() && !ebiBlastResultsWithValidEval.isEmpty()) { // if we found any homologues and they passed the Eval threshold
+							if(ebiBlastParser.isSimilarityFound() && !ebiBlastResultsWithValidEval.isEmpty()) { // if we found any homologues and they passed the thresholds
 								
 								ebiBlastParser.setResults(ebiBlastResultsWithValidEval); // use only the results that passed the Eval threshold
 								logger.debug("Similarity found for "+ebiBlastParser.getResults().get(0).getQueryID());
@@ -232,7 +247,7 @@ public class SubmitEbiBlast implements Runnable {
 
 									RemoteDataRetriever homologyDataEbiClient = new RemoteDataRetriever(ebiBlastParser, this.organismTaxa, this.taxonomyMap, this.uniprotStar, this.cancel, 
 											HomologySearchServer.EBI, this.rqb.getHitlistSize(), this.uniprotStatus, this.taxonomyIdentifier);
-
+									
 									if(homologyDataEbiClient.getFastaSequence()==null)
 										homologyDataEbiClient.setFastaSequence(this.queryRIDMap.get(aRid).split("\n")[1]);
 
@@ -423,7 +438,8 @@ public class SubmitEbiBlast implements Runnable {
 	 * @param ebiBlastParser
 	 * @return
 	 */
-	private  List<BlastIterationData> filterByUserEval(EbiBlastParser ebiBlastParser, Double eval) {
+	private  List<BlastIterationData> filterByUserEval(EbiBlastParser ebiBlastParser, Double eval, Float identityLowerThreshold, 
+			Float positivesThreshold, Float queryCoverageThreshold, Float targetCoverageThreshold) {
 
 		List<BlastIterationData> blastResults = new ArrayList<BlastIterationData>();
 		if(ebiBlastParser != null) 
@@ -441,7 +457,17 @@ public class SubmitEbiBlast implements Runnable {
 
 				if(id!=null) {
 
-					if(Double.parseDouble(hit.getAlignments().getAlignment().get(0).getExpectation() +"") <= eval )
+					Integer hitQuerySeqLength = result.getHitQuerySeqLength(hit);
+					Integer queryLength = result.getQueryLen();
+					Integer hitLength = result.getHitLength(i+1+"");
+					Integer hitTargetSeqLength = result.getHitMatchSeqLength(hit);
+					
+					Float queryCoverage = (float) hitQuerySeqLength / queryLength;
+					Float targetCoverage = (float) hitTargetSeqLength / hitLength;
+					Float identity = (float) result.getHitIdentity(hit) / 100;
+					
+					// See later if it is worth it to implement the POSITIVES threshold
+					if(Double.parseDouble(hit.getAlignments().getAlignment().get(0).getExpectation() +"") <= eval && identity>=identityLowerThreshold && queryCoverage>=queryCoverageThreshold && targetCoverage>=targetCoverageThreshold)
 						hitsThatPassedEvalueThreshold.add(hit);
 				}
 			}

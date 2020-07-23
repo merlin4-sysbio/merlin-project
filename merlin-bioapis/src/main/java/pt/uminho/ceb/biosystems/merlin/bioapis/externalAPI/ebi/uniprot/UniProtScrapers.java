@@ -77,8 +77,9 @@ public class UniProtScrapers {
 						taxonomy[1] = "";
 					}
 				}
-
-				taxonomy[1] = taxonomy[1].replaceAll(";\\s$", "");
+				
+				if(taxonomy[1] != null)
+					taxonomy[1] = taxonomy[1].replaceAll(";\\s$", "");
 
 				return taxonomy;
 

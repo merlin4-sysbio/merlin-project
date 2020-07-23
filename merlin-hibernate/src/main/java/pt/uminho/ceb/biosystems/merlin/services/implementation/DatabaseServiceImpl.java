@@ -1264,6 +1264,21 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
+	
+	
+	public Map<Integer, String> getGeneIdAndGeneQuery() throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			Map<Integer, String> result = geneservice.getGeneIdAndGeneQuery();
+			tx.commit();
+			return (Map<Integer, String>) result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+	
 
 	public void deleteDuplicatedQuerys(String query) throws Exception {  
 		Transaction tx = null;
@@ -4457,11 +4472,11 @@ public class DatabaseServiceImpl implements IDatabaseService{
 
 
 	public void load_geneHomology_has_homologues(String referenceID, String gene, Float eValue, Float bits,
-			Integer geneHomology_s_key, Integer homologues_s_key) throws Exception{
+			Integer geneHomology_s_key, Integer homologues_s_key , Float identity, Float positives, Float queryCoverage, Float targetCoverage) throws Exception{
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			annotationService.load_geneHomology_has_homologues(referenceID, gene, eValue, bits, geneHomology_s_key, homologues_s_key);;
+			annotationService.load_geneHomology_has_homologues(referenceID, gene, eValue, bits, geneHomology_s_key, homologues_s_key, identity, positives, queryCoverage, targetCoverage);
 			tx.commit();
 		} catch (RuntimeException e) {
 			tx.rollback();
@@ -5821,6 +5836,40 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
+	
+	
+
+	
+	@Override
+	public void updateModelAlias(int modelAliasId, String cl, int entity, String alias) throws Exception {
+
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			aliasesService.updateModelAlias(modelAliasId, cl, entity, alias);
+			tx.commit();
+		}
+		catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+	
+	
+	@Override
+	public void removeModelAlias(int modelAliasId) throws Exception {
+
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			aliasesService.removeModelAlias(modelAliasId);
+			tx.commit();
+		}
+		catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
 
 
 	@Override
@@ -6861,12 +6910,14 @@ public class DatabaseServiceImpl implements IDatabaseService{
 
 
 	@Override
-	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, 
+			Float lowerIdentity, Float positives, Float queryCoverage, Float targetCoverage, String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			int res = annotationService.getHomologySetupSkeyByAttributes(databaseID, program, eVal, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
+			int res = annotationService.getHomologySetupSkeyByAttributes(databaseID, program, eVal, lowerIdentity, positives, queryCoverage, targetCoverage,
+					matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
 			tx.commit();
 			return res;
 
@@ -6893,12 +6944,13 @@ public class DatabaseServiceImpl implements IDatabaseService{
 
 
 	@Override
-	public Integer insertHomologySetup(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public Integer insertHomologySetup(String databaseID, String program, double eVal, Float lowerIdentity, Float positives,
+			Float queryCoverage, Float targetCoverage,String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			int res = annotationService.insertHomologySetup(databaseID, program, eVal, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
+			int res = annotationService.insertHomologySetup(databaseID, program, eVal, lowerIdentity, positives, queryCoverage, targetCoverage, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
 			tx.commit();
 			return res;
 
@@ -8524,6 +8576,22 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 		
+	}
+
+
+	@Override
+	public List<SequenceContainer> getSequencesbySequenceType(SequenceType seqtype) throws Exception {
+		
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			List<SequenceContainer> result = sequenceservice.getSequencesbySequenceType(seqtype);
+			tx.commit();
+			return result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
 	}
 
 }

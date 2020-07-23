@@ -12,6 +12,7 @@ import java.util.GregorianCalendar;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.apache.axis.AxisFault;
 import org.biojava.nbio.core.sequence.template.AbstractSequence;
@@ -258,8 +259,9 @@ public class HomologyHmmer implements PropertyChangeListener {
 				while(this.resultsList.size()>0) {
 
 					LoadSimilarityResultstoDatabase lbr = new LoadSimilarityResultstoDatabase(this.project.getName(),this.resultsList.poll(), 
-							Double.parseDouble(this.eVal), Integer.parseInt(this.numberOfAlignments), 
+							Double.parseDouble(this.eVal), (float) 0, (float) 0, (float) 0, (float) 0,  Integer.parseInt(this.numberOfAlignments), 
 							this.hmmer_loader.isCancel(), true, this.sequences);
+	
 					lbr.loadData(project.getName());
 				}
 			}

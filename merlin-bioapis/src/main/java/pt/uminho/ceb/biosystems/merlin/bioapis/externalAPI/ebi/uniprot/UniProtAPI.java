@@ -1071,6 +1071,14 @@ public class UniProtAPI {
 						homologuesData.addEValue(primary_accession,0.0);
 					if(!homologuesData.getBits().containsKey(primary_accession))
 						homologuesData.addBits(primary_accession,999999);
+					if(!homologuesData.getIdentity().containsKey(primary_accession))
+						homologuesData.addIdentity(primary_accession, 1);
+					if(!homologuesData.getPositives().containsKey(primary_accession))
+						homologuesData.addPositives(primary_accession,999999);
+					if(!homologuesData.getQuery_coverage().containsKey(primary_accession))
+						homologuesData.addQueryCoverage(primary_accession,1);
+					if(!homologuesData.getTarget_coverage().containsKey(primary_accession))
+						homologuesData.addTargetCoverage(primary_accession, 1);
 
 					UniProtAPI.setHomologuesData(homologuesData, primary_accession, locus, entry);
 				}

@@ -3,17 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-		<parent>
+	<parent>
 		<groupId>pt.uminho.ceb.biosystems.merlin</groupId>
 		<artifactId>merlin-project</artifactId>
-		<version>4.0.05-SNAPSHOT</version>
-		<!--
-			WARNING: change version using (in the parent project):
-				mvn versions:set -DnewVersion=[new_version]
-				mvn versions:commit
-
-			This will change the version in all modules at-once
-		-->
+		<version>4.0.4-RELEASE</version>
+		<!-- WARNING: change version using (in the parent project): mvn versions:set 
+			-DnewVersion=[new_version] mvn versions:commit This will change the version 
+			in all modules at-once -->
 
 		<relativePath>../pom.xml</relativePath>
 	</parent>
@@ -99,5 +95,7 @@
 			<artifactId>jtds</artifactId>
 			<version>1.3.1</version>
 		</dependency>
+
+
 	</dependencies>
 </project>

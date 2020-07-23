@@ -1,7 +1,9 @@
 package pt.uminho.ceb.biosystems.merlin.services.model;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -13,6 +15,7 @@ import org.biojava.nbio.core.sequence.template.AbstractSequence;
 import pt.uminho.ceb.biosystems.merlin.core.containers.model.SequenceContainer;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.SequenceType;
 import pt.uminho.ceb.biosystems.merlin.dataAccess.InitDataAccess;
+import pt.uminho.ceb.biosystems.merlin.entities.model.ModelSequence;
 
 public class ModelSequenceServices {
 
@@ -85,6 +88,73 @@ public class ModelSequenceServices {
 		}
 		return genomeSequences;
 	}
+	
+	
+	
+	// this is an identical method to the one above except that it uses gene database IDs instead of gene queries
+	public static Map<String, AbstractSequence<?>> getGenomeFromDatabaseDbIdsOnly(String databaseName, SequenceType seqType) throws Exception{
+
+		Map<String, AbstractSequence<?>> genomeSequences = new HashMap<>();
+
+		List<SequenceContainer> sequences = InitDataAccess.getInstance().getDatabaseService(databaseName).getSequencesbySequenceType(seqType);
+		
+		AbstractSequence<?> sequence;
+
+		//protein.faa
+		if(seqType.equals(SequenceType.PROTEIN)){
+
+			for(SequenceContainer entry :sequences) {
+
+				sequence = new ProteinSequence(entry.getSequence());
+				sequence.setSource(entry.getId()+"");
+				sequence.setOriginalHeader(entry.getGeneID()+"");
+				genomeSequences.put(entry.getGeneID()+"", sequence);
+			}
+		}
+
+		//cds_from_genomic.faa
+		else if(seqType.equals(SequenceType.CDS_DNA)){
+
+			for(SequenceContainer entry :sequences) {
+
+				sequence = new DNASequence(entry.getSequence());
+				sequence.setOriginalHeader(entry.getGeneID()+"");
+				sequence.setSource(entry.getId()+"");
+
+				genomeSequences.put(entry.getGeneID()+"",sequence);
+			}
+		}
+
+		//rna_from_genomic.fna and genomic.fna
+		else if(seqType.equals(SequenceType.GENOMIC_DNA)){
+
+			for(SequenceContainer entry :sequences) {
+
+				String key = seqType.toString().concat("_").concat(entry.getGeneID()+"");
+
+				sequence = new DNASequence(entry.getSequence());
+				sequence.setSource(entry.getId()+"");
+
+				genomeSequences.put(key, sequence);
+
+			}
+		} 
+
+		else {
+
+			for(SequenceContainer entry :sequences) {
+				
+				String key = seqType.toString().concat("_").concat(entry.getId()+"");
+
+				sequence = new RNASequence(entry.getSequence());
+				sequence.setSource(entry.getId()+"");
+
+				genomeSequences.put(key, sequence);
+			}
+		}
+		return genomeSequences;
+	}
+	
 	
 	/**
 	 * @param sequences

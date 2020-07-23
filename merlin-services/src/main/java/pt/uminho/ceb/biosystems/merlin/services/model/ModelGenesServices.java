@@ -360,6 +360,17 @@ public class ModelGenesServices {
 		return InitDataAccess.getInstance().getDatabaseService(databaseName).getQueriesByGeneId();
 
 	}
+	
+	/**
+	 * @param databaseName
+	 * @return
+	 * @throws Exception
+	 */
+	public static Map<Integer, String> getGeneIdandGeneQuery(String databaseName) throws Exception {
+
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).getGeneIdAndGeneQuery();
+
+	}
 
 	/**
 	 * @param databaseName

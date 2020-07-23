@@ -45,7 +45,7 @@ public class KeggRestful {
 	private static final int READ_TIMEOUT = 20000; //miliseconds
 
 	private static final HttpClientParams params = new HttpClientParams();
-	private static final int MAX_TRIES = 15;
+	private static final int MAX_TRIES = 3;
 
 	static {
 		params.setSoTimeout(READ_TIMEOUT);
@@ -157,7 +157,7 @@ public class KeggRestful {
 			
 			if (statusCode != HttpStatus.SC_OK) {
 				
-				MySleep.myWait(10000);
+				MySleep.myWait(1000);
 				
 				if(num<MAX_TRIES){
 					num++;

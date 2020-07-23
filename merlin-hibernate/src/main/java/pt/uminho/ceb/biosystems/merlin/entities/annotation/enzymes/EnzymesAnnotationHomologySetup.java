@@ -33,6 +33,10 @@ public class EnzymesAnnotationHomologySetup implements java.io.Serializable {
 	private String programVersion;
 	private String databaseId;
 	private String evalue;
+	private String lowerIdentity;
+	private String positives;
+	private String queryCoverage;
+	private String targetCoverage;
 	private String matrix;
 	private String wordSize;
 	private String gapCosts;
@@ -49,7 +53,8 @@ public class EnzymesAnnotationHomologySetup implements java.io.Serializable {
 	}
 
 	public EnzymesAnnotationHomologySetup(int SKey, String program, String programVersion, String databaseId,
-			String evalue, String matrix, String wordSize, String gapCosts, Integer maxNumberOfAlignments, Date date,
+			String evalue, String lowerIdentity, String positives, String queryCoverage, String targetCoverage,
+			String matrix, String wordSize, String gapCosts, Integer maxNumberOfAlignments, Date date,
 			Set<EnzymesAnnotationGeneHomology> enzymesAnnotationGeneHomologies) {
 		this.SKey = SKey;
 		this.program = program;
@@ -62,6 +67,10 @@ public class EnzymesAnnotationHomologySetup implements java.io.Serializable {
 		this.maxNumberOfAlignments = maxNumberOfAlignments;
 		this.date = date;
 		this.enzymesAnnotationGeneHomologies = enzymesAnnotationGeneHomologies;
+		this.lowerIdentity = lowerIdentity;
+		this.positives = positives;
+		this.queryCoverage = queryCoverage;
+		this.targetCoverage = targetCoverage;
 	}
 
 	@Id
@@ -110,6 +119,43 @@ public class EnzymesAnnotationHomologySetup implements java.io.Serializable {
 
 	public void setEvalue(String evalue) {
 		this.evalue = evalue;
+	}
+	
+	@Column(name = "lowerIdentity", length = 45)
+	public String getLowerIdentity() {
+		return this.lowerIdentity;
+	}
+
+	public void setLowerIdentity(String lowerIdentity) {
+		this.lowerIdentity = lowerIdentity;
+	}
+	
+	
+	@Column(name = "positives", length = 45)
+	public String getPositives() {
+		return this.positives;
+	}
+
+	public void setPositives(String positives) {
+		this.positives = positives;
+	}
+	
+	@Column(name = "queryCoverage", length = 45)
+	public String getQueryCoverage() {
+		return this.queryCoverage;
+	}
+
+	public void setQueryCoverage(String queryCoverage) {
+		this.queryCoverage = queryCoverage;
+	}
+	
+	@Column(name = "targetCoverage", length = 45)
+	public String getTargetCoverage() {
+		return this.targetCoverage;
+	}
+
+	public void setTargetCoverage(String targetCoverage) {
+		this.targetCoverage = targetCoverage;
 	}
 
 	@Column(name = "matrix", length = 45)

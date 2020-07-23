@@ -83,10 +83,10 @@ public interface IAnnotationEnzymesService {
 
 	public void insertEnzymesAnnotationHomologuesHasEcNumber(int homologues_s_key, int ecnumber_s_key) throws Exception;
 
-	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, Float lowerIdentity, Float positives, Float queryCoverage, Float targetCoverage, String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) throws Exception;
 
-	public Integer insertHomologySetup(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public Integer insertHomologySetup(String databaseID, String program, double eVal, Float lowerIdentity, Float positives, Float queryCoverage, Float targetCoverage, String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) throws Exception;
 
 	public int getHomologySetupSkeyByAttributes2(String databaseID, String program, double eVal, int maxNumberOfAlignments,
@@ -128,7 +128,7 @@ public interface IAnnotationEnzymesService {
 	public Integer getGeneHomologySkey(Integer skey, String query) throws Exception;
 
 	public void load_geneHomology_has_homologues(String referenceID, String gene, Float eValue, Float bits,
-			Integer geneHomology_s_key, Integer homologues_s_key) throws Exception;
+			Integer geneHomology_s_key, Integer homologues_s_key, Float identity, Float positives, Float queryCoverage, Float targetCoverage) throws Exception;
 
 	public GeneContainer getGeneHomologyEntryByQuery(String query) throws Exception;
 
@@ -160,5 +160,7 @@ public interface IAnnotationEnzymesService {
 	public Set<String> getAllBlastDatabases() throws Exception;
 
 	public boolean deleteGenesWithoutECRankAndProdRank() throws Exception;
+
+
 
 }

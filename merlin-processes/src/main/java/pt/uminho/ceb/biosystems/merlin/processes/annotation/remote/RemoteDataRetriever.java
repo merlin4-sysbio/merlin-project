@@ -264,6 +264,11 @@ public class RemoteDataRetriever {
 
 		this.homologuesData.setBits(new HashMap<String, Double>());
 		this.homologuesData.setEValue(new HashMap<String, Double>());
+		this.homologuesData.setIdentity(new HashMap<String, Double>());
+		this.homologuesData.setPositives(new HashMap<String, Double>());
+		this.homologuesData.setQuery_coverage(new HashMap<String, Double>());
+		this.homologuesData.setTarget_coverage(new HashMap<String, Double>());
+
 		List<String> resultsList = new ArrayList<String>();
 
 		for (BlastIterationData result : list) {
@@ -280,15 +285,30 @@ public class RemoteDataRetriever {
 
 				if(id!=null) {
 
+					Integer hitQuerySeqLength = result.getHitQuerySeqLength(hit);
+					Integer queryLength = result.getQueryLen();
+					Integer hitLength = result.getHitLength(i+1+"");
+					Integer hitTargetSeqLength = result.getHitMatchSeqLength(hit);
+					
+					Float queryCoverage = (float) hitQuerySeqLength / queryLength;
+					Float targetCoverage = (float) hitTargetSeqLength / hitLength;
+					Float identity = (float) result.getHitIdentity(hit) / 100;
 					resultsList.add(i, id);
 					this.homologuesData.addBits(id, result.getHitBitScore(hit));
 					this.homologuesData.addEValue(id, result.getHitEvalue(hit));
+					this.homologuesData.addIdentity(id, identity);
+					this.homologuesData.addPositives(id, result.getHitPositive(hit));
+					this.homologuesData.addQueryCoverage(id, queryCoverage);
+					this.homologuesData.addTargetCoverage(id, targetCoverage);
+
+					
 				}
 			}
 		}
 		return resultsList;
 	}
 
+	
 
 
 	/**

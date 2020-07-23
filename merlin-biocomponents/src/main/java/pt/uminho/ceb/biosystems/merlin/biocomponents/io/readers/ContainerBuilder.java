@@ -142,7 +142,7 @@ public class ContainerBuilder implements IContainerBuilder {
 		this.getStoichiometry(isCompartmentalizedModel);
 		this.getCompartments(isCompartmentalizedModel);
 		this.buildModel(reactionsExtraInfoRequired);
-		
+
 	}
 
 
@@ -166,7 +166,7 @@ public class ContainerBuilder implements IContainerBuilder {
 			enzymeContainer = result2.get(i);	
 
 			for(int reactionIdentifier : enzymeContainer.getReactionsIdentifier()) {
-				
+
 				if(this.reactions.containsKey(reactionIdentifier) && enzymeContainer.getExternalIdentifier() != null && !enzymeContainer.getExternalIdentifier().contains(".-")) {
 
 					ReactionContainer reactionContainer = this.reactions.get(reactionIdentifier);
@@ -248,9 +248,9 @@ public class ContainerBuilder implements IContainerBuilder {
 
 		List<String[]> result2 = ModelReactionsServices.getStoichiometryInfo(this.databaseName, isCompartmentalized);
 		if(result2 != null) {
-		
+
 			for(int i=0; i<result2.size(); i++) {
-	
+
 				int idreaction = Integer.parseInt(result2.get(i)[1]);
 				int idMetabolite = Integer.parseInt(result2.get(i)[2]);
 				double stoichiometry = Double.parseDouble(result2.get(i)[3]);
@@ -260,22 +260,22 @@ public class ContainerBuilder implements IContainerBuilder {
 				String metaboliteCompartmentName = result2.get(i)[8];
 				int metaboliteIdCompartment = Integer.valueOf(result2.get(i)[9]);
 				String metaboliteCompartmentAbbreviation = result2.get(i)[10];
-	
+
 				//				System.out.println(idreaction+" "+reactionName+" "+this.reactions.containsKey(idreaction));
-	
+
 				if(this.reactions.containsKey(idreaction)) {
-	
+
 					//					if(!list2[3].contains("m") && !list2[3].contains("n")) {
-	
+
 					List<MetaboliteContainer> metabolitesContainer = new ArrayList<MetaboliteContainer>();
-	
+
 					if(this.reactionMetabolites.containsKey(idreaction))
 						metabolitesContainer = this.reactionMetabolites.get(idreaction);
-	
+
 					MetaboliteContainer metabolite = new MetaboliteContainer(idMetabolite, metaboliteName, formula, 
 							stoichiometry,metaboliteCompartmentName, metaboliteIdCompartment, metaboliteCompartmentAbbreviation, metaboliteExternalIdentifier);
 					metabolitesContainer.add(metabolite);
-	
+
 					this.reactionMetabolites.put(idreaction, metabolitesContainer);
 					//					}
 					//					else {
@@ -353,7 +353,7 @@ public class ContainerBuilder implements IContainerBuilder {
 
 		if(compartment == null)
 			System.out.println("null compartment");
-		
+
 		String output = identifier.concat("__").concat(compartment.toLowerCase());
 
 		if(!output.startsWith(prefix))
@@ -400,7 +400,7 @@ public class ContainerBuilder implements IContainerBuilder {
 					else {
 
 						String compartmentAbb = this.compartments.get(metabolite.getCompartmentID()+"").getAbbreviation();
-//						System.out.println(metabolite.getName());
+						//						System.out.println(metabolite.getName());
 						mid = ContainerBuilder.buildID("M_", metabolite.getExternalIdentifier(), compartmentAbb);
 						compoundCompartmentID.put(metabolite_surrogate,mid);
 
@@ -538,10 +538,11 @@ public class ContainerBuilder implements IContainerBuilder {
 					List<List<Pair<String,String>>> rule = ModelReactionsServices.parseBooleanRule(this.databaseName, reaction.getGeneRule());
 					geneRule = Utilities.parseRuleListToString(rule);
 				}
-				
-				
-				if(geneRule!= null && !geneRule.isEmpty())
+
+
+				if(geneRule!= null && !geneRule.isEmpty()) 
 					r.setGeneRule(geneRule);
+
 
 				this.reactionsMap.put(r.getId(), r);
 

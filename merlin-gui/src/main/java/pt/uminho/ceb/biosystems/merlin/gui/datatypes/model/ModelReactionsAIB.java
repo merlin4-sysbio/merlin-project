@@ -211,10 +211,11 @@ public class ModelReactionsAIB extends ModelReactions implements IEntityAIB {
 				for(GeneContainer gene : data) {
 
 					String locusTag = gene.getLocusTag();
-					String name = gene.getName();
+					
+					//String name = gene.getName();
 
-					if(name != null && !name.trim().isEmpty())
-						locusTag = locusTag.concat(" (").concat(name).concat(")");
+					//if(name != null && !name.trim().isEmpty())
+					//	locusTag = locusTag.concat(" (").concat(name).concat(")");
 
 					ret.put(locusTag, gene.getIdGene());
 				}

@@ -206,6 +206,10 @@ public class AnnotationEnzymesProcesses {
 		columnsNames.add("organism");
 		columnsNames.add("e-Value");
 		columnsNames.add("score (bits)");
+		columnsNames.add("identity");
+		columnsNames.add("positives");
+		columnsNames.add("query coverage");
+		columnsNames.add("target coverage"); 
 		columnsNames.add("product");
 		columnsNames.add("EC number");
 		res[datatableCounter] = new WorkspaceDataTable(columnsNames, datatableNames[datatableCounter]);
@@ -271,6 +275,10 @@ public class AnnotationEnzymesProcesses {
 		columnsNames.add("version");
 		columnsNames.add("databaseID");
 		columnsNames.add("e-value");
+		columnsNames.add("lower identity");
+		columnsNames.add("positives");
+		columnsNames.add("query coverage");
+		columnsNames.add("target coverage");
 		columnsNames.add("matrix");
 		columnsNames.add("wordSize");
 		columnsNames.add("gapCosts");

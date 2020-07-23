@@ -162,7 +162,7 @@ public class ModelModuleServices {
 
 								ids.addAll(orthologues.values());
 
-								if(orthologues.isEmpty()) { 
+								if(!orthologues.keySet().contains(entryId)) { 
 
 									Integer id = ModelGenesServices.insertNewOrthologue(databaseName, entryId, null);
 

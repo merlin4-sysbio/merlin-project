@@ -28,4 +28,6 @@ public interface ISequenceService {
 
 	public Integer countSequencesByType(SequenceType type) throws Exception;
 
+	public List<SequenceContainer> getSequencesbySequenceType(SequenceType seqtype) throws Exception;
+
 }

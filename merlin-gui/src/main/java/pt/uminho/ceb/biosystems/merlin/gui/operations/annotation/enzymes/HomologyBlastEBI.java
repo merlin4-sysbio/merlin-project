@@ -65,6 +65,10 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 	private EbiRemoteDatabasesEnum database;
 	private NumberofAlignments numberOfAlignments;
 	private String eVal;
+	private String identityLowerThreshold;
+	private String positivesThreshold;
+	private String queryCoverageThreshold;
+	private String targetCoverageThreshold;
 	private HomologueSequencesSearch ebiBlastSearch;
 	private boolean autoEval;
 	private int latencyWaitingPeriod;
@@ -98,32 +102,77 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 		else 
 			this.eVal = eVal;
 	}
+	
+	@Port(direction=Direction.INPUT, name="identity threshold",defaultValue="0", advanced = true, description="lower threshold of identity to accept a BLAST hit (0-1)",order=4)
+	public void setLowerIdentityThreshold(String identityLowerThreshold) {
 
-	@Port(direction=Direction.INPUT, name="adjust E-Value",defaultValue="true",  advanced = true, description="automatically adjust e-value for smaller sequences search",order=4)
+		if(identityLowerThreshold.isEmpty())
+			this.identityLowerThreshold="0";
+		if(Float.parseFloat(identityLowerThreshold) > 1)
+			this.identityLowerThreshold = Float.parseFloat(identityLowerThreshold)/100+"".replace(",", ".");
+		else
+			this.identityLowerThreshold = identityLowerThreshold;
+	}
+	
+	
+	@Port(direction=Direction.INPUT, name="positives threshold", defaultValue="0", advanced = true, description="positives threshold to accept a BLAST hit (0-1)",order=6)
+	public void setPositivesThreshold(String positivesThreshold) {
+
+		if(positivesThreshold.isEmpty())
+			this.positivesThreshold="0";
+		if(Float.parseFloat(positivesThreshold) > 1)
+			this.positivesThreshold = Float.parseFloat(positivesThreshold)/100+"".replace(",", ".");
+		else
+			this.positivesThreshold = positivesThreshold;
+	}
+	
+	@Port(direction=Direction.INPUT, name="query coverage threshold",defaultValue="0", advanced = true, description="query coverage threshold to accept a BLAST hit (0-1)",order=7)
+	public void setQueryCoverageThreshold(String queryCoverageThreshold) {
+
+		if(queryCoverageThreshold.isEmpty())
+			this.queryCoverageThreshold="0";
+		if(Float.parseFloat(queryCoverageThreshold) > 1)
+			this.queryCoverageThreshold = Float.parseFloat(queryCoverageThreshold)/100+"".replace(",", ".");
+		else
+			this.queryCoverageThreshold = queryCoverageThreshold;
+	}
+	
+	@Port(direction=Direction.INPUT, name="target coverage threshold",defaultValue="0", advanced = true, description="target coverage threshold to accept a BLAST hit (0-1)",order=8)
+	public void setTargetCoverageThreshold(String targetCoverageThreshold) {
+
+		if(targetCoverageThreshold.isEmpty())
+			this.targetCoverageThreshold="0";
+		if(Float.parseFloat(targetCoverageThreshold) > 1)
+			this.targetCoverageThreshold = Float.parseFloat(targetCoverageThreshold)/100+"".replace(",", ".");
+		else
+			this.targetCoverageThreshold = targetCoverageThreshold;
+	}
+
+	@Port(direction=Direction.INPUT, name="adjust E-Value",defaultValue="true",  advanced = true, description="automatically adjust e-value for smaller sequences search",order=9)
 	public void setEValueAutoSelection(boolean autoEval){
 
 		this.autoEval=autoEval;
 	}
 
-	@Port(direction=Direction.INPUT, name="remote database",defaultValue="uniprotkb_swissprot", validateMethod="checkDatabase", description="select the sequence database to run searches against",order=5)
+	@Port(direction=Direction.INPUT, name="remote database",defaultValue="uniprotkb_swissprot", validateMethod="checkDatabase", description="select the sequence database to run searches against",order=10)
 	public void setRemoteDatabase(EbiRemoteDatabasesEnum ls){
 
 		this.database=ls;
 	}
 
-	@Port(direction=Direction.INPUT, name="number of results",defaultValue="100",  advanced = true, description="select the maximum number of aligned sequences to display. Default: '100'",order=6)
+	@Port(direction=Direction.INPUT, name="number of results",defaultValue="100",  advanced = true, description="select the maximum number of aligned sequences to display. Default: '100'",order=11)
 	public void setNumberOfAlignments(NumberofAlignments numberOfAlignments) {
 
 		this.numberOfAlignments = numberOfAlignments;
 	}
 
-	@Port(direction=Direction.INPUT, name="substitution matrix",defaultValue="AUTO",  advanced = true, description="assigns a score for aligning pairs of residues. default: 'Adapts to Sequence length'.",order=7)
+	@Port(direction=Direction.INPUT, name="substitution matrix",defaultValue="AUTO",  advanced = true, description="assigns a score for aligning pairs of residues. default: 'Adapts to Sequence length'.",order=12)
 	public void setMatrix(BlastMatrix blastMatrix){
 
 		this.blastMatrix = blastMatrix;
 	}
 
-	@Port(direction=Direction.INPUT, name="latency period",  advanced = true, description="request latency waiting period (minutes)", validateMethod="checkLatencyWaitingPeriod", defaultValue = "30", order=8)
+	@Port(direction=Direction.INPUT, name="latency period",  advanced = true, description="request latency waiting period (minutes)", validateMethod="checkLatencyWaitingPeriod", defaultValue = "30", order=13)
 	public void setLatencyWaitingPeriod(int latencyWaitingPeriod) {
 
 		this.latencyWaitingPeriod = latencyWaitingPeriod;
@@ -134,7 +183,7 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 	 * @throws SQLException
 	 * @throws AxisFault
 	 */
-	@Port(direction=Direction.INPUT, name="workspace",description="select Workspace",validateMethod="checkProject", order=10)
+	@Port(direction=Direction.INPUT, name="workspace",description="select Workspace",validateMethod="checkProject", order=14)
 	public void selectProject(WorkspaceAIB project) throws SQLException{
 		
 		getEmail();
@@ -190,7 +239,9 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 					this.ebiBlastSearch.setReBlast(false);
 					this.ebiBlastSearch.setSimilaritySearchProcessAvailable(true);
 					
-					errorOutput += this.ebiBlastSearch.blastSequencesEBI(this.program.toString(), this.database.toString(), this.numberOfAlignments.index(), Double.parseDouble(this.eVal) , this.autoEval, this.sequenceType.toString());
+					errorOutput += this.ebiBlastSearch.blastSequencesEBI(this.program.toString(), this.database.toString(), this.numberOfAlignments.index(), Double.parseDouble(this.eVal) , Float.parseFloat(this.identityLowerThreshold), 
+							Float.parseFloat(this.positivesThreshold), Float.parseFloat(this.queryCoverageThreshold),
+									Float.parseFloat(this.targetCoverageThreshold), this.autoEval, this.sequenceType.toString());
 
 					if(this.ebiBlastSearch.isReBlast()) {
 
@@ -211,7 +262,9 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 				if(errorOutput == 0) {
 
 					if(AnnotationEnzymesServices.removeDuplicates(this.project.getName()) && !this.ebiBlastSearch.isCancel().get())
-						errorOutput = this.ebiBlastSearch.blastSequencesEBI(this.program.toString(), this.database.toString(), this.numberOfAlignments.index(), Double.parseDouble(this.eVal), this.autoEval, this.sequenceType.toString());
+						errorOutput = this.ebiBlastSearch.blastSequencesEBI(this.program.toString(), this.database.toString(), this.numberOfAlignments.index(), Double.parseDouble(this.eVal), 
+								Float.parseFloat(this.identityLowerThreshold), Float.parseFloat(this.positivesThreshold),
+								Float.parseFloat(this.queryCoverageThreshold), Float.parseFloat(this.targetCoverageThreshold), this.autoEval, this.sequenceType.toString());
 
 					if(errorOutput == 0 && !this.ebiBlastSearch.isCancel().get()) {
 
@@ -373,7 +426,9 @@ public class HomologyBlastEBI  implements PropertyChangeListener {
 				while(this.resultsList.size()>0) {
 
 					LoadSimilarityResultstoDatabase lbr = new LoadSimilarityResultstoDatabase(this.project.getName(),this.resultsList.poll(), 
-							Double.parseDouble(this.eVal), this.numberOfAlignments.index(), this.ebiBlastSearch.isCancel(), false, this.sequences);
+							Double.parseDouble(this.eVal), Float.parseFloat(this.identityLowerThreshold), Float.parseFloat(this.positivesThreshold), 
+							Float.parseFloat(this.queryCoverageThreshold), Float.parseFloat(this.targetCoverageThreshold),
+							this.numberOfAlignments.index(), this.ebiBlastSearch.isCancel(), false, this.sequences);
 					lbr.setGapCosts(this.ebiBlastSearch.getGapOpenPenalty()+"+"+this.ebiBlastSearch.getGapExtensionPenalty());
 					lbr.setMatrix(this.ebiBlastSearch.getBlastMatrix().toString());
 					lbr.setWordSize(this.ebiBlastSearch.getWordSize());

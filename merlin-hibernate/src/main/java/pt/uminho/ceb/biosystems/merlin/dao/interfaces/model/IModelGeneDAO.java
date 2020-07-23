@@ -122,4 +122,6 @@ public interface IModelGeneDAO extends IGenericDao<ModelGene>{
 	public List<Integer> getModelGenesIDs(boolean encoded);
 	
 	public Integer countInitialMetabolicGenes();
+
+	public Map<Integer, String> getGeneIdAndGeneQuery();
 }

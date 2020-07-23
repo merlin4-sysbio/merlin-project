@@ -294,6 +294,11 @@ public class GenesServiceImpl implements IGenesService{
 	public Map<String, Integer> getQueriesByGeneId() throws Exception {
 		return this.modelgeneDAO.getModelSequenceIdAndGeneId();
 	}
+	
+	@Override
+	public Map<Integer, String> getGeneIdAndGeneQuery() throws Exception {
+		return this.modelgeneDAO.getGeneIdAndGeneQuery();
+	}
 
 	public boolean checkGenes() throws Exception {
 		return this.modelgeneDAO.checkIfIsFilled();
@@ -937,4 +942,5 @@ public class GenesServiceImpl implements IGenesService{
 		this.genehascompartDAO.removeAllFromModelGeneHasCompartment();
 		
 	}
+
 }
