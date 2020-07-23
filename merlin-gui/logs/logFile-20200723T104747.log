@@ -5315,3 +5315,326 @@
 				BLAST search completed with success!
 2020 jul 23 15:08:21 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
 				Retrieving GPR for 6.2.1.1 ...
+2020 jul 23 15:08:30 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00357	Pathway	[[K00925, K01895], [K00625, K01895], [K00193+K00197+K00194], [K00577+K00578+K00579+K00580+K00581-K00582-K00583+K00584], [K00399+K00401+K00402], [K22480+K22481+K22482, K03388+K03389+K03390, K08264+K08265, K03388+K03389+K03390+K14127+K14126+K14128, K03388+K03389+K03390+K14127+K22516+K00125]] 
+2020 jul 23 15:08:31 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K01895], modules={M00357=ModuleCI [module=M00357, moduleType=Pathway, definition=((K00925 K00625),K01895) (K00193+K00197+K00194) (K00577+K00578+K00579+K00580+K00581-K00582-K00583+K00584) (K00399+K00401+K00402) (K22480+K22481+K22482,K03388+K03389+K03390,K08264+K08265,K03388+K03389+K03390+K14127+(K14126+K14128,K22516+K00125)), name=Methanogenesis, acetate => methane, pathways=[00680, 01100, 01120, 01200]]}]]
+2020 jul 23 15:08:33 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:08:37 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{K01895=[803]}
+2020 jul 23 15:10:26 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	2	[saf:SULAZ_1440, saf:SULAZ_1536]
+2020 jul 23 15:10:26 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Writting query sequences temporary fasta files... 
+2020 jul 23 15:10:26 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Starting Blast homology searches... 
+2020 jul 23 15:10:26 [Thread-420] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:10:26 [Thread-419] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:10:27 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 2.3.1.39 ...
+2020 jul 23 15:10:31 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00082	Pathway	[[K11262, K02160+K01961+K01962+K01963, K02160+K01961+K18472, K11263+K01962+K01963, K11263+K18472], [K00665, K00667+K00668, K11533, K00645], [K00665, K00667+K00668, K11533, K00648, K18473]] 
+2020 jul 23 15:10:32 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K00645], modules={M00082=ModuleCI [module=M00082, moduleType=Pathway, definition=(K11262,(K02160+K01961,K11263)+(K01962+K01963,K18472)) (K00665,K00667+K00668,K11533,(K00645 (K00648,K18473))), name=Fatty acid biosynthesis, initiation, pathways=[00061, 01100, 01212]]}]]
+2020 jul 23 15:10:33 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:10:37 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{K00645=[804]}
+2020 jul 23 15:11:55 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	1	[saf:SULAZ_1520]
+2020 jul 23 15:11:55 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Writting query sequences temporary fasta files... 
+2020 jul 23 15:11:55 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Starting Blast homology searches... 
+2020 jul 23 15:11:55 [Thread-421] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:11:56 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 3.1.3.5 ...
+2020 jul 23 15:12:16 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:12:16 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{}
+2020 jul 23 15:12:16 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	0	[]
+2020 jul 23 15:12:16 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 4.2.1.2 ...
+2020 jul 23 15:12:19 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00009	Pathway	[[K01647, K05942], [K01681, K01682], [K00031, K00030], [K00164+K00658+K00382, K00174+K00175-K00177-K00176], [K01902+K01903, K01899+K01900, K18118], [K00234+K00235+K00236+K00237, K00239+K00240+K00241-K00242, K00239+K00240+K00241-K18859, K00239+K00240+K00241-K18860, K00244+K00245+K00246-K00247], [K01676, K01679, K01677+K01678], [K00026, K00025, K00024, K00116]] 
+2020 jul 23 15:12:20 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K01676], modules={M00009=ModuleCI [module=M00009, moduleType=Pathway, definition=(K01647,K05942) (K01681,K01682) (K00031,K00030) (K00164+K00658+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+K00237,K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116), name=Citrate cycle (TCA cycle, Krebs cycle), pathways=[00020, 01100, 01200]]}], GeneAssociation [genes=[K01679], modules={M00009=ModuleCI [module=M00009, moduleType=Pathway, definition=(K01647,K05942) (K01681,K01682) (K00031,K00030) (K00164+K00658+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+K00237,K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116), name=Citrate cycle (TCA cycle, Krebs cycle), pathways=[00020, 01100, 01200]]}], GeneAssociation [genes=[K01677, K01678], modules={M00009=ModuleCI [module=M00009, moduleType=Pathway, definition=(K01647,K05942) (K01681,K01682) (K00031,K00030) (K00164+K00658+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+K00237,K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116), name=Citrate cycle (TCA cycle, Krebs cycle), pathways=[00020, 01100, 01200]]}]]
+2020 jul 23 15:12:20 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00011	Pathway	[[K00164+K00658+K00382, K00174+K00175-K00177-K00176], [K01902+K01903, K01899+K01900, K18118], [K00234+K00235+K00236+K00237, K00239+K00240+K00241-K00242, K00239+K00240+K00241-K18859, K00239+K00240+K00241-K18860, K00244+K00245+K00246-K00247], [K01676, K01679, K01677+K01678], [K00026, K00025, K00024, K00116]] 
+2020 jul 23 15:12:21 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K01676], modules={M00011=ModuleCI [module=M00011, moduleType=Pathway, definition=(K00164+K00658+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+K00237,K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116), name=Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate, pathways=[00020, 01100, 01200]]}], GeneAssociation [genes=[K01679], modules={M00011=ModuleCI [module=M00011, moduleType=Pathway, definition=(K00164+K00658+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+K00237,K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116), name=Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate, pathways=[00020, 01100, 01200]]}], GeneAssociation [genes=[K01677, K01678], modules={M00011=ModuleCI [module=M00011, moduleType=Pathway, definition=(K00164+K00658+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+K00237,K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116), name=Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate, pathways=[00020, 01100, 01200]]}]]
+2020 jul 23 15:12:21 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00173	Pathway	[[K00169+K00170+K00171+K00172, K03737], [K01007, K01006], [K01595, K01959+K01960, K01958], [K00024], [K01676, K01679, K01677+K01678], [K00239+K00240-K00241-K00242, K00244+K00245-K00246-K00247, K18556+K18557+K18558+K18559+K18560], [K01902+K01903], [K00174+K00175-K00177-K00176], [K00031], [K01681, K01682], [K15230+K15231, K15232+K15233], [K15234]] 
+2020 jul 23 15:12:21 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K01676], modules={M00173=ModuleCI [module=M00173, moduleType=Pathway, definition=(K00169+K00170+K00171+K00172,K03737) ((K01007,K01006) K01595,K01959+K01960,K01958) K00024 (K01676,K01679,K01677+K01678) (K00239+K00240-K00241-K00242,K00244+K00245-K00246-K00247,K18556+K18557+K18558+K18559+K18560) (K01902+K01903) (K00174+K00175-K00177-K00176) K00031 (K01681,K01682) (K15230+K15231,K15232+K15233 K15234), name=Reductive citrate cycle (Arnon-Buchanan cycle), pathways=[00720, 01100, 01120, 01200]]}], GeneAssociation [genes=[K01679], modules={M00173=ModuleCI [module=M00173, moduleType=Pathway, definition=(K00169+K00170+K00171+K00172,K03737) ((K01007,K01006) K01595,K01959+K01960,K01958) K00024 (K01676,K01679,K01677+K01678) (K00239+K00240-K00241-K00242,K00244+K00245-K00246-K00247,K18556+K18557+K18558+K18559+K18560) (K01902+K01903) (K00174+K00175-K00177-K00176) K00031 (K01681,K01682) (K15230+K15231,K15232+K15233 K15234), name=Reductive citrate cycle (Arnon-Buchanan cycle), pathways=[00720, 01100, 01120, 01200]]}], GeneAssociation [genes=[K01677, K01678], modules={M00173=ModuleCI [module=M00173, moduleType=Pathway, definition=(K00169+K00170+K00171+K00172,K03737) ((K01007,K01006) K01595,K01959+K01960,K01958) K00024 (K01676,K01679,K01677+K01678) (K00239+K00240-K00241-K00242,K00244+K00245-K00246-K00247,K18556+K18557+K18558+K18559+K18560) (K01902+K01903) (K00174+K00175-K00177-K00176) K00031 (K01681,K01682) (K15230+K15231,K15232+K15233 K15234), name=Reductive citrate cycle (Arnon-Buchanan cycle), pathways=[00720, 01100, 01120, 01200]]}]]
+2020 jul 23 15:12:22 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00374	Pathway	[[K00169+K00170+K00171+K00172], [K01007], [K01595], [K00024], [K01677+K01678], [K00239+K00240-K00241-K18860], [K01902+K01903], [K15038, K15017], [K14465], [K14467, K18861], [K14534], [K15016], [K00626]] 
+2020 jul 23 15:12:22 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K01677, K01678], modules={M00374=ModuleCI [module=M00374, moduleType=Pathway, definition=(K00169+K00170+K00171+K00172) K01007 K01595 K00024 (K01677+K01678) (K00239+K00240-K00241-K18860) (K01902+K01903) (K15038,K15017) K14465 (K14467,K18861) K14534 K15016 K00626, name=Dicarboxylate-hydroxybutyrate cycle, pathways=[00720, 01100, 01120, 01200]]}]]
+2020 jul 23 15:12:23 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00376	Pathway	[[K02160+K01961+K01962+K01963], [K14468], [K14469], [K15052], [K05606], [K01847, K01848+K01849], [K14471+K14472], [K00239+K00240+K00241], [K01679], [K08691], [K14449], [K14470], [K09709]] 
+2020 jul 23 15:12:23 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K01679], modules={M00376=ModuleCI [module=M00376, moduleType=Pathway, definition=(K02160+K01961+K01962+K01963) K14468 K14469 K15052 K05606 (K01847,K01848+K01849) (K14471+K14472) (K00239+K00240+K00241) K01679
+            K08691 K14449 K14470 K09709, name=3-Hydroxypropionate bi-cycle, pathways=[00720, 01100, 01120, 01200]]}]]
+2020 jul 23 15:12:24 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00620	Pathway	[[K00169+K00170+K00171+K00172], [K01959+K01960], [K00024], [K01677+K01678], [K18209+K18210], [K01902+K01903], [K00174+K00175+K00176+K00177]] 
+2020 jul 23 15:12:24 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K01677, K01678], modules={M00620=ModuleCI [module=M00620, moduleType=Pathway, definition=(K00169+K00170+K00171+K00172) (K01959+K01960) K00024 (K01677+K01678) (K18209+K18210) (K01902+K01903) (K00174+K00175+K00176+K00177), name=Incomplete reductive citrate cycle, acetyl-CoA => oxoglutarate, pathways=[00720, 01100, 01120, 01200]]}]]
+2020 jul 23 15:12:24 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:13:03 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{K01679=[805, 806, 807, 808], K01677=[805, 806, 807, 809, 810], K01678=[805, 806, 807, 809, 810], K01676=[805, 806, 807]}
+2020 jul 23 15:15:07 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	5	[hya:HY04AAS1_0494, eco:b1612, saf:SULAZ_0637, eco:b4122, saf:SULAZ_0635]
+2020 jul 23 15:15:07 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Writting query sequences temporary fasta files... 
+2020 jul 23 15:15:07 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Starting Blast homology searches... 
+2020 jul 23 15:15:07 [Thread-426] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:15:07 [Thread-424] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:15:07 [Thread-422] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:15:07 [Thread-425] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:15:07 [Thread-423] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:15:08 [Thread-426] buildAlignmentCapsules INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				No hits found for saf:SULAZ_0635
+2020 jul 23 15:15:08 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Writting query sequences temporary fasta files... 
+2020 jul 23 15:15:08 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Starting Blast homology searches... 
+2020 jul 23 15:15:08 [Thread-429] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:15:08 [Thread-428] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:15:08 [Thread-427] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:15:08 [Thread-430] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:15:09 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 6.2.1.3 ...
+2020 jul 23 15:15:14 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:15:14 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{}
+2020 jul 23 15:15:14 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	0	[]
+2020 jul 23 15:15:14 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 4.2.1.1 ...
+2020 jul 23 15:15:18 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:15:18 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{}
+2020 jul 23 15:15:18 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	0	[]
+2020 jul 23 15:15:18 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 2.8.1.10 ...
+2020 jul 23 15:15:21 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00127	Pathway	[[K03148+K03154], [K03151], [K03150], [K03149], [K03147], [K00941, K14153, K21219], [K00788, K14153, K21219], [K00946]] 
+2020 jul 23 15:15:22 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K03149], modules={M00127=ModuleCI [module=M00127, moduleType=Pathway, definition=K03148+K03154 K03151
+            K03150 K03149
+            K03147 ((K00941 K00788),K14153,K21219) K00946, name=Thiamine biosynthesis, prokaryotes, AIR (+ DXP/tyrosine) => TMP/TPP, pathways=[00730, 01100]]}]]
+2020 jul 23 15:15:22 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:15:26 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{K03149=[811]}
+2020 jul 23 15:16:15 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	1	[saf:SULAZ_1596]
+2020 jul 23 15:16:15 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Writting query sequences temporary fasta files... 
+2020 jul 23 15:16:15 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Starting Blast homology searches... 
+2020 jul 23 15:16:15 [Thread-431] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:16:16 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 2.3.1.35 ...
+2020 jul 23 15:16:19 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00028	Pathway	[[K00618, K00619, K14681, K14682, K00620, K22477, K22478], [K00930, K22478], [K00145, K12659], [K00818, K00821], [K01438, K14677, K00620]] 
+2020 jul 23 15:16:20 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K00620], modules={M00028=ModuleCI [module=M00028, moduleType=Pathway, definition=(K00618,K00619,K14681,K14682,K00620,K22477,K22478) ((K00930,K22478) K00145,K12659) (K00818,K00821) (K01438,K14677,K00620), name=Ornithine biosynthesis, glutamate => ornithine, pathways=[00220, 01100, 01210, 01230]]}]]
+2020 jul 23 15:16:20 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:16:24 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{K00620=[812]}
+2020 jul 23 15:17:16 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	1	[saf:SULAZ_0452]
+2020 jul 23 15:17:16 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Writting query sequences temporary fasta files... 
+2020 jul 23 15:17:16 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Starting Blast homology searches... 
+2020 jul 23 15:17:16 [Thread-432] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:17:17 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 3.6.1.54 ...
+2020 jul 23 15:17:19 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00060	Pathway	[[K00677], [K02535], [K02536], [K03269], [K00748], [K00912], [K02527], [K02517], [K02560]] 
+2020 jul 23 15:17:20 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K03269], modules={M00060=ModuleCI [module=M00060, moduleType=Pathway, definition=K00677 K02535 K02536 K03269 K00748 K00912 K02527 K02517 K02560, name=KDO2-lipid A biosynthesis, Raetz pathway, LpxL-LpxM type, pathways=[00540, 01100]]}]]
+2020 jul 23 15:17:21 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:17:25 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{K03269=[813]}
+2020 jul 23 15:17:53 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	1	[eco:b0524]
+2020 jul 23 15:17:53 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Writting query sequences temporary fasta files... 
+2020 jul 23 15:17:53 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Starting Blast homology searches... 
+2020 jul 23 15:17:54 [Thread-433] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:17:54 [Thread-433] buildAlignmentCapsules INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				No hits found for eco:b0524
+2020 jul 23 15:17:54 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Writting query sequences temporary fasta files... 
+2020 jul 23 15:17:54 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Starting Blast homology searches... 
+2020 jul 23 15:17:54 [Thread-434] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:17:55 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 2.5.1.9 ...
+2020 jul 23 15:17:58 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00125	Pathway	[[K01497, K14652], [K01498], [K00082, K11752], [K22912, K20860, K20861, K20862, K21063, K21064], [K02858, K14652], [K00794], [K00793], [K20884], [K22949, K11753]] 
+2020 jul 23 15:17:59 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K00793], modules={M00125=ModuleCI [module=M00125, moduleType=Pathway, definition=(K01497,K14652) (K01498 K00082,K11752) (K22912,K20860,K20861,K20862,K21063,K21064)
+            (K02858,K14652)
+            K00794 K00793 (K20884 K22949,K11753), name=Riboflavin biosynthesis, GTP => riboflavin/FMN/FAD, pathways=[00740, 01100, 01110]]}]]
+2020 jul 23 15:17:59 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:18:03 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{K00793=[814]}
+2020 jul 23 15:19:15 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	1	[saf:SULAZ_1437]
+2020 jul 23 15:19:15 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Writting query sequences temporary fasta files... 
+2020 jul 23 15:19:15 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Starting Blast homology searches... 
+2020 jul 23 15:19:16 [Thread-435] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:19:16 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 2.7.7.60 ...
+2020 jul 23 15:19:19 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00096	Pathway	[[K01662], [K00099], [K00991, K12506], [K00919], [K01770, K12506], [K03526], [K03527], [K01823]] 
+2020 jul 23 15:19:20 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K00991], modules={M00096=ModuleCI [module=M00096, moduleType=Pathway, definition=K01662 K00099 (K00991,K12506) K00919 (K01770,K12506) K03526 K03527 K01823, name=C5 isoprenoid biosynthesis, non-mevalonate pathway, pathways=[00900, 01100, 01110]]}], GeneAssociation [genes=[K12506], modules={M00096=ModuleCI [module=M00096, moduleType=Pathway, definition=K01662 K00099 (K00991,K12506) K00919 (K01770,K12506) K03526 K03527 K01823, name=C5 isoprenoid biosynthesis, non-mevalonate pathway, pathways=[00900, 01100, 01110]]}]]
+2020 jul 23 15:19:20 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:19:26 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{K00991=[815], K12506=[815]}
+2020 jul 23 15:20:16 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	2	[saf:SULAZ_0060, ttk:TST_0196]
+2020 jul 23 15:20:16 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Writting query sequences temporary fasta files... 
+2020 jul 23 15:20:16 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Starting Blast homology searches... 
+2020 jul 23 15:20:16 [Thread-437] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:20:16 [Thread-436] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:20:17 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 2.5.1.7 ...
+2020 jul 23 15:20:20 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:20:20 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{}
+2020 jul 23 15:20:20 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	0	[]
+2020 jul 23 15:20:20 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 2.5.1.6 ...
+2020 jul 23 15:20:26 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00034	Pathway	[[K00789], [K01611], [K00797], [K01243, K01244], [K00899, K00772], [K08963], [K16054, K08964], [K09880, K08965], [K08966], [K08967], [K00815, K08969, K23977, K00832, K00838]] 
+2020 jul 23 15:20:27 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K00789], modules={M00034=ModuleCI [module=M00034, moduleType=Pathway, definition=K00789 K01611 K00797 ((K01243,K01244) K00899,K00772) K08963 (K16054,K08964 (K09880,K08965 K08966)) K08967 (K00815,K08969,K23977,K00832,K00838), name=Methionine salvage pathway, pathways=[00270, 01100]]}]]
+2020 jul 23 15:20:27 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00035	Pathway	[[K00789], [K00558, K17398, K17399], [K01251], [K01697, K10150]] 
+2020 jul 23 15:20:27 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K00789], modules={M00035=ModuleCI [module=M00035, moduleType=Pathway, definition=K00789 (K00558,K17398,K17399) K01251 (K01697,K10150), name=Methionine degradation, pathways=[00270, 01100]]}]]
+2020 jul 23 15:20:28 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00368	Pathway	[[K00789], [K01762, K20772], [K05933]] 
+2020 jul 23 15:20:28 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K00789], modules={M00368=ModuleCI [module=M00368, moduleType=Pathway, definition=K00789 (K01762,K20772) K05933, name=Ethylene biosynthesis, methionine => ethylene, pathways=[00270, 01100, 01110]]}]]
+2020 jul 23 15:20:29 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00609	Pathway	[[K00789], [K17462], [K01243], [K07173], [K17216], [K17217]] 
+2020 jul 23 15:20:29 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K00789], modules={M00609=ModuleCI [module=M00609, moduleType=Pathway, definition=K00789 K17462 K01243 K07173 K17216 K17217, name=Cysteine biosynthesis, methionine => cysteine, pathways=[00270, 01100, 01230]]}]]
+2020 jul 23 15:20:29 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:20:46 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{K00789=[816, 817, 818, 819]}
+2020 jul 23 15:22:31 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	2	[saf:SULAZ_1612, saf:SULAZ_0897]
+2020 jul 23 15:22:31 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Writting query sequences temporary fasta files... 
+2020 jul 23 15:22:31 [Thread-25] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Starting Blast homology searches... 
+2020 jul 23 15:22:31 [Thread-439] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:22:31 [Thread-438] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 23 15:22:32 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 1.8.5.4 ...
+2020 jul 23 15:22:34 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:22:34 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{}
+2020 jul 23 15:22:34 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	0	[]
+2020 jul 23 15:22:34 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 2.5.1.3 ...
+2020 jul 23 15:22:39 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:22:39 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{}
+2020 jul 23 15:22:39 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	0	[]
+2020 jul 23 15:22:39 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 4.2.1.59 ...
+2020 jul 23 15:23:02 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00572	Pathway	[[K02169], [K00647, K09458], [K00059], [K02372], [K00208], [K02170, K09789, K19560, K19561]] 
+2020 jul 23 15:23:03 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K02372], modules={M00572=ModuleCI [module=M00572, moduleType=Pathway, definition=K02169 (K00647,K09458) K00059 K02372 K00208 (K02170,K09789,K19560,K19561), name=Pimeloyl-ACP biosynthesis, BioC-BioH pathway, malonyl-ACP => pimeloyl-ACP, pathways=[00780, 01100]]}]]
+2020 jul 23 15:23:04 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00083	Pathway	[[K00665], [K00667], [K00668], [K11533], [K00647, K09458], [K00059], [K02372, K01716, K16363], [K00208, K02371, K10780, K00209]] 
+2020 jul 23 15:23:05 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K02372], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K01716], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K16363], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}]]
+2020 jul 23 15:23:07 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00083	Pathway	[[K00665], [K00667], [K00668], [K11533], [K00647, K09458], [K00059], [K02372, K01716, K16363], [K00208, K02371, K10780, K00209]] 
+2020 jul 23 15:23:07 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K02372], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K01716], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K16363], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}]]
+2020 jul 23 15:23:09 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00083	Pathway	[[K00665], [K00667], [K00668], [K11533], [K00647, K09458], [K00059], [K02372, K01716, K16363], [K00208, K02371, K10780, K00209]] 
+2020 jul 23 15:23:10 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K02372], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K01716], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K16363], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}]]
+2020 jul 23 15:23:12 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00083	Pathway	[[K00665], [K00667], [K00668], [K11533], [K00647, K09458], [K00059], [K02372, K01716, K16363], [K00208, K02371, K10780, K00209]] 
+2020 jul 23 15:23:13 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K02372], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K01716], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K16363], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}]]
+2020 jul 23 15:23:15 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00572	Pathway	[[K02169], [K00647, K09458], [K00059], [K02372], [K00208], [K02170, K09789, K19560, K19561]] 
+2020 jul 23 15:23:16 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K02372], modules={M00572=ModuleCI [module=M00572, moduleType=Pathway, definition=K02169 (K00647,K09458) K00059 K02372 K00208 (K02170,K09789,K19560,K19561), name=Pimeloyl-ACP biosynthesis, BioC-BioH pathway, malonyl-ACP => pimeloyl-ACP, pathways=[00780, 01100]]}]]
+2020 jul 23 15:23:17 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00083	Pathway	[[K00665], [K00667], [K00668], [K11533], [K00647, K09458], [K00059], [K02372, K01716, K16363], [K00208, K02371, K10780, K00209]] 
+2020 jul 23 15:23:18 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K02372], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K01716], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K16363], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}]]
+2020 jul 23 15:23:19 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00083	Pathway	[[K00665], [K00667], [K00668], [K11533], [K00647, K09458], [K00059], [K02372, K01716, K16363], [K00208, K02371, K10780, K00209]] 
+2020 jul 23 15:23:20 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K02372], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K01716], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K16363], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}]]
+2020 jul 23 15:23:22 [Thread-25] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00083	Pathway	[[K00665], [K00667], [K00668], [K11533], [K00647, K09458], [K00059], [K02372, K01716, K16363], [K00208, K02371, K10780, K00209]] 
+2020 jul 23 15:23:23 [Thread-25] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K02372], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K01716], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}], GeneAssociation [genes=[K16363], modules={M00083=ModuleCI [module=M00083, moduleType=Pathway, definition=K00665,(K00667 K00668),K11533,((K00647,K09458) K00059 (K02372,K01716,K16363) (K00208,K02371,K10780,K00209)), name=Fatty acid biosynthesis, elongation, pathways=[00061, 01100, 01212]]}]]
+2020 jul 23 15:23:25 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 23 15:24:32 [Thread-25] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{K02372=[820, 821, 822, 823, 824, 825, 826, 827, 828], K01716=[821, 822, 823, 824, 826, 827, 828], K16363=[821, 822, 823, 824, 826, 827, 828]}
