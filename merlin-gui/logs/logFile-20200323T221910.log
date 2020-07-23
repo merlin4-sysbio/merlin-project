@@ -1,0 +1,13 @@
+2020 mar 23 22:19:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 mar 23 22:19:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 mar 23 22:19:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 mar 23 22:19:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 mar 23 22:19:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biocoiso   [version 4.0.3]
+2020 mar 23 22:19:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-exporter   [version 4.0.3]
+2020 mar 23 22:19:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gpr   [version 4.0.3]
+2020 mar 23 22:19:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.3]
+2020 mar 23 22:19:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-settings   [version 4.0.3]
+2020 mar 23 22:19:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.3]
+2020 mar 23 22:19:12 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 mar 23 22:20:04 [AWT-EventQueue-0] warn WARN  e.u.ei.aibench.workbench.Workbench - Authentication failed to access the SQL database! Wrong username or password. Please go to settings -> database configuration and enter the correct credentials.
+2020 mar 23 22:20:08 [AWT-EventQueue-0] warn WARN  e.u.ei.aibench.workbench.Workbench - no workspace available for merlin

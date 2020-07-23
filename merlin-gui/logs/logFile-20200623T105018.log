@@ -1,0 +1,133 @@
+2020 Jun 23 10:50:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-addons   [version 4.0.3]
+2020 Jun 23 10:50:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 Jun 23 10:50:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 Jun 23 10:50:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 Jun 23 10:50:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 Jun 23 10:50:19 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biocoiso   [version 4.0.3]
+2020 Jun 23 10:50:19 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biomass   [version 4.0.3]
+2020 Jun 23 10:50:19 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-compartments   [version 4.0.3]
+2020 Jun 23 10:50:19 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-exporter   [version 4.0.3]
+2020 Jun 23 10:50:19 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gpr   [version 4.0.3]
+2020 Jun 23 10:50:19 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.3]
+2020 Jun 23 10:50:19 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-interpro   [version 4.0.3]
+2020 Jun 23 10:50:19 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-sampler   [version 4.0.3]
+2020 Jun 23 10:50:19 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-settings   [version 4.0.3]
+2020 Jun 23 10:50:19 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.3]
+2020 Jun 23 10:50:20 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 Jun 23 10:50:35 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench - Files already manually imported
+2020 Jun 23 10:50:52 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:50:52 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:50:52 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:50:58 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:50:58 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:50:58 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:51:01 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:51:01 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:51:01 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:51:27 [Thread-20] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Reference taxonomy set to [Bacteria, Proteobacteria, Gammaproteobacteria, Enterobacterales, Enterobacteriaceae, Escherichia, Escherichia coli, Escherichia coli K-12]
+2020 Jun 23 10:51:40 [Thread-20] configure INFO  o.a.j.e.c.CompositeCacheManager - Creating cache manager from config file: /cache.ccf
+2020 Jun 23 10:51:41 [Thread-20] loadConfig INFO  o.a.j.u.threadpool.ThreadPoolManager - thread_pool.default PoolConfiguration = useBoundary = [true] boundarySize = [2000] maximumPoolSize = [150] minimumPoolSize = [4] keepAliveTime = [300000] whenBlockedPolicy = [RUN] startUpSize = [4]
+2020 Jun 23 10:51:41 [Thread-20] setDefaultAuxValues INFO  o.a.j.e.c.CompositeCacheConfigurator - Setting default auxiliaries to DC
+2020 Jun 23 10:51:41 [Thread-20] setDefaultCompositeCacheAttributes INFO  o.a.j.e.c.CompositeCacheConfigurator - setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100000, maxSpoolPerRun = -1, diskUsagePattern = 0 ]
+2020 Jun 23 10:51:41 [Thread-20] parseElementAttributes INFO  o.a.j.e.c.CompositeCacheConfigurator - No special ElementAttribute class defined for key [jcs.default.elementattributes], using default class.
+2020 Jun 23 10:51:41 [Thread-20] setDefaultElementAttributes INFO  o.a.j.e.c.CompositeCacheConfigurator - setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = -1, CreateTime = 1592905901060, LastAccessTime = 1592905901060, getTimeToLiveSeconds() = -1, createTime = 1592905901060 ]
+2020 Jun 23 10:51:41 [Thread-20] parseElementAttributes INFO  o.a.j.e.c.CompositeCacheConfigurator - No special ElementAttribute class defined for key [jcs.region.KEGG_API.elementattributes], using default class.
+2020 Jun 23 10:51:41 [Thread-20] initialize INFO  o.a.j.e.memory.lru.LRUMemoryCache - initialized LRUMemoryCache for KEGG_API
+2020 Jun 23 10:51:41 [Thread-20] <init> INFO  o.a.j.engine.control.CompositeCache - Constructed cache with name [KEGG_API] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100000, maxSpoolPerRun = 500, diskUsagePattern = 0 ]
+2020 Jun 23 10:51:41 [Thread-20] <init> INFO  o.a.j.a.d.indexed.IndexedDiskCache - Region [KEGG_API] Cache file root directory: ./cache
+2020 Jun 23 10:51:41 [Thread-20] initKeyMap INFO  o.a.j.a.d.indexed.IndexedDiskCache - Region [KEGG_API] Set maxKeySize to: '100000000'
+2020 Jun 23 10:51:41 [Thread-20] <init> INFO  o.a.j.a.d.indexed.IndexedDiskCache - Region [KEGG_API] Indexed Disk Cache is alive.
+2020 Jun 23 10:51:41 [Thread-20] parseRegions INFO  o.a.j.e.c.CompositeCacheConfigurator - Parsed regions [KEGG_API]
+2020 Jun 23 10:51:41 [Thread-20] doConfigure INFO  o.a.j.e.c.CompositeCacheConfigurator - Finished configuration in 410 ms.
+2020 Jun 23 10:52:27 [Thread-20] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Iterator size: 1, entries [3.6.1.8]
+2020 Jun 23 10:53:26 [Thread-20] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Orthologs to be searched in genome:	0	[]
+2020 Jun 23 10:53:49 [Thread-20] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 10:54:52 [Thread-22] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 10:55:30 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:55:30 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:55:30 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:55:36 [Thread-20] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 10:56:13 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:56:13 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:56:13 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:56:21 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Reference taxonomy set to [Bacteria, Proteobacteria, Gammaproteobacteria, Enterobacterales, Enterobacteriaceae, Escherichia, Escherichia coli, Escherichia coli K-12]
+2020 Jun 23 10:56:25 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Iterator size: 0, entries []
+2020 Jun 23 10:56:25 [Thread-22] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 10:56:57 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:56:57 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:56:57 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:58:20 [Thread-20] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Reference taxonomy set to [Bacteria, Proteobacteria, Gammaproteobacteria, Enterobacterales, Enterobacteriaceae, Escherichia, Escherichia coli, Escherichia coli K-12]
+2020 Jun 23 10:58:22 [Thread-20] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Iterator size: 0, entries []
+2020 Jun 23 10:58:22 [Thread-20] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 10:58:54 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:58:54 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:58:54 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:59:08 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Reference taxonomy set to [Bacteria, Proteobacteria, Gammaproteobacteria, Enterobacterales, Enterobacteriaceae, Escherichia, Escherichia coli, Escherichia coli K-12]
+2020 Jun 23 10:59:10 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Iterator size: 1, entries [1.3.2.3]
+2020 Jun 23 10:59:14 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Orthologs to be searched in genome:	1	[ath:AT3G47930]
+2020 Jun 23 10:59:44 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:59:44 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 10:59:44 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:01:22 [Thread-22] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch - Writting query sequences temporary fasta files... 
+2020 Jun 23 11:03:19 [Thread-22] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch - Starting Blast homology searches... 
+2020 Jun 23 11:03:30 [Thread-52] run INFO  p.u.c.b.m.a.c.M.BlastAlignment - BLAST search completed with success!
+2020 Jun 23 11:05:02 [Thread-22] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 11:13:37 [Thread-20] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 11:14:17 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:14:17 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:14:17 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:14:25 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Reference taxonomy set to [Bacteria, Proteobacteria, Gammaproteobacteria, Enterobacterales, Enterobacteriaceae, Escherichia, Escherichia coli, Escherichia coli K-12]
+2020 Jun 23 11:14:29 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Iterator size: 1, entries [1.1.1.299]
+2020 Jun 23 11:14:30 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Orthologs to be searched in genome:	0	[]
+2020 Jun 23 11:14:30 [Thread-22] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 11:15:01 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:15:01 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:15:01 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:15:09 [Thread-20] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 11:15:47 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:15:47 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:15:47 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:16:18 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Reference taxonomy set to [Bacteria, Proteobacteria, Gammaproteobacteria, Enterobacterales, Enterobacteriaceae, Escherichia, Escherichia coli, Escherichia coli K-12]
+2020 Jun 23 11:16:21 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Iterator size: 1, entries [1.14.14.44]
+2020 Jun 23 11:16:24 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Orthologs to be searched in genome:	1	[pper:18776644]
+2020 Jun 23 11:16:24 [Thread-22] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch - Writting query sequences temporary fasta files... 
+2020 Jun 23 11:16:24 [Thread-22] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch - Starting Blast homology searches... 
+2020 Jun 23 11:16:24 [Thread-64] run INFO  p.u.c.b.m.a.c.M.BlastAlignment - BLAST search completed with success!
+2020 Jun 23 11:16:25 [Thread-22] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 11:16:55 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:16:55 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:16:55 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:17:10 [Thread-20] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Reference taxonomy set to [Bacteria, Proteobacteria, Gammaproteobacteria, Enterobacterales, Enterobacteriaceae, Escherichia, Escherichia coli, Escherichia coli K-12]
+2020 Jun 23 11:17:12 [Thread-20] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Iterator size: 1, entries [4.2.99.24]
+2020 Jun 23 11:17:15 [Thread-20] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits - Orthologs to be searched in genome:	1	[psom:113322169]
+2020 Jun 23 11:17:15 [Thread-20] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch - Writting query sequences temporary fasta files... 
+2020 Jun 23 11:17:15 [Thread-20] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch - Starting Blast homology searches... 
+2020 Jun 23 11:17:15 [Thread-68] run INFO  p.u.c.b.m.a.c.M.BlastAlignment - BLAST search completed with success!
+2020 Jun 23 11:17:15 [Thread-20] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 11:17:47 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:17:47 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:17:47 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:40:49 [Thread-22] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 11:41:28 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:41:28 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:41:28 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:41:58 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench - Reaction successfully edited!
+2020 Jun 23 11:44:38 [Thread-20] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 11:45:16 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:45:16 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:45:16 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:46:49 [Thread-22] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 11:47:28 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:47:28 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:47:28 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:47:36 [Thread-20] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 11:48:15 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:48:15 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:48:15 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:49:10 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:49:10 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:49:10 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:51:40 [Thread-20] warn WARN  e.u.ei.aibench.workbench.Workbench - nothing found
+2020 Jun 23 11:52:18 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:52:18 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 23 11:52:18 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated

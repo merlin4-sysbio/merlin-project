@@ -1,0 +1,19 @@
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biocoiso   [version 4.0.3]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biomass   [version 4.0.3]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-compartments   [version 4.0.3]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-exporter   [version 4.0.3]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gpr   [version 4.0.3]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.3]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-interpro   [version 4.0.3]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-sampler   [version 4.0.3]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-settings   [version 4.0.3]
+2020 mai 12 16:22:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.3]
+2020 mai 12 16:22:50 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 mai 12 16:22:50 [PluginStart0] <init> ERROR e.u.e.s.a.p.PluginManager - No internet Connection
+2020 mai 12 16:24:36 [AWT-EventQueue-0] error ERROR e.u.ei.aibench.workbench.Workbench - workspace connected to the same data base already exists!
+please select another workspace.
+2020 mai 12 16:25:17 [Thread-24] error ERROR e.u.ei.aibench.workbench.Workbench - Please make sure you have loaded a compartment prediction report in this workspace

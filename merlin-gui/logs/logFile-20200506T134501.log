@@ -1,0 +1,30 @@
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biocoiso   [version 4.0.3]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biomass   [version 4.0.3]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-compartments   [version 4.0.3]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-exporter   [version 4.0.3]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gpr   [version 4.0.3]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.3]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-interpro   [version 4.0.3]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-sampler   [version 4.0.3]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-settings   [version 4.0.3]
+2020 mai 06 13:45:02 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.3]
+2020 mai 06 13:45:03 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 mai 06 13:45:04 [PluginStart0] <init> ERROR e.u.e.s.a.p.PluginManager - No internet Connection
+2020 mai 06 13:45:58 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 mai 06 13:45:58 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 mai 06 13:45:58 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 mai 06 13:45:59 [Thread-19] checkMembraneCompartment WARN  p.u.c.b.m.g.o.i.ModelCompartmentsIntegration - No membrane compartmentID defined!
+2020 mai 06 13:46:10 [AWT-EventQueue-0] warn WARN  e.u.ei.aibench.workbench.Workbench - operation canceled!
+2020 mai 06 13:46:24 [Thread-26] info INFO  e.u.ei.aibench.workbench.Workbench - Compartments integration complete!
+2020 mai 06 13:46:31 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench - all reactions assigned to the model removed!
+2020 mai 06 13:46:44 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 mai 06 13:46:44 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 mai 06 13:46:44 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 mai 06 13:46:44 [Thread-21] checkMembraneCompartment WARN  p.u.c.b.m.g.o.i.ModelCompartmentsIntegration - No membrane compartmentID defined!
+2020 mai 06 13:47:14 [AWT-EventQueue-0] warn WARN  e.u.ei.aibench.workbench.Workbench - operation canceled!
+2020 mai 06 13:47:18 [Thread-20] error ERROR e.u.ei.aibench.workbench.Workbench - an error occurred while performing the operation.
+2020 mai 06 13:47:25 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench - all reactions assigned to the model removed!

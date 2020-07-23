@@ -1,0 +1,47 @@
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biocoiso   [version 4.0.3]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biomass   [version 4.0.3]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-compartments   [version 4.0.3]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-exporter   [version 4.0.3]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gpr   [version 4.0.3]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.3]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-interpro   [version 4.0.3]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-sampler   [version 4.0.3]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-settings   [version 4.0.3]
+2020 mai 11 18:40:17 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.3]
+2020 mai 11 18:40:19 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 mai 11 18:40:19 [PluginStart0] <init> ERROR e.u.e.s.a.p.PluginManager - No internet Connection
+2020 mai 11 18:42:09 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 mai 11 18:42:09 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 mai 11 18:42:09 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 mai 11 18:42:10 [Thread-24] checkMembraneCompartment WARN  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - No membrane compartmentID defined!
+2020 mai 11 18:42:18 [Thread-21] info INFO  e.u.ei.aibench.workbench.Workbench - Compartments integration complete!
+2020 mai 11 18:42:29 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench - all reactions assigned to the model removed!
+2020 mai 11 18:43:49 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 mai 11 18:43:49 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 mai 11 18:43:49 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 mai 11 18:43:49 [Thread-20] checkMembraneCompartment WARN  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - No membrane compartmentID defined!
+2020 mai 11 18:43:57 [Thread-19] info INFO  e.u.ei.aibench.workbench.Workbench - Compartments integration complete!
+2020 mai 11 18:48:36 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 mai 11 18:48:36 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 mai 11 18:48:36 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 mai 11 18:48:37 [Thread-21] checkMembraneCompartment WARN  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - No membrane compartmentID defined!
+2020 mai 11 18:48:42 [Thread-24] info INFO  e.u.ei.aibench.workbench.Workbench - Compartments integration complete!
+2020 mai 11 18:48:53 [AWT-EventQueue-0] warn WARN  e.u.ei.aibench.workbench.Workbench - cleaning operation canceled!
+2020 mai 11 18:49:57 [Thread-50] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 10208 R03706
+2020 mai 11 18:49:57 [Thread-50] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 10202 R03710
+2020 mai 11 18:49:57 [Thread-50] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 10207 R03707
+2020 mai 11 18:50:13 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench - all reactions assigned to the model removed!
+2020 mai 11 18:50:19 [Thread-52] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 1 R03718
+2020 mai 11 18:50:19 [Thread-52] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 2 R03719
+2020 mai 11 18:50:19 [Thread-52] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 3 R03710
+2020 mai 11 18:50:19 [Thread-52] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 4 R03712
+2020 mai 11 18:50:19 [Thread-52] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 5 R03711
+2020 mai 11 18:50:19 [Thread-52] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 6 R03713
+2020 mai 11 18:50:19 [Thread-52] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 7 R03716
+2020 mai 11 18:50:19 [Thread-52] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 8 R03707
+2020 mai 11 18:50:19 [Thread-52] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 9 R03706
+2020 mai 11 18:50:19 [Thread-52] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 10 R03709

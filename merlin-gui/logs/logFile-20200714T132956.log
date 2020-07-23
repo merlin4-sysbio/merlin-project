@@ -1,0 +1,52 @@
+2020 jul 14 13:29:56 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-addons   [version 4.0.3]
+2020 jul 14 13:29:56 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Core   [version 2.10.2]
+2020 jul 14 13:29:56 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 jul 14 13:29:56 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Workbench   [version 2.10.2]
+2020 jul 14 13:29:56 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 jul 14 13:29:56 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biocoiso   [version 4.0.3]
+2020 jul 14 13:29:56 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biomass   [version 4.0.3]
+2020 jul 14 13:29:56 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-compartments   [version 4.0.3]
+2020 jul 14 13:29:56 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-exporter   [version 4.0.3]
+2020 jul 14 13:29:56 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gpr   [version 4.0.4]
+2020 jul 14 13:29:57 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gui   [version 4.0.4]
+2020 jul 14 13:29:57 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-interpro   [version 4.0.3]
+2020 jul 14 13:29:57 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-sampler   [version 4.0.3]
+2020 jul 14 13:29:57 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-settings   [version 4.0.3]
+2020 jul 14 13:29:57 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-transyt   [version 4.0.4]
+2020 jul 14 13:29:59 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow -
+				slot not found to place some component: bottom
+2020 jul 14 13:30:18 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench -
+				Files already manually imported
+2020 jul 14 13:30:57 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench -
+				Reaction successfully edited!
+2020 jul 14 13:31:10 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench -
+				Reaction successfully edited!
+2020 jul 14 13:32:06 [AWT-EventQueue-0] error ERROR e.u.ei.aibench.workbench.Workbench -
+				java.lang.NullPointerException
+2020 jul 14 13:37:35 [AWT-EventQueue-0] error ERROR e.u.ei.aibench.workbench.Workbench -
+				java.lang.NullPointerException
+2020 jul 14 13:40:56 [AWT-EventQueue-0] error ERROR e.u.ei.aibench.workbench.Workbench -
+				java.lang.NullPointerException
+2020 jul 14 13:41:30 [AWT-EventQueue-0] error ERROR e.u.ei.aibench.workbench.Workbench -
+				java.lang.NullPointerException
+2020 jul 14 14:22:21 [AWT-EventQueue-0] error ERROR e.u.ei.aibench.workbench.Workbench -
+				java.lang.NullPointerException
+2020 jul 14 17:37:16 [Thread-25] error ERROR e.u.ei.aibench.workbench.Workbench -
+				java.lang.NullPointerException
+2020 jul 14 17:37:16 [Thread-26] error ERROR e.u.ei.aibench.workbench.Workbench -
+				java.lang.NullPointerException

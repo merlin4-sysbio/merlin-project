@@ -1,0 +1,21 @@
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biocoiso   [version 4.0.3]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biomass   [version 4.0.3]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-compartments   [version 4.0.3]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-exporter   [version 4.0.3]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gpr   [version 4.0.3]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.3]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-interpro   [version 4.0.3]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-sampler   [version 4.0.3]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-settings   [version 4.0.3]
+2020 mai 12 21:05:33 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.3]
+2020 mai 12 21:05:35 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 mai 12 21:05:36 [PluginStart0] <init> ERROR e.u.e.s.a.p.PluginManager - No internet Connection
+2020 mai 12 21:05:49 [AWT-EventQueue-0] updateComboBox WARN  p.u.c.b.m.g.jpanels.WorkspaceNewGUI - It was not possible to create a database service with validation method for database 'DiogoDebug'! Retrying with uptade to the database structure!
+2020 mai 12 21:05:57 [AWT-EventQueue-0] updateComboBox INFO  p.u.c.b.m.g.jpanels.WorkspaceNewGUI - Success with update method
+2020 mai 12 21:06:06 [AWT-EventQueue-0] itemStateChanged WARN  p.u.c.b.m.g.jpanels.WorkspaceNewGUI - It was not possible to create a database service with validation method for database 'toyModelEcoliMiguel'! Retrying with uptade to the database structure!
+2020 mai 12 21:06:14 [AWT-EventQueue-0] itemStateChanged INFO  p.u.c.b.m.g.jpanels.WorkspaceNewGUI - Success with update method
+2020 mai 12 21:06:23 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench - workspace toyModelEcoliMiguel closed!

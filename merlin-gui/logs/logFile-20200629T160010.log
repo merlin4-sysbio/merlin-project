@@ -1,0 +1,128 @@
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-addons   [version 4.0.3]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Core   [version 2.10.2]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Workbench   [version 2.10.2]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biocoiso   [version 4.0.3]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biomass   [version 4.0.3]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-compartments   [version 4.0.3]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-exporter   [version 4.0.3]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gpr   [version 4.0.3]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gui   [version 4.0.3]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-interpro   [version 4.0.3]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-sampler   [version 4.0.3]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-settings   [version 4.0.3]
+2020 Jun 29 16:00:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-transyt   [version 4.0.3]
+2020 Jun 29 16:00:11 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow -
+				slot not found to place some component: bottom
+2020 Jun 29 16:01:04 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:01:04 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:01:04 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:01:05 [Thread-25] info INFO  e.u.ei.aibench.workbench.Workbench -
+				all transporters removed from the model
+2020 Jun 29 16:01:37 [processThread] checkMembraneCompartment WARN  p.u.c.b.m.m.TranSyTRetriever -
+				No membrane compartmentID defined!
+2020 Jun 29 16:01:37 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:01:37 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:01:37 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:01:37 [Thread-22] postFiles INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				File path: C:\Users\Bisbii\Desktop\MERLIN\merlin-project\merlin-gui\ws\miguelRochaEcoliFullGenome\83333\transyt\genomeGeneIds.faa
+2020 Jun 29 16:01:37 [Thread-22] postFiles INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				File path: C:\Users\Bisbii\Desktop\MERLIN\merlin-project\merlin-gui\ws\miguelRochaEcoliFullGenome\83333\transyt\metabolites.txt
+2020 Jun 29 16:01:37 [Thread-22] postFiles INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				https://transyt.bio.di.uminho.pt/submitMerlinPlugin/83333/KEGG/false/0.75/0.3/2/50/80.0/20/0.75/30.0/0.4/0/10.0/50/false
+2020 Jun 29 16:01:37 [Thread-22] postFiles INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				The submission 27 was assigned to work
+2020 Jun 29 16:01:37 [Thread-22] submitFiles INFO  p.u.c.b.m.m.TranSyTRetriever -
+				SubmissionID attributed: 27
+2020 Jun 29 16:03:51 [Thread-22] downloadFile INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				The response code was 200
+2020 Jun 29 16:03:51 [Thread-22] downloadFile INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				The file was downloaded successfully.
+2020 Jun 29 16:03:51 [Thread-22] submitFiles INFO  p.u.c.b.m.m.TranSyTRetriever -
+				The result of the verification of md5 file was true
+2020 Jun 29 16:03:51 [Thread-22] setMembraneCompartment INFO  p.u.c.b.m.m.TranSyTRetriever -
+				The files for TranSyT were submitted successfully
+2020 Jun 29 16:03:51 [Thread-22] executeOperation INFO  p.u.c.b.m.m.TranSyTRetriever -
+				Default interior compartment: pt.uminho.ceb.biosystems.merlin.core.containers.model.CompartmentContainer@af065b2
+2020 Jun 29 16:03:51 [Thread-22] executeOperation INFO  p.u.c.b.m.m.TranSyTRetriever -
+				Default exterior compartment: pt.uminho.ceb.biosystems.merlin.core.containers.model.CompartmentContainer@45f68129
+2020 Jun 29 16:03:51 [Thread-22] executeOperation INFO  p.u.c.b.m.m.TranSyTRetriever -
+				Default membrane compartment: null
+2020 Jun 29 16:03:51 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:03:51 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:03:51 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:04:04 [Thread-21] info INFO  e.u.ei.aibench.workbench.Workbench -
+				transporters integration complete but not compartmentalised (no compartments predictions found in 'annotation compartments board'). check the reactions at 'Transporters Pathway' in reactions view
+2020 Jun 29 16:05:43 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench -
+				workspace miguelRochaEcoliFullGenome closed!
+2020 Jun 29 16:07:33 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:07:33 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:07:33 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:07:36 [Thread-21] info INFO  e.u.ei.aibench.workbench.Workbench -
+				all transporters removed from the model
+2020 Jun 29 16:07:50 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:07:50 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:07:50 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:07:51 [Thread-25] postFiles INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				File path: C:\Users\Bisbii\Desktop\MERLIN\merlin-project\merlin-gui\ws\xfastidiosa_v4\698414\transyt\genomeGeneIds.faa
+2020 Jun 29 16:07:51 [Thread-25] postFiles INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				File path: C:\Users\Bisbii\Desktop\MERLIN\merlin-project\merlin-gui\ws\xfastidiosa_v4\698414\transyt\metabolites.txt
+2020 Jun 29 16:07:51 [Thread-25] postFiles INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				https://transyt.bio.di.uminho.pt/submitMerlinPlugin/698414/KEGG/false/0.75/0.3/2/50/80.0/20/0.75/30.0/0.4/0/10.0/50/false
+2020 Jun 29 16:07:51 [Thread-25] postFiles INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				The submission 28 was assigned to work
+2020 Jun 29 16:07:51 [Thread-25] submitFiles INFO  p.u.c.b.m.m.TranSyTRetriever -
+				SubmissionID attributed: 28
+2020 Jun 29 16:09:11 [Thread-25] downloadFile INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				The response code was 200
+2020 Jun 29 16:09:11 [Thread-25] downloadFile INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				The file was downloaded successfully.
+2020 Jun 29 16:09:11 [Thread-25] submitFiles INFO  p.u.c.b.m.m.TranSyTRetriever -
+				The result of the verification of md5 file was true
+2020 Jun 29 16:09:11 [Thread-25] setMembraneCompartment INFO  p.u.c.b.m.m.TranSyTRetriever -
+				The files for TranSyT were submitted successfully
+2020 Jun 29 16:09:11 [Thread-25] executeOperation INFO  p.u.c.b.m.m.TranSyTRetriever -
+				Default interior compartment: pt.uminho.ceb.biosystems.merlin.core.containers.model.CompartmentContainer@1b859ff5
+2020 Jun 29 16:09:11 [Thread-25] executeOperation INFO  p.u.c.b.m.m.TranSyTRetriever -
+				Default exterior compartment: pt.uminho.ceb.biosystems.merlin.core.containers.model.CompartmentContainer@51246b14
+2020 Jun 29 16:09:11 [Thread-25] executeOperation INFO  p.u.c.b.m.m.TranSyTRetriever -
+				Default membrane compartment: pt.uminho.ceb.biosystems.merlin.core.containers.model.CompartmentContainer@6cc4145f
+2020 Jun 29 16:09:11 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:09:11 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:09:11 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 29 16:10:25 [Thread-20] info INFO  e.u.ei.aibench.workbench.Workbench -
+				transporters integration complete. check the reactions at Transporters Pathway in reactions view

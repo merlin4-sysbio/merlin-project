@@ -1,0 +1,82 @@
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-addons   [version 4.0.3]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Core   [version 2.10.2]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Workbench   [version 2.10.2]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biocoiso   [version 4.0.3]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biomass   [version 4.0.3]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-compartments   [version 4.0.3]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-exporter   [version 4.0.3]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gpr   [version 4.0.3]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gui   [version 4.0.4]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-interpro   [version 4.0.3]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-sampler   [version 4.0.3]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-settings   [version 4.0.3]
+2020 jun 30 18:07:31 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-transyt   [version 4.0.4]
+2020 jun 30 18:07:32 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow -
+				slot not found to place some component: bottom
+2020 jun 30 18:07:35 [AWT-EventQueue-0] error ERROR e.u.ei.aibench.workbench.Workbench -
+				no connection! cause: null
+2020 jun 30 18:09:06 [Thread-23] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jun 30 18:09:46 [Thread-25] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jun 30 18:10:25 [Thread-20] backupWorkspaceFolder INFO  p.u.c.b.m.m.workspace.BackupDatabase -
+				Copying workspace folder files...
+2020 jun 30 18:10:25 [Thread-20] selectDirectory INFO  p.u.c.b.m.m.workspace.BackupDatabase -
+				exporting data...
+2020 jun 30 18:10:25 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 jun 30 18:10:25 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 jun 30 18:10:25 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 jun 30 18:11:28 [Thread-20] zipBackupFiles INFO  p.u.c.b.m.m.workspace.BackupDatabase -
+				Creating the .mer to export...
+2020 jun 30 18:11:36 [Thread-20] info INFO  e.u.ei.aibench.workbench.Workbench -
+				Workspace successfully exported as backup_ws_hpluvialis_v4_18h11m28s3062020.mer.
+2020 jun 30 18:11:40 [Thread-20] selectDirectory INFO  p.u.c.b.m.m.workspace.BackupDatabase -
+				Workspace successfully exported as backup_ws_hpluvialis_v4_18h11m28s3062020.mer
+2020 jun 30 18:34:10 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench -
+				workspace hpluvialis_v4 closed!
+2020 jun 30 18:34:27 [Thread-20] selectDirectory INFO  p.u.c.b.m.m.w.RestoreDatabase -
+				starting the .mer folder unzip...
+2020 jun 30 18:34:27 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 jun 30 18:34:27 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 jun 30 18:34:27 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 jun 30 18:34:31 [Thread-20] importWorkspaceFolder INFO  p.u.c.b.m.m.w.RestoreDatabase -
+				Starting the ws folder files import...
+2020 jun 30 18:36:13 [Thread-20] info INFO  e.u.ei.aibench.workbench.Workbench -
+				workspace hpluvialis_v4 successfully imported
+2020 jun 30 18:37:27 [Thread-20] selectDirectory INFO  p.u.c.b.m.m.w.RestoreDatabase -
+				workspace hpluvialis_v4 successfully imported.
+2020 jun 30 18:37:32 [Thread-20] updateComboBox WARN  p.u.c.b.m.g.jpanels.WorkspaceNewGUI -
+				It was not possible to create a database service with validation method for database 'testRomeu'! Retrying with uptade to the database structure!
+2020 jun 30 18:37:33 [Thread-20] updateComboBox INFO  p.u.c.b.m.g.jpanels.WorkspaceNewGUI -
+				Success with update method
+2020 jun 30 18:37:37 [AWT-EventQueue-0] itemStateChanged WARN  p.u.c.b.m.g.jpanels.WorkspaceNewGUI -
+				It was not possible to create a database service with validation method for database 'hpluvialis_v4'! Retrying with uptade to the database structure!
+2020 jun 30 18:37:38 [AWT-EventQueue-0] itemStateChanged INFO  p.u.c.b.m.g.jpanels.WorkspaceNewGUI -
+				Success with update method
+2020 jun 30 18:40:21 [Thread-84] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jun 30 18:42:37 [AWT-EventQueue-0] <init> INFO  u.a.e.u.d.c.u.i.JapiUniprotServiceImpl -
+				UniProt Service is running against: https://www.ebi.ac.uk/proteins/api/proteins/japi

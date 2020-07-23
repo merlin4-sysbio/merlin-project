@@ -1,0 +1,30 @@
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biocoiso   [version 4.0.3]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biomass   [version 4.0.3]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-compartments   [version 4.0.3]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-exporter   [version 4.0.3]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gpr   [version 4.0.3]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.3]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-interpro   [version 4.0.3]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-sampler   [version 4.0.3]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-settings   [version 4.0.3]
+2020 May 26 16:02:43 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.3]
+2020 May 26 16:02:44 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 May 26 16:03:01 [AWT-EventQueue-0] itemStateChanged WARN  p.u.c.b.m.g.jpanels.WorkspaceNewGUI - It was not possible to create a database service with validation method for database 'scerevisiae_bastos'! Retrying with uptade to the database structure!
+2020 May 26 16:03:04 [AWT-EventQueue-0] itemStateChanged INFO  p.u.c.b.m.g.jpanels.WorkspaceNewGUI - Success with update method
+2020 May 26 16:03:54 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench - workspace xfastidiosa_v4_clone2 closed!
+2020 May 26 16:16:05 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 May 26 16:16:05 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 May 26 16:16:05 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 May 26 16:16:05 [Thread-29] checkMembraneCompartment WARN  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - No membrane compartmentID defined!
+2020 May 26 16:16:05 [Thread-28] backupWorkspaceFolder INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - Copying workspace folder files...
+2020 May 26 16:16:05 [Thread-28] initCloning INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - exporting database...
+2020 May 26 16:16:11 [Thread-28] importWorkspaceFolder INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - Starting the ws folder files import...
+2020 May 26 16:17:43 [Thread-28] backupWorkspaceFolder INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - Copying workspace folder files...
+2020 May 26 16:17:43 [Thread-28] initCloning INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - exporting database...
+2020 May 26 16:17:48 [Thread-28] importWorkspaceFolder INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - Starting the ws folder files import...
+2020 May 26 16:23:25 [AWT-EventQueue-0] warn WARN  e.u.ei.aibench.workbench.Workbench - operation canceled!
+2020 May 26 16:23:32 [AWT-EventQueue-0] warn WARN  e.u.ei.aibench.workbench.Workbench - operation canceled!

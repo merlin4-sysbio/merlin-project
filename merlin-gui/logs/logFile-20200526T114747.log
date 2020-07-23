@@ -1,0 +1,64 @@
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biocoiso   [version 4.0.3]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biomass   [version 4.0.3]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-compartments   [version 4.0.3]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-exporter   [version 4.0.3]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gpr   [version 4.0.3]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.3]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-interpro   [version 4.0.3]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-sampler   [version 4.0.3]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-settings   [version 4.0.3]
+2020 May 26 11:47:48 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.3]
+2020 May 26 11:47:49 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 May 26 11:48:50 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 May 26 11:48:50 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 May 26 11:48:50 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 May 26 11:48:50 [Thread-22] checkMembraneCompartment WARN  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - No membrane compartmentID defined!
+2020 May 26 11:49:05 [Thread-21] error ERROR e.u.ei.aibench.workbench.Workbench - java.lang.IllegalArgumentException: Error while exporting.
+2020 May 26 11:50:22 [Thread-22] warn WARN  e.u.ei.aibench.workbench.Workbench - Compartments have not been integrated yet, there is nothing to clean!
+2020 May 26 11:51:14 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 May 26 11:51:14 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 May 26 11:51:14 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 May 26 11:51:15 [Thread-22] checkMembraneCompartment WARN  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - No membrane compartmentID defined!
+2020 May 26 11:51:15 [Thread-21] backupWorkspaceFolder INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - Copying workspace folder files...
+2020 May 26 11:51:15 [Thread-21] initCloning INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - exporting database to temporary files...
+2020 May 26 11:51:17 [Thread-21] error ERROR e.u.ei.aibench.workbench.Workbench - java.lang.IllegalArgumentException: Error while cloning the workspace.
+2020 May 26 11:54:12 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 May 26 11:54:12 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 May 26 11:54:12 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 May 26 11:54:12 [Thread-21] checkMembraneCompartment WARN  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - No membrane compartmentID defined!
+2020 May 26 11:54:30 [Thread-20] backupWorkspaceFolder INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - Copying workspace folder files...
+2020 May 26 11:54:32 [Thread-20] initCloning INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - exporting database to temporary files...
+2020 May 26 11:55:07 [Thread-20] error ERROR e.u.ei.aibench.workbench.Workbench - java.lang.IllegalArgumentException: Error while cloning the workspace.
+2020 May 26 11:58:08 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 May 26 11:58:08 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 May 26 11:58:08 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 May 26 11:58:08 [Thread-20] checkMembraneCompartment WARN  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - No membrane compartmentID defined!
+2020 May 26 11:58:08 [Thread-25] backupWorkspaceFolder INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - Copying workspace folder files...
+2020 May 26 11:58:08 [Thread-25] initCloning INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - exporting database to temporary files...
+2020 May 26 11:59:55 [Thread-25] error ERROR e.u.ei.aibench.workbench.Workbench - java.lang.IllegalArgumentException: Error while cloning the workspace.
+2020 May 26 12:00:21 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 May 26 12:00:21 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 May 26 12:00:21 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 May 26 12:00:21 [Thread-25] checkMembraneCompartment WARN  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - No membrane compartmentID defined!
+2020 May 26 12:00:21 [Thread-22] backupWorkspaceFolder INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - Copying workspace folder files...
+2020 May 26 12:00:21 [Thread-22] initCloning INFO  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - exporting database to temporary files...
+2020 May 26 12:00:53 [Thread-22] error ERROR e.u.ei.aibench.workbench.Workbench - java.lang.IllegalArgumentException: Error while cloning the workspace.
+2020 May 26 12:01:22 [Thread-21] backupWorkspaceFolder INFO  p.u.c.b.m.m.workspace.CloneWorkspace - Copying workspace folder files...
+2020 May 26 12:01:22 [Thread-21] setWorkspaceNewName INFO  p.u.c.b.m.m.workspace.CloneWorkspace - exporting data...
+2020 May 26 12:01:22 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 May 26 12:01:22 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 May 26 12:01:22 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 May 26 12:02:01 [Thread-20] backupWorkspaceFolder INFO  p.u.c.b.m.m.workspace.CloneWorkspace - Copying workspace folder files...
+2020 May 26 12:02:01 [Thread-20] setWorkspaceNewName INFO  p.u.c.b.m.m.workspace.CloneWorkspace - exporting data...
+2020 May 26 12:02:01 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 May 26 12:02:01 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 May 26 12:02:01 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 May 26 12:04:13 [Thread-25] backupWorkspaceFolder INFO  p.u.c.b.m.m.workspace.CloneWorkspace - Copying workspace folder files...
+2020 May 26 12:04:13 [Thread-25] setWorkspaceNewName INFO  p.u.c.b.m.m.workspace.CloneWorkspace - exporting data...
+2020 May 26 12:04:13 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 May 26 12:04:13 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 May 26 12:04:13 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated

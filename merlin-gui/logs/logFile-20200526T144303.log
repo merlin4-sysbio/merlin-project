@@ -1,0 +1,26 @@
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biocoiso   [version 4.0.3]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biomass   [version 4.0.3]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-compartments   [version 4.0.3]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-exporter   [version 4.0.3]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gpr   [version 4.0.3]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.3]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-interpro   [version 4.0.3]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-sampler   [version 4.0.3]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-settings   [version 4.0.3]
+2020 May 26 14:43:03 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.3]
+2020 May 26 14:43:04 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 May 26 14:52:22 [Thread-23] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 1 R03718
+2020 May 26 14:52:22 [Thread-23] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 2 R03719
+2020 May 26 14:52:22 [Thread-23] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 3 R03710
+2020 May 26 14:52:22 [Thread-23] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 4 R03712
+2020 May 26 14:52:22 [Thread-23] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 5 R03711
+2020 May 26 14:52:22 [Thread-23] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 6 R03713
+2020 May 26 14:52:22 [Thread-23] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 7 R03716
+2020 May 26 14:52:22 [Thread-23] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 8 R03707
+2020 May 26 14:52:22 [Thread-23] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 9 R03706
+2020 May 26 14:52:22 [Thread-23] buildModel ERROR p.u.c.b.m.b.i.r.ContainerBuilder - null reaction metabolites for 10 R03709
+2020 May 26 14:54:47 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench - workspace toyModelEcoliMiguel closed!

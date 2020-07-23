@@ -1,0 +1,20 @@
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-addons   [version 4.0.3]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biocoiso   [version 4.0.3]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biomass   [version 4.0.3]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-compartments   [version 4.0.3]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-exporter   [version 4.0.3]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gpr   [version 4.0.3]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.3]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-interpro   [version 4.0.3]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-sampler   [version 4.0.3]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-settings   [version 4.0.3]
+2020 May 28 14:56:18 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.3]
+2020 May 28 14:56:19 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 May 28 14:56:43 [AWT-EventQueue-0] updateComboBox WARN  p.u.c.b.m.g.jpanels.WorkspaceNewGUI - It was not possible to create a database service with validation method for database 'DiogoDebug'! Retrying with uptade to the database structure!
+2020 May 28 14:56:46 [AWT-EventQueue-0] updateComboBox INFO  p.u.c.b.m.g.jpanels.WorkspaceNewGUI - Success with update method
+2020 May 28 14:56:54 [AWT-EventQueue-0] itemStateChanged WARN  p.u.c.b.m.g.jpanels.WorkspaceNewGUI - It was not possible to create a database service with validation method for database 'toyModelEcoliMiguelClone1'! Retrying with uptade to the database structure!
+2020 May 28 14:56:57 [AWT-EventQueue-0] itemStateChanged INFO  p.u.c.b.m.g.jpanels.WorkspaceNewGUI - Success with update method

@@ -1,0 +1,112 @@
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-addons   [version 4.0.3]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Core   [version 2.10.2]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Workbench   [version 2.10.2]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biocoiso   [version 4.0.3]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biomass   [version 4.0.3]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-compartments   [version 4.0.3]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-exporter   [version 4.0.3]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gpr   [version 4.0.3]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gui   [version 4.0.4]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-interpro   [version 4.0.3]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-sampler   [version 4.0.3]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-settings   [version 4.0.3]
+2020 jul 01 13:15:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-transyt   [version 4.0.4]
+2020 jul 01 13:15:11 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow -
+				slot not found to place some component: bottom
+2020 jul 01 13:18:49 [AWT-EventQueue-0] error ERROR e.u.ei.aibench.workbench.Workbench -
+				no connection! cause: null
+2020 jul 01 13:19:18 [AWT-EventQueue-0] updateComboBox WARN  p.u.c.b.m.g.jpanels.WorkspaceNewGUI -
+				It was not possible to create a database service with validation method for database 'miguelRocha2GenesV2'! Retrying with uptade to the database structure!
+2020 jul 01 13:19:20 [AWT-EventQueue-0] updateComboBox INFO  p.u.c.b.m.g.jpanels.WorkspaceNewGUI -
+				Success with update method
+2020 jul 01 13:20:47 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 jul 01 13:20:47 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 jul 01 13:20:47 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 jul 01 13:21:08 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Reference taxonomy set to [Bacteria, Proteobacteria, Gammaproteobacteria, Enterobacterales, Enterobacteriaceae, Escherichia, Escherichia coli, Escherichia coli K-12]
+2020 jul 01 13:21:17 [Thread-22] configure INFO  o.a.j.e.c.CompositeCacheManager -
+				Creating cache manager from config file: /cache.ccf
+2020 jul 01 13:21:17 [Thread-22] loadConfig INFO  o.a.j.u.threadpool.ThreadPoolManager -
+				thread_pool.default PoolConfiguration = useBoundary = [true] boundarySize = [2000] maximumPoolSize = [150] minimumPoolSize = [4] keepAliveTime = [300000] whenBlockedPolicy = [RUN] startUpSize = [4]
+2020 jul 01 13:21:17 [Thread-22] setDefaultAuxValues INFO  o.a.j.e.c.CompositeCacheConfigurator -
+				Setting default auxiliaries to DC
+2020 jul 01 13:21:17 [Thread-22] setDefaultCompositeCacheAttributes INFO  o.a.j.e.c.CompositeCacheConfigurator -
+				setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100000, maxSpoolPerRun = -1, diskUsagePattern = 0 ]
+2020 jul 01 13:21:17 [Thread-22] parseElementAttributes INFO  o.a.j.e.c.CompositeCacheConfigurator -
+				No special ElementAttribute class defined for key [jcs.default.elementattributes], using default class.
+2020 jul 01 13:21:17 [Thread-22] setDefaultElementAttributes INFO  o.a.j.e.c.CompositeCacheConfigurator -
+				setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = -1, CreateTime = 1593606077356, LastAccessTime = 1593606077356, getTimeToLiveSeconds() = -1, createTime = 1593606077356 ]
+2020 jul 01 13:21:17 [Thread-22] parseElementAttributes INFO  o.a.j.e.c.CompositeCacheConfigurator -
+				No special ElementAttribute class defined for key [jcs.region.KEGG_API.elementattributes], using default class.
+2020 jul 01 13:21:17 [Thread-22] initialize INFO  o.a.j.e.memory.lru.LRUMemoryCache -
+				initialized LRUMemoryCache for KEGG_API
+2020 jul 01 13:21:17 [Thread-22] <init> INFO  o.a.j.engine.control.CompositeCache -
+				Constructed cache with name [KEGG_API] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100000, maxSpoolPerRun = 500, diskUsagePattern = 0 ]
+2020 jul 01 13:21:17 [Thread-22] <init> INFO  o.a.j.a.d.indexed.IndexedDiskCache -
+				Region [KEGG_API] Cache file root directory: ./cache
+2020 jul 01 13:21:17 [Thread-22] initKeyMap INFO  o.a.j.a.d.indexed.IndexedDiskCache -
+				Region [KEGG_API] Set maxKeySize to: '100000000'
+2020 jul 01 13:21:17 [Thread-22] <init> INFO  o.a.j.a.d.indexed.IndexedDiskCache -
+				Region [KEGG_API] Indexed Disk Cache is alive.
+2020 jul 01 13:21:17 [Thread-22] parseRegions INFO  o.a.j.e.c.CompositeCacheConfigurator -
+				Parsed regions [KEGG_API]
+2020 jul 01 13:21:17 [Thread-22] doConfigure INFO  o.a.j.e.c.CompositeCacheConfigurator -
+				Finished configuration in 249 ms.
+2020 jul 01 14:54:29 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Iterator size: 1, entries [6.2.1.5]
+2020 jul 01 14:57:35 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieving GPR for 6.2.1.5 ...
+2020 jul 01 15:21:41 [Thread-22] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00009	Pathway	[[K01647, K05942], [K01681, K01682], [K00031, K00030], [K00164+K00658+K00382, K00174+K00175-K00177-K00176], [K01902+K01903, K01899+K01900, K18118], [K00234+K00235+K00236+K00237, K00239+K00240+K00241-K00242, K00239+K00240+K00241-K18859, K00239+K00240+K00241-K18860, K00244+K00245+K00246-K00247], [K01676, K01679, K01677+K01678], [K00026, K00025, K00024, K00116]] 
+2020 jul 01 15:29:40 [Thread-22] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K01902, K01903], modules={M00009=ModuleCI [module=M00009, moduleType=Pathway, definition=(K01647,K05942) (K01681,K01682) (K00031,K00030) (K00164+K00658+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+K00237,K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116), name=Citrate cycle (TCA cycle, Krebs cycle), pathways=[00020, 01100, 01200]]}]]
+2020 jul 01 15:31:35 [Thread-22] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00011	Pathway	[[K00164+K00658+K00382, K00174+K00175-K00177-K00176], [K01902+K01903, K01899+K01900, K18118], [K00234+K00235+K00236+K00237, K00239+K00240+K00241-K00242, K00239+K00240+K00241-K18859, K00239+K00240+K00241-K18860, K00244+K00245+K00246-K00247], [K01676, K01679, K01677+K01678], [K00026, K00025, K00024, K00116]] 
+2020 jul 01 15:31:49 [Thread-22] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K01902, K01903], modules={M00011=ModuleCI [module=M00011, moduleType=Pathway, definition=(K00164+K00658+K00382,K00174+K00175-K00177-K00176) (K01902+K01903,K01899+K01900,K18118) (K00234+K00235+K00236+K00237,K00239+K00240+K00241-(K00242,K18859,K18860),K00244+K00245+K00246-K00247) (K01676,K01679,K01677+K01678) (K00026,K00025,K00024,K00116), name=Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate, pathways=[00020, 01100, 01200]]}]]
+2020 jul 01 15:32:31 [Thread-22] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00173	Pathway	[[K00169+K00170+K00171+K00172, K03737], [K01007, K01006], [K01595, K01959+K01960, K01958], [K00024], [K01676, K01679, K01677+K01678], [K00239+K00240-K00241-K00242, K00244+K00245-K00246-K00247, K18556+K18557+K18558+K18559+K18560], [K01902+K01903], [K00174+K00175-K00177-K00176], [K00031], [K01681, K01682], [K15230+K15231, K15232+K15233], [K15234]] 
+2020 jul 01 15:32:31 [Thread-22] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K01902, K01903], modules={M00173=ModuleCI [module=M00173, moduleType=Pathway, definition=(K00169+K00170+K00171+K00172,K03737) ((K01007,K01006) K01595,K01959+K01960,K01958) K00024 (K01676,K01679,K01677+K01678) (K00239+K00240-K00241-K00242,K00244+K00245-K00246-K00247,K18556+K18557+K18558+K18559+K18560) (K01902+K01903) (K00174+K00175-K00177-K00176) K00031 (K01681,K01682) (K15230+K15231,K15232+K15233 K15234), name=Reductive citrate cycle (Arnon-Buchanan cycle), pathways=[00720, 01100, 01120, 01200]]}]]
+2020 jul 01 15:32:32 [Thread-22] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00374	Pathway	[[K00169+K00170+K00171+K00172], [K01007], [K01595], [K00024], [K01677+K01678], [K00239+K00240-K00241-K18860], [K01902+K01903], [K15038, K15017], [K14465], [K14467, K18861], [K14534], [K15016], [K00626]] 
+2020 jul 01 15:32:32 [Thread-22] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K01902, K01903], modules={M00374=ModuleCI [module=M00374, moduleType=Pathway, definition=(K00169+K00170+K00171+K00172) K01007 K01595 K00024 (K01677+K01678) (K00239+K00240-K00241-K18860) (K01902+K01903) (K15038,K15017) K14465 (K14467,K18861) K14534 K15016 K00626, name=Dicarboxylate-hydroxybutyrate cycle, pathways=[00720, 01100, 01120, 01200]]}]]
+2020 jul 01 15:32:33 [Thread-22] getdefinition INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				M00620	Pathway	[[K00169+K00170+K00171+K00172], [K01959+K01960], [K00024], [K01677+K01678], [K18209+K18210], [K01902+K01903], [K00174+K00175+K00176+K00177]] 
+2020 jul 01 15:32:33 [Thread-22] getFinalRule INFO  p.u.c.b.m.gpr.rules.core.AssembleGPR -
+				GPR RULE:	 [GeneAssociation [genes=[K01902, K01903], modules={M00620=ModuleCI [module=M00620, moduleType=Pathway, definition=(K00169+K00170+K00171+K00172) (K01959+K01960) K00024 (K01677+K01678) (K18209+K18210) (K01902+K01903) (K00174+K00175+K00176+K00177), name=Incomplete reductive citrate cycle, acetyl-CoA => oxoglutarate, pathways=[00720, 01100, 01120, 01200]]}]]
+2020 jul 01 15:37:03 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Retrieved!
+2020 jul 01 15:45:06 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Genes, KO, modules 	{K01903=[1, 2, 3, 4, 5], K01902=[1, 2, 3, 4, 5]}
+2020 jul 01 15:53:09 [Thread-22] runIdentification INFO  p.u.c.b.m.g.r.c.IdentifyGenomeSubunits -
+				Orthologs to be searched in genome:	2	[eco:b0728, eco:b0729]
+2020 jul 01 15:56:33 [Thread-22] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Writting query sequences temporary fasta files... 
+2020 jul 01 15:57:28 [Thread-22] run_OrthologGapsSearch INFO  p.u.c.b.m.a.core.RunSimilaritySearch -
+				Starting Blast homology searches... 
+2020 jul 01 15:57:28 [Thread-26] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!
+2020 jul 01 15:57:28 [Thread-27] run INFO  p.u.c.b.m.a.c.M.BlastAlignment -
+				BLAST search completed with success!

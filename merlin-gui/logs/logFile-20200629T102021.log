@@ -1,0 +1,64 @@
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-addons   [version 4.0.3]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Core   [version 2.10.2]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Workbench   [version 2.10.2]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biocoiso   [version 4.0.3]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biomass   [version 4.0.3]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-compartments   [version 4.0.3]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-exporter   [version 4.0.3]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gpr   [version 4.0.3]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gui   [version 4.0.3]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-interpro   [version 4.0.3]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-sampler   [version 4.0.3]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-settings   [version 4.0.3]
+2020 Jun 29 10:20:21 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-transyt   [version 4.0.3]
+2020 Jun 29 10:20:22 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow -
+				slot not found to place some component: bottom
+2020 Jun 29 10:22:39 [processThread] checkMembraneCompartment WARN  p.u.c.b.m.m.TranSyTRetriever -
+				No membrane compartmentID defined!
+2020 Jun 29 10:22:39 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 29 10:22:39 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 29 10:22:39 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 29 10:23:11 [Thread-21] postFiles INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				File path: C:\Users\Bisbii\Desktop\MERLIN\merlin-project\merlin-gui\ws\toyModelEcoliMiguelClone1\83333\transyt\genome.faa
+2020 Jun 29 10:23:11 [Thread-21] postFiles INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				File path: C:\Users\Bisbii\Desktop\MERLIN\merlin-project\merlin-gui\ws\toyModelEcoliMiguelClone1\83333\transyt\metabolites.txt
+2020 Jun 29 10:23:11 [Thread-21] postFiles INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				https://transyt.bio.di.uminho.pt/submitMerlinPlugin/83333/KEGG/false/0.75/0.3/2/50/80.0/20/0.75/30.0/0.4/0/10.0/50/false
+2020 Jun 29 10:23:11 [Thread-21] postFiles INFO  p.u.c.b.m.m.HandlingRequestsAndRetrievalsTransyt -
+				The submission 11 was assigned to work
+2020 Jun 29 10:23:11 [Thread-21] submitFiles INFO  p.u.c.b.m.m.TranSyTRetriever -
+				SubmissionID attributed: 11
+2020 Jun 29 10:23:11 [Thread-21] warn WARN  e.u.ei.aibench.workbench.Workbench -
+				operation canceled!
+2020 Jun 29 10:23:49 [processThread] checkMembraneCompartment WARN  p.u.c.b.m.m.TranSyTRetriever -
+				No membrane compartmentID defined!
+2020 Jun 29 10:23:49 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 29 10:23:49 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 29 10:23:49 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 29 10:24:05 [Thread-20] setMembraneCompartment ERROR p.u.c.b.m.m.TranSyTRetriever -
+				C:\Users\Bisbii\Desktop\MERLIN\merlin-project\merlin-gui\ws\toyModelEcoliMiguelClone1\83333\protein.faa
+2020 Jun 29 10:24:05 [Thread-20] error ERROR e.u.ei.aibench.workbench.Workbench -
+				java.nio.file.NoSuchFileException: C:\Users\Bisbii\Desktop\MERLIN\merlin-project\merlin-gui\ws\toyModelEcoliMiguelClone1\83333\protein.faa

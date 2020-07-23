@@ -1,0 +1,92 @@
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-addons   [version 4.0.3]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Core   [version 2.10.2]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Workbench   [version 2.10.2]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biocoiso   [version 4.0.3]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biomass   [version 4.0.3]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-compartments   [version 4.0.3]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-exporter   [version 4.0.3]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gpr   [version 4.0.3]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gui   [version 4.0.3]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-interpro   [version 4.0.3]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-sampler   [version 4.0.3]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-settings   [version 4.0.3]
+2020 Jun 26 17:58:10 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-transyt   [version 4.0.3]
+2020 Jun 26 17:58:11 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow -
+				slot not found to place some component: bottom
+2020 Jun 26 17:58:37 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench -
+				Files already manually imported
+2020 Jun 26 17:58:48 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 26 17:58:48 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 26 17:58:48 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 26 17:58:50 [Thread-25] info INFO  e.u.ei.aibench.workbench.Workbench -
+				all transporters removed from the model
+2020 Jun 26 17:58:59 [Thread-22] setMembraneCompartment INFO  p.u.c.b.m.m.TranSyTRetriever -
+				The files for TranSyT were submitted successfully
+2020 Jun 26 17:58:59 [Thread-22] executeOperation INFO  p.u.c.b.m.m.TranSyTRetriever -
+				Default interior compartment: pt.uminho.ceb.biosystems.merlin.core.containers.model.CompartmentContainer@770a00fd
+2020 Jun 26 17:58:59 [Thread-22] executeOperation INFO  p.u.c.b.m.m.TranSyTRetriever -
+				Default exterior compartment: pt.uminho.ceb.biosystems.merlin.core.containers.model.CompartmentContainer@a4d6abf
+2020 Jun 26 17:58:59 [Thread-22] executeOperation INFO  p.u.c.b.m.m.TranSyTRetriever -
+				Default membrane compartment: pt.uminho.ceb.biosystems.merlin.core.containers.model.CompartmentContainer@35744ff
+2020 Jun 26 17:58:59 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 26 17:58:59 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 26 17:58:59 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 26 17:58:59 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 26 17:58:59 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 26 17:58:59 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 26 17:59:42 [Thread-20] error ERROR e.u.ei.aibench.workbench.Workbench -
+				java.lang.NumberFormatException: For input string: ""
+2020 Jun 26 18:09:17 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 26 18:09:17 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 26 18:09:17 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 26 18:09:19 [Thread-21] info INFO  e.u.ei.aibench.workbench.Workbench -
+				all transporters removed from the model
+2020 Jun 26 18:09:30 [Thread-20] setMembraneCompartment INFO  p.u.c.b.m.m.TranSyTRetriever -
+				The files for TranSyT were submitted successfully
+2020 Jun 26 18:09:30 [Thread-20] executeOperation INFO  p.u.c.b.m.m.TranSyTRetriever -
+				Default interior compartment: pt.uminho.ceb.biosystems.merlin.core.containers.model.CompartmentContainer@689f7bfc
+2020 Jun 26 18:09:30 [Thread-20] executeOperation INFO  p.u.c.b.m.m.TranSyTRetriever -
+				Default exterior compartment: pt.uminho.ceb.biosystems.merlin.core.containers.model.CompartmentContainer@6084b50
+2020 Jun 26 18:09:30 [Thread-20] executeOperation INFO  p.u.c.b.m.m.TranSyTRetriever -
+				Default membrane compartment: pt.uminho.ceb.biosystems.merlin.core.containers.model.CompartmentContainer@129ea065
+2020 Jun 26 18:09:30 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 26 18:09:30 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 26 18:09:30 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 26 18:09:31 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 26 18:09:31 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 26 18:09:31 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog -
+				Warning: progress bean property time does not have a write method associated so it probably can't be updated

@@ -1,0 +1,60 @@
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-addons   [version 4.0.3]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Core   [version 2.10.2]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded AIBench Workbench   [version 2.10.2]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biocoiso   [version 4.0.3]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-biomass   [version 4.0.3]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-compartments   [version 4.0.3]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-exporter   [version 4.0.3]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gpr   [version 4.0.3]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-gui   [version 4.0.4]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-interpro   [version 4.0.3]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-sampler   [version 4.0.3]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-settings   [version 4.0.3]
+2020 jul 01 10:21:40 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame -
+				Loaded merlin-transyt   [version 4.0.4]
+2020 jul 01 10:21:42 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow -
+				slot not found to place some component: bottom
+2020 jul 01 10:22:21 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench -
+				Files already manually imported
+2020 jul 01 10:24:05 [Thread-34] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jul 01 10:30:52 [Thread-36] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jul 01 10:35:19 [Thread-38] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jul 01 10:36:33 [Thread-40] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jul 01 10:38:38 [Thread-42] error ERROR e.u.ei.aibench.workbench.Workbench -
+				java.lang.NullPointerException
+2020 jul 01 10:39:26 [Thread-44] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jul 01 10:39:49 [Thread-46] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jul 01 10:40:17 [Thread-48] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jul 01 10:43:04 [Thread-50] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jul 01 10:44:37 [Thread-52] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jul 01 10:44:53 [Thread-54] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jul 01 10:46:09 [Thread-56] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid
+2020 jul 01 10:54:37 [Thread-58] error ERROR e.u.ei.aibench.workbench.Workbench -
+				pt.uminho.ceb.biosystems.mew.biocomponents.container.components.InvalidBooleanRuleException: The boolean rule:  OR g3201 is invalid

@@ -1,0 +1,42 @@
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-addons   [version 4.0.3]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Core   [version 2.10.2]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Plugin Manager   [version 2.10.2]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded AIBench Workbench   [version 2.10.2]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-automatic-annotation   [version 4.0.3]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biocoiso   [version 4.0.3]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-biomass   [version 4.0.3]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-compartments   [version 4.0.3]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-exporter   [version 4.0.3]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gpr   [version 4.0.3]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-gui   [version 4.0.3]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-interpro   [version 4.0.3]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-sampler   [version 4.0.3]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-settings   [version 4.0.3]
+2020 Jun 16 14:41:39 [main] handlePluginEngineEvent INFO  es.uvigo.ei.aibench.SplashFrame - Loaded merlin-transyt   [version 4.0.3]
+2020 Jun 16 14:41:40 [AWT-EventQueue-0] putItemInSlot WARN  e.u.ei.aibench.workbench.MainWindow - slot not found to place some component: bottom
+2020 Jun 16 14:42:28 [processThread] checkExternalCompartment WARN  p.u.c.b.m.m.TranSyTRetriever - No external compartmentID defined!
+2020 Jun 16 14:42:28 [processThread] checkMembraneCompartment WARN  p.u.c.b.m.m.TranSyTRetriever - No membrane compartmentID defined!
+2020 Jun 16 14:42:28 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 16 14:42:28 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 16 14:42:28 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 16 14:42:28 [Thread-20] setMembraneCompartment ERROR p.u.c.b.m.m.TranSyTRetriever - no metabolites found present in the model!
+2020 Jun 16 14:42:28 [Thread-20] error ERROR e.u.ei.aibench.workbench.Workbench - java.lang.Exception: no metabolites found present in the model!
+2020 Jun 16 14:42:45 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench - workspace toyModelEcoliMiguelClone1 closed!
+2020 Jun 16 14:43:14 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 16 14:43:14 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 16 14:43:14 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 16 14:43:15 [Thread-20] setProject ERROR p.u.c.b.m.g.o.l.LoaderWorkspaceDatabase - Connection to get file was not possible. Using local backup!
+2020 Jun 16 14:52:23 [Thread-20] info INFO  e.u.ei.aibench.workbench.Workbench - metabolic data successfully loaded
+2020 Jun 16 15:01:56 [Thread-21] error ERROR e.u.ei.aibench.workbench.Workbench - Please make sure you have loaded a compartment prediction report in this workspace
+2020 Jun 16 15:02:19 [AWT-EventQueue-0] getInputComponentsPane INFO  p.c.b.m.m.s.HeapSpaceSettingsGUI - Approximate memory size: 16
+2020 Jun 16 15:02:19 [AWT-EventQueue-0] getMemorySelected INFO  p.c.b.m.m.s.HeapSpaceSettingsGUI - Current heap space memory in use: 	<property name="JAVA_PARAM" value="-Xmx9G"/>
+2020 Jun 16 15:02:22 [AWT-EventQueue-0] lambda$0 INFO  p.c.b.m.m.s.HeapSpaceSettingsGUI - Set new heap space operation canceled.
+2020 Jun 16 15:04:09 [AWT-EventQueue-0] info INFO  e.u.ei.aibench.workbench.Workbench - workspace toyModelEcoli closed!
+2020 Jun 16 15:11:39 [Thread-21] info INFO  e.u.ei.aibench.workbench.Workbench - all reactions assigned to the model removed!
+2020 Jun 16 15:11:53 [AWT-EventQueue-0] getInputComponentsPane INFO  p.c.b.m.m.s.HeapSpaceSettingsGUI - Approximate memory size: 16
+2020 Jun 16 15:11:53 [AWT-EventQueue-0] getMemorySelected INFO  p.c.b.m.m.s.HeapSpaceSettingsGUI - Current heap space memory in use: 	<property name="JAVA_PARAM" value="-Xmx8G"/>
+2020 Jun 16 15:11:56 [AWT-EventQueue-0] lambda$0 INFO  p.c.b.m.m.s.HeapSpaceSettingsGUI - Set new heap space operation canceled.
+2020 Jun 16 15:12:20 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property progress does not have a write method associated so it probably can't be updated
+2020 Jun 16 15:12:20 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property task does not have a write method associated so it probably can't be updated
+2020 Jun 16 15:12:20 [AWT-EventQueue-0] getPropertyDescriptors WARN  e.u.e.a.workbench.MonitorizeDialog - Warning: progress bean property time does not have a write method associated so it probably can't be updated
+2020 Jun 16 15:12:20 [Thread-21] checkMembraneCompartment WARN  p.u.c.b.m.c.i.ModelCompartmentsIntegrationOperation - No membrane compartmentID defined!
