@@ -700,7 +700,6 @@
 			<menu-icon menu="annotation/compartments" icon="conf/icons/compartments.png" />
 			
 			<menu-icon menu="validation" icon="conf/icons/validation.png" />
-			<menu-icon menu="validation/BioISO" icon="conf/icons/Lifecycle/remote.png" />
 			
 			<menu-icon menu="regulation" icon="conf/icons/regulation_new_icon.png" />
 			
