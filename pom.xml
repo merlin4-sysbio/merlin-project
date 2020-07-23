@@ -6,7 +6,7 @@
 
 	<groupId>pt.uminho.ceb.biosystems.merlin</groupId>
 	<artifactId>merlin-project</artifactId>
-	<version>4.0.2-RELEASE</version>
+	<version>4.0.4-RELEASE</version>
 	<!-- WARNING: change version using: mvn versions:set -DnewVersion=[new_version] 
 		mvn versions:commit This will change the version in all modules at-once WARNING: 
 		Remember to also change the version manually in the docs/source/conf.py file -->
@@ -66,13 +66,15 @@
 
 	<properties>
 		<!-- merlin -->
-		<merlin.build.directory>${project.build.directory}/merlin/</merlin.build.directory>
+		<merlin.build.directory>${build.directory}/merlin/</merlin.build.directory>
+		<merlin.build.directory.conf>${project.basedir}/merlin-gui/conf/</merlin.build.directory.conf>
 		<merlin.plugins.directory>${project.basedir}/merlin-gui/merlin/plugins</merlin.plugins.directory>
 		<merlin.lib.directory>${project.basedir}/merlin-gui/merlin/lib</merlin.lib.directory>
-		<merlin.version.project>4.0.2-RELEASE</merlin.version.project>
 		<slf4j.version>1.8.0-beta4</slf4j.version>
-		<pt.uminho.ceb.biosystems.merlin.version>4.0.2-RELEASE</pt.uminho.ceb.biosystems.merlin.version>
+		<pt.uminho.ceb.biosystems.aibench.project.version>4.0.2-RELEASE</pt.uminho.ceb.biosystems.aibench.project.version>
+		<pt.uminho.ceb.biosystems.merlin.version>4.0.4-RELEASE</pt.uminho.ceb.biosystems.merlin.version>
 		<pt.uminho.ceb.biosystems.merlin.groupId>pt.uminho.ceb.biosystems.merlin</pt.uminho.ceb.biosystems.merlin.groupId>
+		<build.name>beta</build.name>
 
 		<!-- General -->
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -94,8 +96,15 @@
 		<!-- license-maven-plugin configuration -->
 		<license.licenseName>GPLv3</license.licenseName>
 		<license.copyrightOwners>Oscar Dias</license.copyrightOwners>
-		<license.organizationName>Biosystems Research Group - CEB - University of Minho</license.organizationName>
+		<license.organizationName>Biosystems Research Group - CEB - University
+			of Minho</license.organizationName>
 		<license.addJavaLicenseAfterPackage>false</license.addJavaLicenseAfterPackage>
+
+		<axis2.version>1.6.2</axis2.version>
+		<axiom.version>1.2.14</axiom.version>
+		<uniprot.api.version>1.0.31</uniprot.api.version>
+
+
 	</properties>
 
 	<modules>
@@ -107,6 +116,8 @@
 		<module>merlin-biocomponents</module>
 		<module>merlin-processes</module>
 		<module>merlin-gui</module>
+		<module>merlin-alignments</module>
+
 	</modules>
 
 	<dependencyManagement>
@@ -120,6 +131,12 @@
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>merlin-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>merlin-alignments</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
@@ -166,7 +183,7 @@
 					<artifactId>maven-antrun-plugin</artifactId>
 					<executions>
 						<execution>
-							<id>versions:set -DnewVersion=4.0.3-RELEASE</id>
+							<id>versions:set -DnewVersion=4.0.4-RELEASE</id>
 						</execution>
 					</executions>
 				</plugin>
@@ -295,6 +312,24 @@
 								<configuration>
 									<keyname>${aibench.gpg.keyname}</keyname>
 									<passphraseServerId>${aibench.gpg.passphraseServerId}</passphraseServerId>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>list-dependencies</id>
+								<phase>deploy</phase>
+								<goals>
+									<goal>list</goal>
+								</goals>
+								<configuration>
+									<outputFile>${merlin.build.directory.conf}dependenciesfiles</outputFile>
+									<outputScope>false</outputScope>
+									<appendOutput>true</appendOutput>
 								</configuration>
 							</execution>
 						</executions>

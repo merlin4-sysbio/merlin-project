@@ -21,7 +21,7 @@ import pt.uminho.ceb.biosystems.merlin.core.containers.model.ProteinContainer;
 import pt.uminho.ceb.biosystems.merlin.core.containers.model.ReactionContainer;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceDataTable;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelBlockedReactions;
-import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelReactionsmetabolitesEnzymesSets;
+import pt.uminho.ceb.biosystems.merlin.core.datatypes.auxiliary.ModelReactionsMetabolitesEnzymesSets;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.model.ModelReactions;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.model.datatables.ModelPathwayReactions;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.Compartments;
@@ -181,10 +181,10 @@ public class ModelReactionsAIB extends ModelReactions implements IEntityAIB {
 
 				String gene = container.getLocusTag();
 
-				if(gene != null && !gene.trim().isEmpty())
+				if(gene != null && !gene.trim().isEmpty()) {
 					gene = gene.concat(" (").concat(gene).concat(")");
-
-				genes.add(gene);
+					genes.add(gene);
+				}
 			}
 			
 			Collections.sort(genes);
@@ -211,10 +211,11 @@ public class ModelReactionsAIB extends ModelReactions implements IEntityAIB {
 				for(GeneContainer gene : data) {
 
 					String locusTag = gene.getLocusTag();
-					String name = gene.getName();
+					
+					//String name = gene.getName();
 
-					if(name != null && !name.trim().isEmpty())
-						locusTag = locusTag.concat(" (").concat(name).concat(")");
+					//if(name != null && !name.trim().isEmpty())
+					//	locusTag = locusTag.concat(" (").concat(name).concat(")");
 
 					ret.put(locusTag, gene.getIdGene());
 				}
@@ -413,7 +414,7 @@ public class ModelReactionsAIB extends ModelReactions implements IEntityAIB {
 	 * @return
 	 * @throws Exception 
 	 */
-	public ModelReactionsmetabolitesEnzymesSets getEnzymesIdentifiersList(int pathwayID) throws Exception {
+	public ModelReactionsMetabolitesEnzymesSets getEnzymesIdentifiersList(int pathwayID) throws Exception {
 
 		return ModelReactionsServices.getEnzymesIdentifiersList(pathwayID, blockedReactions, workspaceName);
 	}
@@ -424,7 +425,7 @@ public class ModelReactionsAIB extends ModelReactions implements IEntityAIB {
 	 * @return
 	 * @throws Exception 
 	 */
-	public ModelReactionsmetabolitesEnzymesSets getReactionsList(boolean noEnzymes, int pathwayID) throws Exception {
+	public ModelReactionsMetabolitesEnzymesSets getReactionsList(boolean noEnzymes, int pathwayID) throws Exception {
 
 		return ModelReactionsServices.getReactionsList(noEnzymes, pathwayID, blockedReactions, workspaceName);
 	}
@@ -515,7 +516,9 @@ public class ModelReactionsAIB extends ModelReactions implements IEntityAIB {
 	 * @return
 	 */
 	public int getRowID(int row) {
-
+		
+		if(!this.getIdentifiers().containsKey(row))
+			row --;
 		return this.getIdentifiers().get(row);
 	}
 

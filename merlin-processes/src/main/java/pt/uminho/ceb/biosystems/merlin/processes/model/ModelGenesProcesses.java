@@ -12,7 +12,7 @@ import pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceDataTable;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceGenericDataTable;
 import pt.uminho.ceb.biosystems.merlin.services.ProjectServices;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelGenesServices;
-import pt.uminho.ceb.biosystems.mew.biocomponents.container.Container;
+import pt.uminho.ceb.biosystems.merlin.biocomponents.container.Container;
 import pt.uminho.ceb.biosystems.mew.biocomponents.container.components.GeneCI;
 
 public class ModelGenesProcesses {
@@ -188,7 +188,7 @@ public class ModelGenesProcesses {
 				databaseName, ProjectServices.isCompartmentalisedModel(databaseName), false, null,
 				null));
 
-		cont.verifyDepBetweenClass();
+		cont.verifyDepBetweenClass(false);
 
 		Map<String, Integer> reactionsCount = new HashMap<>();
 

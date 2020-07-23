@@ -26,5 +26,9 @@ public interface IAliasesService {
 
 	public void insertNewModelAliasEntry(String cl, int entity, String alias) throws Exception;
 
+	void updateModelAlias(int modelAliasId, String cl, int entity, String alias) throws Exception;
+
+	void removeModelAlias(int modelAliasId) throws Exception;
+
 
 }

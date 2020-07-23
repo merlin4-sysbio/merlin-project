@@ -1,5 +1,6 @@
 package pt.uminho.ceb.biosystems.merlin.services.implementation;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,14 +35,14 @@ public class SequenceServiceImpl implements ISequenceService{
 		ModelSequence modelSequence = new ModelSequence();
 
 		ModelGene modelGene = this.modelGeneDAO.getModelGene(idGene);
-		
+
 		modelSequence.setModelGene(modelGene);
 		modelSequence.setSequenceType(type.toString());
 		modelSequence.setSequenceLength(sequenceLength);
 		modelSequence.setSequence(sequence);
-		
+
 		this.sequenceDAO.addModelSequence(modelSequence);
-		
+
 	}
 
 	@Override
@@ -67,32 +68,65 @@ public class SequenceServiceImpl implements ISequenceService{
 	public Map<String, SequenceContainer> getSequencesWithQueriesBySequenceType(SequenceType seqtype) throws Exception {
 		Map<String, SequenceContainer> sequenceWithQuery = new HashMap<>();
 		List<ModelSequence> sequences = this.sequenceDAO.getModelSequencesBySequenceType(seqtype);
-		
-		
+
+
 		if(sequences != null) {
-			
+
 			for(ModelSequence sequence :sequences) {
-				
-				
+
+
 				SequenceContainer container = new SequenceContainer(sequence.getIdsequence());
-				
+
 				container.setSeqType(seqtype);
-				
+
 				if(sequence.getModelGene() != null)
 					container.setQuery(sequence.getModelGene().getQuery());
-				
+
 				container.setSequence(sequence.getSequence());
 				container.setSequenceLength(sequence.getSequenceLength());
-				
-				
+
+
 				ModelGene a = sequence.getModelGene();
 				if (a != null && a.getQuery() != null)
 					sequenceWithQuery.put(a.getQuery(), container);
 			}
 		}
-		
+
 		return sequenceWithQuery;
 	}
+
+
+	@Override
+	public List<SequenceContainer> getSequencesbySequenceType(SequenceType seqtype) throws Exception {
+
+		List<SequenceContainer> seqContainers = new ArrayList<>();
+		List<ModelSequence> sequences = this.sequenceDAO.getModelSequencesBySequenceType(seqtype);
+		if(sequences != null) {
+
+			for(ModelSequence sequence :sequences) {
+
+
+				SequenceContainer container = new SequenceContainer(sequence.getIdsequence());
+
+				container.setSeqType(seqtype);
+
+				if(sequence.getModelGene() != null) {
+					container.setQuery(sequence.getModelGene().getQuery());
+					container.setGeneID(sequence.getModelGene().getIdgene());
+				}
+
+				container.setSequence(sequence.getSequence());
+				container.setSequenceLength(sequence.getSequenceLength());
+
+				ModelGene a = sequence.getModelGene();
+				if (a != null && a.getQuery() != null)
+					seqContainers.add(container);
+			}
+		}
+
+		return seqContainers;
+	}
+
 
 	@Override
 	public void loadFastaSequences(Map<Integer, String[]> sequences,
@@ -115,30 +149,30 @@ public class SequenceServiceImpl implements ISequenceService{
 			sequence.setSequenceType(seqType.toString());
 			sequence.setSequence(seqInfo[0]);
 			sequence.setSequenceLength(Integer.parseInt(seqInfo[1]));
-			
+
 			this.sequenceDAO.addModelSequence(sequence);
 
 		}
 	}
-	
+
 	@Override 
 	public List<GeneContainer> getSequenceByGeneId(int idGene) {
-		
+
 		return this.sequenceDAO.getSequenceByGeneId(idGene);
 	}
-	
+
 	@Override 
 	public boolean checkGenomeSequencesByType(SequenceType type) {
-		
+
 		return this.sequenceDAO.checkGenomeSequencesByType(type);
 	}
-	
+
 	@Override 
 	public Integer countSequencesByType(SequenceType type) {
-		
+
 		return this.sequenceDAO.countSequencesByType(type);
 	}
-	
+
 	@Override
 	public List<ModelSequence> getAllEntityModelSequences() throws JAXBException{
 		ModelSequence res = this.sequenceDAO.getAllModelSequence().get(0);

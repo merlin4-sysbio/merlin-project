@@ -1264,6 +1264,21 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
+	
+	
+	public Map<Integer, String> getGeneIdAndGeneQuery() throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			Map<Integer, String> result = geneservice.getGeneIdAndGeneQuery();
+			tx.commit();
+			return (Map<Integer, String>) result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+	
 
 	public void deleteDuplicatedQuerys(String query) throws Exception {  
 		Transaction tx = null;
@@ -1356,11 +1371,11 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		}
 	}
 
-	public List<String[]> getAllEnzymes(boolean isCompartimentalized, boolean encodedEnzyme) throws Exception {
+	public List<String[]> getAllEnzymes(boolean isEncodedInGenome, boolean isCompartmentalizedModel) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			List<String[]> result = proteinservice.getAllEnzymes(isCompartimentalized, encodedEnzyme);
+			List<String[]> result = proteinservice.getAllEnzymes(isEncodedInGenome, isCompartmentalizedModel);
 			tx.commit();
 			return (List<String[]>) result;
 		} catch (RuntimeException e) {
@@ -1368,7 +1383,7 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
-
+	
 	public Map<Integer, Long> getProteinsData2() throws Exception {
 		Transaction tx = null;
 		try {
@@ -3764,18 +3779,18 @@ public class DatabaseServiceImpl implements IDatabaseService{
 		}
 	}
 
-	public List<String[]> getReactionHasEnzymeData(Integer id) throws Exception {
-		Transaction tx = null;
-		try {
-			tx = sessionFactory.getCurrentSession().beginTransaction();
-			List<String[]> result = reactionservice.getReactionHasEnzymeData(id);
-			tx.commit();
-			return (List<String[]>) result;
-		} catch (RuntimeException e) {
-			tx.rollback();
-			throw new Exception(e);
-		}
-	}
+//	public List<String[]> getReactionHasEnzymeData(Integer id) throws Exception {
+//		Transaction tx = null;
+//		try {
+//			tx = sessionFactory.getCurrentSession().beginTransaction();
+//			List<String[]> result = reactionservice.getReactionHasEnzymeData(id);
+//			tx.commit();
+//			return (List<String[]>) result;
+//		} catch (RuntimeException e) {
+//			tx.rollback();
+//			throw new Exception(e);
+//		}
+//	}
 
 
 	public List<String[]> countReactions(Integer id, boolean isCompartmentalized) throws Exception {
@@ -3832,13 +3847,13 @@ public class DatabaseServiceImpl implements IDatabaseService{
 	}
 
 
-	public Pair<Integer, Integer> countGenesEncodingEnzymesAndTransporters() throws Exception {
+	public List<Integer> countGenesEncodingEnzymesAndTransporters() throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			Pair<Integer, Integer> result = subunitservice.countGenesEncodingEnzymesAndTransporters();
+			List<Integer> result = subunitservice.countGenesEncodingEnzymesAndTransporters();
 			tx.commit();
-			return (Pair<Integer, Integer>) result;
+			return result;
 		} catch (RuntimeException e) {
 			tx.rollback();
 			throw new Exception(e);
@@ -4215,32 +4230,32 @@ public class DatabaseServiceImpl implements IDatabaseService{
 	}
 
 
-	public Pair<List<String>, Boolean[]> getECnumber(int proteinID) throws Exception {
-		Transaction tx = null;
-		try {
-			tx = sessionFactory.getCurrentSession().beginTransaction();
-			Pair<List<String>, Boolean[]> result = proteinservice.getECnumber(proteinID);
-			tx.commit();
-			return (Pair<List<String>, Boolean[]>) result;
-		} catch (RuntimeException e) {
-			tx.rollback();
-			throw new Exception(e);
-		}
-	}
+//	public Pair<List<String>, Boolean[]> getECnumber(int proteinID) throws Exception {
+//		Transaction tx = null;
+//		try {
+//			tx = sessionFactory.getCurrentSession().beginTransaction();
+//			Pair<List<String>, Boolean[]> result = proteinservice.getECnumber(proteinID);
+//			tx.commit();
+//			return (Pair<List<String>, Boolean[]>) result;
+//		} catch (RuntimeException e) {
+//			tx.rollback();
+//			throw new Exception(e);
+//		}
+//	}
 
 
-	public String[] getECnumber2(int proteinID) throws Exception {
-		Transaction tx = null;
-		try {
-			tx = sessionFactory.getCurrentSession().beginTransaction();
-			String[] result = proteinservice.getECnumber2(proteinID);
-			tx.commit();
-			return (String[]) result;
-		} catch (RuntimeException e) {
-			tx.rollback();
-			throw new Exception(e);
-		}
-	}
+//	public String[] getECnumber2(int proteinID) throws Exception {
+//		Transaction tx = null;
+//		try {
+//			tx = sessionFactory.getCurrentSession().beginTransaction();
+//			String[] result = proteinservice.getECnumber2(proteinID);
+//			tx.commit();
+//			return (String[]) result;
+//		} catch (RuntimeException e) {
+//			tx.rollback();
+//			throw new Exception(e);
+//		}
+//	}
 
 
 	public Map<String, Pair<String, Pair<Double, String>>> getExistingMetabolitesID(int idReaction) throws Exception {
@@ -4415,11 +4430,11 @@ public class DatabaseServiceImpl implements IDatabaseService{
 
 
 	public boolean insertProtein(ProteinContainer protein,
-			String[] synonyms, String[] enzymes, Boolean[] inModel) throws Exception {
+			String[] synonyms, String[] enzymes) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			boolean result = proteinservice.insertProtein(protein, synonyms, enzymes, inModel);
+			boolean result = proteinservice.insertProtein(protein, synonyms, enzymes);
 			tx.commit();
 			return (boolean) result;
 		} catch (RuntimeException e) {
@@ -4442,12 +4457,11 @@ public class DatabaseServiceImpl implements IDatabaseService{
 	//	}
 
 
-	public boolean updateProtein(ProteinContainer protein, String[] synonyms, String[] oldSynonyms, String[] enzymes, String[] oldEnzymes, Boolean[] inModel,
-			Boolean[] oldInModel) throws Exception {
+	public boolean updateProtein(ProteinContainer protein, String[] synonyms, String[] oldSynonyms, String[] enzymes, String[] oldEnzymes) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			boolean result = proteinservice.updateProtein(protein, synonyms, oldSynonyms, enzymes, oldEnzymes, inModel, oldInModel);
+			boolean result = proteinservice.updateProtein(protein, synonyms, oldSynonyms, enzymes, oldEnzymes);
 			tx.commit();
 			return (boolean) result;
 		} catch (RuntimeException e) {
@@ -4458,11 +4472,11 @@ public class DatabaseServiceImpl implements IDatabaseService{
 
 
 	public void load_geneHomology_has_homologues(String referenceID, String gene, Float eValue, Float bits,
-			Integer geneHomology_s_key, Integer homologues_s_key) throws Exception{
+			Integer geneHomology_s_key, Integer homologues_s_key , Float identity, Float positives, Float queryCoverage, Float targetCoverage) throws Exception{
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			annotationService.load_geneHomology_has_homologues(referenceID, gene, eValue, bits, geneHomology_s_key, homologues_s_key);;
+			annotationService.load_geneHomology_has_homologues(referenceID, gene, eValue, bits, geneHomology_s_key, homologues_s_key, identity, positives, queryCoverage, targetCoverage);
 			tx.commit();
 		} catch (RuntimeException e) {
 			tx.rollback();
@@ -5822,6 +5836,40 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
+	
+	
+
+	
+	@Override
+	public void updateModelAlias(int modelAliasId, String cl, int entity, String alias) throws Exception {
+
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			aliasesService.updateModelAlias(modelAliasId, cl, entity, alias);
+			tx.commit();
+		}
+		catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+	
+	
+	@Override
+	public void removeModelAlias(int modelAliasId) throws Exception {
+
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			aliasesService.removeModelAlias(modelAliasId);
+			tx.commit();
+		}
+		catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
 
 
 	@Override
@@ -6862,12 +6910,14 @@ public class DatabaseServiceImpl implements IDatabaseService{
 
 
 	@Override
-	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public int getHomologySetupSkeyByAttributes(String databaseID, String program, double eVal, 
+			Float lowerIdentity, Float positives, Float queryCoverage, Float targetCoverage, String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			int res = annotationService.getHomologySetupSkeyByAttributes(databaseID, program, eVal, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
+			int res = annotationService.getHomologySetupSkeyByAttributes(databaseID, program, eVal, lowerIdentity, positives, queryCoverage, targetCoverage,
+					matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
 			tx.commit();
 			return res;
 
@@ -6894,12 +6944,13 @@ public class DatabaseServiceImpl implements IDatabaseService{
 
 
 	@Override
-	public Integer insertHomologySetup(String databaseID, String program, double eVal, String matrix, short wordSize,
+	public Integer insertHomologySetup(String databaseID, String program, double eVal, Float lowerIdentity, Float positives,
+			Float queryCoverage, Float targetCoverage,String matrix, short wordSize,
 			String gapCosts, int maxNumberOfAlignments, String version) throws Exception {
 		Transaction tx = null;
 		try {
 			tx = sessionFactory.getCurrentSession().beginTransaction();
-			int res = annotationService.insertHomologySetup(databaseID, program, eVal, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
+			int res = annotationService.insertHomologySetup(databaseID, program, eVal, lowerIdentity, positives, queryCoverage, targetCoverage, matrix, wordSize, gapCosts, maxNumberOfAlignments, version);
 			tx.commit();
 			return res;
 
@@ -8450,5 +8501,97 @@ public class DatabaseServiceImpl implements IDatabaseService{
 			throw new Exception(e);
 		}
 	}
+
+
+	@Override
+	public Long countSubunitEntries() throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			Long result = this.subunitservice.countSubunitEntries();
+			tx.commit();
+			return result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+
+
+	@Override
+	public boolean isProteinEncodedByGenes(Integer proteinId) throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			boolean result = this.subunitservice.isProteinEncodedByGenes(proteinId);
+			tx.commit();
+			return result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+
+
+	@Override
+	public boolean removeSelectedReactionLabel(Integer reactionLabelId) throws Exception {
+		
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			boolean result = this.reactionservice.removeSelectedReactionLabel(reactionLabelId);
+			tx.commit();
+			return result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+
+
+	@Override
+	public void deleteEmptyPathways(boolean checkReactions, boolean checkProteins) throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			pathwayservice.deleteEmptyPathways(checkReactions, checkProteins);
+			tx.commit();
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+		
+	}
 	
+	@Override
+	public Map<Integer, Integer> getModelSubunitGeneIdAndEnzymeProteinIdByEcNumber(String ecNumber) throws Exception {
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			Map<Integer, Integer> result = subunitservice.getModelSubunitGeneIdAndEnzymeProteinIdByEcNumber(ecNumber);
+			tx.commit();
+			return result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+		
+	}
+
+
+	@Override
+	public List<SequenceContainer> getSequencesbySequenceType(SequenceType seqtype) throws Exception {
+		
+		Transaction tx = null;
+		try {
+			tx = sessionFactory.getCurrentSession().beginTransaction();
+			List<SequenceContainer> result = sequenceservice.getSequencesbySequenceType(seqtype);
+			tx.commit();
+			return result;
+		} catch (RuntimeException e) {
+			tx.rollback();
+			throw new Exception(e);
+		}
+	}
+
 }

@@ -218,7 +218,7 @@ public class ModelSubunitDAOImpl extends GenericDaoImpl<ModelSubunit> implements
 
 		c.multiselect(sub.get("id").get("modelGeneIdgene"), sub.get("id").get("modelProteinIdprotein")).distinct(true);
 
-		Predicate filter1 = cb.equal(sub.get("id").get("modelEnzymeEcnumber"), ecNumber);
+		Predicate filter1 = cb.equal(sub.get("modelProtein").get("ecnumber"), ecNumber);
 		c.where(cb.and(filter1));
 
 		Query<Object[]> q = super.sessionFactory.getCurrentSession().createQuery(c);
@@ -283,18 +283,22 @@ public class ModelSubunitDAOImpl extends GenericDaoImpl<ModelSubunit> implements
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<String[]> c = cb.createQuery(String[].class);
 		Root<ModelSubunit> sub = c.from(ModelSubunit.class);
-		Root<ModelGene> gene = c.from(ModelGene.class);
-		Root<ModelProtein> protein = c.from(ModelProtein.class);
+//		Root<ModelGene> gene = c.from(ModelGene.class);
+//		Root<ModelProtein> protein = c.from(ModelProtein.class);
 		Root<ModelReaction> reac = c.from(ModelReaction.class);
 		Root<ModelReactionHasModelProtein> reacHasEnz = c.from(ModelReactionHasModelProtein.class);
+		
+		Root<ModelProtein> protein = c.from(ModelProtein.class);
+		Join<ModelProtein, ModelReactionHasModelProtein> reactHasProtein = protein.join("modelReactionHasModelProteins", JoinType.INNER);
+		Join<ModelReaction, ModelReactionHasModelProtein> reaction = reactHasProtein.join("modelReaction", JoinType.INNER);
+		Join<ModelProtein, ModelSubunit> subunit = protein.join("modelSubunits", JoinType.INNER);
 
-		c.multiselect(gene.get("locusTag"), protein.get("ecnumber"), gene.get("query")).distinct(true);
+		c.multiselect(subunit.get("modelGene").get("locusTag"), protein.get("ecnumber"), subunit.get("modelGene").get("query")).distinct(true);
 
-		Predicate filter1 = cb.equal(gene.get("idgene"), sub.get("id").get("modelGeneIdgene"));
+//		Predicate filter1 = cb.equal(gene.get("idgene"), sub.get("id").get("modelGeneIdgene"));
 		Predicate filter2 = cb.equal(sub.get("id").get("modelProteinIdprotein"), protein.get("idprotein"));
 		Predicate filter5 = cb.equal(reacHasEnz.get("id").get("modelProteinIdprotein"), protein.get("idprotein"));
 		Predicate filter6 = cb.equal(reacHasEnz.get("id").get("modelReactionIdreaction"), reac.get("idreaction"));
-		Predicate filter7 = cb.equal(protein.get("inModel"), true);
 		Predicate filter8 = cb.equal(reac.get("inModel"), true);
 
 		Predicate filter9= cb.isNull(reac.get("modelCompartment").get("idcompartment"));
@@ -302,7 +306,7 @@ public class ModelSubunitDAOImpl extends GenericDaoImpl<ModelSubunit> implements
 		if(isCompartimentalized) 
 			filter9 = cb.isNotNull(reac.get("modelCompartment").get("idcompartment"));
 
-		c.where(cb.and(filter1, filter2, filter5, filter6, filter7, filter8,filter9));
+		c.where(cb.and(filter2, filter5, filter6, filter8, filter9));
 
 		Query<String[]> q = super.sessionFactory.getCurrentSession().createQuery(c);
 		
@@ -388,7 +392,7 @@ public class ModelSubunitDAOImpl extends GenericDaoImpl<ModelSubunit> implements
 		CriteriaQuery<Object> c = cb.createQuery(Object.class);
 		Root<ModelSubunit> sub = c.from(ModelSubunit.class);
 
-		c.select(cb.count(sub.get("id").get("modelGeneIdgene"))).distinct(true);
+		c.select(cb.countDistinct(sub.get("id").get("modelGeneIdgene")));
 
 		Query<Object> q = super.sessionFactory.getCurrentSession().createQuery(c);
 		Object result = q.uniqueResult();
@@ -397,7 +401,7 @@ public class ModelSubunitDAOImpl extends GenericDaoImpl<ModelSubunit> implements
 	}	
 
 	@Override 
-	public Map<Integer, String> getModelSubunitDistinctGeneIdAndSource() {
+	public Map<Integer, ArrayList<String>> getModelSubunitDistinctGeneIdAndSource() {
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<Object[]> c = cb.createQuery(Object[].class);
 		Root<ModelSubunit> sub = c.from(ModelSubunit.class);
@@ -411,30 +415,32 @@ public class ModelSubunitDAOImpl extends GenericDaoImpl<ModelSubunit> implements
 
 		Query<Object[]> q = super.sessionFactory.getCurrentSession().createQuery(c);
 		List<Object[]> resultList = q.getResultList();
-		Map<Integer, String> res = new HashMap<Integer, String>();
+		Map<Integer, ArrayList<String>> res = new HashMap<Integer, ArrayList<String>>();
+		
+		
 		if(resultList.size() > 0) {
 			for (Object[] x : resultList) {
-				if(x[1] == null)
-					System.out.println(x[0]);
-				res.put((Integer) x[0], (String) x[1]);
+				if(res.containsKey((Integer) x[0]))
+					res.get((Integer) x[0]).add((String) x[1]);
+				else {
+					ArrayList<String> tempList = new ArrayList<String>();
+					tempList.add((String) x[1]);
+					res.put((Integer) x[0], tempList);
+				}
 			}
 		}
 		return res;
 	}
 
 	@Override 
-	public Long countGenesInModel() {
+	public Long countGenesInModel() { // this is not working properly
 		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
 		CriteriaQuery<Object> c = cb.createQuery(Object.class);
-		Root<ModelSubunit> sub = c.from(ModelSubunit.class);
+//		Root<ModelSubunit> sub = c.from(ModelSubunit.class);
 		Root<ModelProtein> protein = c.from(ModelProtein.class);
+		Join<ModelProtein, ModelSubunit> subunit = protein.join("modelSubunits", JoinType.INNER);
 
-		c.multiselect(cb.count(sub.get("id").get("modelGeneIdgene"))).distinct(true);
-
-		Predicate filter1 = cb.equal(sub.get("id").get("modelProteinIdprotein"), protein.get("idprotein"));
-		Predicate filter2 = cb.equal(protein.get("inModel"), true);
-
-		c.where(cb.and(filter1, filter2));
+		c.select(cb.countDistinct(subunit.get("id").get("modelGeneIdgene")));
 
 		Query<Object> q = super.sessionFactory.getCurrentSession().createQuery(c);
 
@@ -677,6 +683,27 @@ public class ModelSubunitDAOImpl extends GenericDaoImpl<ModelSubunit> implements
 		return parsedList;
 	}
 
+	@Override
+	public boolean isProteinEncodedByGenes(Integer proteinId) {
+		CriteriaBuilder cb = this.getSessionFactory().getCurrentSession().getCriteriaBuilder();
+		CriteriaQuery<Long> c = cb.createQuery(Long.class);
+		Root<ModelSubunit> subunit = c.from(ModelSubunit.class);
+
+		c.select(cb.countDistinct(subunit.get("id").get("modelGeneIdgene"))); 
+
+		Predicate filter1 = cb.equal(subunit.get("id").get("modelProteinIdprotein"),proteinId);
+
+		c.where(cb.and(filter1));
+		
+		Query<Long> q = super.sessionFactory.getCurrentSession().createQuery(c);
+
+		Long count = q.uniqueResult();
+		
+		if(count > 0)
+			return true;
+		
+		return false;
+	}
 	
 }
 

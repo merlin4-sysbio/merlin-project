@@ -185,6 +185,32 @@ public class ModelCompartmentServices {
 		}
 		return compartmentsDatabaseIDs;
 	} 
+	
+	
+	public static Map<String,Integer> getCompartmentsDatabaseIDs(String databaseName, Map<String, String> annotationCompartments) throws Exception {
+
+		Map<String,Integer> compartmentsDatabaseIDs = new HashMap<>();
+		
+		for(String name : annotationCompartments.keySet()) {
+
+			String abb = annotationCompartments.get(name);
+
+			abb = abb.toUpperCase();
+
+				CompartmentContainer container = getCompartmentByName(databaseName, name);
+
+				if(container == null) {
+					
+					Integer id = insertNameAndAbbreviation(databaseName, name, abb);
+					compartmentsDatabaseIDs.put(name, id);
+				}
+				else {
+					
+					compartmentsDatabaseIDs.put(name, container.getCompartmentID());
+				}
+		}
+		return compartmentsDatabaseIDs;
+	} 
 
 	/**
 	 * @param databaseName

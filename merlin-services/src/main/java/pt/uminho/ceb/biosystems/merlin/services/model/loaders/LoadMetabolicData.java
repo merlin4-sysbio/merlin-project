@@ -371,8 +371,6 @@ public class LoadMetabolicData implements Runnable{
 //				if((enzymesList = this.resultEnzymes.poll()) != null) {
 				
 				for(ProteinContainer container : containers) {
-					if(container.getExternalIdentifier().equals("2.3.1.163"))
-						System.out.println(container.getExternalIdentifier());
 					this.metabolicDataLoader.loadProtein(container);
 				}
 					//					this.progress.setTime((GregorianCalendar.getInstance().getTimeInMillis()-this.startTime), this.datum.incrementAndGet(), this.dataSize.get(), "Loading Enzymes");

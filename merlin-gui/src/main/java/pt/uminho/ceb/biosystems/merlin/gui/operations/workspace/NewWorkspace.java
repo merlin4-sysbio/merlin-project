@@ -1,9 +1,12 @@
 package pt.uminho.ceb.biosystems.merlin.gui.operations.workspace;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import es.uvigo.ei.aibench.core.Core;
 import es.uvigo.ei.aibench.core.operation.annotation.Direction;
 import es.uvigo.ei.aibench.core.operation.annotation.Operation;
 import es.uvigo.ei.aibench.core.operation.annotation.Port;
@@ -27,6 +30,7 @@ import pt.uminho.ceb.biosystems.merlin.gui.datatypes.regulation.WorkspaceRegulat
 import pt.uminho.ceb.biosystems.merlin.gui.datatypes.validation.WorkspaceValidationEntitiesAIB;
 import pt.uminho.ceb.biosystems.merlin.services.ProjectServices;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelGenesServices;
+import pt.uminho.ceb.biosystems.merlin.utilities.io.FileUtils;
 
 /**
  * This is the class that creates a new project for the AIbench interface.
@@ -142,6 +146,8 @@ public class NewWorkspace {
 			database.setTables(existingTables);
 
 			ArrayList<WorkspaceEntity> entitiesList = new ArrayList<WorkspaceEntity>();
+			
+			
 
 			if(gene!=null) {
 
@@ -197,10 +203,12 @@ public class NewWorkspace {
 			entitiesList = new ArrayList<>();
 
 			WorkspaceValidationEntitiesAIB validation = new WorkspaceValidationEntitiesAIB();
-
+			
 			validation.setEntities(entitiesList);
 
 			database.setEntities(validation);
+			
+			entitiesList = new ArrayList<>();
 			
 			WorkspaceRegulationEntitiesAIB regulation = new WorkspaceRegulationEntitiesAIB();
 
@@ -263,4 +271,6 @@ public class NewWorkspace {
 		return null;
 
 	}
+	
+		
 }

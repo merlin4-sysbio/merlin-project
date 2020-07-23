@@ -54,7 +54,7 @@ public class WorkspaceProcesses {
 	 */
 	public static boolean isFaaFiles(String databaseName, Long taxID) {
 		
-		return WorkspaceProcesses.checkFastaExistence(databaseName, taxID, FileExtensions.PROTEIN_FAA);
+		return WorkspaceProcesses.checkFastaExistence(databaseName, taxID, FileExtensions.PROTEIN_FAA_GENE_IDS);
 	}
 	
 	
@@ -71,6 +71,22 @@ public class WorkspaceProcesses {
 		
 		if(! isFaaFiles(databaseName, taxID))
 			CreateGenomeFile.buildFastaFile(filePath, ModelSequenceServices.getGenomeFromDatabase(databaseName, SequenceType.PROTEIN));
+		
+	}
+	
+	/**
+	 * @param databaseName
+	 * @param taxID
+	 * @return
+	 * @throws Exception 
+	 */
+	public static void createFaaFileWithDbIdsOnly(String databaseName, Long taxID) throws Exception {
+		
+		String filePath = FileUtils.getWorkspaceTaxonomyFolderPath(databaseName, 
+				taxID).concat(Enumerators.FileExtensions.PROTEIN_FAA_GENE_IDS.getName());
+		
+		if(! isFaaFiles(databaseName, taxID))
+			CreateGenomeFile.buildFastaFile(filePath, ModelSequenceServices.getGenomeFromDatabaseDbIdsOnly(databaseName, SequenceType.PROTEIN));
 		
 	}
 	

@@ -225,7 +225,7 @@ public class SubmitHMMER implements Runnable {
 							if(homologyDataClient.getFastaSequence()==null)
 								homologyDataClient.setFastaSequence(this.query.get(sequence).getSequenceAsString());
 							
-							if(homologyDataClient.isDataRetrieved()) {
+							if(homologyDataClient.getHomologuesData() != null && homologyDataClient.isDataRetrieved()) {
 
 								homologyDataClient.setDatabaseIdentifier(this.database.toString());
 								

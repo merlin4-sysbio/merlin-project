@@ -14,6 +14,9 @@ public class ModuleCI {
 	private String name;
 	private String stoichiometry;
 	private List<String> pathways;
+	// pathways names is a property that I (Diogo) created for the GPR KO tool, it is not used in any other context, therefore it was not integrated in the constructor
+	private List<String> pathwaysNames;
+
 
 	/**
 	 * @param module
@@ -43,6 +46,8 @@ public class ModuleCI {
 		this.stoichiometry = stoichiometry;
 		this.pathways = pathways;
 	}
+	
+
 
 	/**
 	 * @return the module
@@ -130,6 +135,14 @@ public class ModuleCI {
 				+ (stoichiometry != null ? "stoichiometry=" + stoichiometry
 						+ ", " : "")
 				+ (pathways != null ? "pathways=" + pathways : "") + "]";
+	}
+
+	public List<String> getPathwaysNames() {
+		return pathwaysNames;
+	}
+
+	public void setPathwaysNames(List<String> pathwaysNames) {
+		this.pathwaysNames = pathwaysNames;
 	}
 
 

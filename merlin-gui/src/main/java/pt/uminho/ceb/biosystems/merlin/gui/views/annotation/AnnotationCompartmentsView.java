@@ -11,8 +11,6 @@ import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.EventObject;
@@ -36,27 +34,20 @@ import es.uvigo.ei.aibench.workbench.Workbench;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceDataTable;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.WorkspaceGenericDataTable;
 import pt.uminho.ceb.biosystems.merlin.gui.datatypes.annotation.AnnotationCompartmentsAIB;
-import pt.uminho.ceb.biosystems.merlin.gui.jpanels.CustomGUI;
-import pt.uminho.ceb.biosystems.merlin.gui.jpanels.IgnoreCompartments;
 import pt.uminho.ceb.biosystems.merlin.gui.utilities.ButtonColumn;
 import pt.uminho.ceb.biosystems.merlin.gui.utilities.CreateImageIcon;
 import pt.uminho.ceb.biosystems.merlin.gui.utilities.ExportToXLS;
 import pt.uminho.ceb.biosystems.merlin.gui.utilities.MyJTable;
-import pt.uminho.ceb.biosystems.merlin.gui.utilities.NewWorkspaceRequirements;
 import pt.uminho.ceb.biosystems.merlin.gui.utilities.SearchInTable;
 import pt.uminho.ceb.biosystems.merlin.gui.views.WorkspaceUpdatablePanel;
 import pt.uminho.ceb.biosystems.merlin.gui.views.windows.GenericDetailWindow;
-import pt.uminho.ceb.biosystems.merlin.services.ProjectServices;
-import pt.uminho.ceb.biosystems.merlin.services.model.ModelCompartmentServices;
-import pt.uminho.ceb.biosystems.merlin.services.model.ModelGenesServices;
-import pt.uminho.ceb.biosystems.merlin.services.model.ModelReactionsServices;
 
 public class AnnotationCompartmentsView extends WorkspaceUpdatablePanel {
 
 	private static final long serialVersionUID = 1L;
 	private JScrollPane jScrollPane1;
-	private JPanel jPanelExport, jPanelSecComp, jPanelIntegration;
-	private JButton  jButtonExportTxt, jButtonIntegration;
+	private JPanel jPanelExport, jPanelSecComp;
+	private JButton  jButtonExportTxt;
 	private JPanel jPanel1, jPanel2;
 //	private JRadioButton jRadioButtonChemReact, jRadioButtonTranspReact;
 	private MyJTable jTable;
@@ -67,7 +58,6 @@ public class AnnotationCompartmentsView extends WorkspaceUpdatablePanel {
 	private ButtonColumn buttonColumn;
 	private JComboBox<String> jThreshold;
 	private double threshold;
-	private JButton jButtonCleanIntegration;
 	private JLabel jLabelComp, jLabelDistance;
 
 
@@ -77,7 +67,6 @@ public class AnnotationCompartmentsView extends WorkspaceUpdatablePanel {
 	public AnnotationCompartmentsView(AnnotationCompartmentsAIB compartmentsContainer) {
 
 		super(compartmentsContainer);
-		
 		this.annotationCompartments = compartmentsContainer;
 		this.annotationCompartments.setThreshold(10.0);
 		List<Integer> nameTabs = new ArrayList<>();
@@ -173,12 +162,12 @@ public class AnnotationCompartmentsView extends WorkspaceUpdatablePanel {
 				jPanelExportLayout.rowWeights = new double[] {0.0};
 				jPanelExportLayout.rowHeights = new int[] {5};
 				jPanelExport.setLayout(jPanelExportLayout);
-				jPanel2.add(jPanelExport, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
+				jPanel2.add(jPanelExport, new GridBagConstraints(3, 2, 4, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 				jPanelExport.setBounds(567, 56, 139, 61);
 				jPanelExport.setBorder(BorderFactory.createTitledBorder("export"));
 				{
 					jButtonExportTxt = new JButton();
-					jPanelExport.add(jButtonExportTxt, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+					jPanelExport.add(jButtonExportTxt, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 0, new Insets(0, 0, 0, 0), 0, 0));
 					jButtonExportTxt.setText("export file");
 					jButtonExportTxt.setToolTipText("export to excel file (xls)");
 					jButtonExportTxt.setIcon(new CreateImageIcon(new ImageIcon((getClass().getClassLoader().getResource("icons/Download.png"))),0.1).resizeImageIcon());
@@ -222,17 +211,17 @@ public class AnnotationCompartmentsView extends WorkspaceUpdatablePanel {
 				}
 			}
 			{
-				jPanelIntegration = new JPanel();
-				GridBagLayout jPanelPredictionLayout = new GridBagLayout();
-				jPanel2.add(jPanelIntegration, new GridBagConstraints(4, 2, 3, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
-				jPanelIntegration.setBounds(325, 41, 376, 79);
-				jPanelIntegration.setBorder(BorderFactory.createTitledBorder("integration"));
-				jPanelPredictionLayout.columnWidths = new int[] {7, 7, 7, 7, 7, 7, 7};
-				jPanelPredictionLayout.rowHeights = new int[] {7,20, 7, 20, 7};
-				jPanelPredictionLayout.columnWeights = new double[] {0.0, 0.1, 0.1, 0.0, 0.1, 0.1, 0.0};
-				jPanelPredictionLayout.rowWeights = new double[] {0.0, 0.1, 0.0, 0.1, 0.0};
-				jPanelIntegration.setLayout(jPanelPredictionLayout);
-				{				
+//				jPanelIntegration = new JPanel();
+//				GridBagLayout jPanelPredictionLayout = new GridBagLayout();
+//				jPanel2.add(jPanelIntegration, new GridBagConstraints(4, 2, 3, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
+//				jPanelIntegration.setBounds(325, 41, 376, 79);
+//				jPanelIntegration.setBorder(BorderFactory.createTitledBorder("integration"));
+//				jPanelPredictionLayout.columnWidths = new int[] {7, 7, 7, 7, 7, 7, 7};
+//				jPanelPredictionLayout.rowHeights = new int[] {7,20, 7, 20, 7};
+//				jPanelPredictionLayout.columnWeights = new double[] {0.0, 0.1, 0.1, 0.0, 0.1, 0.1, 0.0};
+//				jPanelPredictionLayout.rowWeights = new double[] {0.0, 0.1, 0.0, 0.1, 0.0};
+//				jPanelIntegration.setLayout(jPanelPredictionLayout);
+//				{				
 //					jRadioButtonChemReact = new JRadioButton();
 //					jPanelIntegration.add(jRadioButtonChemReact, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
 //					jRadioButtonChemReact.setText("biochemical reactions");
@@ -245,45 +234,45 @@ public class AnnotationCompartmentsView extends WorkspaceUpdatablePanel {
 //					jRadioButtonTranspReact.setToolTipText("compartmentalise transport reactions");
 //					jRadioButtonTranspReact.setBounds(15, 34, 144, 20);
 
-					jButtonIntegration = new JButton();
-					jPanelIntegration.add(jButtonIntegration, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-					jButtonIntegration.setPreferredSize(new Dimension(300, 40));
-					jButtonIntegration.setText("integrate to model");
-					jButtonIntegration.setToolTipText("this operation assigns the model reactions (including the transport reactions) to the predicted compartments");
-					jButtonIntegration.setIcon(new CreateImageIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/Integrate.png")),0.1).resizeImageIcon());
-					jButtonIntegration.addActionListener(new ActionListener() {
+//					jButtonIntegration = new JButton();
+//					jPanelIntegration.add(jButtonIntegration, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+//					jButtonIntegration.setPreferredSize(new Dimension(300, 40));
+//					jButtonIntegration.setText("integrate to model");
+//					jButtonIntegration.setToolTipText("this operation assigns the model reactions (including the transport reactions) to the predicted compartments");
+//					jButtonIntegration.setIcon(new CreateImageIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/Integrate.png")),0.1).resizeImageIcon());
+//					jButtonIntegration.addActionListener(new ActionListener() {
+//
+//						public void actionPerformed(ActionEvent arg0) {
+//
+//							if(annotationCompartments == null) {
+//
+//								Workbench.getInstance().error("no transporters information on this project!");
+//							}
+//
+//							try {
+//
+//								new IgnoreCompartments(annotationCompartments);
+//
+//
+//							} catch (Exception e) {
+//								e.printStackTrace();
+//							}
+//						}
+//					});
 
-						public void actionPerformed(ActionEvent arg0) {
-
-							if(annotationCompartments == null) {
-
-								Workbench.getInstance().error("no transporters information on this project!");
-							}
-
-							try {
-
-								new IgnoreCompartments(annotationCompartments);
-
-
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-						}
-					});
-
-					jButtonCleanIntegration = new JButton();
-					jPanelIntegration.add(jButtonCleanIntegration, new GridBagConstraints(3, 3, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-					jButtonCleanIntegration.setPreferredSize(new Dimension(300, 40));
-					jButtonCleanIntegration.setText("remove integration");
-					jButtonCleanIntegration.setToolTipText("this operation removes the reactions (including transport reactions) assigned to the model");
-					jButtonCleanIntegration.setIcon(new CreateImageIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/Delete.png")),0.1).resizeImageIcon());
-					jButtonCleanIntegration.setEnabled(false);
-
-					jButtonCleanIntegration.addActionListener(new ActionListener() {
-
-						public void actionPerformed(ActionEvent arg0) {
-
-							try {
+//					jButtonCleanIntegration = new JButton();
+//					jPanelIntegration.add(jButtonCleanIntegration, new GridBagConstraints(3, 3, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+//					jButtonCleanIntegration.setPreferredSize(new Dimension(300, 40));
+//					jButtonCleanIntegration.setText("remove integration");
+//					jButtonCleanIntegration.setToolTipText("this operation removes the reactions (including transport reactions) assigned to the model");
+//					jButtonCleanIntegration.setIcon(new CreateImageIcon(new ImageIcon(getClass().getClassLoader().getResource("icons/Delete.png")),0.1).resizeImageIcon());
+//					jButtonCleanIntegration.setEnabled(false);
+//
+//					jButtonCleanIntegration.addActionListener(new ActionListener() {
+//
+//						public void actionPerformed(ActionEvent arg0) {
+//
+//							try {
 
 //								boolean transport = ModelReactionsServices.checkBiochemicalReactions(annotationCompartments.getWorkspace().getName(),true);
 //								boolean biochemical = ModelReactionsServices.checkBiochemicalReactions(annotationCompartments.getWorkspace().getName(),false);
@@ -299,25 +288,25 @@ public class AnnotationCompartmentsView extends WorkspaceUpdatablePanel {
 //								}
 //								else {
 
-									if(confirmClean())
-										Workbench.getInstance().info("all reactions assigned to the model removed!");
-
-									else
-										Workbench.getInstance().warn("cleaning operation canceled!");
+//									if(confirmClean())
+//										Workbench.getInstance().info("all reactions assigned to the model removed!");
+//
+//									else
+//										Workbench.getInstance().warn("cleaning operation canceled!");
 //								}
 
 								//ProjectAPI.cleanProjectsTables(statement);
 
-								updateTableUI();
+//								updateTableUI();
+//
+//							} catch (Exception e) {
+//								Workbench.getInstance().error("error while removing the reactions!");
+//								e.printStackTrace();
+//							}
+//						}
+//					});
 
-							} catch (Exception e) {
-								Workbench.getInstance().error("error while removing the reactions!");
-								e.printStackTrace();
-							}
-						}
-					});
-
-				}
+//				}
 			}
 
 			{
@@ -335,7 +324,7 @@ public class AnnotationCompartmentsView extends WorkspaceUpdatablePanel {
 			jScrollPane1.setViewportView(jTable);
 			jPanel1.add(jScrollPane1,new GridBagConstraints(1, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 
-			this.checkButtonsStatus();
+//			this.checkButtonsStatus();
 			this.setPreferredSize(new java.awt.Dimension(887, 713));
 
 		} 
@@ -347,27 +336,27 @@ public class AnnotationCompartmentsView extends WorkspaceUpdatablePanel {
 	 * @throws Exception 
 	 * @throws IOException 
 	 */
-	private void checkButtonsStatus() throws IOException, Exception {
-
-		try {
-			
-			boolean isCompartmentalizedModel = ProjectServices.isCompartmentalisedModel(this.annotationCompartments.getWorkspace().getName());
-
-
-			if(isCompartmentalizedModel){
-				jButtonIntegration.setEnabled(false);
-				jButtonCleanIntegration.setEnabled(true);
-			}
-			else{
-				jButtonIntegration.setEnabled(true);
-				jButtonCleanIntegration.setEnabled(false);
-			}
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-	}
+//	private void checkButtonsStatus() throws IOException, Exception {
+//
+//		try {
+//			
+//			boolean isCompartmentalizedModel = ProjectServices.isCompartmentalisedModel(this.annotationCompartments.getWorkspace().getName());
+//
+//
+//			if(isCompartmentalizedModel){
+//				jButtonIntegration.setEnabled(false);
+//				jButtonCleanIntegration.setEnabled(true);
+//			}
+//			else{
+//				jButtonIntegration.setEnabled(true);
+//				jButtonCleanIntegration.setEnabled(false);
+//			}
+//
+//		} catch (Exception e) {
+//
+//			e.printStackTrace();
+//		}
+//	}
 
 
 	/**
@@ -465,41 +454,41 @@ public class AnnotationCompartmentsView extends WorkspaceUpdatablePanel {
 	 * @return boolean
 	 * @throws SQLException 
 	 */
-	private boolean confirmClean() throws Exception {
-
-		int i;
-
-		i =CustomGUI.stopQuestion("Clean integration", 
-				"confirm clean operation?",
-				new String[]{"yes", "cancel"});
-
-		switch (i)
-		{
-		case 0:
-		{
-			ModelReactionsServices.removeNotOriginalReactions(this.getWorkspaceName(), null);
-			ModelGenesServices.removeAllGeneHasCompartments(this.getWorkspaceName());
-			ModelCompartmentServices.removeCompartmentsNotInUse(this.getWorkspaceName());
-			NewWorkspaceRequirements.injectRequiredDataToNewWorkspace(this.getWorkspaceName());
-			return true;
-		}
-//		case 1:
+//	private boolean confirmClean() throws Exception {
+//
+//		int i;
+//
+//		i =CustomGUI.stopQuestion("Clean integration", 
+//				"confirm clean operation?",
+//				new String[]{"yes", "cancel"});
+//
+//		switch (i)
 //		{
-//			ModelReactionsServices.removeNotOriginalReactions(this.getWorkspaceName(), false);
+//		case 0:
+//		{
+//			ModelReactionsServices.removeNotOriginalReactions(this.getWorkspaceName(), null);
+//			ModelGenesServices.removeAllGeneHasCompartments(this.getWorkspaceName());
+//			ModelCompartmentServices.removeCompartmentsNotInUse(this.getWorkspaceName());
+//			NewWorkspaceRequirements.injectRequiredDataToNewWorkspace(this.getWorkspaceName());
 //			return true;
 //		}
-//		case 2:
+////		case 1:
+////		{
+////			ModelReactionsServices.removeNotOriginalReactions(this.getWorkspaceName(), false);
+////			return true;
+////		}
+////		case 2:
+////		{
+////			ModelReactionsServices.removeNotOriginalReactions(this.getWorkspaceName(), true);
+////			return true;
+////		}
+//		default:
 //		{
-//			ModelReactionsServices.removeNotOriginalReactions(this.getWorkspaceName(), true);
-//			return true;
+//			return false;
 //		}
-		default:
-		{
-			return false;
-		}
-		}
-
-	}
+//		}
+//
+//	}
 
 
 	/**
@@ -547,15 +536,15 @@ public class AnnotationCompartmentsView extends WorkspaceUpdatablePanel {
 		this.annotationCompartments.resetDataStuctures();
 		this.fillList();
 		this.updateUI();
-		try {
-			this.checkButtonsStatus();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			this.checkButtonsStatus();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		this.revalidate();
 		this.repaint();
 	}

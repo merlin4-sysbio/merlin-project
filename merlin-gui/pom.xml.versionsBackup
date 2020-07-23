@@ -1,0 +1,832 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+		<parent>
+		<groupId>pt.uminho.ceb.biosystems.merlin</groupId>
+		<artifactId>merlin-project</artifactId>
+		<version>4.0.2-RELEASE</version>
+		<!--
+			WARNING: change version using (in the parent project):
+				mvn versions:set -DnewVersion=[new_version]
+				mvn versions:commit
+
+			This will change the version in all modules at-once
+		-->
+
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	
+	<artifactId>merlin-gui</artifactId>
+	<packaging>jar</packaging>
+	<name>merlin-gui</name>
+	<url>http://maven.apache.org</url>
+	
+	<build>
+		<outputDirectory>${basedir}/plugins_bin/merlin-gui</outputDirectory>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<targetPath>${basedir}/plugins_bin/merlin-gui</targetPath>
+			</resource>
+		</resources>
+		
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+								<pluginExecutionFilter>
+									<groupId>org.apache.maven.plugins</groupId>
+									<artifactId>maven-dependency-plugin</artifactId>
+									<versionRange>[3.1.1,)</versionRange>
+									<goals>
+										<goal>copy-dependencies</goal>
+									</goals>
+								</pluginExecutionFilter>
+								<action>
+									<execute>
+										<runOnIncremental>false</runOnIncremental>
+									</execute>
+								</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<outputDirectory>${merlin.build.directory}plugins_bin</outputDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>process-resources</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>deploy</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<taskdef classpathref="maven.plugin.classpath" resource="net/sf/antcontrib/antcontrib.properties"/>
+								<echo append="false" file="${merlin.build.directory}LICENSE.txt">Copyright ${maven.build.timestamp}
+CEB - Centre of Biological Engineering
+
+University of Minho
+ 
+This is free software: you can redistribute it and/or modify 
+it under the terms of the GNU Public License as published by 
+the Free Software Foundation, either version 3 of the License, or 
+(at your option) any later version. 
+ 
+This code is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU Public License for more details. 
+
+You should have received a copy of the GNU Public License 
+along with this code. If not, see http://www.gnu.org/licenses/ 
+
+Created inside the BioSystems Research Group (http://sysbio.uminho.pt)
+
+http://www.merlin-sysbio.org
+</echo>
+								<echo append="false" file="${merlin.build.directory}conf/workbench.conf"># Workbench configuration file
+${project.build.directory}
+
+#
+#merlin-version: ${project.version}-${build.name}
+#
+
+#
+# Main Window Title
+#
+mainwindow.title=merlin - ${project.version}-${build.name}
+
+#
+# Main Window maximized state 
+# 
+mainwindow.maximized=false
+
+#
+# Status Bar visibility
+#
+mainwindow.statusbar.visible=true
+
+#
+# Status Bar Text
+#
+mainwindow.statusbar.text=merlin
+
+#
+# Menu Bar visibility
+#
+mainwindow.menubar.visible=true
+
+#
+# Menu Bar add '...' to operation names
+#
+#mainwindow.menubar.names_append_suspension_points=false
+
+#
+# Document Viewer. Always show the default viewer, regardless there is a specific viewer also defined. Default is false
+#
+documentviewer.allways_show_default_view=false
+
+#
+# Document Viewer. Hide tabs when there is only one view for the current datatype.
+#
+documentviewer.hide_tabs_when_single_view=true
+
+#
+# Document Viewer. Show a popup menu that allows to close tabs.
+#
+documentviewer.show_close_tabs_menu=true
+
+#
+# Default View. Use a table to display arrays and collections instead of the toString text area
+#
+defaultview.use_table_for_collections_and_arrays=true
+
+#
+# Session Tree visibility
+#
+sessiontree.visible=false
+
+#
+# Session Tree slot in the layouting system. Please see also /conf/template.xml
+#
+sessiontree.slot=right
+
+#
+# Session Tree name
+#
+sessiontree.name=merlin
+
+#
+# Clipboard Tree visibility
+#
+clipboardtree.visible=true
+
+
+#
+# Clipboard Tree slot in the layouting system. Please see also /conf/template.xml
+#
+clipboardtree.slot=left
+
+#
+# Clipboard Tree name
+#
+clipboardtree.name=merlin
+
+#
+# Clipboard Tree organizes datatypes instances by their class
+#
+clipboardtree.organizebyclass=false
+
+#
+# Tree null treatment. In Explicit-datatypes and with Structure=COMPLEX, should subitems should be displayed or not in trees?.
+# Default is true
+#
+trees.shownulls=false
+
+#
+# Log Area visibility
+#
+logarea.visible=false
+#
+# Log Area max chars
+# Default: -1 (no limit, caution)
+#
+logarea.maxsize=10000
+
+#
+# Log Area slot in the layouting system. Please see also /conf/template.xml
+#
+logarea.slot=bottom
+
+#
+# Memory Monitor visibility
+#
+memorymonitor.visible=true
+
+#
+# Memory Monitor slot in the layouting system. Please see also /conf/template.xml
+#
+memorymonitor.slot=bottom
+
+#
+# ToolBar visibility
+#
+toolbar.visible=true
+
+#
+# ToolBar names visibility
+#
+toolbar.showOperationNames=true
+
+#
+# ToolBar initial position
+# position values are NORTH | SOUTH | EAST | WEST
+#
+toolbar.position=NORTH
+
+#
+# ToolBar separators
+#
+# Define where the separators are shown
+# they will be placed after the operation that appears in that relative order in the toolbar
+# Separated by commas (,)
+#
+toolbar.separators=1,2,3
+
+#
+# Operations visibility. By default, all operations are displayed everywhere (main menu, popup menu and dialogs). But if
+# you want to change this behaviour, use this option.
+# 
+# The current available options are (you can put more than one, separated with spaces)
+#  MENU - the operation can be accessed from the main menu
+#  POPUP - the operation can be accessed from the popup menu showed in the trees
+#  DIALOG - the operation can be accessed from dialogs 
+#  TOOLBAR - the operation can be accessed from the toolbar
+#  NONE - the operation is hidden in the GUI
+#your_operation_uid.visibility= POPUP DIALOG MENU TOOLBAR
+
+
+# Menu position overriding
+# All plugins can choose an arbitrary position of their operations in menus. If you want to choose them
+# you can override this default position
+# example:
+# menu.file=1
+# menu.file.export=2
+
+# Add support to configure the clipboard and the datatype icons of the workbench in the workbench.conf using the following keys:
+# Override the default icons. The files are relative to the AIBench's root directory
+icon.clipboard = conf/clipboard_header.png
+#icon.datatype = datatype.png
+
+# Show help icons+tooltip instead of description label
+paramswindow.showhelpicon = true
+
+# Custom help icon
+paramswindow.helpicon = dialog-help.png
+
+# Dialog buttons customization
+#  Ok button label and text
+#paramswindow.buttontext.ok = ok
+paramswindow.buttonicon.ok = conf/icons/ok.png
+
+#  Cancel button label and text
+#paramswindow.buttontext.cancel = cancel
+paramswindow.buttonicon.cancel = conf/icons/cancel.png
+
+#  Help button label and text
+paramswindow.buttontext.help = help
+paramswindow.buttonicon.help = conf/icons/help.png
+
+# Advanced options title
+paramswindow.advancedoptionstitle = Advanced options
+
+# Custom error notifier (use "default" value for default error dialog
+#error.notifier.class=&lt;full name of the custom ErrorNotifier class&gt;
+
+
+# Progress dialog working icon
+progress.workingicon = conf/progress.gif
+					</echo>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>ant-contrib</groupId>
+						<artifactId>ant-contrib</artifactId>
+						<version>20020829</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${merlin.build.directory}lib</outputDirectory>
+							<overWriteReleases>true</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+							<excludeArtifactIds>merlin-aibench-core,merlin-aibench-workbench, merlin-aibench-plugin-manager</excludeArtifactIds>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-aibench-dependencies</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${merlin.build.directory}plugins_bin</outputDirectory>
+							<overWriteReleases>true</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+							<includeArtifactIds>merlin-aibench-core,merlin-aibench-workbench, merlin-aibench-plugin-manager</includeArtifactIds>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-aibench-dependencies-eclipse</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/plugins_bin</outputDirectory>
+							<overWriteReleases>true</overWriteReleases>
+							<overWriteSnapshots>true</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+							<includeArtifactIds>aibench-core,aibench-workbench</includeArtifactIds>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<executions>
+					<execution>
+						<id>default-install</id>
+						<phase>install</phase>
+						<goals>
+							<goal>install</goal>
+						</goals>
+						<!-- <configuration>
+							<skip>true</skip>
+						</configuration> -->
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M3</version>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>auto-clean</id>
+						<phase>pre-clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${project.build.directory}</directory>
+							<includes>
+								<include>*.*</include>
+								<exclude>lib/*.*</exclude>
+							</includes>
+							<excludes/>
+						</fileset>
+						<fileset>
+							<directory>${project.build.directory}</directory>
+							<includes>
+								<include>*.*</include>
+								<exclude>plugins/*.*</exclude>
+							</includes>
+							<excludes/>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>copy-resources-conf</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${merlin.build.directory}conf</outputDirectory>
+							<resources>
+								<resource>
+									<directory>conf</directory>
+									<filtering>true</filtering>
+									<excludes>
+										<exclude>email.conf</exclude>
+										<exclude>database_settings.conf</exclude>
+									</excludes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-plugins</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${merlin.build.directory}plugins_bin</outputDirectory>
+							<resources>
+								<resource>
+									<directory>plugins</directory>
+									<filtering></filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-resources-utilities</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${merlin.build.directory}utilities</outputDirectory>
+							<resources>
+								<resource>
+									<directory>utilities</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-resources-aibench</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${merlin.build.directory}plugins_bin</outputDirectory>
+							<resources>
+								<resource>
+									<directory>plugins_bin</directory>
+									<filtering>false</filtering>
+									<includes>
+										<include>*.jar</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution> 
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<profiles><profile>
+			<id>merlin</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<executions>
+							<execution>
+								<id>build-win</id>
+								<phase>install</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<tasks>
+										<taskdef classpathref="maven.plugin.classpath" resource="net/sf/antcontrib/antcontrib.properties"/>
+										<echo append="false" file="${merlin.build.directory}merlin.bat">SET HOME=%~d0%~sp0
+		wscript.exe %HOME%"utilities/invis.vbs" %HOME%"utilities/run.bat"%*
+	</echo>
+										<echo append="false" file="${merlin.build.directory}utilities/invis.vbs">
+											<![CDATA[ 
+		set args = WScript.Arguments
+		num = args.Count
+
+		if num = 0 then
+		    WScript.Echo "Usage: [CScript | WScript] invis.vbs aScript.bat <some script arguments>"
+		    WScript.Quit 1
+		end if
+
+		sargs = ""
+		if num >1 then
+		    sargs = " "
+		    for k = 1 to num - 1
+		    	anArg = args.Item(k)
+		    	sargs = sargs & anArg & " "
+		    next
+		end if
+
+		Set WshShell = WScript.CreateObject("WScript.Shell")
+
+		WshShell.Run """" & WScript.Arguments(0) & """" & sargs, 0, False
+		]]>
+										</echo>
+										<echo append="false" file="${merlin.build.directory}utilities/run.bat">@echo off
+REM ###############################################################################################
+REM # 
+REM # run.bat - merlin version ${project.version} for Win x86
+REM # 
+REM # CEB - Centre of Biological Engineering
+REM # University of Minho
+REM #
+REM # Created inside the BioSystem Research Group (http://sysbio.uminho.pt)
+REM # University of Minho
+REM #
+REM # Copyright (c) ${maven.build.timestamp}.
+REM #
+REM # http://www.merlin-sysbio.org
+REM #
+REM ###############################################################################################
+
+SET APP_NAME="merlin - MEtabolic models Reconstruction using genome-scaLe INformation v${project.version}"
+
+SET MERLIN_HOME=%~d0%~sp0../
+
+REM cd %merlin_HOME%
+SET %MERLIN_HOME%lib;path=%path%
+
+REM SET path=%path%;%merlin_HOME%lib;%merlin_HOME%libwin32
+
+SET CLASSPATH="./lib/*;"
+SET JAR_ARGS=%MERLIN_HOME%"plugins_bin"
+
+SET MAIN_CLASS="pt.uminho.ceb.biosystems.merlin.launcher.MainCycle"
+
+REM SET JAVA="%merlin_HOME%jre8\bin\java"
+SET JAVA="java"
+
+SET LPATH="-Djava.library.path=%merlin_HOME%lib";%merlin_HOME%
+REM SET LAF="-Dswing.defaultlaf=com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"
+SET	LEGACY="-Djava.util.Arrays.useLegacyMergeSort=true"
+SET LOCALE="-Duser.language=en"
+SET CHARSET="-Dfile.encoding=utf-8"
+SET MAXMEM="-Xmx1G"
+SET MINMEM="-Xms512M"
+SET UNIPROTDTD="-Djavax.xml.accessExternalDTD=all"
+
+SET COMMAND=%JAVA% %LAF% %LEGACY% %LPATH% %LOCALE% %CHARSET% %MAXMEM% %MINMEM% %UNIPROTDTD% -cp %CLASSPATH% %MAIN_CLASS% %JAR_ARGS%
+
+%COMMAND%
+	</echo>
+										<echo append="false" file="${merlin.build.directory}run.sh">#!/bin/sh
+	###############################################################################################
+	#
+	# run.sh - merlin version ${project.version} for Linux 64
+	# 
+	# CEB - Centre of Biological Engineering
+	# University of Minho
+	#
+	# Created inside the BioSystem Research Group (http://sysbio.uminho.pt)
+	# University of Minho
+	#
+	# http://www.merlin-sysbio.org
+	#	
+	# Copyright (c) ${maven.build.timestamp}.
+	#
+	###############################################################################################
+	
+	
+	APP_NAME="merlin - MEtabolic models Reconstruction using genome-scaLe INformation ${project.version}"
+	
+	progdir=`dirname $0`
+		cd $progdir
+		echo "scriptpath = $PWD"
+		
+	merlin_HOME="`pwd`"
+	
+	CLASSPATH_UNIX="$PWD/lib/*:"
+	
+	export PATH=$PATH/":`pwd`/lib"
+	export LD_LIBRARY_PATH="`pwd`/lib"
+	
+	JAR_ARGS_UNIX="plugins_bin"
+	
+	MAIN_CLASS="pt.uminho.ceb.biosystems.merlin.launcher.MainCycle"
+	
+	# LAF="-Dswing.defaultlaf=com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"
+	LEGACY="-Djava.util.Arrays.useLegacyMergeSort=true"
+	LOCALE="-Duser.language=en"
+	CHARSET="-Dfile.encoding=utf-8"
+	LPATH_UNIX="-Djava.library.path=`pwd`/lib"
+	MAXMEM="-Xmx1G"
+	MINMEM="-Xms512m"
+	UNIPROTDTD="-Djavax.xml.accessExternalDTD=all"
+	
+	
+	echo java ${LPATH_UNIX} ${MAXMEM} ${MINMEM} ${LAF} ${LEGACY} ${LOCALE} ${CHARSET} ${UNIPROTDTD} -cp ${CLASSPATH_UNIX} ${MAIN_CLASS} ${JAR_ARGS_UNIX}
+	java ${LPATH_UNIX} ${MAXMEM} ${MINMEM} ${LAF} ${LEGACY} ${LOCALE} ${CHARSET} ${UNIPROTDTD} -cp ${CLASSPATH_UNIX} ${MAIN_CLASS} ${JAR_ARGS_UNIX}
+	</echo>
+										<echo append="false" file="${merlin.build.directory}conf/database_settings.conf">----------------------------
+| merlin database settings |
+----------------------------
+
+dbtype: h2
+
+**Default database type**
+**Change line number 5 to either: (without asterisks)**
+**dbtype: h2**
+**dbtype: mysql**
+**And set the credentials in the lines down bellow**
+
+
+**mysql database credentials**
+
+username: your_username
+password: your_password
+host: your_ip_address
+port: 3306
+
+
+**h2 database credentials**
+
+h2_username: root
+h2_password: password
+
+	</echo>
+	<echo append="false" file="${merlin.build.directory}conf/pluginmanager.conf">plugininstaller.dir=plugins_install
+pluginrepository.infofile=plugins.dat
+plugins.start.gui=true
+pluginrepository.host=https\://merlin-sysbio.org/data/plugins
+
+	</echo>
+										<chmod file="${merlin.build.directory}run.sh" perm="a+x"/>
+									</tasks>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>3.1.1</version>
+						<configuration>
+							<finalName>${project.artifactId}-${project.version}-${build.name}</finalName>
+							<outputDirectory>${project.basedir}/../../releases</outputDirectory>
+							<appendAssemblyId>false</appendAssemblyId>
+							<descriptors>
+								<descriptor>zip.xml</descriptor>
+							</descriptors>
+						</configuration>
+						<executions>
+							<execution>
+								<id>make-assembly</id>
+								<!--this is used for inheritance merges-->
+								<phase>deploy</phase>
+								<!--append to the packaging phase.-->
+								<goals>
+									<goal>single</goal>
+									<!--goals == mojos-->
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
+	
+	<dependencies>
+		<dependency>
+			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
+			<artifactId>merlin-databaseConnector</artifactId>
+			<version>4.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
+			<artifactId>merlin-core</artifactId>
+			<version>${pt.uminho.ceb.biosystems.merlin.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
+			<artifactId>merlin-biocomponents</artifactId>
+			<version>${pt.uminho.ceb.biosystems.merlin.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
+			<artifactId>merlin-services</artifactId>
+			<version>${pt.uminho.ceb.biosystems.merlin.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
+			<artifactId>merlin-processes</artifactId>
+			<version>${pt.uminho.ceb.biosystems.merlin.version}</version>
+		</dependency>
+			<dependency>
+			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
+			<artifactId>merlin-aibench-core</artifactId>
+			<version>2.10.2-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
+			<artifactId>merlin-aibench-workbench</artifactId>
+			<version>2.10.2-SNAPSHOT</version>
+		</dependency> 
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.3.0-alpha4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.17</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.jtattoo/JTattoo -->
+		<dependency>
+			<groupId>com.jtattoo</groupId>
+			<artifactId>JTattoo</artifactId>
+			<version>1.6.11</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>org.biojava</groupId>
+			<artifactId>blast</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>ant-contrib</groupId>
+			<artifactId>ant-contrib</artifactId>
+			<version>20020829</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>20041228.180559</version>
+		</dependency>
+		<dependency>
+			<groupId>org.java.net.substance</groupId>
+			<artifactId>substance</artifactId>
+			<version>6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.beeger</groupId>
+			<artifactId>squareness</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.woodstock.dependlibs</groupId>
+			<artifactId>jhall</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.univocity</groupId>
+			<artifactId>univocity-parsers</artifactId>
+			<version>2.5.5</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.sing_group</groupId>
+			<artifactId>gc4s</artifactId>
+			<!-- Name of the GC4S module -->
+			<version>1.2.2</version>
+		</dependency>
+		
+	</dependencies>
+</project>

@@ -64,6 +64,7 @@ public interface IGenericDao<T> {
 
 		public List<T> findBySingleAttribute(String key, Object value);
 
+
 }
 
 

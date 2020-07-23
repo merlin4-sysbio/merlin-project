@@ -19,7 +19,7 @@ import pt.uminho.ceb.biosystems.merlin.gui.datatypes.model.ModelReactionsAIB;
 import pt.uminho.ceb.biosystems.merlin.gui.utilities.MerlinUtils;
 import pt.uminho.ceb.biosystems.merlin.services.ProjectServices;
 import pt.uminho.ceb.biosystems.merlin.services.model.ModelReactionsServices;
-import pt.uminho.ceb.biosystems.mew.biocomponents.container.Container;
+import pt.uminho.ceb.biosystems.merlin.biocomponents.container.Container;
 import pt.uminho.ceb.biosystems.mew.biocomponents.container.ContainerUtils;
 
 /**

@@ -12,8 +12,12 @@ import java.util.TreeSet;
 
 import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.ebi.uniprot.UniProtAPI;
 import pt.uminho.ceb.biosystems.mew.biocomponents.container.Container;
+import pt.uminho.ceb.biosystems.mew.biocomponents.container.components.CompartmentCI;
+import pt.uminho.ceb.biosystems.mew.biocomponents.container.components.GeneCI;
+import pt.uminho.ceb.biosystems.mew.biocomponents.container.components.MetaboliteCI;
 import pt.uminho.ceb.biosystems.mew.biocomponents.container.components.ReactionCI;
 import pt.uminho.ceb.biosystems.mew.biocomponents.container.components.ReactionConstraintCI;
+import pt.uminho.ceb.biosystems.mew.biocomponents.container.components.StoichiometryValueCI;
 import pt.uminho.ceb.biosystems.mew.biocomponents.container.interfaces.IContainerBuilder;
 import pt.uminho.ceb.biosystems.mew.utilities.datastructures.pair.Pair;
 import uk.ac.ebi.kraken.interfaces.uniprot.UniProtEntry;
@@ -40,7 +44,7 @@ public class MerlinSBMLContainer extends Container{
 		
 		this.reactionsProteinsInfo = sbml3Reader.getReactionsProteinsInfo();
 	}
-	
+		
 	
 	/**
 	 * 

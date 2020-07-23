@@ -43,6 +43,7 @@ public class KeggAPI {
 
 	static {
 		try {
+			
 			cache = JCS.getInstance("KEGG_API");
 		}
 		catch (CacheException e ) {
@@ -216,8 +217,8 @@ public class KeggAPI {
 		String [] res = KeggRestful.findGenomeByQuery(query);
 		return res;
 	}
-	
-	
+
+
 	/**
 	 * Retrieve Tnumber from NCBI taxonomyID.
 	 * 
@@ -226,19 +227,19 @@ public class KeggAPI {
 	 * @throws Exception
 	 */
 	public static List<String> findKeggTaxonomyID(String taxonomyID) throws Exception{
-		
+
 		String[] keggTaxonomyEntry = KeggRestful.findKeggEntryByTaxonomyID(taxonomyID);
 		List<String> keggTaxonomyID = new ArrayList<String>();
-		
+
 		for(int i=0 ; i<keggTaxonomyEntry.length; i++){
 			String id = keggTaxonomyEntry[i].split(":")[1];
 			keggTaxonomyID.add(id);
 		}
-		
+
 		return keggTaxonomyID;
 	}
-	
-	
+
+
 	/**
 	 * @param organism
 	 * @return
@@ -318,44 +319,54 @@ public class KeggAPI {
 	 */
 
 	public static Set<String> getReactionsByEnzymes(String ecNumber) throws Exception { 
+
+		Set<String> res = new HashSet<>(Arrays.asList());;
+
 		try {
 			KeggECNumberEntry entry = (KeggECNumberEntry) cache.get(ecNumber);
-
 			if(entry == null) {
 
 				String raw = KeggRestful.getDBEntry("ec", ecNumber);
-				Map<String, List<String>> data = parseFullEntry(raw);
-				List<String> names = data.get("NAME");
-				List<String> klass = data.get("CLASS");
-				String sysname = null;
+				if(raw != null) {
+					Map<String, List<String>> data = parseFullEntry(raw);
+					List<String> names = data.get("NAME");
+					List<String> klass = data.get("CLASS");
+					String sysname = null;
 
-				if(data.containsKey("SYSNAME")) {
+					if(data.containsKey("SYSNAME")) {
 
-					List<String> sysnames = data.get("SYSNAME");
-					sysname = sysnames.size() > 0 ? sysnames.get(0) : "";
+						List<String> sysnames = data.get("SYSNAME");
+						sysname = sysnames.size() > 0 ? sysnames.get(0) : "";
+					}
+					List<String> reactions = data.get("ALL_REAC");
+					String rawReactions = CollectionUtils.join(reactions, " ");
+					Set<String> reactionSet = new HashSet<String>();
+					Matcher m = Pattern.compile("R\\d{5}").matcher(rawReactions);
+					while (m.find())
+						reactionSet.add(m.group());
+
+					entry = new KeggECNumberEntry(ecNumber, names, klass, sysname, reactionSet);
+					res = entry.getReactionIds();
+
+
+					try {
+						cache.put(ecNumber, entry);
+
+
+					}
+					catch (CacheException e) {
+						if(debug )
+							e.printStackTrace();
+					}
 				}
-				List<String> reactions = data.get("ALL_REAC");
-				String rawReactions = CollectionUtils.join(reactions, " ");
-				Set<String> reactionSet = new HashSet<String>();
-				Matcher m = Pattern.compile("R\\d{5}").matcher(rawReactions);
-				while (m.find())
-					reactionSet.add(m.group());
-
-				entry = new KeggECNumberEntry(ecNumber, names, klass, sysname, reactionSet);
-
-				try {
-					cache.put(ecNumber, entry);
-
-
-				}
-				catch (CacheException e) {
-					if(debug )
-						e.printStackTrace();
-				}
-
 			}
+			
+			else
+				res = entry.getReactionIds();
 
-			return entry.getReactionIds();
+			return res;
+
+
 
 		} catch (Exception e) {
 
@@ -467,7 +478,7 @@ public class KeggAPI {
 	public static  List<String[]> getPathways() throws Exception {
 		return KeggRestful.getAllPathwayIDs();
 	}
-	
+
 	/**
 	 * Returns empty list if argument list is empty, otherwise it would retrieve all entries from KEGG.
 	 * 
@@ -477,20 +488,20 @@ public class KeggAPI {
 	 * @throws RemoteException
 	 */
 	public static  List<String[]> getSpecificPathways(List<String> listOfpathways) throws Exception {
-		
+
 		String query = "";
-		
+
 		for(String pathway : listOfpathways)
 			query = query.concat(pathway).concat("+");
-		
+
 		query = query.replaceAll("\\+$", "");
-		
+
 		if(query.isEmpty())
 			return new ArrayList<>();
-		
+
 		return KeggRestful.getSpecificPathwayIDs(query);
 	}
-	
+
 	/**
 	 * Search only pathways with reactions.
 	 * 
@@ -500,7 +511,7 @@ public class KeggAPI {
 	 * @throws RemoteException
 	 */
 	public static  Set<String> getPathwaysContainingReactions() throws Exception {
-		
+
 		return KeggRestful.getPathwaysContainingReactions();
 	}
 
@@ -916,14 +927,16 @@ public class KeggAPI {
 	static public Set<String> getECnumbersByOrthology(String ortholog) throws Exception {
 
 		Set<String> brite_set = new TreeSet<String>();
+		String response = KeggRestful.getDBEntry(KeggDB.ORTHOLOGY, ortholog);
+		Map<String, List<String>> map = null;
+		if(response != null)
+			map = parseFullEntry(response);
 
-		Map<String, List<String>> map = parseFullEntry( KeggRestful.getDBEntry(KeggDB.ORTHOLOGY, ortholog));
-
-		if(map.containsKey("BRITE")) {
+		if( map != null && map.containsKey("BRITE")) {
 
 			String[] brite_list = map.get("BRITE").toArray(new String[0]);
 
-			Pattern pattern = Pattern.compile("(\\d{1}(\\.[\\d+,-]){3})");
+			Pattern pattern = Pattern.compile("(\\d{1}(\\.[\\d,-]+){3})");
 
 			for (String brite : brite_list) {
 
@@ -957,7 +970,7 @@ public class KeggAPI {
 
 				Matcher matcher = pattern.matcher(brite);
 
-				if (matcher.find()) {
+				while (matcher.find()) {
 
 					brite_set.add(matcher.group());
 				}
@@ -1132,8 +1145,8 @@ public class KeggAPI {
 
 		for(String pathway : KeggRestful.findPathwaysByModule(module)) {
 
-			if(pathway.startsWith("path:rn"))
-				ret.add(pathway.replace("path:rn", ""));
+			if(pathway.startsWith("path:map"))
+				ret.add(pathway.replace("path:map", ""));
 		}
 
 
@@ -1352,7 +1365,7 @@ public class KeggAPI {
 		String gene = KeggRestful.findFirstGeneQuery(query);
 
 		if(gene!=null) {
-			
+
 			Map<String, List<String>> map = KeggAPI.getGenesByID(gene);
 
 			entryData.setFunction(map.get("DEFINITION").get(0));

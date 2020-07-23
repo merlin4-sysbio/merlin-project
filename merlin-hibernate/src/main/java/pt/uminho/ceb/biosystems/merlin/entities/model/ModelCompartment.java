@@ -63,7 +63,7 @@ public class ModelCompartment implements java.io.Serializable {
 		this.idcompartment = idcompartment;
 	}
 
-	@Column(name = "name", unique = true, length = 25)
+	@Column(name = "name", unique = true, length = 100)
 	public String getName() {
 		return this.name;
 	}

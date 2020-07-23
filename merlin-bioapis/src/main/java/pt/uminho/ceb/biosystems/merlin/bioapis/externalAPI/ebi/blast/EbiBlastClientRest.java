@@ -32,6 +32,8 @@ import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.blast.org.biojava3.ws
 import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.blast.org.biojava3.ws.alignment.RemotePairwiseAlignmentProperties;
 import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.blast.org.biojava3.ws.alignment.RemotePairwiseAlignmentService;
 import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.blast.org.biojava3.ws.alignment.qblast.NCBIQBlastAlignmentProperties;
+import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.blast.org.biojava3.ws.alignment.qblast.NCBIQBlastOutputFormat;
+import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.blast.org.biojava3.ws.alignment.qblast.NCBIQBlastOutputProperties;
 
 
 /**
@@ -41,14 +43,14 @@ import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.blast.org.biojava3.ws
 public class EbiBlastClientRest implements RemotePairwiseAlignmentService {
 
 	//private static final String BLAST_PARAMETER_DETAILS_URL = "http://www.ebi.ac.uk/Tools/services/rest/ncbiblast/parameterdetails/";
-	private static final String BLAST_RUN_URL = "http://www.ebi.ac.uk/Tools/services/rest/ncbiblast/run/";
-	private static final String JOB_STATUS_URL = "http://www.ebi.ac.uk/Tools/services/rest/ncbiblast/status/%s";
-	private static final String RESULT_TYPE_URL = "http://www.ebi.ac.uk/Tools/services/rest/ncbiblast/resulttypes/%s";
-	private static final String GET_RESULT_URL = "http://www.ebi.ac.uk/Tools/services/rest/ncbiblast/result/%s/%s";
+	public static final String BLAST_RUN_URL = "http://www.ebi.ac.uk/Tools/services/rest/ncbiblast/run/";
+	public static final String JOB_STATUS_URL = "http://www.ebi.ac.uk/Tools/services/rest/ncbiblast/status/%s";
+	public static final String RESULT_TYPE_URL = "http://www.ebi.ac.uk/Tools/services/rest/ncbiblast/resulttypes/%s";
+	public static final String GET_RESULT_URL = "http://www.ebi.ac.uk/Tools/services/rest/ncbiblast/result/%s/%s";
 	private static final Logger logger = LoggerFactory.getLogger(EbiBlastClientRest.class);
 	private String email = "";
 	private static final String tool = "www.merlin_sysbio.org";
-	private static final int _DEFAULT_TIMEOUT = 10000;
+	private static final int _DEFAULT_TIMEOUT = 60000;
 
 	private ConcurrentHashMap<String, Long> holder;
 	private long step;
@@ -117,6 +119,8 @@ public class EbiBlastClientRest implements RemotePairwiseAlignmentService {
 			//params.put("gapalign", rqb.getBlastGapCreation());
 			params.put("database", rqb.getBlastDatabase());
 			params.put("alignments", rqb.getHitlistSize()+"");
+			params.put("scores", rqb.getHitlistSize()+"");
+
 			
 			params.put("stype", rqb.getType());
 			params.put("program", rqb.getBlastProgram());
@@ -202,7 +206,8 @@ public class EbiBlastClientRest implements RemotePairwiseAlignmentService {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-	public static String getHttpUrl(String url) throws ClientProtocolException, IOException {
+	public static String getHttpUrl(String url) throws ClientProtocolException, IOException,IllegalArgumentException {
+		
 		
 		HttpGet httpGet = new HttpGet(url);
 		RequestConfig config = RequestConfig.custom()
@@ -226,6 +231,8 @@ public class EbiBlastClientRest implements RemotePairwiseAlignmentService {
 		httpResponse.close();
 
 		return responseString.toString().trim();
+		
+		
 	}
 
 	/**
@@ -287,7 +294,7 @@ public class EbiBlastClientRest implements RemotePairwiseAlignmentService {
 	 * @see alignment.blast.org.biojava3.ws.alignment.RemotePairwiseAlignmentService#isReady(java.lang.String, long)
 	 */
 	@Override
-	public boolean isReady(String jobID, long present) throws Exception {
+	public boolean isReady(String jobID, long present) throws Exception,IllegalArgumentException {
 
 		boolean isReady = false;
 		if (holder.containsKey(jobID)) {
@@ -344,11 +351,73 @@ public class EbiBlastClientRest implements RemotePairwiseAlignmentService {
 	@Override
 	public InputStream getAlignmentResults(String jobID, RemotePairwiseAlignmentOutputProperties out) throws Exception {
 
-		String output = getJobResultType(jobID, "out");
+		try {
 		
-		byte[] data = output.getBytes();
-		return new ByteArrayInputStream(data);
+			//NCBIQBlastOutputProperties rqb = (NCBIQBlastOutputProperties) out;
+			RequestConfig config = RequestConfig.custom()
+					.setConnectTimeout(this.timeout)
+		            .setSocketTimeout(this.timeout)
+		            .setConnectionRequestTimeout(this.timeout).build();
+			
+			HttpClient httpClient = HttpClientBuilder.create().setDefaultRequestConfig(config).build();
+			HttpGet httpGet = new HttpGet(String.format(EbiBlastClientRest.GET_RESULT_URL, jobID, "xml"));
+//			if(httpPost.started();)
+//			{
+//				List<NameValuePair> nameValuePairs = new ArrayList<> ();
+//
+//			Map<String, String> params = new HashMap<> ();
+//			params.put("ALIGNMENTS", rqb.getAlignmentNumber()+"");
+			
+//			blastResultsOutputProperties.setOutputFormat(NCBIQBlastOutputFormat. TEXT);
+//			blastResultsOutputProperties.setAlignmentOutputFormat(NCBIQBlastOutputFormat.PAIRWISE);
+//			blastResultsOutputProperties.setDescriptionNumber(numberOfAlignments);
+//			blastResultsOutputProperties.setAlignmentNumber(numberOfAlignments);
+			
+
+//			for (String key : params.keySet()) {
+//				nameValuePairs.add(new BasicNameValuePair(key, params.get(key)));
+//			}
+//			httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+			
+			//logger.debug("line {}, {}", httpPost.getRequestLine(), nameValuePairs);
+			
+			//System.out.println(httpPost.getRequestLine());
+			
+			CloseableHttpResponse httpResponse = (CloseableHttpResponse) httpClient.execute(httpGet);
+			HttpEntity httpEntity = httpResponse.getEntity();
+			
+			BufferedReader br = new BufferedReader(new InputStreamReader(httpEntity.getContent()));
+			StringBuilder responseString = new StringBuilder();
+			
+			String readline;
+			while ((readline = br.readLine()) != null) {
+				responseString.append(readline);
+			}
+
+			br.close();
+			httpGet.releaseConnection();
+
+			start = System.currentTimeMillis() + step;
+			holder.put(responseString.toString(), start);
+			EntityUtils.consume(httpEntity);
+			httpResponse.close();
+			
+			byte[] data = responseString.toString().getBytes();
+			return new ByteArrayInputStream(data);
+			
+			
+		}
+	catch (Exception e) {
+		
+		e.printStackTrace();
+		throw e;
 	}
+
+//		String output = getJobResultType(jobID, "out");
+//		
+//		byte[] data = output.getBytes();
+//		return new ByteArrayInputStream(data);
+}
 
 	/**
 	 * @return the holder

@@ -26,6 +26,20 @@ public class Enumerators {
                 return "fasta file (protein.faa)";
             }
         }, 
+        PROTEIN_FAA_GENE_IDS("proteinGeneIds.faa")
+        {
+            
+            public List<SequenceType> getSequenceType() {
+                
+                this.sequenceTypes.add(SequenceType.PROTEIN);
+                return this.sequenceTypes;
+            }
+            
+            @Override
+            public String toString(){
+                return "fasta file with gene ids (proteinGeneIds.faa)";
+            }
+        }, 
         CDS_FROM_GENOMIC("cds_from_genomic.fna") {
             
             public List<SequenceType> getSequenceType() {

@@ -44,7 +44,8 @@ public class ModelCompartmentsIntegration implements PropertyChangeListener {
 	private WorkspaceAIB workspace;
 	private CompartmentContainer membraneCompartment;
 	private boolean go = true;
-	
+	private boolean cloneWorkspace;
+
 	final static Logger logger = LoggerFactory.getLogger(ModelCompartmentsIntegration.class);
 
 	@Port(direction=Direction.INPUT, name="biochemical", order=1)
@@ -75,7 +76,7 @@ public class ModelCompartmentsIntegration implements PropertyChangeListener {
 			e.printStackTrace();
 		}
 	};
-	
+
 	@Port(direction=Direction.INPUT, name="compartment",description="name of the default membrane compartment", advanced=true, defaultValue = "auto", order = 5)
 	public void setDefaultMembrane(String compartment) {
 		try {
@@ -86,9 +87,23 @@ public class ModelCompartmentsIntegration implements PropertyChangeListener {
 			e.printStackTrace();
 		}
 	};
-	
-	@Port(direction=Direction.INPUT, name="geneCompartments", order=6)
+
+	@Port(direction=Direction.INPUT, name="clone workspace before integrating",defaultValue="false", description="clone the currently selected workspace and integrate compartments in the cloned version",order=6)
+	public void setCloneWorkspace(boolean cloneWorkspace){
+
+		this.cloneWorkspace = cloneWorkspace;
+	}
+
+
+	@Port(direction=Direction.INPUT, name="geneCompartments", order=7)
 	public void setGeneCompartments(Map<Integer, AnnotationCompartmentsGenes> geneCompartments) throws Exception{
+
+
+		if(this.cloneWorkspace == true)
+			System.out.println("test");
+
+
+
 
 		this.cancel = new AtomicBoolean(false);
 		this.startTime = GregorianCalendar.getInstance().getTimeInMillis();
@@ -99,7 +114,7 @@ public class ModelCompartmentsIntegration implements PropertyChangeListener {
 			this.querySize = new AtomicInteger(geneCompartments.size());
 			this.processingCounter = new AtomicInteger();
 			this.cancel = new AtomicBoolean();
-			
+
 			this.integration = new CompartmentsAnnotationIntegrationProcesses(this.workspace.getName(), geneCompartments);
 			this.integration.addPropertyChangeListener(this);
 			this.integration.setQuerySize(this.querySize);
@@ -120,7 +135,7 @@ public class ModelCompartmentsIntegration implements PropertyChangeListener {
 
 			if(this.biochemical && !this.cancel.get())
 				result = integration.assignCompartmentsToMetabolicReactions(ignoreList);
-			
+
 			System.out.println(result + " outcome of biochemical");
 
 			if(this.transport && ProjectServices.isTransporterLoaded(this.workspace.getName()) && !this.cancel.get()) {
@@ -130,17 +145,17 @@ public class ModelCompartmentsIntegration implements PropertyChangeListener {
 					this.progress.setTime(0, 0, 0, "processing transport reactions");
 
 					result = integration.assignCompartmentsToTransportReactions(ignoreList, false);
-					
+
 					System.out.println(result + " outcome of transporters");
 				}
 				catch (Exception e) {
 
 					result = false;
-					
+
 					System.out.println(result + "error during transporters");
-					
+
 					e.printStackTrace();
-					
+
 					Workbench.getInstance().error(e);
 				}
 			}
@@ -175,7 +190,7 @@ public class ModelCompartmentsIntegration implements PropertyChangeListener {
 		}
 		else {
 			try {
-				
+
 				this.workspace = workspace;
 
 				if(!AnnotationCompartmentsServices.areCompartmentsPredicted(workspace.getName()))
@@ -183,9 +198,9 @@ public class ModelCompartmentsIntegration implements PropertyChangeListener {
 
 				int comp_genes = ModelGenesServices.countGenesInGeneHasCompartment(workspace.getName());
 				int genes = ModelGenesServices.countEntriesInGene(workspace.getName());
-				
+
 				this.loaded = genes == comp_genes;
-			
+
 			} 
 			catch (Exception e) {
 				Workbench.getInstance().error(e);
@@ -194,22 +209,22 @@ public class ModelCompartmentsIntegration implements PropertyChangeListener {
 		}
 	}
 
-	
+
 	/**
-     * @param compartment
-     * @throws Exception
-     */
-    public void checkMembraneCompartment(String compartment) throws Exception {
-        
-        this.membraneCompartment = CompartmentsVerifier.checkMembraneCompartment(compartment, this.workspace.getName(), this.workspace.isEukaryoticOrganism());
-        
-        if(this.membraneCompartment == null) {
-//            Workbench.getInstance().warn("No membrane compartmentID defined!");
-            logger.warn("No membrane compartmentID defined!");
-        }
-        
-    }
-    
+	 * @param compartment
+	 * @throws Exception
+	 */
+	public void checkMembraneCompartment(String compartment) throws Exception {
+
+		this.membraneCompartment = CompartmentsVerifier.checkMembraneCompartment(compartment, this.workspace.getName(), this.workspace.isEukaryoticOrganism());
+
+		if(this.membraneCompartment == null) {
+			//            Workbench.getInstance().warn("No membrane compartmentID defined!");
+			logger.warn("No membrane compartmentID defined!");
+		}
+
+	}
+
 
 	/**
 	 * @return
@@ -223,10 +238,10 @@ public class ModelCompartmentsIntegration implements PropertyChangeListener {
 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
-		
+
 		progress.setTime(GregorianCalendar.getInstance().getTimeInMillis() - this.startTime, this.processingCounter.get(), this.querySize.get());
 	}
-	
+
 	/**
 	 * 
 	 */

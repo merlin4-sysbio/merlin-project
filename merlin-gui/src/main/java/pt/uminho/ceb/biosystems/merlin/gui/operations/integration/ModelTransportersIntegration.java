@@ -22,7 +22,7 @@ import pt.uminho.ceb.biosystems.merlin.gui.utilities.MerlinUtils;
 import pt.uminho.ceb.biosystems.merlin.gui.utilities.TimeLeftProgress;
 import pt.uminho.ceb.biosystems.merlin.processes.model.compartments.CompartmentsAnnotationIntegrationProcesses;
 import pt.uminho.ceb.biosystems.merlin.services.ProjectServices;
-import pt.uminho.ceb.biosystems.mew.biocomponents.container.Container;
+import pt.uminho.ceb.biosystems.merlin.biocomponents.container.Container;
 import pt.uminho.ceb.biosystems.mew.biocomponents.container.components.ReactionCI;
 import pt.uminho.ceb.biosystems.mew.biocomponents.container.io.readers.JSBMLLevel3Reader;
 
@@ -101,7 +101,7 @@ public class ModelTransportersIntegration implements PropertyChangeListener {
 						container = new Container(reader);
 
 						Map<String, ReactionCI> reactions = container.getReactions();  //assuming that all retrieved reactions are already only transporters! If not, perform container.identifyTransportReactions() first
-
+						
 						this.transportersData = new IntegrateTransportersDataTransyt(project, reactions);
 						this.transportersData.setTimeLeftProgress(this.progress);
 

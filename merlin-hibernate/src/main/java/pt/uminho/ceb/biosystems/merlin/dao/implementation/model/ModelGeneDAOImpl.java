@@ -170,6 +170,19 @@ public class ModelGeneDAOImpl extends GenericDaoImpl<ModelGene> implements IMode
 		}
 		return dic;
 	}
+	
+	@Override
+	public Map<Integer, String> getGeneIdAndGeneQuery() {	
+		List<ModelGene> list =  this.findAll();
+		Map<Integer, String> dic = new HashMap<Integer, String>();
+
+		if(list.size() > 0) {
+			for (ModelGene x: list){
+				dic.put(x.getIdgene(), x.getQuery());
+			}
+		}
+		return dic;
+	}
 
 
 	@Override

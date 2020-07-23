@@ -117,6 +117,7 @@ public class AliasesServiceImpl implements IAliasesService{
 		return exists;
 	}
 
+
 	@Override
 	public void insertNewModelAliasEntry(String cl, int entity, String alias) throws Exception {
 
@@ -129,5 +130,27 @@ public class AliasesServiceImpl implements IAliasesService{
 		this.modelaliasesDAO.addModelAliases(modelAlias);
 	}
 
+
+	@Override
+	public void updateModelAlias(int modelAliasId, String cl, int entity, String alias) throws Exception {
+
+		ModelAliases modelAlias = this.modelaliasesDAO.getModelAliases(modelAliasId);
+
+		if(modelAlias != null) {
+
+			modelAlias.setAlias(alias);
+			modelAlias.setClass_(cl);
+			modelAlias.setEntity(entity);
+		}
+
+		this.modelaliasesDAO.updateModelAliases(modelAlias);
+	}
+	
+	@Override
+	public void removeModelAlias(int modelAliasId) throws Exception {
+
+		ModelAliases modelAlias = this.modelaliasesDAO.getModelAliases(modelAliasId);
+		this.modelaliasesDAO.removeModelAliases(modelAlias);
+	}
 
 }

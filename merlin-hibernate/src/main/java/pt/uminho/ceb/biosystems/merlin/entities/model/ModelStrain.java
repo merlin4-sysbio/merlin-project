@@ -39,6 +39,7 @@ public class ModelStrain implements java.io.Serializable {
 		this.modelEntityisfrom = modelEntityisfrom;
 	}
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY, generator="UseExistingIdOtherwiseGenerateUsingIdentity")
 	@GenericGenerator(name = "UseExistingIdOtherwiseGenerateUsingIdentity", strategy = "pt.uminho.ceb.biosystems.merlin.auxiliary.UseExistingIdOtherwiseGenerateUsingIdentity")	
@@ -59,7 +60,7 @@ public class ModelStrain implements java.io.Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	@XmlTransient
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "modelStrain")
 	@OnDelete(action = OnDeleteAction.CASCADE)

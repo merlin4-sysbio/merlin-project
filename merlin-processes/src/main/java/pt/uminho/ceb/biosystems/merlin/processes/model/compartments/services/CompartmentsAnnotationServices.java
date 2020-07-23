@@ -151,7 +151,7 @@ public class CompartmentsAnnotationServices {
 					//go = compartmentsInterface.getCompartments(null);
 			
 			}
-
+			
 			if(go)
 				compartmentsInterface.loadCompartmentsInformation(results);
 

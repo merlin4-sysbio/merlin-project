@@ -227,8 +227,8 @@ public class EnzymesAnnotationHomologyDataDAOImpl extends GenericDaoImpl<Enzymes
 		homologyData.setEcNumber(ecnumber);
 
 		homologyData.setEnzymesAnnotationGeneHomology(geneHomology);
-
-		homologyData.setLocusTag(locusTag);
+		if (locusTag != null)
+			homologyData.setLocusTag(locusTag);
 		homologyData.setGeneName(geneName);
 		homologyData.setProduct(product);
 		homologyData.setSelected(selected);

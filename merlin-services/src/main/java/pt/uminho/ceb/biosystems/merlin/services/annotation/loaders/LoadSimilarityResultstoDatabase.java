@@ -5,12 +5,17 @@ package pt.uminho.ceb.biosystems.merlin.services.annotation.loaders;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.biojava.nbio.core.sequence.template.AbstractSequence;
@@ -39,6 +44,11 @@ public class LoadSimilarityResultstoDatabase {
 	private boolean loaded;
 	private int maxNumberOfAlignments;
 	private double eVal;
+	private Float lowerIdentity;
+	private Float positives;
+	private Float queryCoverage;
+	private Float targetCoverage;
+
 	private AtomicBoolean cancel;
 
 	private boolean hmmerSearch;
@@ -65,7 +75,8 @@ public class LoadSimilarityResultstoDatabase {
 	 * @param hmmerSearch
 	 * @param statement
 	 */
-	public LoadSimilarityResultstoDatabase(String workspaceName, AnnotationEnzymesHomologuesData homologyData, double expectedVal, int maxNumberOfAlignments,
+	public LoadSimilarityResultstoDatabase(String workspaceName, AnnotationEnzymesHomologuesData homologyData, double expectedVal, Float lowerIdentity, 
+			Float positives, Float queryCoverage, Float targetCoverage, int maxNumberOfAlignments,
 			AtomicBoolean cancel, boolean hmmerSearch, Map<String,AbstractSequence<?>> sequences) {
 
 		this.workspaceName = workspaceName;
@@ -84,6 +95,10 @@ public class LoadSimilarityResultstoDatabase {
 		if(homologyData.getLocusTag()!=null) 
 			this.locusTag = homologyData.getLocusTag();
 		this.sequences = sequences;
+		this.lowerIdentity = lowerIdentity;
+		this.positives = positives;
+		this.queryCoverage = queryCoverage;
+		this.targetCoverage = targetCoverage;
 	}
 
 	/**
@@ -384,11 +399,15 @@ public class LoadSimilarityResultstoDatabase {
 	 * @param gene
 	 * @param eValue
 	 * @param bits
+	 * @param targetCoverage 
+	 * @param queryCoverage 
+	 * @param positives 
+	 * @param identity 
 	 * @throws SQLException
 	 */
-	private void load_geneHomology_has_homologues(String databaseName, String referenceID, String gene, Float eValue, Float bits) throws Exception{
+	private void load_geneHomology_has_homologues(String databaseName, String referenceID, String gene, Float eValue, Float bits, float identity, float positives, float queryCoverage, float targetCoverage) throws Exception{
 
-		InitDataAccess.getInstance().getDatabaseService(databaseName).load_geneHomology_has_homologues(referenceID, gene, eValue, bits, geneHomology_s_key, homologues_s_key);
+		InitDataAccess.getInstance().getDatabaseService(databaseName).load_geneHomology_has_homologues(referenceID, gene, eValue, bits, geneHomology_s_key, homologues_s_key, identity, positives, queryCoverage, targetCoverage);
 	}
 
 
@@ -426,11 +445,13 @@ public class LoadSimilarityResultstoDatabase {
 	private void loadhomologySetup(String databaseID, String program, String version) throws Exception {
 
 		int sKey = AnnotationEnzymesServices.getHomologySetupSkeyByAttributes(this.workspaceName, databaseID, program,
-				this.eVal, this.getMatrix(), this.getWordSize(), this.getGapCosts(), this.maxNumberOfAlignments, version);
+				this.eVal, this.lowerIdentity, this.positives, this.queryCoverage, this.targetCoverage,
+				this.getMatrix(), this.getWordSize(), this.getGapCosts(), this.maxNumberOfAlignments, version);
 
 		if(sKey<0) {
 
 			sKey = AnnotationEnzymesServices.insertHomologySetup(this.workspaceName, databaseID, program, this.eVal, 
+					this.lowerIdentity, this.positives, this.queryCoverage, this.targetCoverage,
 					this.getMatrix(), this.getWordSize(), this.getGapCosts(), this.maxNumberOfAlignments, version);
 		}
 		this.homologySetupID = sKey;
@@ -581,7 +602,11 @@ public class LoadSimilarityResultstoDatabase {
 			if(!this.hmmerSearch)
 				program = this.program;
 
+			
 			boolean exists = AnnotationEnzymesServices.loadGeneHomologyData(this.workspaceName, this.homologyDataClient.getQuery(), program);
+			
+
+
 
 			if(exists) {
 
@@ -607,11 +632,13 @@ public class LoadSimilarityResultstoDatabase {
 					}
 				}
 
+
 				if(this.hmmerSearch)
 					this.loadHmmerSetup(this.databaseID, this.program, this.version);
 				else
 					this.loadhomologySetup(this.databaseID, this.program, this.version);
 
+				
 				if(this.isNoSimilarity) {
 
 					String locusTag = this.query;
@@ -621,8 +648,10 @@ public class LoadSimilarityResultstoDatabase {
 						locusTag = this.locusTag;
 					}
 
+					
 					this.loadGene(locusTag, this.query, null, null, null, star);
 					//					this.loadFastaSequence(this.homologyDataClient.getFastaSequence());
+					
 				}
 				else {
 
@@ -654,16 +683,29 @@ public class LoadSimilarityResultstoDatabase {
 						locusTag=this.locusTag;
 					}
 
+					
 					this.loadGene(locusTag, this.query, this.homologyDataClient.getGene(), this.homologyDataClient.getChromosome(), this.homologyDataClient.getOrganelle(), star);
 					//					this.loadFastaSequence(this.homologyDataClient.getFastaSequence());
+					
+					
 					Map<String, Integer> productRank = new HashMap<String,Integer>();
 					this.prodOrg = new HashMap<>();
 					Map<Set<String>, Integer> ecNumberRank = new HashMap<Set<String>,Integer>();
 					Map<Set<String>, List<Integer>> ecOrg = new HashMap<>();
 					String myOrganismTaxonomy="";
-
-					myOrganismTaxonomy = this.homologyDataClient.getOrganismTaxa()[1].concat("; "+this.homologyDataClient.getOrganismTaxa()[0]);
-					this.loadOrganism(this.homologyDataClient.getOrganismTaxa()[0], this.homologyDataClient.getOrganismTaxa()[1],myOrganismTaxonomy,"origin organism");
+					String[] organismTaxa = this.homologyDataClient.getOrganismTaxa();
+					
+					if(organismTaxa[0] != null && organismTaxa[1] != null) {
+						
+						myOrganismTaxonomy = organismTaxa[1].concat("; "+organismTaxa[0]);
+						this.loadOrganism(organismTaxa[0], organismTaxa[1],myOrganismTaxonomy,"origin organism");
+					}
+					
+					else {
+						this.loadOrganism("", "", myOrganismTaxonomy, "origin organism");
+					}
+					
+					logger.info("homologues total" + this.homologyDataClient.getLocusIDs().size());
 
 					for(int l = 0 ; l< this.homologyDataClient.getLocusIDs().size(); l++) {
 
@@ -685,13 +727,20 @@ public class LoadSimilarityResultstoDatabase {
 								String organism = this.homologyDataClient.getOrganism().get(locus),
 										taxonomy =	this.homologyDataClient.getTaxonomy().get(locus);
 
+								
 								this.loadOrganism(organism,taxonomy,myOrganismTaxonomy,locus);
+								
 
 								float eValue = (float) this.homologyDataClient.getEValue().get(locus).doubleValue();
 
 								if(this.homologyDataClient.getEValue().containsKey(locus) && this.homologyDataClient.getBits().containsKey(locus)) {
 
 									float bits = (float) this.homologyDataClient.getBits().get(locus).doubleValue();
+									float identity = (float) this.homologyDataClient.getIdentity().get(locus).doubleValue();
+									float positives = (float) this.homologyDataClient.getPositives().get(locus).doubleValue();
+									float queryCoverage = (float) this.homologyDataClient.getQuery_coverage().get(locus).doubleValue();
+									float targetCoverage = (float) this.homologyDataClient.getTarget_coverage().get(locus).doubleValue();
+
 									String gene= this.homologyDataClient.getGenes().get(locus);
 
 									if(this.homologyDataClient.getBits().get(locus)<0) {
@@ -702,11 +751,15 @@ public class LoadSimilarityResultstoDatabase {
 
 									if(this.eVal >= eValue) {
 
+										
 										productRank = loadHomologues(blastLocusTagID, calculateMW, productRank, locus);
-
+										
+										
 										ecNumberRank = loadECNumbers(ecNumberRank, ecOrg, locus);
+										
 
-										this.load_geneHomology_has_homologues(database, locus, gene, eValue, bits);
+										this.load_geneHomology_has_homologues(database, locus, gene, eValue, bits, identity, positives, queryCoverage, targetCoverage);
+										
 									}
 								}
 							}
@@ -716,13 +769,21 @@ public class LoadSimilarityResultstoDatabase {
 
 					if(!this.cancel.get()) {
 
+						
 						this.loadProductRank(database, productRank);
 
+
+						
 						if (!ecNumberRank.isEmpty()) {
 
+							
 							this.loadECNumberRank(ecNumberRank,ecOrg);		
+							
 						}
+						
+						
 						this.updataGeneStatus(locusTag);
+						
 					}
 				}
 

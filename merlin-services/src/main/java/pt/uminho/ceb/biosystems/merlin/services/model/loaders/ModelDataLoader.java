@@ -605,13 +605,13 @@ public class ModelDataLoader {
 								
 								Integer protein_id = null;
 								
-//								if(container == null) {
+								if(container == null) {
 //									if(enzyme.getName() == null)
 //										System.out.println(enzyme.getExternalIdentifier());
 //									
-//									protein_id = ModelProteinsServices.insertProtein(this.databaseName, enzyme);
-//								}
-//								else
+									protein_id = ModelProteinsServices.insertProtein(this.databaseName, enzyme);
+								}
+								else
 									protein_id = container.getIdProtein();
 
 //								int protein_id=databaseInitialData.getProteinsIdentifier().get(enzyme.getExternalIdentifier());

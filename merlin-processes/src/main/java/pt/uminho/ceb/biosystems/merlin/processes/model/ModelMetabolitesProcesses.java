@@ -41,10 +41,10 @@ public class ModelMetabolitesProcesses {
 			res[tab] = tabData;
 			tab++;
 			if(data.size()>5) {
-				tabData =new String[] {"Number of reactants in compartment" + data.get(tab).getB(),""+ data.get(tab).getA()};
+				tabData =new String[] {"Number of reactants in compartment " + data.get(tab).getB(),""+ data.get(tab).getA()};
 				res[tab] = tabData;
 				tab++;
-				tabData =new String[] {"Number of products in compartment" + data.get(tab).getB(),""+ data.get(tab).getA()};
+				tabData =new String[] {"Number of products in compartment " + data.get(tab).getB(),""+ data.get(tab).getA()};
 				res[tab] = tabData;
 				tab++;
 			}
@@ -107,7 +107,7 @@ public class ModelMetabolitesProcesses {
 		columnsNames.add("equations");
 		columnsNames.add("source");
 		columnsNames.add("in model");
-		columnsNames.add("reversible");
+		columnsNames.add("reversibility");
 		res[tab] = new WorkspaceDataTable(columnsNames, "reactions");
 
 		for(ArrayList<String> line : data.get("reactions"))

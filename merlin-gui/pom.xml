@@ -5,7 +5,7 @@
 		<parent>
 		<groupId>pt.uminho.ceb.biosystems.merlin</groupId>
 		<artifactId>merlin-project</artifactId>
-		<version>4.0.2-RELEASE</version>
+		<version>4.0.4-RELEASE</version>
 		<!--
 			WARNING: change version using (in the parent project):
 				mvn versions:set -DnewVersion=[new_version]
@@ -356,17 +356,14 @@ progress.workingicon = conf/progress.gif
 						</configuration>
 					</execution>
 					<execution>
-						<id>copy-aibench-dependencies-eclipse</id>
-						<phase>package</phase>
+						<id>list-dependencies</id>
+						<phase>install</phase>
 						<goals>
-							<goal>copy-dependencies</goal>
+							<goal>list</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/plugins_bin</outputDirectory>
-							<overWriteReleases>true</overWriteReleases>
-							<overWriteSnapshots>true</overWriteSnapshots>
-							<overWriteIfNewer>true</overWriteIfNewer>
-							<includeArtifactIds>aibench-core,aibench-workbench</includeArtifactIds>
+							<outputFile>${merlin.build.directory}conf/dependenciesfiles</outputFile>
+							<outputScope>false</outputScope>
 						</configuration>
 					</execution>
 				</executions>
@@ -430,7 +427,6 @@ progress.workingicon = conf/progress.gif
 			</plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version>
 				<executions>
 					<execution>
 						<id>copy-resources-conf</id>
@@ -443,11 +439,28 @@ progress.workingicon = conf/progress.gif
 							<resources>
 								<resource>
 									<directory>conf</directory>
-									<filtering>true</filtering>
 									<excludes>
 										<exclude>email.conf</exclude>
 										<exclude>database_settings.conf</exclude>
 									</excludes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-resources-launcher</id>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${merlin.build.directory}lib</outputDirectory>
+							<resources>
+								<resource>
+									<directory>lib</directory>
+									<includes>
+										<include>merlin-launcher*.*</include>
+									</includes>
 								</resource>
 							</resources>
 						</configuration>
@@ -479,7 +492,6 @@ progress.workingicon = conf/progress.gif
 							<resources>
 								<resource>
 									<directory>utilities</directory>
-									<filtering>true</filtering>
 								</resource>
 							</resources>
 						</configuration>
@@ -510,6 +522,9 @@ progress.workingicon = conf/progress.gif
 	
 	<profiles><profile>
 			<id>merlin</id>
+			    <activation>
+      				<activeByDefault>false</activeByDefault>
+    		</activation>
 			<build>
 				<plugins>
 					<plugin>
@@ -523,7 +538,7 @@ progress.workingicon = conf/progress.gif
 									<goal>run</goal>
 								</goals>
 								<configuration>
-									<tasks>
+									<target>
 										<taskdef classpathref="maven.plugin.classpath" resource="net/sf/antcontrib/antcontrib.properties"/>
 										<echo append="false" file="${merlin.build.directory}merlin.bat">SET HOME=%~d0%~sp0
 		wscript.exe %HOME%"utilities/invis.vbs" %HOME%"utilities/run.bat"%*
@@ -591,8 +606,8 @@ REM SET LAF="-Dswing.defaultlaf=com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel
 SET	LEGACY="-Djava.util.Arrays.useLegacyMergeSort=true"
 SET LOCALE="-Duser.language=en"
 SET CHARSET="-Dfile.encoding=utf-8"
-SET MAXMEM="-Xmx1G"
-SET MINMEM="-Xms512M"
+SET MAXMEM="-Xmx64M"
+SET MINMEM="-Xms64M"
 SET UNIPROTDTD="-Djavax.xml.accessExternalDTD=all"
 
 SET COMMAND=%JAVA% %LAF% %LEGACY% %LPATH% %LOCALE% %CHARSET% %MAXMEM% %MINMEM% %UNIPROTDTD% -cp %CLASSPATH% %MAIN_CLASS% %JAR_ARGS%
@@ -674,14 +689,14 @@ h2_username: root
 h2_password: password
 
 	</echo>
-	<echo append="false" file="${merlin.build.directory}conf/pluginmanager.conf">plugininstaller.dir=plugins_install
+										<echo append="false" file="${merlin.build.directory}conf/pluginmanager.conf">plugininstaller.dir=plugins_install
 pluginrepository.infofile=plugins.dat
 plugins.start.gui=true
 pluginrepository.host=https\://merlin-sysbio.org/data/plugins
 
 	</echo>
 										<chmod file="${merlin.build.directory}run.sh" perm="a+x"/>
-									</tasks>
+									</target>
 								</configuration>
 							</execution>
 						</executions>
@@ -691,7 +706,7 @@ pluginrepository.host=https\://merlin-sysbio.org/data/plugins
 						<version>3.1.1</version>
 						<configuration>
 							<finalName>${project.artifactId}-${project.version}-${build.name}</finalName>
-							<outputDirectory>${project.basedir}/../../releases</outputDirectory>
+							<outputDirectory>${project.basedir}/../../../releases</outputDirectory>
 							<appendAssemblyId>false</appendAssemblyId>
 							<descriptors>
 								<descriptor>zip.xml</descriptor>
@@ -718,9 +733,9 @@ pluginrepository.host=https\://merlin-sysbio.org/data/plugins
 	
 	<dependencies>
 		<dependency>
-			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
-			<artifactId>merlin-databaseConnector</artifactId>
-			<version>4.0.0-SNAPSHOT</version>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>merlin-alignments</artifactId>
+				<version>${pt.uminho.ceb.biosystems.merlin.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
@@ -745,12 +760,12 @@ pluginrepository.host=https\://merlin-sysbio.org/data/plugins
 			<dependency>
 			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
 			<artifactId>merlin-aibench-core</artifactId>
-			<version>2.10.2-SNAPSHOT</version>
+			<version>${pt.uminho.ceb.biosystems.aibench.project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${pt.uminho.ceb.biosystems.merlin.groupId}</groupId>
 			<artifactId>merlin-aibench-workbench</artifactId>
-			<version>2.10.2-SNAPSHOT</version>
+			<version>${pt.uminho.ceb.biosystems.aibench.project.version}</version>
 		</dependency> 
 		<dependency>
 			<groupId>org.slf4j</groupId>

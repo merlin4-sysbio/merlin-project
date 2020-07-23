@@ -18,6 +18,7 @@ import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.SourceType;
 import pt.uminho.ceb.biosystems.merlin.dataAccess.InitDataAccess;
 import pt.uminho.ceb.biosystems.mew.utilities.datastructures.pair.Pair;
 
+
 /**
  * @author odias
  *
@@ -56,18 +57,22 @@ public class ModelGenesServices {
 			String synmedFormatted = formatter.format(synmed);
 			ret[position++] = Double.parseDouble(synmedFormatted);
 
+			
 			int prot = countGenesEncodingProteins(databaseName);
 			ret[position++] = prot;
+	
 
-			Pair<Integer, Integer> pair = InitDataAccess.getInstance().getDatabaseService(databaseName).countGenesEncodingEnzymesAndTransporters();
-			int enz = pair.getA();
-			int trp = pair.getB();
-			int both = enz + trp - prot;
+			List<Integer> list = InitDataAccess.getInstance().getDatabaseService(databaseName).countGenesEncodingEnzymesAndTransporters();
+			int enz = list.get(0); // number of genes which encode enzymes
+			int exclusivelyEnz = list.get(2); // number of genes which ONLY encodes enzymes
+			int exclusivelyTrp = list.get(3); // number of genes which ONLY encodes transporters
+			int both = enz - exclusivelyEnz;  // this calculation could also be performed with the transporters
 
-			ret[position++] = (enz-both);
-			ret[position++] = (trp-both);
+			ret[position++] = exclusivelyEnz;
+			ret[position++] = exclusivelyTrp;
 			ret[position++] = both;
 
+			// Create container and count all genes
 			int inModel= countGenesInModel(databaseName);
 			ret[position++] = inModel;
 
@@ -353,6 +358,17 @@ public class ModelGenesServices {
 	public static Map<String, Integer> getQueriesByGeneID(String databaseName) throws Exception {
 
 		return InitDataAccess.getInstance().getDatabaseService(databaseName).getQueriesByGeneId();
+
+	}
+	
+	/**
+	 * @param databaseName
+	 * @return
+	 * @throws Exception
+	 */
+	public static Map<Integer, String> getGeneIdandGeneQuery(String databaseName) throws Exception {
+
+		return InitDataAccess.getInstance().getDatabaseService(databaseName).getGeneIdAndGeneQuery();
 
 	}
 

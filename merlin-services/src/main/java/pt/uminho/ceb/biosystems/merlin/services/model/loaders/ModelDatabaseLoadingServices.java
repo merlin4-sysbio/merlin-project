@@ -3,6 +3,7 @@ package pt.uminho.ceb.biosystems.merlin.services.model.loaders;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

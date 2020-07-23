@@ -3,6 +3,7 @@ package pt.uminho.ceb.biosystems.merlin.processes.annotation.remote.blast;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -14,8 +15,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.axis.AxisFault;
 import org.apache.jcs.access.exception.InvalidArgumentException;
-import org.biojava.bio.search.SeqSimilaritySearchHit;
-import org.biojava.bio.search.SeqSimilaritySearchResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +25,9 @@ import pt.uminho.ceb.biosystems.merlin.bioapis.externalAPI.utilities.MySleep;
 import pt.uminho.ceb.biosystems.merlin.core.datatypes.annotation.enzymes.AnnotationEnzymesHomologuesData;
 import pt.uminho.ceb.biosystems.merlin.core.utilities.Enumerators.HomologySearchServer;
 import pt.uminho.ceb.biosystems.merlin.processes.annotation.remote.RemoteDataRetriever;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.BlastIterationData;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.EbiBlastParser;
+import pt.uminho.ceb.biosystems.merlin.utilities.blast.ebi_blastparser.THit;
 
 /**
  * @author Oscar
@@ -35,7 +37,9 @@ public class SubmitEbiBlast implements Runnable {
 
 	final static Logger logger = LoggerFactory.getLogger(SubmitEbiBlast.class);
 
-	private static final int _SAVE_LIST_SIZE = 1;
+	private static final int _SAVE_LIST_SIZE = 50;
+	private static final int _ERRORS_LIMIT = 3;
+	private static final int _LATENCY = 60000;
 
 	private PropertyChangeSupport changes;
 
@@ -66,6 +70,17 @@ public class SubmitEbiBlast implements Runnable {
 
 	private Map<String, Long> ridsLatency;
 
+	private Double userEval;
+	
+	private Float identityLowerThreshold;
+	
+	private Float positives;
+	
+	private Float queryCoverage;
+	
+	private Float targetCoverage;
+
+
 
 	/**
 	 * http://www.ebi.ac.uk/Tools/webservices/services/sss/ncbi_blast_rest
@@ -84,7 +99,7 @@ public class SubmitEbiBlast implements Runnable {
 	 * @param latencyWaitingPeriod
 	 * @param taxonomyIdentifier
 	 * @param uniprotStatus
-	 * @throws InvalidArgumentException
+	 * @throws Exception 
 	 */
 	public SubmitEbiBlast(EbiBlastClientRest rbw, NCBIQBlastAlignmentProperties rqb, 
 			ConcurrentHashMap<String, String[]> taxonomyMap,  ConcurrentHashMap<String, Boolean> uniprotStar, 
@@ -95,7 +110,8 @@ public class SubmitEbiBlast implements Runnable {
 			Map<String, String> queryRIDMap, 
 			String[] orgArray, 
 			long latencyWaitingPeriod, long taxonomyIdentifier, 
-			boolean uniprotStatus) throws InvalidArgumentException  {
+			boolean uniprotStatus, Double userEval, Float identityLowerThreshold, Float positives,
+			Float queryCoverage, Float targetCoverage) throws Exception  {
 
 		this.sequencesCounter = sequencesCounter;
 		this.organismTaxa=orgArray;
@@ -104,8 +120,17 @@ public class SubmitEbiBlast implements Runnable {
 		this.rbw = rbw;
 		this.rids = rids;
 		this.taxonomyIdentifier = taxonomyIdentifier;
+		this.userEval = userEval;
+		this.identityLowerThreshold = identityLowerThreshold;
+		this.positives = positives;
+		this.queryCoverage = queryCoverage;
+		this.targetCoverage = targetCoverage;
+		
+		this.rof = new NCBIQBlastOutputProperties();
 		if(rqb.getOrganism()!=null)
 			this.rof.setOrganisms(rqb.getOrganism());
+		this.rof.setAlignmentNumber(rqb.getHitlistSize());
+			
 		this.cancel = cancel;
 		this.taxonomyMap = taxonomyMap;
 		this.uniprotStar = uniprotStar;
@@ -117,10 +142,12 @@ public class SubmitEbiBlast implements Runnable {
 		this.ridsLatency = new HashMap<String, Long>();
 
 		this.changes = new PropertyChangeSupport(this);
-	}
+		
+		
+		}
 
 	@Override
-	public void run() {
+	public void run(){
 
 		logger.info(Thread.currentThread().getName()+"\t"+Thread.currentThread().getId()+"\tstarted.");
 
@@ -156,20 +183,23 @@ public class SubmitEbiBlast implements Runnable {
 
 							if(timeSinceDeployment<this.latencyWaitingPeriod) {
 
-								if(timeSinceDeployment>(this.latencyWaitingPeriod/2))
+								if(timeSinceDeployment>(this.latencyWaitingPeriod/2)) {
+									
 									MySleep.myWait(timeSinceDeployment/60);
 
-								if(currentRequestTimer - lastRequestTimer > 60000) {
+								}
 
-									logger.trace("Requesting status for RID "+aRid);
+								if(currentRequestTimer - lastRequestTimer > _LATENCY) {
+
+									logger.debug("Requesting status for RID "+aRid);
 									requestReady = this.rbw.isReady(aRid, GregorianCalendar.getInstance().getTimeInMillis());
-									logger.trace("Status for RID "+aRid+" "+requestReady);
+									logger.debug("Status for RID "+aRid+" "+requestReady);
 									lastRequestTimer = currentRequestTimer;
 								}
 								else {
 
-									long sleep  = 63000 - (currentRequestTimer - lastRequestTimer); 
-									logger.trace("Sleeping..." + (sleep/1000) +" sec "+aRid);
+									long sleep  = (_LATENCY + 3000) - (currentRequestTimer - lastRequestTimer); 
+									logger.debug("Sleeping..." + (sleep/1000) +" sec "+aRid);
 									MySleep.myWait(sleep);
 								}
 
@@ -189,49 +219,50 @@ public class SubmitEbiBlast implements Runnable {
 
 
 						InputStream stream = this.rbw.getAlignmentResults(aRid, this.rof);
-
-						ReadBlasttoList blastToList = new ReadBlasttoList(stream);
+						
+						//File outputXml = new File ("C:\\Users\\Diogo\\Desktop\\merlin_debug\\streamXML.xml");
+						//FileUtils.copyInputStreamToFile(stream, outputXml);
+						//NcbiBlastParser ncbiBLASTparser = new NcbiBlastParser(stream);
+						
+						EbiBlastParser ebiBlastParser = new EbiBlastParser(stream);
 
 						stream.close();
 
-						if(blastToList.isReprocessQuery()) {
+						if(ebiBlastParser.isReprocessQuery()) {
 
 							if(!this.cancel.get())
 								this.reprocessQuery(aRid,this.queryRIDMap.get(aRid),0);
 						}
 						else {
+							
+							List<BlastIterationData> ebiBlastResultsWithValidEval = filterByUserEval(ebiBlastParser, this.userEval, this.identityLowerThreshold,
+									this.positives, this.queryCoverage, this.targetCoverage);   // blast results that passed the Eval threshold
 
-							if(blastToList.isSimilarityFound() && this.checkUserEval(blastToList)) {
-
-								logger.debug("Similarity found for "+blastToList.getQuery());
+							if(ebiBlastParser.isSimilarityFound() && !ebiBlastResultsWithValidEval.isEmpty()) { // if we found any homologues and they passed the thresholds
+								
+								ebiBlastParser.setResults(ebiBlastResultsWithValidEval); // use only the results that passed the Eval threshold
+								logger.debug("Similarity found for "+ebiBlastParser.getResults().get(0).getQueryID());
 
 								if(!this.cancel.get()) {
 
-									RemoteDataRetriever homologyDataEbiClient = new RemoteDataRetriever(blastToList, this.organismTaxa, this.taxonomyMap, this.uniprotStar, this.cancel, 
+									RemoteDataRetriever homologyDataEbiClient = new RemoteDataRetriever(ebiBlastParser, this.organismTaxa, this.taxonomyMap, this.uniprotStar, this.cancel, 
 											HomologySearchServer.EBI, this.rqb.getHitlistSize(), this.uniprotStatus, this.taxonomyIdentifier);
-
+									
 									if(homologyDataEbiClient.getFastaSequence()==null)
 										homologyDataEbiClient.setFastaSequence(this.queryRIDMap.get(aRid).split("\n")[1]);
 
-									if(homologyDataEbiClient.isDataRetrieved()) {
+									if(homologyDataEbiClient.getHomologuesData() != null && homologyDataEbiClient.isDataRetrieved()) {
 
 										homologyDataEbiClient.setDatabaseIdentifier(rqb.getBlastDatabase());
+										resultsList.add(homologyDataEbiClient.getHomologuesData());
 
-										if(homologyDataEbiClient.getHomologuesData() == null) {
-											throw new Exception("Homologues data is null");
-										}
-										else {
+										logger.debug("Gene\t"+homologyDataEbiClient.getLocusTag()+"\tprocessed. "+this.rids.size()+" genes left in queue "+thread_number);
+										if(this.rids.size()<100)
+											MySleep.myWait(1000);
 
-											resultsList.add(homologyDataEbiClient.getHomologuesData());
-
-											logger.debug("Gene\t"+homologyDataEbiClient.getLocusTag()+"\tprocessed. "+this.rids.size()+" genes left in cue "+thread_number);
-											if(this.rids.size()<100)
-												MySleep.myWait(1000);
-
-											changes.firePropertyChange("sequencesCounter", sequencesCounter.get(), sequencesCounter.incrementAndGet());
-											if(this.resultsList.size()>_SAVE_LIST_SIZE || rids.isEmpty())
-												changes.firePropertyChange("saveToDatabase", null, this.resultsList.size());
-										}
+										changes.firePropertyChange("sequencesCounter", sequencesCounter.get(), sequencesCounter.incrementAndGet());
+										if(this.resultsList.size()>_SAVE_LIST_SIZE || rids.isEmpty())
+											changes.firePropertyChange("saveToDatabase", null, this.resultsList.size());
 									}
 									else {
 
@@ -263,7 +294,7 @@ public class SubmitEbiBlast implements Runnable {
 											changes.firePropertyChange("saveToDatabase", null, this.resultsList.size());
 
 										errorCounter = 0;
-										logger.debug("Gene\t"+homologyDataEbiClient.getLocusTag()+"\tprocessed. No similarities. "+this.rids.size()+" genes left in cue "+thread_number);
+										logger.debug("Gene\t"+homologyDataEbiClient.getLocusTag()+"\tprocessed. No similarities. "+this.rids.size()+" genes left in queue "+thread_number);
 									}
 
 								}
@@ -280,17 +311,21 @@ public class SubmitEbiBlast implements Runnable {
 					}
 				}
 				catch(IllegalArgumentException e) {
-					this.setCancel(new AtomicBoolean(true));
+//					this.setCancel(new AtomicBoolean(true));
+//					Thread t = Thread.currentThread();
+					this.changes.firePropertyChange("invalidEmail",null, null);
+//				    t.getUncaughtExceptionHandler().uncaughtException(t, e);
+					
 				}
 
 				catch (Exception e) {
-
+					
 					e.printStackTrace();
 
 					errorCounter = errorCounter + 1;
 					if(!this.cancel.get()) {
 
-						if(errorCounter<25) {
+						if(errorCounter<_ERRORS_LIMIT) {
 
 							logger.warn("Submit Blast Exception "+e.getMessage()+"\n Reprocessing:\t"+aRid+" Error ounter: "+errorCounter+"");
 							this.rids.remove(aRid);
@@ -328,7 +363,7 @@ public class SubmitEbiBlast implements Runnable {
 
 			if(newRid == null) {
 
-				if(counter<5) {
+				if(counter<_ERRORS_LIMIT) {
 
 					return this.reprocessQuery(aRid,sequence,counter++);
 				}
@@ -400,30 +435,49 @@ public class SubmitEbiBlast implements Runnable {
 	}
 
 	/**
-	 * @param blastToList
+	 * @param ebiBlastParser
 	 * @return
 	 */
-	private  boolean checkUserEval(ReadBlasttoList blastToList) {
+	private  List<BlastIterationData> filterByUserEval(EbiBlastParser ebiBlastParser, Double eval, Float identityLowerThreshold, 
+			Float positivesThreshold, Float queryCoverageThreshold, Float targetCoverageThreshold) {
 
-		boolean results = true;
+		List<BlastIterationData> blastResults = new ArrayList<BlastIterationData>();
+		if(ebiBlastParser != null) 
+			blastResults = ebiBlastParser.getResults();
+		List<THit> hitsThatPassedEvalueThreshold = new ArrayList<THit>();
 
-		for (SeqSimilaritySearchResult result : blastToList.getResults()) {
+		for (BlastIterationData result : blastResults) {
 
-			@SuppressWarnings("unchecked")
-			List<SeqSimilaritySearchHit> hits = (List<SeqSimilaritySearchHit>) result.getHits();
+			List<THit> hits = result.getHits();
 
 			for (int i = 0; i<hits.size();i++ ){
 
-				SeqSimilaritySearchHit hit = hits.get(i);
-				String id = hit.getSubjectID();
+				THit hit = hits.get(i);
+				String id = hit.getId();
 
-				if(id!=null)
-					if(hit.getEValue()>this.rqb.getBlastExpect())
-						results = false;
+				if(id!=null) {
+
+					Integer hitQuerySeqLength = result.getHitQuerySeqLength(hit);
+					Integer queryLength = result.getQueryLen();
+					Integer hitLength = result.getHitLength(i+1+"");
+					Integer hitTargetSeqLength = result.getHitMatchSeqLength(hit);
+					
+					Float queryCoverage = (float) hitQuerySeqLength / queryLength;
+					Float targetCoverage = (float) hitTargetSeqLength / hitLength;
+					Float identity = (float) result.getHitIdentity(hit) / 100;
+					
+					// See later if it is worth it to implement the POSITIVES threshold
+					if(Double.parseDouble(hit.getAlignments().getAlignment().get(0).getExpectation() +"") <= eval && identity>=identityLowerThreshold && queryCoverage>=queryCoverageThreshold && targetCoverage>=targetCoverageThreshold)
+						hitsThatPassedEvalueThreshold.add(hit);
+				}
 			}
 		}
-		return results;
+		
+		blastResults.get(0).setHits(hitsThatPassedEvalueThreshold);
+		return blastResults;
 	}
+	
+	
 
 	public void addPropertyChangeListener(PropertyChangeListener l) {
 		changes.addPropertyChangeListener(l);
